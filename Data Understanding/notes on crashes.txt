@@ -1,0 +1,55 @@
+### columns to remove
+- street direction
+- LATITUDE, LONGITUDE and LOCATION (REMOVING BECAUSE BEAT_OF_OCCURRENCE INTEGRATES THEM ALL)
+
+### columns to aggregate
+- INJURIES_FATAL
+- INJURIES_INCAPACITATING
+- INJURIES_NON_INCAPACITATING
+- INJURIES_REPORTED_NOT_EVIDENT
+- INJURIES_NO_INDICATION
+- INJURIES_UNKNOWN
+after aggregating those INJURIES_TOTAL would be remvoed
+
+the values in all those features space in values in weird ways but i would propose to aggregate all the values in them into one single value for each type and put them into a scale to keep an order for them
+
+so maybe we would have
+- INJURIES_UNKNOWN 0
+- INJURIES_NO_INDICATION 1
+- INJURIES_REPORTED_NOT_EVIDENT 2
+- INJURIES_NON_INCAPACITATING 3
+- INJURIES_INCAPACITATING 4
+- INJURIES_FATAL 5
+
+-------------------------
+
+'CRASH_DATE' is an aggregation of: 'CRASH_HOUR', 'CRASH_DAY_OF_WEEK', 'CRASH_MONTH'?
+
+-------------------------
+
+can STREET_NAME and STREET_NO be in 1 field?
+
+
+
+### data conversion
+Column BEAT_OF_OCCURRENCE contains NaN or infinite values, should skip conversion.
+Column NUM_UNITS can be converted to int64.
+Column INJURIES_TOTAL can be converted to int64.
+Column INJURIES_FATAL can be converted to int64.
+Column INJURIES_INCAPACITATING can be converted to int64.
+Column INJURIES_NON_INCAPACITATING can be converted to int64.
+Column INJURIES_REPORTED_NOT_EVIDENT can be converted to int64.
+Column INJURIES_NO_INDICATION can be converted to int64.
+Column INJURIES_UNKNOWN can be converted to int64.
+Column LATITUDE contains NaN or infinite values, should skip conversion.
+Column LONGITUDE contains NaN or infinite values, should skip conversion.
+
+-------------------------
+
+### values with wrong values in them:
+there are only 2 license plate that are not exactly matching the format that is followed in the are RD_NO column (they have lower case letters):
+235089    hz273623
+246076    hz125235
+
+
+
