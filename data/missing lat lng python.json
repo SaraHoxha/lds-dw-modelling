@@ -2190,5 +2190,9 @@
     "ILLINOIS ST 610, Chicago, Illinois": {
         "lat": 41.8915882,
         "lng": -87.6112172
+    },
+    " 532, Chicago, Illinois": {
+        "lat": 41.5142762,
+        "lng": -88.0812938
     }
 }
