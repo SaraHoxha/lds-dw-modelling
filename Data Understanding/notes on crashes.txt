@@ -1,0 +1,103 @@
+### values with wrong values in them: 
+there are only 2 license plate that are not exactly matching the format that is followed in the are RD_NO column (they have lower case letters):
+235089    hz273623
+246076    hz125235
+
+### filled data
+data to fill is 
+{
+    'REPORT_TYPE': 4996, 
+    # only 4996 records are missing (252929 present) and 
+    # no real way to find what the actual value is 
+    # (by the definition in the chicago website:
+    # Administrative report type (at scene, at desk, amended))
+    
+    'STREET_DIRECTION': 2,
+    # rather useless and one of the 2 records missing is the one related to the 
+    # tried filling with the column from the dataset in Vehicles.csv since there
+    # is a feature called TRAVEL_DIRECTION but they don't seem to contain the 
+    # same information
+    
+    'STREET_NAME': 1, 
+    # this record doesnt have latitude and longitude values so it can not be found
+    
+    'BEAT_OF_OCCURRENCE': 4,
+    #
+    
+    'MOST_SEVERE_INJURY': 7,
+    # very few records are missing and the distribution
+    # of values in this column i mostly covered by the class
+    # NO INDICATION OF INJURY which is very close to saying that
+    # there is no need for a value there
+    # i propose we either replace the values in the column with 
+    # the value "NO INDICATION OF INJURY" or we just leave everything
+    # as is
+    
+    'LATITUDE': 1022, 
+    # found using api
+    
+    'LONGITUDE': 1022, 
+    # found using api
+    
+    'LOCATION': 1022 
+    # combination of the previous 2
+}
+-------------------------
+
+#get the filtered data where the location info are missing
+filtered_geo_data_df = only_geo_data_df[only_geo_data_df[['LONGITUDE', 'LATITUDE', 'LOCATION']].isna().any(axis=1)]
+
+from opencage.geocoder import OpenCageGeocode
+
+key = getApiKey()
+#geocoder = OpenCageGeocode(key)
+
+import json
+import time
+from tqdm import tqdm  # Add this import at the top of your file
+
+try:
+    with open ("missing lat lng.json") as f:
+        resultDict = json.load(f)
+except Exception:
+    resultDict = {}
+print (resultDict)
+for index, row in tqdm(filtered_geo_data_df.iterrows(), total=filtered_geo_data_df.shape[0]):
+    resultKey = str(row["STREET_NAME"]) + " " + str(row["STREET_NO"])
+    query = resultKey + ", Chicago, Illinois"
+    print ("querying " + query)
+    if resultKey not in resultDict:
+        results = geocoder.geocode(query)
+        resultDict[resultKey]= {
+            "lat": results[0]['geometry']['lat'],
+            "lng": results[0]['geometry']['lng'],
+        }
+        with open ("missing lat lng.json", "w") as f:
+            json.dump(resultDict, f, indent=4)
+            time.sleep(1)
+
+### addable data
+delta between crash happening and when it has been reported to the police
+# Convert the date columns to datetime format
+create_delta_time_column_df['CRASH_DATE'] = pd.to_datetime(create_delta_time_column_df['CRASH_DATE'], errors='coerce')
+create_delta_time_column_df['DATE_POLICE_NOTIFIED'] = pd.to_datetime(create_delta_time_column_df['DATE_POLICE_NOTIFIED'], errors='coerce')
+
+delta_time = create_delta_time_column_df['DATE_POLICE_NOTIFIED'] - create_delta_time_column_df['CRASH_DATE']
+
+# Create a new column with the format "days minutes seconds"
+create_delta_time_column_df['DELTA_TIME_CRASH_DATE_POLICE_REPORT_DATE'] = delta_time.apply(lambda x: f"{x.days} days {x.seconds // 60} minutes {x.seconds % 60} seconds")
+
+### data conversion
+Column BEAT_OF_OCCURRENCE contains NaN or infinite values, should skip conversion.
+Column NUM_UNITS can be converted to int64.
+Column INJURIES_TOTAL can be converted to int64.
+Column INJURIES_FATAL can be converted to int64.
+Column INJURIES_INCAPACITATING can be converted to int64.
+Column INJURIES_NON_INCAPACITATING can be converted to int64.
+Column INJURIES_REPORTED_NOT_EVIDENT can be converted to int64.
+Column INJURIES_NO_INDICATION can be converted to int64.
+Column INJURIES_UNKNOWN can be converted to int64.
+Column LATITUDE contains NaN or infinite values, should skip conversion.
+Column LONGITUDE contains NaN or infinite values, should skip conversion.
+
+-------------------------
