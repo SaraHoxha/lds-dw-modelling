@@ -1,18 +1,3 @@
-### data conversion
-Column BEAT_OF_OCCURRENCE contains NaN or infinite values, should skip conversion.
-Column NUM_UNITS can be converted to int64.
-Column INJURIES_TOTAL can be converted to int64.
-Column INJURIES_FATAL can be converted to int64.
-Column INJURIES_INCAPACITATING can be converted to int64.
-Column INJURIES_NON_INCAPACITATING can be converted to int64.
-Column INJURIES_REPORTED_NOT_EVIDENT can be converted to int64.
-Column INJURIES_NO_INDICATION can be converted to int64.
-Column INJURIES_UNKNOWN can be converted to int64.
-Column LATITUDE contains NaN or infinite values, should skip conversion.
-Column LONGITUDE contains NaN or infinite values, should skip conversion.
-
--------------------------
-
 ### values with wrong values in them: 
 there are only 2 license plate that are not exactly matching the format that is followed in the are RD_NO column (they have lower case letters):
 235089    hz273623
@@ -91,13 +76,6 @@ for index, row in tqdm(filtered_geo_data_df.iterrows(), total=filtered_geo_data_
             json.dump(resultDict, f, indent=4)
             time.sleep(1)
 
-
-### notes
-the only row wheret he street name is missing is a row where the longitude, latitude and location are missing DELTA_TIME_CRASH_DATE_POLICE_REPORT_DATE
-there is no way to find the location for that
-LOCATION	LONGITUDE	LATITUDE	STREET_NAME	STREET_NO	BEAT_OF_OCCURRENCE	H3_INDEX	STREET_NAME_new
-   NaN	       NaN	      NaN	        NaN	       532	         624.0	           None	          NaN
-
 ### addable data
 delta between crash happening and when it has been reported to the police
 # Convert the date columns to datetime format
@@ -108,3 +86,18 @@ delta_time = create_delta_time_column_df['DATE_POLICE_NOTIFIED'] - create_delta_
 
 # Create a new column with the format "days minutes seconds"
 create_delta_time_column_df['DELTA_TIME_CRASH_DATE_POLICE_REPORT_DATE'] = delta_time.apply(lambda x: f"{x.days} days {x.seconds // 60} minutes {x.seconds % 60} seconds")
+
+### data conversion
+Column BEAT_OF_OCCURRENCE contains NaN or infinite values, should skip conversion.
+Column NUM_UNITS can be converted to int64.
+Column INJURIES_TOTAL can be converted to int64.
+Column INJURIES_FATAL can be converted to int64.
+Column INJURIES_INCAPACITATING can be converted to int64.
+Column INJURIES_NON_INCAPACITATING can be converted to int64.
+Column INJURIES_REPORTED_NOT_EVIDENT can be converted to int64.
+Column INJURIES_NO_INDICATION can be converted to int64.
+Column INJURIES_UNKNOWN can be converted to int64.
+Column LATITUDE contains NaN or infinite values, should skip conversion.
+Column LONGITUDE contains NaN or infinite values, should skip conversion.
+
+-------------------------
