@@ -7,7 +7,10 @@ def read_csv(file_path, primary_key='RD_NO'):
         """Convert value to int or float if possible, otherwise return as is."""
         try:
             if '.' in value:  # Check for float
-                return float(value)
+                float_value = float(value)
+                if float_value.is_integer():
+                    return int(float_value)
+                return float_value
             else:  # Check for int
                 return int(value)
         except ValueError:
