@@ -3,7 +3,7 @@ from datetime import datetime
 import json
 import time
 
-from utils.read import read_csv, to_csv
+from utils.read_write import read_csv, to_csv
 from utils.utils import get_api_key, check_if_file_exists_and_create
 
 from opencage.geocoder import OpenCageGeocode

@@ -1,5 +1,4 @@
-from opencage.geocoder import OpenCageGeocode
-import time
+from fuzzywuzzy import process
 
 PERSON_TYPE_COL = 'PERSON_TYPE'
 DRIVER_VISION_COL = 'DRIVER_VISION'
@@ -11,16 +10,18 @@ AGE_COL = 'AGE'
 PERSON_TYPE_VALUES = {'p':'PASSENGER', 
                       'd': 'DRIVER'}
 SEX_COL_VALUES =['U']
-API_KEY = '56f1c293199a4eb5a935b2ec8e4b3cd5'
+VALUE_UNKNOWN = 'UNKNOWN'
 
 
-def default_to_U_for_sex_column(dataset):
+# Make following mapping for 'SEX' values: U & NaN values -> "U"(unknown)
+def default_sex_to_U(dataset):
     for row in dataset.values():
         if SEX_COL in row and row[SEX_COL] == '':
             row[SEX_COL] = SEX_COL_VALUES[0]
     return dataset
 
-def add_value_na_to_driver_cols_for_passengers(dataset):
+# Add new value 'N/A' ('NON APPLICABLE') for observations that the person_type is passenger and we have missing values on columns that regard the driver ('DRIVER_VISION' & 'DRIVER_ACTION')
+def set_driver_cols_to_none_for_passengers(dataset):
     driver_cols = [DRIVER_ACTION_COL, DRIVER_VISION_COL]
     na_value = 'N/A'
     
@@ -32,42 +33,51 @@ def add_value_na_to_driver_cols_for_passengers(dataset):
     
     return dataset
 
-def set_age_to_none_for_anomalies(dataset):
+# Set a  None ('') value for 'AGE' for observations when "AGE" < 10  and "PERSON_TYPE" is "DRIVER" (Anomalies)
+def set_age_to_none(dataset):
     for row in dataset.values():
         if row.get(PERSON_TYPE_COL) == PERSON_TYPE_VALUES.get('d'):
-                if  AGE_COL in row and row[AGE_COL] < 10:
-                    row[AGE_COL] = ''
+                if  row.get(AGE_COL):
+                    if int(row[AGE_COL]) < 10:
+                        row[AGE_COL] = ''
+    return dataset
+   
+# Set 'STATE' column have the value 'Unknown' when 'CITY' is 'UNKNOWN' or STATE == 'XX'. 
+def set_state_to_unknown(dataset):
+    for row in dataset.values():
+        if row.get(STATE_COL):
+            if row.get(CITY_COL) == VALUE_UNKNOWN or row.get(STATE_COL) == 'XX':
+                        row[STATE_COL] = VALUE_UNKNOWN
     return dataset
     
-
-def fill_state_column_based_on_city(dataset):
-    city_values  = {row[CITY_COL] for row in dataset.values() if CITY_COL in row}
-    city_2_state= create_city_2_state_dict(city_values)
-    
+# Set 'CITY' column have the value 'Unknown' when 'city' has numeric value, length < 2 or starts with UNK
+def set_city_to_unknown(dataset):
     for row in dataset.values():
         if row.get(CITY_COL):
-            row[STATE_COL] = city_2_state.get(row[CITY_COL])
-    
+            if isinstance(row[CITY_COL], (int, float)) or len(row[CITY_COL]) < 2 or (row[CITY_COL].startswith("UNK")):
+                row[CITY_COL] = VALUE_UNKNOWN
     return dataset
-    
-def create_city_2_state_dict(city_values):
-    geocoder = OpenCageGeocode(API_KEY)
-    city_2_state = {}
-    
-    for city in city_values:
-        try:
-            result = geocoder.query(city)
-            if result:
-                state_code = result[0]['components'].get('state_code')
-                if state_code:
-                    city_2_state[city] = state_code
-                else:
-                    city_2_state[city] = ''  # No state code found
+
+
+# Fix spelling errors on 'CITY' column by checking with dataset that contains all cities/state_codes of US.
+def fix_city_spelling_errors(dataset, valid_cities):
+    for row in dataset.values():
+        if row[CITY_COL] != VALUE_UNKNOWN and row[CITY_COL] not in valid_cities:
+            city = row[CITY_COL]
+            if 'CHGO' in city:
+                corrected_city = 'CHICAGO'
             else:
-                city_2_state[city] = ''  # No result for this city
-        except Exception as e:
-            print(f"Error geocoding city {city}: {e}")
-            city_2_state[city] = None        
-    time.sleep(1) 
-    
-    return city_2_state
+                closest_match, score = process.extractOne(city, valid_cities)
+                corrected_city = closest_match if score >= 80 else city
+            
+            row[CITY_COL] = corrected_city
+
+    return dataset
+
+# Use "CITY" column to determine "STATE" column when the latter is empty. 
+def fill_state_based_on_city(dataset, city2state_mapping):
+    for row in dataset.values():
+        if row.get[STATE_COL] != VALUE_UNKNOWN:
+            if row.get(CITY_COL) and city2state_mapping.get(row[CITY_COL]):
+                row[STATE_COL] = city2state_mapping.get(row[CITY_COL])
+    return dataset
