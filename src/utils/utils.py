@@ -16,18 +16,33 @@ def check_if_file_exists_and_create (filePath):
             pass
         
 
+# Fill missing values for columns that provide a default 'Unknown' value
 def fill_missing_values (dataset, column_defaults):
-    for row_key, row in dataset.items():
+    for row in dataset.values():
         for column, default_value in column_defaults.items():
-            if  row[column] is None:
-                row[column] = default_value
+            if column in row:
+                if row[column] == '':
+                    row[column] = default_value
+            else:
+                print(f"Column {column} not found in row")       
     return dataset
 
 
+#Split date column into 'DAY', 'MONTH', 'YEAR', 'TIME' columns
 def split_date(dataset, date_column):
     for row in dataset.values():
         if row.get(date_column):
-            dt = datetime.strptime(row[date_column], "%m/%d/%Y %I:%M:%S %p")
+            try:
+                # year is YYYY and 12-hour format
+                dt = datetime.strptime(row[date_column], "%m/%d/%Y %I:%M:%S %p")
+            except ValueError:
+                try:
+                    #year is YYYY 24-hour format
+                    dt = datetime.strptime(row[date_column], "%m/%d/%y %H:%M")
+                except ValueError as e:
+                    print(f'Date is: {row.get(date_column)}')
+                    print(f'Error: {e}')
+                    
             row[YEAR_COLUMN] = dt.year
             row[MONTH_COLUMN] = dt.month
             row[DAY_COLUMN] = dt.day
