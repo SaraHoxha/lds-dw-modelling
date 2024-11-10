@@ -39,7 +39,7 @@ def query_api(queries, resultDict):
     return resultDict
 
 def create_file_with_missing_location_values(crashes_df, results_file="data/missing lat lng python.json"):
-    print(f"🔍 Starting the process to create file with missing location values from '{results_file}'...")
+    print(f"Starting the process to create file with missing location values from '{results_file}'...")
     # Ensure the results file exists or create it if it doesn't
     check_if_file_exists_and_create(results_file)
     
@@ -80,7 +80,7 @@ def create_file_with_missing_location_values(crashes_df, results_file="data/miss
         print(f"Error writing to file '{results_file}': {e}")
 
 def fill_missing_location_values(crashes_df, results_file="data/missing lat lng python.json"):
-    print(f"🔄 Filling missing location values using data from '{results_file}'...")
+    print(f"Filling missing location values using data from '{results_file}'...")
     with open (results_file) as f:
         resultDict = json.load(f)
 
@@ -88,16 +88,56 @@ def fill_missing_location_values(crashes_df, results_file="data/missing lat lng 
         if isinstance(row['LATITUDE'], str): #missing values, present values are float
             if row["STREET_NAME"] != '':
                 query_key_value = f"{row['STREET_NAME']} {row['STREET_NO']}, Chicago, Illinois"
-                location = "POINT (" + str(resultDict[query_key_value]["lng"]) + " " + str(resultDict[query_key_value]["lat"])
+                location = "POINT (" + str(resultDict[query_key_value]["lng"]) + " " + str(resultDict[query_key_value]["lat"]) + ")"
                 crashes_df[indexKey]["LATITUDE"] = resultDict[query_key_value]["lat"]
                 crashes_df[indexKey]["LONGITUDE"] = resultDict[query_key_value]["lng"]
                 crashes_df[indexKey]["LOCATION"] = location
     
     return crashes_df
 
+def fill_missing_BEAT_OF_OCCURRENCE (dict_df):
+    print(f"Filling missing beat of occurrence values...")
+    
+    # Initialize sets and dictionaries to track missing beats and location-to-beat mappings.
+    missing_beat_indexes = set()
+    location_to_beat_dict = {}
+
+    try:
+        # First pass: Identify rows with missing 'BEAT_OF_OCCURRENCE' and build location-to-beat mapping
+        for index_key, row in dict_df.items():
+            # Check if row is valid and contains required keys
+            if not isinstance(row, dict) or 'BEAT_OF_OCCURRENCE' not in row or 'LOCATION' not in row:
+                raise ValueError(f"Row at index {index_key} is missing required fields.")
+            
+            beat_of_occurrence = row['BEAT_OF_OCCURRENCE']
+            location = row['LOCATION']
+
+            # Track rows where 'BEAT_OF_OCCURRENCE' is missing but 'LOCATION' is present
+            if beat_of_occurrence == '' and location != '':
+                missing_beat_indexes.add((index_key, location))
+
+            # Build location-to-beat mapping for rows with both values present
+            if beat_of_occurrence != '' and location != '':
+                location_to_beat_dict[location] = beat_of_occurrence
+
+        # Second pass: Fill missing 'BEAT_OF_OCCURRENCE' based on location-to-beat mapping
+        for index_key, location in missing_beat_indexes:
+            # Fill 'BEAT_OF_OCCURRENCE' if a mapping for the location exists
+            if location in location_to_beat_dict:
+                dict_df[index_key]['BEAT_OF_OCCURRENCE'] = location_to_beat_dict[location]
+
+    except KeyError as e:
+        print(f"KeyError encountered: {e}. Ensure all rows have 'BEAT_OF_OCCURRENCE' and 'LOCATION' keys.")
+    except ValueError as e:
+        print(f"ValueError encountered: {e}")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+
+    return dict_df
+
 # adding delta between car crash and police report
 def add_delta_car_crash_date_police_report_date (crashes_df):
-    print("⏳ Calculating the time delta between crash dates and police report dates...")
+    print("Calculating the time delta between crash dates and police report dates...")
     # Define the date format for parsing
     date_format = "%m/%d/%Y %I:%M:%S %p"
     
@@ -129,7 +169,7 @@ def add_delta_car_crash_date_police_report_date (crashes_df):
 
 # fixing wrong licens plates
 def fix_license_plates(dict_df):
-    print("📝 Checking and fixing license plates...")
+    print("Checking and fixing license plates...")
     # Define a regex pattern for valid license plates
     license_plates_pattern = r'^[A-Z]{2}\d{6}$'
     
@@ -169,17 +209,20 @@ def convert_float_columns_to_int_columns(dict_df, columns_to_convert = [
     'INJURIES_NO_INDICATION',
     'INJURIES_UNKNOWN'
 ]):
-    print("🔢 Converting float columns to integer columns where applicable...")
+    print("Converting float columns to integer columns where applicable...")
     # Iterate over each key-value pair in the input dictionary
     for indexKey, row in dict_df.items():
         # Iterate over each column specified for conversion
         for col in columns_to_convert:
             # Get the value for the current column
             value = row.get(col)
+
             # Check if the value is a float
             if isinstance(value, float):
                 # Convert float to int and update the dictionary
                 dict_df[indexKey][col] = int(value)
+            elif isinstance(value, int):
+                continue
             # Check if the value is a string
             elif isinstance(value, str):
                 try:
@@ -195,6 +238,29 @@ def convert_float_columns_to_int_columns(dict_df, columns_to_convert = [
     # Return the modified dictionary with converted columns
     return dict_df
 
+def fill_missing_values_with_placeholder_string(data_dict, placeholder_string = 'unknown', columns = [
+    'REPORT_TYPE', 'STREET_DIRECTION', 'STREET_NAME', 'BEAT_OF_OCCURRENCE',
+    'MOST_SEVERE_INJURY', 'LATITUDE', 'LONGITUDE', 'LOCATION'
+]):
+    try:
+        # Iterate over each row's data in the dictionary
+        for row_id, row_data in data_dict.items():
+            # Validate that each row is a dictionary
+            if not isinstance(row_data, dict):
+                raise ValueError(f"Expected row data to be a dictionary, but got {type(row_data)} for row {row_id}")
+
+            # Iterate through specified columns and fill missing values with 'unknown'
+            for col in columns:
+                if col in row_data and row_data[col] == '':
+                    row_data[col] = placeholder_string
+                    
+    except Exception as e:
+        # Catch and log any unexpected exceptions for debugging purposes
+        print(f"An error occurred while filling missing values: {e}")
+        raise
+
+    return data_dict
+
 # main
 crashes_df = read_csv ('data/Crashes.csv', 'RD_NO')
 
@@ -202,10 +268,79 @@ create_file_with_missing_location_values(crashes_df)
 
 crashes_df = fill_missing_location_values(crashes_df)
 
+crashes_df = fill_missing_BEAT_OF_OCCURRENCE (crashes_df)
+
 crashes_df = fix_license_plates(crashes_df)
 
 crashes_df = convert_float_columns_to_int_columns(crashes_df)
 
 crashes_df = add_delta_car_crash_date_police_report_date(crashes_df)
 
+################################################################
+##########################TO REMOVE#############################
+################################################################
 to_csv(crashes_df, "data/CrashesPostDataUnderstanding.csv")
+
+import pandas as pd
+df = pd.read_csv('data/CrashesPostDataUnderstanding.csv')
+
+# Check for columns with missing values
+missing_values = df.isnull().sum()
+# Filter to show only columns with missing values
+print(missing_values[missing_values > 0])
+################################################################
+######################END TO REMOVE#############################
+################################################################
+
+crashes_df = fill_missing_values_with_placeholder_string(crashes_df)
+
+to_csv(crashes_df, "data/CrashesPostDataUnderstanding.csv")
+
+################################################################
+##########################TO REMOVE#############################
+################################################################
+import pandas as pd
+df = pd.read_csv('data/CrashesPostDataUnderstanding.csv')
+
+# Check for columns with missing values
+missing_values = df.isnull().sum()
+# Filter to show only columns with missing values
+print(missing_values[missing_values > 0])
+################################################################
+######################END TO REMOVE#############################
+################################################################
+
+"""
+after all those modifications there are still the following missing data
+REPORT_TYPE           4996
+STREET_DIRECTION         2
+STREET_NAME              1
+BEAT_OF_OCCURRENCE       1
+MOST_SEVERE_INJURY       7
+LATITUDE                 1
+LONGITUDE                1
+LOCATION                 1
+
+regarding the one missing value from latitude, longitude, location and street name
+it is only one row which misses all of those field, therfore there is no way to find 
+those missing values (the only location value that is present is the 
+BEAT_OF_OCCURRENCE field but i do not know a way to go from there to a location point)
+
+for the 7 values missing in the column MOST_SEVERE_INJURY i do not know how to fill those
+values since i can't seem to find any correlation with the other INJURY columns or any other
+so i would propose to leave them empty
+
+STREET_DIRECTION does not contain much informations and there are only 2 values missing
+
+BEAT_OF_OCCURRENCE i talked to the geospatial teachers and they told me that there is a way
+using shapely to trace a polygon which circumscribes all the points that have the same 
+beat of occurrence
+since it is very hard even with the libraries and we can only apply modifications using
+plain python AND there are only 1 value missing i would propose to leave this blank 
+note: there were other values missing from the beat of occurrence column but i was 
+able to fill them by finding the beat of occurrence of other rows where the locations 
+(LATITUDE and LONGITUDE) matched (method fill_missing_BEAT_OF_OCCURRENCE)
+
+we can fill all the missing values with the string unknown if neededm 
+(fill_missing_values method)
+"""
