@@ -1,0 +1,76 @@
+[
+ 'PERSON_ID', person
+ 'PERSON_TYPE', person
+ 'RD_NO', damage reimbursment
+ 'VEHICLE_ID',
+ 'CRASH_DATE',
+ 'CITY', residency
+ 'STATE', residency
+ 'SEX', person
+ 'AGE', person 
+ 'SAFETY_EQUIPMENT',Person safety
+ 'AIRBAG_DEPLOYED',Person safety
+ 'EJECTION',Person safety
+ 'INJURY_CLASSIFICATION',Person safety
+ 'DRIVER_ACTION',Person safety
+ 'DRIVER_VISION',Person safety
+ 'PHYSICAL_CONDITION',Person safety
+ 'BAC_RESULT',Person safety
+ 'DAMAGE_CATEGORY', damage
+ 'DAMAGE', damage (damage cost)
+ 'CRASH_UNIT_ID', person
+
+ 'RD_NO',
+ 'CRASH_DATE', LINKED
+ 'UNIT_NO', unit
+ 'UNIT_TYPE', unit
+ 'VEHICLE_ID', vehicle
+ 'MAKE', Vehicle
+ 'MODEL', vehicle
+ 'LIC_PLATE_STATE',vehicle
+ 'VEHICLE_YEAR',Vehicle
+ 'VEHICLE_DEFECT',Vehicle
+ 'VEHICLE_TYPE',Vehicle
+ 'VEHICLE_USE',Vehicle
+ 'TRAVEL_DIRECTION',
+ 'MANEUVER',Vehicle
+ 'OCCUPANT_CNT',Vehicle
+ 'FIRST_CONTACT_POINT',Vehicle
+
+ 'RD_NO',
+ 'CRASH_DATE', crash
+ 'POSTED_SPEED_LIMIT', road
+ 'TRAFFIC_CONTROL_DEVICE',Traffic control device
+ 'DEVICE_CONDITION',Traffic control device
+ 'WEATHER_CONDITION', crash contions
+ 'LIGHTING_CONDITION', crash contions
+ 'FIRST_CRASH_TYPE',crash
+ 'TRAFFICWAY_TYPE', road
+ 'ALIGNMENT', road
+ 'ROADWAY_SURFACE_COND', road
+ 'ROAD_DEFECT', road
+ 'REPORT_TYPE', crash
+ 'CRASH_TYPE',crash
+ 'DATE_POLICE_NOTIFIED', crash
+ 'PRIM_CONTRIBUTORY_CAUSE', crash contions
+ 'SEC_CONTRIBUTORY_CAUSE', crash contions
+ 'STREET_NO', crash location
+ 'STREET_DIRECTION', crash location
+ 'STREET_NAME', crash location
+ 'BEAT_OF_OCCURRENCE', crash location
+ 'NUM_UNITS', crash
+ 'MOST_SEVERE_INJURY',Crash Injuries
+ 'INJURIES_TOTAL',Crash Injuries
+ 'INJURIES_FATAL',Crash Injuries
+ 'INJURIES_INCAPACITATING',Crash Injuries
+ 'INJURIES_NON_INCAPACITATING',Crash Injuries
+ 'INJURIES_REPORTED_NOT_EVIDENT',Crash Injuries
+ 'INJURIES_NO_INDICATION',Crash Injuries
+ 'INJURIES_UNKNOWN',Crash Injuries
+ 'CRASH_HOUR', crash
+ 'CRASH_DAY_OF_WEEK', crash
+ 'CRASH_MONTH', crash
+ 'LATITUDE',crash location
+ 'LONGITUDE',crash location
+ 'LOCATION', crash location
+ ]
