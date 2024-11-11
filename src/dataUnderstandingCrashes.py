@@ -239,8 +239,8 @@ def convert_float_columns_to_int_columns(dict_df, columns_to_convert = [
     return dict_df
 
 def fill_missing_values_with_placeholder_string(data_dict, placeholder_string = 'unknown', columns = [
-    'REPORT_TYPE', 'STREET_DIRECTION', 'STREET_NAME', 'BEAT_OF_OCCURRENCE',
-    'MOST_SEVERE_INJURY', 'LATITUDE', 'LONGITUDE', 'LOCATION'
+    'STREET_DIRECTION', 'STREET_NAME', 'BEAT_OF_OCCURRENCE',
+    'LATITUDE', 'LONGITUDE', 'LOCATION'
 ]):
     try:
         # Iterate over each row's data in the dictionary
@@ -276,39 +276,12 @@ crashes_df = convert_float_columns_to_int_columns(crashes_df)
 
 crashes_df = add_delta_car_crash_date_police_report_date(crashes_df)
 
-################################################################
-##########################TO REMOVE#############################
-################################################################
-to_csv(crashes_df, "data/CrashesPostDataUnderstanding.csv")
+#crashes_df = fill_missing_values_with_placeholder_string(crashes_df, "AMENDED", ['REPORT_TYPE'])
+#crashes_df = fill_missing_values_with_placeholder_string(crashes_df, 'NO INDICATION OF INJURY', ["MOST_SEVERE_INJURY"])
+#crashes_df = fill_missing_values_with_placeholder_string(crashes_df)
 
-import pandas as pd
-df = pd.read_csv('data/CrashesPostDataUnderstanding.csv')
+to_csv(crashes_df, "data/CrashesPostDataCleaning.csv")
 
-# Check for columns with missing values
-missing_values = df.isnull().sum()
-# Filter to show only columns with missing values
-print(missing_values[missing_values > 0])
-################################################################
-######################END TO REMOVE#############################
-################################################################
-
-crashes_df = fill_missing_values_with_placeholder_string(crashes_df)
-
-to_csv(crashes_df, "data/CrashesPostDataUnderstanding.csv")
-
-################################################################
-##########################TO REMOVE#############################
-################################################################
-import pandas as pd
-df = pd.read_csv('data/CrashesPostDataUnderstanding.csv')
-
-# Check for columns with missing values
-missing_values = df.isnull().sum()
-# Filter to show only columns with missing values
-print(missing_values[missing_values > 0])
-################################################################
-######################END TO REMOVE#############################
-################################################################
 
 """
 after all those modifications there are still the following missing data
