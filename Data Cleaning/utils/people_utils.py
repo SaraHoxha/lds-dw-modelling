@@ -58,22 +58,6 @@ def set_city_to_unknown(dataset):
                 row[CITY_COL] = VALUE_UNKNOWN
     return dataset
 
-
-# Fix spelling errors on 'CITY' column by checking with dataset that contains all cities/state_codes of US.
-def fix_city_spelling_errors(dataset, valid_cities):
-    for row in dataset.values():
-        if row[CITY_COL] != VALUE_UNKNOWN and row[CITY_COL] not in valid_cities:
-            city = row[CITY_COL]
-            if 'CHGO' in city:
-                corrected_city = 'CHICAGO'
-            else:
-                closest_match, score = process.extractOne(city, valid_cities)
-                corrected_city = closest_match if score >= 80 else city
-            
-            row[CITY_COL] = corrected_city
-
-    return dataset
-
 # Use "CITY" column to determine "STATE" column when the latter is empty. 
 def fill_state_based_on_city(dataset, city2state_mapping):
     for row in dataset.values():
