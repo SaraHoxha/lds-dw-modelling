@@ -19,12 +19,13 @@ def check_if_file_exists_and_create (filePath):
 # Fill missing values for columns that provide a default 'Unknown' value
 def fill_missing_values (dataset, column_defaults):
     for row in dataset.values():
-        for column, default_value in column_defaults.items():
-            if column in row:
-                if row[column] == '':
-                    row[column] = default_value
-            else:
-                print(f"Column {column} not found in row")       
+        try:
+            for column, default_value in column_defaults.items():
+                if column in row:
+                    if row[column] == '':
+                        row[column] = default_value      
+        except Exception as e:
+            print(f"Error processing row: {row} | Error: {e}")
     return dataset
 
 
