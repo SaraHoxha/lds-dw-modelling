@@ -1,6 +1,6 @@
 import csv
 
-def read_csv(file_path, primary_key='RD_NO'):
+def read_csv(file_path, primary_key):
     print ("Reading csv at filepath:", file_path)
     result = {}  # Initialize an empty dictionary to store the CSV data
 
