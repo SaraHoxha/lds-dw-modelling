@@ -14,6 +14,7 @@ STATE_PLACEHOLDER_VALUE = 'XX'
 
 # Make following mapping for 'SEX' values: U & NaN values -> "U"(unknown)
 def default_sex_to_U(dataset):
+    print ("Mapping sex values to U & NaN values")
     for row in dataset.values():
         try:
             if SEX_COL in row and row[SEX_COL] == '':
@@ -24,6 +25,7 @@ def default_sex_to_U(dataset):
 
 # Add new value 'N/A' ('NON APPLICABLE') for observations that the person_type is passenger and we have missing values on columns that regard the driver ('DRIVER_VISION' & 'DRIVER_ACTION')
 def set_driver_cols_to_none_for_passengers(dataset):
+    print ("Setting driver column to none for passengers")
     driver_cols = [DRIVER_ACTION_COL, DRIVER_VISION_COL]
     na_value = 'N/A'
     
@@ -39,6 +41,7 @@ def set_driver_cols_to_none_for_passengers(dataset):
 
 # Set a  None ('') value for 'AGE' for observations when "AGE" < 10  and "PERSON_TYPE" is "DRIVER" (Anomalies)
 def set_age_to_none(dataset):
+    print ("Setting age column to none when age is less then 10 and person type is driver")
     for row in dataset.values():
         try:
             if row.get(PERSON_TYPE_COL) == PERSON_TYPE_VALUES.get('d'):
@@ -51,6 +54,7 @@ def set_age_to_none(dataset):
    
 # Set 'STATE' column have the value 'Unknown' when 'CITY' is 'UNKNOWN' or STATE == 'XX'. 
 def set_state_to_unknown(dataset):
+    print ("Setting state to Unknown when the city value is missing or not valid")
     for row in dataset.values():
         try:
             if row.get(CITY_COL) == VALUE_UNKNOWN or row.get(STATE_COL) == STATE_PLACEHOLDER_VALUE:
@@ -61,6 +65,7 @@ def set_state_to_unknown(dataset):
     
 # Set 'CITY' column have the value 'Unknown' when 'city' has numeric value, length < 2 or starts with UNK
 def set_city_to_unknown(dataset):
+    print ("Setting city to Unknown when the city value is missing or not valid")
     for row in dataset.values():
         try:
             if row.get(CITY_COL):
@@ -72,6 +77,7 @@ def set_city_to_unknown(dataset):
 
 # Use "CITY" column to determine "STATE" column when the latter is empty. 
 def fill_state_based_on_city(dataset, city2state_mapping):
+    print ("Finding state using city")
     for row in dataset.values():
         try:
             if row.get(STATE_COL) != VALUE_UNKNOWN:

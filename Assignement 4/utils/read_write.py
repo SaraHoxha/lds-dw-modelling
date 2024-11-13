@@ -1,7 +1,6 @@
 import csv
 
 def read_csv(file_path, primary_key='RD_NO'):
-    print ("Reading csv at filepath:", file_path)
     result = {}  # Initialize an empty dictionary to store the CSV data
 
     def convert_value(value):
@@ -43,7 +42,6 @@ def read_csv(file_path, primary_key='RD_NO'):
     return result  # Return the populated dictionary containing CSV data
 
 def to_csv (df, file_path):
-    print ("Saving data at filepath:", file_path)
     with open(file_path, mode='w', newline='') as csvfile:
         # Create a CSV writer object
         writer = csv.DictWriter(csvfile, fieldnames=df[next(iter(df))].keys())

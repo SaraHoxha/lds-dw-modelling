@@ -18,7 +18,6 @@ def check_if_file_exists_and_create (filePath):
 
 # Fill missing values for columns that provide a default 'Unknown' value
 def fill_missing_values (dataset, column_defaults):
-    print ("Filling missing values with default value", column_defaults)
     for row in dataset.values():
         try:
             for column, default_value in column_defaults.items():
@@ -32,8 +31,6 @@ def fill_missing_values (dataset, column_defaults):
 
 #Split date column into 'DAY', 'MONTH', 'YEAR', 'TIME' columns
 def split_date(dataset, date_column):
-    print ("Splitting date column", date_column, "into 'DAY', 'MONTH', 'YEAR', 'TIME'")
-
     for row in dataset.values():
         if row.get(date_column):
             try:

@@ -5,7 +5,7 @@ from utils.people_utils import set_age_to_none, set_city_to_unknown, set_state_t
 
 
 # Read "People csv"
-people_df = read_csv ('../data/People.csv', 'PERSON_ID')
+people_df = read_csv ('data/People.csv', 'PERSON_ID')
 
 # Fill missing values for columns that provide a default 'Unknown' value
 column2defaultUknown = {
@@ -38,11 +38,11 @@ people_df_processed =  split_date(people_df_processed, date_column)
 people_df_processed = set_city_to_unknown(people_df_processed)
 
 # Use "CITY" column to determine "STATE" column when the latter is empty. 
-us_cities_info = read_csv ('../data/us_cities_info.csv', 'CITY')
+us_cities_info = read_csv ('data/us_cities_info.csv', 'CITY')
 people_df_processed = fill_state_based_on_city(people_df_processed, us_cities_info)
 
 # Make 'STATE' column have the value 'Unknown' when 'CITY' is 'UNKNOWN' or STATE == 'XX'.
 people_df_processed = set_state_to_unknown(people_df_processed)
 
 # Save the processed data into a new file
-to_csv(people_df_processed,'../data/People_Processed.csv')
+to_csv(people_df_processed,'data/People_Processed.csv')
