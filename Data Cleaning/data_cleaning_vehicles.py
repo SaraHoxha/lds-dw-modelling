@@ -4,7 +4,7 @@ from utils.utils import fill_missing_values, split_date
 from utils.vehicles_utils import license_xx_to_u, typos_fixing, set_vehicle_year
 
 # Read "Vehicles csv"
-vehicles_df = read_csv ('../data/Vehicles.csv', 'CRASH_UNIT_ID')
+vehicles_df = read_csv ('data/Vehicles.csv', 'CRASH_UNIT_ID')
 
 # Fill missing values for columns that provide a default 'Unknown' value
 column2defaultUknown = {
@@ -46,4 +46,4 @@ date_column = 'CRASH_DATE'
 people_df_processed =  split_date(vehicles_df_processed, date_column)
 
 #writing to csv
-to_csv(vehicles_df_processed,'../data/Vehicles_Processed.csv')
+to_csv(vehicles_df_processed,'data/Vehicles_Processed.csv')

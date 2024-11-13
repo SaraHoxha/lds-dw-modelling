@@ -4,6 +4,7 @@ VEHICLE_YEAR = "VEHICLE_YEAR"
 
 # Make following mapping for 'LIC_PLATE_STATE' values: XX values -> UNKNOWN
 def license_xx_to_u(dataset):
+    print ("Map license plate state to UNKNOWN when missing")
     for row in dataset.values():
         try:
             if LICENCE_PLATE in row and row[LICENCE_PLATE] == 'XX':
@@ -20,6 +21,7 @@ def license_xx_to_u(dataset):
 #Typo fixing for the MODEL of cars:
 #('UNKNOWN', 'UNKOWN')
 def typos_fixing(dataset,typos,attribute):
+    print ("Fixing typos in UNKNOWN values")
     for row in dataset.values():
         try:
             for true_val, typo_val in typos.items():
@@ -31,6 +33,7 @@ def typos_fixing(dataset,typos,attribute):
 
 # Set a nan value for 'VEHICLE_YEAR' for observations when "VEHICLE_YEAR" > 2024
 def set_vehicle_year(dataset):
+    print ("Fixing vehicle years where year is higher than 2024")
     for row in dataset.values():
                 try:
                     if  row.get(VEHICLE_YEAR):
