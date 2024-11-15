@@ -16,9 +16,9 @@ folder_path = 'data/dw_csv_files'
 
 #CSV table names
 csv_tables_dict = {
-    {'Name': 'csv_table_1.csv', 'Primary_Key': 'id'},
-    {'Name': 'csv_table_2.csv', 'Primary_Key': 'id'},
-    {'Name': 'csv_table_3.csv', 'Primary_Key': 'id'}
+    {'Name': 'csv_table_1.csv', 'Primary_Key': 'id_1'},
+    {'Name': 'csv_table_2.csv', 'Primary_Key': 'id_2'},
+    {'Name': 'csv_table_3.csv', 'Primary_Key': 'id_3'}
 }
 
 #Check if the csv files exist

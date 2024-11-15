@@ -5,6 +5,8 @@
     # - Check if the csv files have the correct foreign key
     # - More to be added
 
+#Check that the primary key of each table does not have the same name, it depends on the names of the schema.
+
 #Check if the table already exists in the database and if its the same as not to populate it again and continue with the next table.
 
 #Check the file_path of the DW_csv_files folder in uploading python file.
