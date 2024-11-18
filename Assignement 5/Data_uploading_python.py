@@ -13,13 +13,12 @@ from utils.read_write import read_csv
 from utils.utils import check_csv_files, check_existing_table, validate_schema
 
 #Folder path
-folder_path = '../data/dw_csv_files'
+folder_path = '../data/dw_data'
 
 #CSV table names and primary keys, CHANGE WHEN NEEDED
 csv_tables_dict = [
-    {'Name': 'csv_table_1.csv', 'Primary_Key': 'id_1'},
-    {'Name': 'csv_table_2.csv', 'Primary_Key': 'id_2'},
-    {'Name': 'csv_table_3.csv', 'Primary_Key': 'id_3'}
+    {'Name': 'CrashLocation.csv', 'Primary_Key': 'Crash_Location_ID'},
+    {'Name': 'CrashCondition.csv', 'Primary_Key': 'Crash_Condition_ID'}
 ]
 
 #Check if the csv files exist
