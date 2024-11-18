@@ -1,4 +1,3 @@
-
 import os
 import pyodbc
 
@@ -70,3 +69,27 @@ def check_existing_table(cursor, table_name: str, new_data: dict) -> tuple[bool,
     except pyodbc.Error as e:
         print(f"Error checking table {table_name}: {str(e)}")
         raise
+
+def validate_schema(cursor, table_name, data_table):
+    # Get DB table schema
+    cursor.execute(f"""
+        SELECT COLUMN_NAME, DATA_TYPE 
+        FROM INFORMATION_SCHEMA.COLUMNS 
+        WHERE TABLE_NAME = ?
+    """, table_name)
+    db_schema = {row.COLUMN_NAME: row.DATA_TYPE for row in cursor}
+    
+    # Get just the first row from data_table
+    first_key = next(iter(data_table))
+    first_row = data_table[first_key]
+    
+    # Validate columns exist and types match
+    for col, value in first_row.items():
+        if col not in db_schema:
+            raise ValueError(f"Column {col} not found in database table")
+        
+        # Basic type checking
+        if isinstance(value, str) and 'CHAR' not in db_schema[col].upper():
+            raise ValueError(f"Column {col} type mismatch: expected {db_schema[col]}")
+        elif isinstance(value, int) and 'INT' not in db_schema[col].upper():
+            raise ValueError(f"Column {col} type mismatch: expected {db_schema[col]}")

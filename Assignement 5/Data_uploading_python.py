@@ -8,8 +8,9 @@
 #Importing the libraries
 import pyodbc
 import sys
+import os
 from utils.read_write import read_csv
-from utils.utils import check_csv_files, check_existing_table
+from utils.utils import check_csv_files, check_existing_table, validate_schema
 
 #Folder path
 folder_path = '../data/dw_csv_files'
@@ -36,50 +37,74 @@ database = 'Group_ID_4_DB'
 username = 'Group_ID_4' 
 password = 'LN50IBLZ' 
 connectionString = 'DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+password
-cnxn = pyodbc.connect(connectionString)
 
-#Data table should run through all the csv files in the folder and do the following process from here.
-#Loading the data as List of dictionaries
-for table in csv_tables_dict:
-    #Creating the cursor
-    cursor = cnxn.cursor()
+try:
+    # Connection
+    cnxn = pyodbc.connect(connectionString)
     
-    try:
-        data_table = read_csv('data/dw_csv_files'+ str(table['Name']), table['Primary_Key'])
-        
-        # Check if table exists and has identical data
-        table_exists, data_identical = check_existing_table(cursor, table['Name'], data_table)
-        
-        if table_exists and data_identical:
-            print(f"Table {table['Name']} already exists with identical data. Skipping...")
-            continue
-        elif table_exists:
-            print(f"Table {table['Name']} exists but has different data. Proceeding with update...")
-        
-        # Query to insert the data
-        columns = list(data_table['1'].keys())
-        placeholders = ','.join(['?' for _ in columns])
-        columns_str = ','.join(columns)
+    # Wrap everything in a transaction
+    for table in csv_tables_dict:
+        with cnxn:
+            try:
+                with cnxn.cursor() as cursor:
+                    # Sanitize table name
+                    table_name = table['Name'].replace(';', '').replace('--', '')
+                    
+                    # Use proper path joining
+                    csv_path = os.path.join(folder_path, table_name)
+                    
+                    # Reading the csv file
+                    data_table = read_csv(csv_path, table['Primary_Key'])
+                    
+                    # Validate schema
+                    validate_schema(cursor, table_name, data_table)
+                    
+                    # Check if table exists and has identical data
+                    table_exists, data_identical = check_existing_table(cursor, table_name, data_table)
+                    
+                    if table_exists and data_identical:
+                        print(f"Table {table_name} already exists with identical data. Skipping...")
+                        continue
+                    elif table_exists:
+                        print(f"Table {table_name} exists but has different data. Proceeding with update...")
+                    
+                    # Query to insert the data
+                    columns = list(data_table['1'].keys())
+                    placeholders = ','.join(['?' for _ in columns])
+                    columns_str = ','.join(columns)
 
-        # Create dynamic SQL query
-        sql = f"INSERT INTO {table['Name']}({columns_str}) VALUES({placeholders})"
+                    # Create dynamic SQL query
+                    sql = f"INSERT INTO {table_name}({columns_str}) VALUES({placeholders})"
 
-        # Insert data (This loop is nested inside of the loop that goes through all the csv files)
-        for key, row_dict in data_table.items():
-            values = tuple(row_dict[col] for col in columns)
-            cursor.execute(sql, values)
+                    # Consider batch processing for inserts
+                    batch_size = 1000
+                    rows_to_insert = []
+                    for key, row_dict in data_table.items():
+                        values = tuple(row_dict[col] for col in columns)
+                        rows_to_insert.append(values)
+                        if len(rows_to_insert) >= batch_size:
+                            cursor.executemany(sql, rows_to_insert)
+                            rows_to_insert = []
+                    
+                    if rows_to_insert:  # Insert remaining rows
+                        cursor.executemany(sql, rows_to_insert)
+                    
+            except pyodbc.Error as e:
+                print(f"Error processing table {table_name}: {str(e)}")
+                raise  # Re-raise to rollback transaction
+                
+except pyodbc.Error as e:
+    print(f"Database error: {str(e)}")
+    sys.exit(1)
+except Exception as e:
+    print(f"Unexpected error: {str(e)}")
+    sys.exit(1)
+finally:
+    if 'cnxn' in locals():
+        cnxn.close()
 
-        #Committing the changes
-        cnxn.commit()
-
-    except pyodbc.Error as e:
-        print(f"Error processing table {table['Name']}: {str(e)}")
-        continue
-    finally:
-        cursor.close()
-
-
-#Rename table with a loop of names of the csv files (I dont think this is needed)
+""" 
+#(I dont think this is needed)
 for table in csv_tables_dict:
     #Creating the cursor
     cursor = cnxn.cursor()
@@ -91,4 +116,4 @@ for table in csv_tables_dict:
 
 
 #Closing the connection
-cnxn.close()
+cnxn.close() """
