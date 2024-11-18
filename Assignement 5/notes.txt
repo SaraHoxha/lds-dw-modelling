@@ -2,14 +2,15 @@
     (done)# - Check if the csv files exist
     (done)# - Check if the csv files are not empty
     (done)# - Check if the csv files have the correct primary key
-    (dunno how to do this)# - Check if the csv files have the correct foreign key
     # - More to be added
 
 (done)#Check if the table already exists in the database and if its the same as not to populate it again and continue with the next table.
 
 (done)#Change utils check_csv_files function to match only the files that we have in our schema.
 
-#I need to find a way to not  write K sql commands (one) for each row, this can be optimized to run 1k lines per sql query.
+(done)#I need to find a way to not  write K sql commands (one) for each row, this can be optimized to run 1k lines per sql query.
+
+Create another py code to define the constraints on the tables (primary keys and foreign keys after tables already loaded)
 
 
 

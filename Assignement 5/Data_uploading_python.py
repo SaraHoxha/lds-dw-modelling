@@ -66,6 +66,8 @@ try:
                         continue
                     elif table_exists:
                         print(f"Table {table_name} exists but has different data. Proceeding with update...")
+                        # Delete existing data
+                        cursor.execute(f"DELETE FROM {table_name}")
                     
                     # Query to insert the data
                     columns = list(data_table['1'].keys())
