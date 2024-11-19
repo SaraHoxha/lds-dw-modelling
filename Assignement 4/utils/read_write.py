@@ -111,15 +111,35 @@ def to_csv (df, file_path):
         for key, row in df.items():
             writer.writerow(row)
 
-def to_csv_v2 (df, file_path):
-    print ("Saving data at filepath:", file_path)
-    with open(file_path, mode='w', newline='') as csvfile:
-        # Create a CSV writer object
-        writer = csv.DictWriter(csvfile, fieldnames=df[0].keys())
+import csv
 
-        # Write the header (column names)
-        writer.writeheader()
+def to_csv_v2(dict_list, file_name):
+    """
+    Saves a list of dictionaries to a CSV file.
 
-        # Write each row
-        for row in df:
-            writer.writerow(row)
+    Parameters:
+    - dict_list: List[Dict], the list of dictionaries to save.
+    - file_name: str, the name of the output CSV file.
+    """
+    if not dict_list:
+        print("The dictionary list is empty. No file will be created.")
+        return
+    
+    # Extract the keys from the first dictionary as headers
+    headers = dict_list[0].keys()
+    
+    try:
+        # Open the file for writing
+        with open(file_name, mode='w', newline='', encoding='utf-8') as csv_file:
+            writer = csv.DictWriter(csv_file, fieldnames=headers)
+            
+            # Write the headers first
+            writer.writeheader()
+            
+            # Write the rows
+            for dictionary in dict_list:
+                writer.writerow(dictionary)
+        
+        print(f"Data has been successfully saved to {file_name}")
+    except Exception as e:
+        print(f"An error occurred while writing to the file: {e}")
