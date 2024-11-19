@@ -1,5 +1,6 @@
 from utils.crashes_utils import create_file_with_missing_location_values, fill_missing_location_values, fill_missing_BEAT_OF_OCCURRENCE, fix_license_plates, convert_float_columns_to_int_columns, add_delta_car_crash_date_police_report_date
 from utils.read_write import read_csv, to_csv
+from utils.utils import split_date
 
 crashes_df = read_csv ('data/Crashes.csv', 'RD_NO')
 
@@ -15,6 +16,7 @@ crashes_df = convert_float_columns_to_int_columns(crashes_df)
 
 crashes_df = add_delta_car_crash_date_police_report_date(crashes_df)
 
+crashes_df = split_date (crashes_df, "CRASH_DATE")
 #crashes_df = fill_missing_values_with_placeholder_string(crashes_df, "AMENDED", ['REPORT_TYPE'])
 #crashes_df = fill_missing_values_with_placeholder_string(crashes_df, 'NO INDICATION OF INJURY', ["MOST_SEVERE_INJURY"])
 #crashes_df = fill_missing_values_with_placeholder_string(crashes_df)

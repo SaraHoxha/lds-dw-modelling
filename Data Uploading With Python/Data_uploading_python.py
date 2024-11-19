@@ -13,7 +13,7 @@ from utils.read_write import read_csv
 from utils.utils import check_csv_files, check_existing_table, validate_schema
 
 #Folder path
-folder_path = '../data/dw_data'
+folder_path = os.path.join(os.getcwd(),'data','dw_data')
 
 #CSV table names and primary keys, CHANGE WHEN NEEDED
 csv_tables_dict = [
@@ -23,7 +23,7 @@ csv_tables_dict = [
 
 #Check if the csv files exist
 try:
-    check_csv_files(folder_path)
+    check_csv_files(folder_path,csv_tables_dict)
     print("CSV files exist and are non empty")
 
 except (FileNotFoundError, OSError) as e:
@@ -48,6 +48,7 @@ try:
                 with cnxn.cursor() as cursor:
                     # Sanitize table name
                     table_name = table['Name'].replace(';', '').replace('--', '')
+                    table_name_db = table_name.replace('.csv', '')
                     
                     # Use proper path joining
                     csv_path = os.path.join(folder_path, table_name)
@@ -56,18 +57,18 @@ try:
                     data_table = read_csv(csv_path, table['Primary_Key'])
                     
                     # Validate schema
-                    validate_schema(cursor, table_name, data_table)
+                    validate_schema(cursor, table_name_db, data_table)
                     
                     # Check if table exists and has identical data
-                    table_exists, data_identical = check_existing_table(cursor, table_name, data_table)
+                    table_exists, data_identical = check_existing_table(cursor, table_name_db, data_table)
                     
                     if table_exists and data_identical:
-                        print(f"Table {table_name} already exists with identical data. Skipping...")
+                        print(f"Table {table_name_db} already exists with identical data. Skipping...")
                         continue
                     elif table_exists:
-                        print(f"Table {table_name} exists but has different data. Proceeding with update...")
+                        print(f"Table {table_name_db} exists but has different data. Proceeding with update...")
                         # Delete existing data
-                        cursor.execute(f"DELETE FROM {table_name}")
+                        cursor.execute(f"DELETE FROM {table_name_db}")
                     
                     # Query to insert the data
                     columns = list(data_table['1'].keys())
@@ -75,16 +76,19 @@ try:
                     columns_str = ','.join(columns)
 
                     # Create dynamic SQL query
-                    sql = f"INSERT INTO {table_name}({columns_str}) VALUES({placeholders})"
+                    sql = f"INSERT INTO {table_name_db}({columns_str}) VALUES({placeholders})"
 
                     # Consider batch processing for inserts
                     batch_size = 1000
                     rows_to_insert = []
+                    i = 0
                     for key, row_dict in data_table.items():
                         values = tuple(row_dict[col] for col in columns)
                         rows_to_insert.append(values)
                         if len(rows_to_insert) >= batch_size:
                             cursor.executemany(sql, rows_to_insert)
+                            i += 1
+                            print(f"Inserted {i} batche(s) of {batch_size} rows")
                             rows_to_insert = []
                     
                     if rows_to_insert:  # Insert remaining rows
@@ -104,17 +108,4 @@ finally:
     if 'cnxn' in locals():
         cnxn.close()
 
-""" 
-#(I dont think this is needed)
-for table in csv_tables_dict:
-    #Creating the cursor
-    cursor = cnxn.cursor()
-    cursor.execute(f"SELECT * FROM {table['Name']};") 
-    rows = cursor.fetchall() 
-    #print(rows)
-    #Closing the cursor
-    cursor.close()
-
-
-#Closing the connection
-cnxn.close() """
+print("Data uploaded successfully")
