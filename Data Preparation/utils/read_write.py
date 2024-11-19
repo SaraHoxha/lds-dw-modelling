@@ -40,13 +40,13 @@ def read_csv(file_path, primary_key):
 
     except FileNotFoundError:
         # Handle the case where the specified file does not exist
-        print(f"Error: The file {file_path} was not found.")
+        raise(f"Error: The file {file_path} was not found.")
     except csv.Error as e:
         # Handle errors related to CSV reading
-        print(f"Error: There was a problem reading the CSV file: {e}")
+        raise(f"Error: There was a problem reading the CSV file: {e}")
     except Exception as e:
         # Handle any other unexpected errors
-        print(f"An unexpected error occurred: {e}")
+        raise(f"An unexpected error occurred: {e}")
 
     return result  # Return the populated dictionary containing CSV data
 
@@ -88,13 +88,13 @@ def read_csv_v2(file_path):
 
     except FileNotFoundError:
         # Handle the case where the specified file does not exist
-        print(f"Error: The file {file_path} was not found.")
+        raise(f"Error: The file {file_path} was not found.")
     except csv.Error as e:
         # Handle errors related to CSV reading
-        print(f"Error: There was a problem reading the CSV file: {e}")
+        raise(f"Error: There was a problem reading the CSV file: {e}")
     except Exception as e:
         # Handle any other unexpected errors
-        print(f"An unexpected error occurred: {e}")
+        raise(f"An unexpected error occurred: {e}")
 
     return result  # Return the populated dictionary containing CSV data
 
@@ -142,4 +142,4 @@ def to_csv_v2(dict_list, file_name):
         
         print(f"Data has been successfully saved to {file_name}")
     except Exception as e:
-        print(f"An error occurred while writing to the file: {e}")
+        raise(f"An error occurred while writing to the file: {e}")
