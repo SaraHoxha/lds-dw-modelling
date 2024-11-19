@@ -1,180 +1,166 @@
 import csv
 from os.path import basename
-from utils.utils import concatenate_values
+from typing import List, Dict, Any, Union
+from utils.utils import concatenate_values, convert_value
 
-def read_csv(file_path, primary_key):
+def read_csv(file_path: str, primary_key: str) -> Dict[str, Dict[str, Union[int, float, str]]]:
     """
-    outputs a dictionary with the following structure
-    {
-        primary key val_n:
-            {col1:val1, col2:val2, ... col_m:val_m}
-    }
+    Reads a CSV file and converts its contents into a dictionary keyed by the specified primary key.
+    
+    Args:
+        file_path (str): The path to the CSV file to be read.
+        primary_key (str): The column name to be used as the dictionary key.
+        
+    Returns:
+        Dict[str, Dict[str, Union[int, float, str]]]: A dictionary representation of the CSV file.
+        
+    Raises:
+        Exception: If the file is not found, there's a problem reading the file, or an unexpected error occurs.
     """
-    print ("Reading csv", basename(file_path))
-    result = {}  # Initialize an empty dictionary to store the CSV data
-
-    def convert_value(value):
-        """Convert value to int or float if possible, otherwise return as is."""
-        try:
-            if '.' in value:  # Check for float
-                float_value = float(value)
-                if float_value.is_integer():
-                    return int(float_value)
-                return float_value
-            else:  # Check for int
-                return int(value)
-        except ValueError:
-            return value  # Return the original value if conversion fails
+    print("Reading CSV:", basename(file_path))
+    result: Dict[str, Dict[str, Union[int, float, str]]] = {}
 
     try:
-        # Open the specified CSV file in read mode
-        with open(file_path, mode='r', newline='') as csvfile:
-            # Create a CSV dictionary reader to read rows as dictionaries
+        with open(file_path, mode='r', newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
-
-            # Populate the result dictionary with data from the CSV
             result = {
-                # Use the value of the primary key as the dictionary key
-                row[primary_key]: {k: convert_value(v) for k, v in row.items()} 
-                for row in reader  # Iterate over each row in the CSV
+                row[primary_key]: {k: convert_value(v) for k, v in row.items()}
+                for row in reader
             }
-
     except FileNotFoundError:
-        # Handle the case where the specified file does not exist
         raise Exception(f"Error: The file {file_path} was not found.")
     except csv.Error as e:
-        # Handle errors related to CSV reading
         raise Exception(f"Error: There was a problem reading the CSV file: {e}")
-    except Exception as e:
-        # Handle any other unexpected errors
-        raise Exception(f"An unexpected error occurred: {e}")
 
-    return result  # Return the populated dictionary containing CSV data
 
-def read_csv_v2(file_path):
+    return result
+
+def read_csv_v2(file_path: str) -> List[Dict[str, Union[int, float, str]]]:
     """
-    outputs a list with the following structure
-    [
-        {col1:val1, col2:val2, ... col_m:val_m}
-    ]
+    Reads a CSV file and converts its contents into a list of dictionaries.
+    
+    Args:
+        file_path (str): The path to the CSV file to be read.
+        
+    Returns:
+        List[Dict[str, Union[int, float, str]]]: A list of dictionaries representing the CSV rows.
+        
+    Raises:
+        Exception: If the file is not found, there's a problem reading the file, or an unexpected error occurs.
     """
+    print("Reading CSV:", basename(file_path))
+    result: List[Dict[str, Union[int, float, str]]] = []
 
-    print ("Reading csv", basename(file_path))
-    result = []  # Initialize an empty list to store the CSV data
-
-    def convert_value(value):
-        """Convert value to int or float if possible, otherwise return as is."""
-        try:
-            if '.' in value:  # Check for float
-                float_value = float(value)
-                if float_value.is_integer():
-                    return int(float_value)
-                return float_value
-            else:  # Check for int
-                return int(value)
-        except ValueError:
-            return value  # Return the original value if conversion fails
 
     try:
-        # Open the specified CSV file in read mode
-        with open(file_path, mode='r', newline='') as csvfile:
-            # Create a CSV dictionary reader to read rows as dictionaries
+        with open(file_path, mode='r', newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
-
-            # Populate the result dictionary with data from the CSV
             result = [
-                {k: convert_value(v) for k, v in row.items()} 
-                for row in reader  # Iterate over each row in the CSV
+                {k: convert_value(v) for k, v in row.items()}
+                for row in reader
             ]
-
     except FileNotFoundError:
-        # Handle the case where the specified file does not exist
         raise Exception(f"Error: The file {file_path} was not found.")
     except csv.Error as e:
-        # Handle errors related to CSV reading
         raise Exception(f"Error: There was a problem reading the CSV file: {e}")
-    except Exception as e:
-        # Handle any other unexpected errors
-        raise Exception(f"An unexpected error occurred: {e}")
 
-    return result  # Return the populated dictionary containing CSV data
 
-def read_csv_v3(file_path, idColumn):
+    return result
+
+def read_csv_v3(file_path: str, idColumn: List[str]) -> Dict[str, Dict[str, str]]:
     """
-    outputs a dictionary with the following structure
-    {
-        primary key val_n: (all the values concatenated)
-            {col1:val1, col2:val2, ... col_m:val_m}
-    }
+    Reads a CSV file and creates a dictionary where keys are concatenated values from specified columns.
+    
+    Args:
+        file_path (str): The path to the CSV file to be read.
+        idColumn (List[str]): List of column names to concatenate for creating unique keys.
+        
+    Returns:
+        Dict[str, Dict[str, str]]: A dictionary with concatenated keys and row data as values.
+        
+    Raises:
+        Exception: If the file is not found, there's a problem reading the file, or an unexpected error occurs.
     """
-    print ("Reading csv", basename(file_path))
-    result = {}  # Initialize an empty dictionary to store the CSV data
+    print("Reading CSV:", basename(file_path))
+    result: Dict[str, Dict[str, str]] = {}
 
     try:
-        # Open the specified CSV file in read mode
-        with open(file_path, mode='r', newline='') as csvfile:
-            # Create a CSV dictionary reader to read rows as dictionaries
+        with open(file_path, mode='r', newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
-            
             for row in reader:
+                # Generate a unique key by concatenating specified column values
                 key = concatenate_values(row, idColumn)
                 if key in result:
-                    raise ValueError("key already in dictionary", key)
-                result[key] = {k: v for k, v in row.items()}
-
+                    raise ValueError(f"Duplicate key found: {key}")
+                result[key] = {k: convert_value(v) for k, v in row.items()}
     except FileNotFoundError:
-        # Handle the case where the specified file does not exist
         raise Exception(f"Error: The file {file_path} was not found.")
     except csv.Error as e:
-        # Handle errors related to CSV reading
         raise Exception(f"Error: There was a problem reading the CSV file: {e}")
-    except Exception as e:
-        # Handle any other unexpected errors
-        raise Exception(f"An unexpected error occurred: {e}")
 
-    return result  # Return the populated dictionary containing CSV data
 
-def to_csv (df, file_path):
-    print ("Saving data at filepath:", file_path)
-    with open(file_path, mode='w', newline='') as csvfile:
-        # Create a CSV writer object
-        writer = csv.DictWriter(csvfile, fieldnames=df[next(iter(df))].keys())
-        
-        # Write the header row
+    return result
+
+def to_csv(df: Dict[str, Dict[str, Any]], file_path: str) -> None:
+    """
+    Writes a dictionary of data to a CSV file.
+    
+    Args:
+        df (Dict[str, Dict[str, Any]]): The dictionary containing the data to write.
+        file_path (str): The path where the CSV file will be saved.
+    """
+    print("Saving data to:", file_path)
+    with open(file_path, mode='w', newline='', encoding='utf-8') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=list(next(iter(df.values())).keys()))
         writer.writeheader()
-        
-        # Write each row of data
-        for key, row in df.items():
+        for row in df.values():
             writer.writerow(row)
 
-import csv
-
-def to_csv_v2(dict_list, file_name):
+def to_csv_v2(dict_list: List[Dict[str, Any]], file_name: str) -> None:
     """
-    Saves a list of dictionaries to a CSV file.
+    Writes a list of dictionaries to a CSV file.
+    
+    Args:
+        dict_list (List[Dict[str, Any]]): The list of dictionaries to write.
+        file_name (str): The name of the file where the CSV data will be saved.
+        
+    Raises:
+        Exception: If the input list is empty or an error occurs while writing the file.
+    """
+    if not dict_list:
+        raise Exception("The dictionary list is empty. No file will be created.")
 
-    Parameters:
-    - dict_list: List[Dict], the list of dictionaries to save.
-    - file_name: str, the name of the output CSV file.
+    headers = dict_list[0].keys()  # Extract headers from the first dictionary
+    try:
+        with open(file_name, mode='w', newline='', encoding='utf-8') as csv_file:
+            writer = csv.DictWriter(csv_file, fieldnames=headers)
+            writer.writeheader()
+            for dictionary in dict_list:
+                writer.writerow(dictionary)
+        print(f"Data successfully saved to {file_name}")
+    except Exception as e:
+        raise Exception(f"An error occurred while writing to the file: {e}")
+
+def to_csv_v3(dict_list: List[Dict[str, Any]], file_name: str) -> None:
+    """
+    Writes a list of dictionaries to a CSV file using the `csv.writer`.
+
+    Args:
+        dict_list (List[Dict[str, Any]]): A list of dictionaries containing the data to write to the CSV file.
+        file_name (str): The name (or path) of the file where the CSV data will be saved.
+
+    Raises:
+        Exception: If an error occurs while writing to the file.
     """
     if not dict_list:
         raise Exception("The dictionary list is empty. No file will be created.")
     
-    # Extract the keys from the first dictionary as headers
-    headers = dict_list[0].keys()
-    
     try:
-        # Open the file for writing
-        with open(file_name, mode='w', newline='', encoding='utf-8') as csv_file:
-            writer = csv.DictWriter(csv_file, fieldnames=headers)
-            
-            # Write the headers first
-            writer.writeheader()
-            
-            # Write the rows
-            for dictionary in dict_list:
-                writer.writerow(dictionary)
+        with open(file_name, "w", newline="", encoding="utf-8") as out_file:
+            writer = csv.writer(out_file)
+            writer.writerows(dict_list)
+                
+        print(f"Data successfully saved to {file_name}")
         
-        print(f"Data has been successfully saved to {file_name}")
     except Exception as e:
         raise Exception(f"An error occurred while writing to the file: {e}")

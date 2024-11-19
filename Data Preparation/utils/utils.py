@@ -1,53 +1,93 @@
 import os
 import csv
 from datetime import datetime
+from typing import List, Dict, Any, Union
 
 DAY_COLUMN = 'DAY'
 MONTH_COLUMN = 'MONTH'
 YEAR_COLUMN = 'YEAR'
 TIME_COLUMN = 'TIME'
 
-def get_api_key ():
-    with open ("api key") as f:
+def get_api_key() -> str:
+    """
+    Reads and returns the API key from a file named 'api key'.
+
+    :return: The API key as a string.
+    """
+    with open("api key") as f:
         return f.readline().strip()
-    
-def check_if_file_exists_and_create (filePath):
+
+def check_if_file_exists_and_create(filePath: str) -> None:
+    """
+    Checks if a file exists at the specified path. If it does not, creates an empty file.
+
+    :param filePath: Path to the file to check and possibly create.
+    :return: None
+    """
     if not os.path.exists(filePath):
         with open(filePath, 'w') as f:
             pass
-        
 
-# Fill missing values for columns that provide a default 'Unknown' value
-def fill_missing_values (dataset, column_defaults):
-    print ("Filling missing values with default value", column_defaults)
+def convert_value(value: str) -> Union[int, float, str]:
+    """
+    Converts a string value to an int, float, or keeps it as a string if conversion is not possible.
+
+    :param value: The value to convert (as a string).
+    :return: The converted value (int, float, or the original string).
+    """
+    try:
+        if '.' in value:
+            float_value = float(value)
+            if float_value.is_integer():
+                return int(float_value)  # Convert to int if the value is a whole number
+            return float_value
+        else:
+            return int(value)  # Convert to int if there's no decimal point
+    except ValueError:
+        return value  # Return the original value if conversion fails
+
+def fill_missing_values(dataset: Dict[str, Dict[str, Any]], column_defaults: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
+    """
+    Fills missing (empty) values in the dataset with default values for specified columns.
+
+    :param dataset: A dictionary representing the dataset, where each row is a dictionary of column names and values.
+    :param column_defaults: A dictionary of default values for columns where missing values should be filled.
+    :return: The dataset with missing values filled.
+    """
+    print("Filling missing values with default value", column_defaults)
     for row in dataset.values():
         try:
             for column, default_value in column_defaults.items():
-                if column in row:
-                    if row[column] == '':
-                        row[column] = default_value      
+                if column in row and row[column] == '':
+                    row[column] = default_value  # Fill missing value with default
         except Exception as e:
             print(f"Error processing row: {row} | Error: {e}")
     return dataset
 
+def split_date(dataset: Dict[str, Dict[str, Any]], date_column: str) -> Dict[str, Dict[str, Any]]:
+    """
+    Splits a date string in the specified date column into separate 'DAY', 'MONTH', 'YEAR', and 'TIME' columns.
 
-#Split date column into 'DAY', 'MONTH', 'YEAR', 'TIME' columns
-def split_date(dataset, date_column):
-    print ("Splitting date column", date_column, "into 'DAY', 'MONTH', 'YEAR', 'TIME'")
+    :param dataset: A dictionary representing the dataset, where each row is a dictionary of column names and values.
+    :param date_column: The name of the column containing date strings to split.
+    :return: The dataset with the date column split into multiple components.
+    """
+    print("Splitting date column", date_column, "into 'DAY', 'MONTH', 'YEAR', 'TIME'")
 
     for row in dataset.values():
         if row.get(date_column):
             try:
-                # year is YYYY and 12-hour format
+                # Try parsing the date using 12-hour format
                 dt = datetime.strptime(row[date_column], "%m/%d/%Y %I:%M:%S %p")
             except ValueError:
                 try:
-                    #year is YYYY 24-hour format
+                    # Fallback to 24-hour format
                     dt = datetime.strptime(row[date_column], "%m/%d/%y %H:%M")
                 except ValueError as e:
                     print(f'Date is: {row.get(date_column)}')
                     print(f'Error: {e}')
-                    
+
+            # Assign extracted date parts to respective columns
             row[YEAR_COLUMN] = dt.year
             row[MONTH_COLUMN] = dt.month
             row[DAY_COLUMN] = dt.day
@@ -55,30 +95,28 @@ def split_date(dataset, date_column):
             
     return dataset
 
-def select_columns(data, columns):
-    print ("Filtering the dataset by columns", columns)
+def select_columns(data: List[Dict[str, Any]], columns: List[str]) -> List[Dict[str, Any]]:
     """
-    Filters a list of dictionaries to include only the specified keys.
+    Filters the dataset to only include the specified columns.
 
-    :param data: List of dictionaries (e.g., rows from a CSV file).
-    :param columns: List of keys to retain in the dictionaries.
-    :return: A new list of dictionaries containing only the specified keys.
+    :param data: A list of dictionaries representing the dataset.
+    :param columns: A list of column names to retain.
+    :return: A list of dictionaries containing only the specified columns.
     """
+    print("Filtering the dataset by columns", columns)
     return [
         {key: row[key] for key in columns if key in row}
         for row in data
     ]
 
-def concatenate_values(input_dict, idColumn):
+def concatenate_values(input_dict: Dict[str, Any], idColumn: str) -> str:
     """
-    Takes a dictionary as input and returns a string 
-    with all the values concatenated.
+    Concatenates all values in a dictionary into a single string, excluding the value of the specified ID column.
 
-    Args:
-    input_dict (dict): The input dictionary.
-
-    Returns:
-    str: A concatenated string of all dictionary values.
+    :param input_dict: The dictionary to concatenate.
+    :param idColumn: The column to exclude from the concatenation.
+    :return: A concatenated string of all dictionary values, excluding the ID column.
+    :raises ValueError: If the input is not a dictionary.
     """
     if not isinstance(input_dict, dict):
         raise ValueError("Input must be a dictionary.")

@@ -1,41 +1,66 @@
-from utils.read_write import to_csv
+from utils.read_write import to_csv, to_csv_v2, to_csv_v3
 from utils.utils import concatenate_values
 from typing import List, Dict
 import csv
 
-def create_table(original_df, new_csv, index_column, new_column_names, original_column_names=None):
-    print ("Creating table with key name:", index_column)
+def create_table_no_fk(
+    original_df: List[Dict[str, str]], 
+    new_csv: str, 
+    index_column: str, 
+    new_column_names: List[str], 
+    original_column_names: List[str] = None
+) -> List[List[str]]:
+    """
+    Creates a table with a unique index column and adds data from the original dataframe.
+
+    Args:
+        original_df (List[Dict[str, str]]): A list of dictionaries representing the original data.
+        new_csv (str): The file path where the generated CSV will be saved.
+        index_column (str): The name of the new index column for the table.
+        new_column_names (List[str]): List of new column names for the table.
+        original_column_names (List[str], optional): List of column names from the original data. Defaults to None.
+
+    Returns:
+        List[List[str]]: The table in list of lists format, including the new index column.
+    """
+    print("Creating table with key name:", index_column)
     try:
-        with open(new_csv, "w", newline="") as out_file:
-            writer = csv.writer(out_file)
-            # Write header for the table
-            writer.writerow([index_column] + new_column_names)
-            
-            index_id = 1
-            seen_rows = set()  # To store unique rows
-            
-            for row in original_df:
-                try:
-                    if original_column_names is None:
-                        original_column_names = new_column_names
+        # Initialize the table with the header
+        table = [[index_column] + new_column_names]
+        
+        index_id = 1
+        seen_rows = set()  # To store unique rows
+        
+        for row in original_df:
+            try:
+                if original_column_names is None:
+                    original_column_names = new_column_names
+                
+                # Collect data for the current row
+                row_data = tuple(row[col.upper()] for col in original_column_names)
+                
+                if row_data not in seen_rows:
+                    table.append([index_id] + list(row_data))
+                    seen_rows.add(row_data)
+                    index_id += 1
                     
-                    row_data = tuple(row[col.upper()] for col in original_column_names)
-                    
-                    if row_data not in seen_rows:
-                        writer.writerow([index_id] + list(row_data))
-                        seen_rows.add(row_data)
-                        index_id += 1
-                        
-                except Exception as e:
-                    print(f"Error processing row {row}: {e}.")
-                    break
+            except Exception as e:
+                print(f"Error processing row {row}: {e}.")
+                break
+        
+        to_csv_v3(table, new_csv)
+        
+        return table
+    
     except FileNotFoundError:
         print(f"Error: The file {new_csv} could not be found.")
-    except Exception as e:
-        print(f"Error while creating table: {e}")
+        return None
 
-
-def create_date_time_table(all_dates: List[Dict[str, str]], path: str) -> None:
+def create_date_time_table(
+    all_dates: List[Dict[str, str]], 
+    path: str,
+    indexCol: str
+) -> Dict[str, Dict[str, str]]:
     """
     Creates a date-time table from a list of date dictionaries and saves it as a CSV.
 
@@ -43,6 +68,10 @@ def create_date_time_table(all_dates: List[Dict[str, str]], path: str) -> None:
         all_dates (List[Dict[str, str]]): A list of dictionaries containing date details.
             Each dictionary should have the keys 'DAY', 'MONTH', 'YEAR', and 'TIME'.
         path (str): The file path where the generated CSV will be saved.
+        indexCol (str): The name of the new index column for the table.
+
+    Returns:
+        Dict[str, Dict[str, str]]: A dictionary representing the date-time table.
 
     Raises:
         ValueError: If a required key is missing in the input dictionaries.
@@ -57,12 +86,12 @@ def create_date_time_table(all_dates: List[Dict[str, str]], path: str) -> None:
     try:
         for date in all_dates:
             # Create a unique key for the date-time
-            key = concatenate_values(date, "DateTime_ID")
+            key = concatenate_values(date, indexCol)
 
             # Add to the table if the key doesn't exist
             if key not in date_time_table:
                 date_time_table[key] = {
-                    "DateTime_ID": date_time_id,
+                    indexCol: date_time_id,
                     "Day": date.get('DAY', date.get("DAY_POLICE_NOTIFIED")),
                     "Month": date.get("MONTH", date.get("MONTH_POLICE_NOTIFIED")),
                     "Year": date.get("YEAR", date.get("YEAR_POLICE_NOTIFIED")),
@@ -75,5 +104,81 @@ def create_date_time_table(all_dates: List[Dict[str, str]], path: str) -> None:
     except ValueError as ve:
         raise Exception(f"Error: {ve}")
     except IOError as ioe:
-        raise Exception(f"Failed to write to CSV: {ioe}")\
+        raise Exception(f"Failed to write to CSV: {ioe}")
+    
+    return date_time_table
 
+def createCrashTable(
+    path: str,
+    crashes_df: List[Dict[str, str]],
+    dateTimeTable: Dict[str, Dict[str, str]],
+    crashConditionTable: Dict[str, Dict[str, str]],
+    crashInjuriesTable: Dict[str, Dict[str, str]],
+    crashLocationTable: Dict[str, Dict[str, str]],
+    date_columns_mapping: List[str],
+    police_notified_columns_mapping: List[str],
+    crash_condition_columns_mapping: List[str],
+    crash_injury_columns_mapping: List[str],
+    crash_location_columns_mapping: List[str]
+) -> Dict[str, Dict[str, str]]:
+    """
+    Creates a crash table by linking crash data to corresponding entries in related tables
+    (date-time, crash conditions, injuries, and locations).
+
+    Args:
+        path (str): The file path where the generated CSV will be saved.
+        crashes_df (List[Dict[str, str]]): The crash data in a list of dictionaries format.
+        dateTimeTable (Dict[str, Dict[str, str]]): The date-time table, with DateTime_ID as keys.
+        crashConditionTable (Dict[str, Dict[str, str]]): The crash condition table.
+        crashInjuriesTable (Dict[str, Dict[str, str]]): The crash injuries table.
+        crashLocationTable (Dict[str, Dict[str, str]]): The crash location table.
+        date_columns_mapping (List[str]): Mapping for date columns in the crash data.
+        police_notified_columns_mapping (List[str]): Mapping for police notified date columns.
+        crash_condition_columns_mapping (List[str]): Mapping for crash condition columns.
+        crash_injury_columns_mapping (List[str]): Mapping for crash injury columns.
+        crash_location_columns_mapping (List[str]): Mapping for crash location columns.
+
+    Returns:
+        Dict[str, Dict[str, str]]: A dictionary representing the crash table.
+    """
+    def findIDFromTable(row: Dict[str, str], columns: List[str], table: Dict[str, Dict[str, str]], tablePrimaryKey: str) -> str:
+        """
+        Helper function to find the ID from a given table using a combination of column values.
+
+        Args:
+            row (Dict[str, str]): The current row from the crash data.
+            columns (List[str]): The list of columns to be used for creating a unique key.
+            table (Dict[str, Dict[str, str]]): The table to look for the ID in.
+            tablePrimaryKey (str): The primary key of the table.
+
+        Returns:
+            str: The found ID.
+        """
+        columns_values = [str(row.get(col, row.get(col.upper(), ""))) for col in columns]
+        key = " ".join(columns_values).strip()
+        row_data = table[key]
+        return row_data[tablePrimaryKey]
+    
+    result = ()
+
+    for index, row in enumerate(crashes_df):
+        newRow = {
+            "Crash_ID": index,
+            "Primary_Contributory_Cause": row["PRIM_CONTRIBUTORY_CAUSE"],
+            "Secondary_Contributory_Cause": row["SEC_CONTRIBUTORY_CAUSE"],
+            "Number_of_Units": row["NUM_UNITS"],
+            "Most_Severe_Injury": row["MOST_SEVERE_INJURY"],
+            "Difference_Between_Crash_Date_And_Police_Notified": row["DELTA_TIME_CRASH_DATE_POLICE_REPORT_DATE"],
+        }
+
+        newRow["Crash_Date_ID"] = findIDFromTable(row, date_columns_mapping, dateTimeTable, "DateTime_ID")
+        newRow["Police_Notified_Date_ID"] = findIDFromTable(row, police_notified_columns_mapping, dateTimeTable, "DateTime_ID")
+        newRow["Crash_Condition_ID"] = findIDFromTable(row, crash_condition_columns_mapping, crashConditionTable, "Crash_Condition_ID")
+        newRow["Crash_Injury_ID"] = findIDFromTable(row, crash_injury_columns_mapping, crashInjuriesTable, "Crash_Injury_ID")
+        newRow["Crash_Location_ID"] = findIDFromTable(row, crash_location_columns_mapping, crashLocationTable, "Crash_Location_ID")
+
+        result.add(newRow)
+
+    to_csv_v2(list(result), path)
+
+    return result
