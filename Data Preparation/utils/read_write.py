@@ -1,5 +1,6 @@
 import csv
 from os.path import basename
+from utils.utils import concatenate_values
 
 def read_csv(file_path, primary_key):
     """
@@ -85,6 +86,41 @@ def read_csv_v2(file_path):
                 {k: convert_value(v) for k, v in row.items()} 
                 for row in reader  # Iterate over each row in the CSV
             ]
+
+    except FileNotFoundError:
+        # Handle the case where the specified file does not exist
+        raise Exception(f"Error: The file {file_path} was not found.")
+    except csv.Error as e:
+        # Handle errors related to CSV reading
+        raise Exception(f"Error: There was a problem reading the CSV file: {e}")
+    except Exception as e:
+        # Handle any other unexpected errors
+        raise Exception(f"An unexpected error occurred: {e}")
+
+    return result  # Return the populated dictionary containing CSV data
+
+def read_csv_v3(file_path, idColumn):
+    """
+    outputs a dictionary with the following structure
+    {
+        primary key val_n: (all the values concatenated)
+            {col1:val1, col2:val2, ... col_m:val_m}
+    }
+    """
+    print ("Reading csv", basename(file_path))
+    result = {}  # Initialize an empty dictionary to store the CSV data
+
+    try:
+        # Open the specified CSV file in read mode
+        with open(file_path, mode='r', newline='') as csvfile:
+            # Create a CSV dictionary reader to read rows as dictionaries
+            reader = csv.DictReader(csvfile)
+            
+            for row in reader:
+                key = concatenate_values(row, idColumn)
+                if key in result:
+                    raise ValueError("key already in dictionary", key)
+                result[key] = {k: v for k, v in row.items()}
 
     except FileNotFoundError:
         # Handle the case where the specified file does not exist

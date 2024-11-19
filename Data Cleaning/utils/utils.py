@@ -31,8 +31,8 @@ def fill_missing_values (dataset, column_defaults):
 
 
 #Split date column into 'DAY', 'MONTH', 'YEAR', 'TIME' columns
-def split_date(dataset, date_column):
-    print ("Splitting date column", date_column, "into 'DAY', 'MONTH', 'YEAR', 'TIME'")
+def split_date(dataset, date_column, affix=""):
+    print ("Splitting date column", date_column, "into 'DAY" + affix + "', 'MONTH" + affix + "', 'YEAR" + affix + "', 'TIME" + affix + "'")
 
     for row in dataset.values():
         if row.get(date_column):
@@ -47,9 +47,9 @@ def split_date(dataset, date_column):
                     print(f'Date is: {row.get(date_column)}')
                     print(f'Error: {e}')
                     
-            row[YEAR_COLUMN] = dt.year
-            row[MONTH_COLUMN] = dt.month
-            row[DAY_COLUMN] = dt.day
-            row[TIME_COLUMN] = dt.strftime("%I:%M:%S %p")
+            row[YEAR_COLUMN + affix] = dt.year
+            row[MONTH_COLUMN + affix] = dt.month
+            row[DAY_COLUMN + affix] = dt.day
+            row[TIME_COLUMN + affix] = dt.strftime("%I:%M:%S %p")
             
     return dataset

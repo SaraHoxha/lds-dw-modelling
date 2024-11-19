@@ -7,6 +7,21 @@ CRASHES_DF = read_csv_v2('data/Crashes_Processed.csv')
 PEOPLE_DF = read_csv_v2('data/People_Processed.csv')
 VEHICLES_DF = read_csv_v2('data/Vehicles_Processed.csv')
 
+# DATETIME
+DATETIME_FILE_PATH = "Data Preparation/dw_tables_csv/DateTime.csv"
+DATES_COLUMNS = ['DAY', 'MONTH', 'YEAR', 'TIME']
+# Concatenante all the dates
+allDates = select_columns (
+    PEOPLE_DF, DATES_COLUMNS
+    ) + select_columns (
+        VEHICLES_DF, DATES_COLUMNS
+    ) + select_columns (
+        CRASHES_DF, DATES_COLUMNS
+    ) + select_columns(
+        CRASHES_DF, [col + "_POLICE_NOTIFIED" for col in DATES_COLUMNS]
+    )
+create_date_time_table(allDates, DATETIME_FILE_PATH)
+
 # PEOPLE
 PEOPLE_FILE_PATH = 'Data Preparation/dw_tables_csv/Person.csv'
 PEOPLE_INDEX_COL = 'Person_ID'
@@ -21,8 +36,8 @@ create_table(
 )
 
 # INJURIES
-INJURY_FILE_PATH = 'Data Preparation/dw_tables_csv/Injury.csv'
-INJURY_INDEX_COL = 'Injury_ID'
+INJURY_FILE_PATH = 'Data Preparation/dw_tables_csv/CrashInjury.csv'
+INJURY_INDEX_COL = 'Crash_Injury_ID'
 INJURY_COLUMNS = ['Injuries_Total', 'Injuries_Fatal', 'Injuries_Incapacitating', 'Injuries_Non_Incapacitating', 'Injuries_No_Indication', 'Injuries_Reported_Not_Evident', 'Injuries_Unknown']
 create_table(
     CRASHES_DF,
@@ -56,16 +71,3 @@ create_table(
     CRASH_CONDITION_NEW_COLUMNS,
     CRASH_CONDITION_OG_COLUMNS
 )
-
-# DATETIME
-DATETIME_FILE_PATH = "Data Preparation/dw_tables_csv/DateTime.csv"
-DATES_COLUMNS = ['YEAR', 'MONTH', 'DAY', 'TIME']
-# Concatenante all the dates
-allDates = select_columns (
-    PEOPLE_DF, DATES_COLUMNS
-    ) + select_columns (
-        VEHICLES_DF, DATES_COLUMNS
-    ) + select_columns (
-        CRASHES_DF, DATES_COLUMNS
-    )
-create_date_time_table(allDates, DATETIME_FILE_PATH)

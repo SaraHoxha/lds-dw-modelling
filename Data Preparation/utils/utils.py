@@ -69,7 +69,7 @@ def select_columns(data, columns):
         for row in data
     ]
 
-def concatenate_values(input_dict):
+def concatenate_values(input_dict, idColumn):
     """
     Takes a dictionary as input and returns a string 
     with all the values concatenated.
@@ -83,6 +83,9 @@ def concatenate_values(input_dict):
     if not isinstance(input_dict, dict):
         raise ValueError("Input must be a dictionary.")
 
-    # Convert all values to strings, if not already, and concatenate
-    concatenated_string = ''.join(str(value) for value in input_dict.values())
-    return concatenated_string
+    concatenated_string = ""
+    for key in list(input_dict.keys()):
+        if key != idColumn:
+            concatenated_string += " " + str(input_dict[key])
+
+    return concatenated_string.strip()

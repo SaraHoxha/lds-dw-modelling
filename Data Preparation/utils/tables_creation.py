@@ -56,31 +56,24 @@ def create_date_time_table(all_dates: List[Dict[str, str]], path: str) -> None:
 
     try:
         for date in all_dates:
-            # Validate required keys
-            required_keys = ["DAY", "MONTH", "YEAR", "TIME"]
-            if not all(key in date for key in required_keys):
-                raise ValueError(f"Missing required keys in date: {date}")
-
             # Create a unique key for the date-time
-            key = concatenate_values(date)
+            key = concatenate_values(date, "DateTime_ID")
 
             # Add to the table if the key doesn't exist
             if key not in date_time_table:
                 date_time_table[key] = {
                     "DateTime_ID": date_time_id,
-                    "Day": date['DAY'],
-                    "Month": date["MONTH"],
-                    "Year": date["YEAR"],
-                    "Time": date["TIME"],
+                    "Day": date.get('DAY', date.get("DAY_POLICE_NOTIFIED")),
+                    "Month": date.get("MONTH", date.get("MONTH_POLICE_NOTIFIED")),
+                    "Year": date.get("YEAR", date.get("YEAR_POLICE_NOTIFIED")),
+                    "Time": date.get("TIME", date.get("TIME_POLICE_NOTIFIED")),
                 }
                 date_time_id += 1
 
         # Write the resulting table to a CSV
         to_csv(date_time_table, path)
     except ValueError as ve:
-        print(f"Error: {ve}")
+        raise Exception(f"Error: {ve}")
     except IOError as ioe:
-        print(f"Failed to write to CSV: {ioe}")
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
+        raise Exception(f"Failed to write to CSV: {ioe}")\
 

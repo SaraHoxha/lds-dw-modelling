@@ -31,7 +31,7 @@ def query_api(queries, resultDict):
                     print(f"No results found for query: {query}")
             except Exception as e:
                 # Log any errors that occur during the geocoding process
-                print(f"Error geocoding query '{query}': {e}")
+                raise Exception(f"Error geocoding query '{query}': {e}")
             # Sleep for 1 second to avoid hitting the API rate limit
             time.sleep(1)
     
