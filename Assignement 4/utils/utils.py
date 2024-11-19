@@ -53,3 +53,34 @@ def split_date(dataset, date_column):
             row[TIME_COLUMN] = dt.strftime("%I:%M:%S %p")
             
     return dataset
+
+def select_columns(data, columns):
+    """
+    Filters a list of dictionaries to include only the specified keys.
+
+    :param data: List of dictionaries (e.g., rows from a CSV file).
+    :param columns: List of keys to retain in the dictionaries.
+    :return: A new list of dictionaries containing only the specified keys.
+    """
+    return [
+        {key: row[key] for key in columns if key in row}
+        for row in data
+    ]
+
+def concatenate_values(input_dict):
+    """
+    Takes a dictionary as input and returns a string 
+    with all the values concatenated.
+
+    Args:
+    input_dict (dict): The input dictionary.
+
+    Returns:
+    str: A concatenated string of all dictionary values.
+    """
+    if not isinstance(input_dict, dict):
+        raise ValueError("Input must be a dictionary.")
+
+    # Convert all values to strings, if not already, and concatenate
+    concatenated_string = ''.join(str(value) for value in input_dict.values())
+    return concatenated_string
