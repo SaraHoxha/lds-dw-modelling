@@ -1,5 +1,4 @@
-import csv
-from utils import read_csv_v2
+from utils.read_write import read_csv_v2
 from utils.utils import create_table_file
 
 CRASHES_CSV = read_csv_v2('../data/Crashes_Processed.csv')
@@ -15,7 +14,6 @@ CRASH_LOCATION_INDEX_COL = 'Crash_Location_ID'
 CRASH_LOCATION_NEW_COLUMNS = ['Street', 'Street_No', 'Street_Direction', 'Beat_Of_Occurrence', 'Latitude', 'Longitude', 'Location']
 CRASH_LOCATION_OG_COLUMNS = ['Street_Name', 'Street_No', 'Street_Direction', 'Beat_Of_Occurrence', 'Latitude', 'Longitude', 'Location']
 create_table_file(CRASHES_CSV, CRASH_LOCATION_FILE_PATH, CRASH_LOCATION_INDEX_COL, CRASH_LOCATION_NEW_COLUMNS, CRASH_LOCATION_OG_COLUMNS)
-
 
 CRASH_CONDITION_FILE_PATH = 'dw_tables_csv/CrashCondition.csv'
 CRASH_CONDITION_INDEX_COL = 'Crash_Condition_ID'

@@ -97,3 +97,33 @@ def create_table_file(original_file, new_csv,index_column, new_column_names, ori
                     original_column_names = new_column_names
                 writer.writerow([index_id] + [row[col.upper()] for col in original_column_names])
                 index_id += 1
+
+def create_table_file(original_file, new_csv, index_column, new_column_names, original_column_names=None):
+    try:
+        with open(new_csv, "w", newline="") as out_file:
+            writer = csv.writer(out_file)
+            # Write header for the table
+            writer.writerow([index_column] + new_column_names)
+            
+            index_id = 1
+            seen_rows = set()  # To store unique rows
+            
+            for row in original_file:
+                try:
+                    if original_column_names is None:
+                        original_column_names = new_column_names
+                    
+                    row_data = tuple(row[col.upper()] for col in original_column_names)
+                    
+                    if row_data not in seen_rows:
+                        writer.writerow([index_id] + list(row_data))
+                        seen_rows.add(row_data)
+                        index_id += 1
+                        
+                except Exception as e:
+                    print(f"Error processing row {row}: {e}.")
+                    break
+    except FileNotFoundError:
+        print(f"Error: The file {new_csv} could not be found.")
+    except Exception as e:
+        print(f"Error while creating table: {e}")
