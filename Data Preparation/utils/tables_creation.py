@@ -3,7 +3,7 @@ from utils.utils import concatenate_values
 from typing import List, Dict
 import csv
 
-def create_table_file(original_file, new_csv, index_column, new_column_names, original_column_names=None):
+def create_table(original_df, new_csv, index_column, new_column_names, original_column_names=None):
     print ("Creating table with key name:", index_column)
     try:
         with open(new_csv, "w", newline="") as out_file:
@@ -14,7 +14,7 @@ def create_table_file(original_file, new_csv, index_column, new_column_names, or
             index_id = 1
             seen_rows = set()  # To store unique rows
             
-            for row in original_file:
+            for row in original_df:
                 try:
                     if original_column_names is None:
                         original_column_names = new_column_names
@@ -35,7 +35,7 @@ def create_table_file(original_file, new_csv, index_column, new_column_names, or
         print(f"Error while creating table: {e}")
 
 
-def createDateTimeTable(all_dates: List[Dict[str, str]], path: str) -> None:
+def create_date_time_table(all_dates: List[Dict[str, str]], path: str) -> None:
     """
     Creates a date-time table from a list of date dictionaries and saves it as a CSV.
 

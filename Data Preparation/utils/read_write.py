@@ -40,13 +40,13 @@ def read_csv(file_path, primary_key):
 
     except FileNotFoundError:
         # Handle the case where the specified file does not exist
-        raise(f"Error: The file {file_path} was not found.")
+        raise Exception(f"Error: The file {file_path} was not found.")
     except csv.Error as e:
         # Handle errors related to CSV reading
-        raise(f"Error: There was a problem reading the CSV file: {e}")
+        raise Exception(f"Error: There was a problem reading the CSV file: {e}")
     except Exception as e:
         # Handle any other unexpected errors
-        raise(f"An unexpected error occurred: {e}")
+        raise Exception(f"An unexpected error occurred: {e}")
 
     return result  # Return the populated dictionary containing CSV data
 
@@ -88,13 +88,13 @@ def read_csv_v2(file_path):
 
     except FileNotFoundError:
         # Handle the case where the specified file does not exist
-        raise(f"Error: The file {file_path} was not found.")
+        raise Exception(f"Error: The file {file_path} was not found.")
     except csv.Error as e:
         # Handle errors related to CSV reading
-        raise(f"Error: There was a problem reading the CSV file: {e}")
+        raise Exception(f"Error: There was a problem reading the CSV file: {e}")
     except Exception as e:
         # Handle any other unexpected errors
-        raise(f"An unexpected error occurred: {e}")
+        raise Exception(f"An unexpected error occurred: {e}")
 
     return result  # Return the populated dictionary containing CSV data
 
@@ -122,8 +122,7 @@ def to_csv_v2(dict_list, file_name):
     - file_name: str, the name of the output CSV file.
     """
     if not dict_list:
-        print("The dictionary list is empty. No file will be created.")
-        return
+        raise Exception("The dictionary list is empty. No file will be created.")
     
     # Extract the keys from the first dictionary as headers
     headers = dict_list[0].keys()
@@ -142,4 +141,4 @@ def to_csv_v2(dict_list, file_name):
         
         print(f"Data has been successfully saved to {file_name}")
     except Exception as e:
-        raise(f"An error occurred while writing to the file: {e}")
+        raise Exception(f"An error occurred while writing to the file: {e}")

@@ -95,8 +95,7 @@ try:
                         cursor.executemany(sql, rows_to_insert)
                     
             except pyodbc.Error as e:
-                print(f"Error processing table {table_name}: {str(e)}")
-                raise  # Re-raise to rollback transaction
+                raise Exception(f"Error processing table {table_name}: {str(e)}")
                 
 except pyodbc.Error as e:
     print(f"Database error: {str(e)}")

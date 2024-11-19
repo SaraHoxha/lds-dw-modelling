@@ -256,7 +256,6 @@ def fill_missing_values_with_placeholder_string(data_dict, placeholder_string = 
                     
     except Exception as e:
         # Catch and log any unexpected exceptions for debugging purposes
-        print(f"An error occurred while filling missing values: {e}")
-        raise
-
+        raise Exception(f"An error occurred while filling missing values: {e}")
+        
     return data_dict

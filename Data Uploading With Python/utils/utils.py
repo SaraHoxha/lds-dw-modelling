@@ -67,8 +67,7 @@ def check_existing_table(cursor, table_name: str, new_data: dict) -> tuple[bool,
         return True, existing_set == new_data_set
 
     except pyodbc.Error as e:
-        print(f"Error checking table {table_name}: {str(e)}")
-        raise
+        raise Exception(f"Error checking table {table_name}: {str(e)}")
 
 def validate_schema(cursor, table_name, data_table):
     # Check if table is empty by trying to fetch just one row

@@ -146,8 +146,7 @@ with create_connection() as connection:
                 cursor.execute(sql_statement)
                 print(f"Table '{table_name}' created successfully.")
             except pyodbc.Error as e:
-                print(f"Error creating table '{table_name}':", e)
-                raise
+                raise Exception(f"Error creating table '{table_name}':", e)
         
         # Commit all changes if table creation was successful
         connection.commit()
