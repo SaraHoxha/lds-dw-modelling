@@ -1,21 +1,9 @@
 import csv
-from utils.read_write import read_csv_v2
+from utils import read_csv_v2
+from utils.utils import create_table_file
 
 CRASHES_CSV = read_csv_v2('../data/Crashes_Processed.csv')
-
-def create_table_file(crashes_file, new_csv,index_column, new_column_names, original_column_names = None):
-        with open(new_csv, "w", newline="") as out_file:
-            writer = csv.writer(out_file)
-            # Write header for table
-            writer.writerow([index_column] + new_column_names)
-            index_id = 1
-            for row in crashes_file:
-                if(original_column_names == None):
-                    original_column_names = new_column_names
-                writer.writerow([index_id] + [row[col.upper()] for col in original_column_names])
-                index_id += 1
-                
-
+            
 INJURY_FILE_PATH = 'dw_tables_csv/Injury.csv'
 INJURY_INDEX_COL = 'Injury_ID'
 INJURY_COLUMNS = ['Injuries_Total', 'Injuries_Fatal', 'Injuries_Incapacitating', 'Injuries_Non_Incapacitating', 'Injuries_No_Indication', 'Injuries_Reported_Not_Evident', 'Injuries_Unknown']
