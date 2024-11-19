@@ -1,21 +1,16 @@
 # Handle exceptions:
-    # - Check if the csv files exist
-    # - Check if the csv files are not empty
-    # - Check if the csv files have the correct primary key
-    # - Check if the csv files have the correct foreign key
+    (done)# - Check if the csv files exist
+    (done)# - Check if the csv files are not empty
+    (done)# - Check if the csv files have the correct primary key
     # - More to be added
 
-#Check if the table already exists in the database and if its the same as not to populate it again and continue with the next table.
+(done)#Check if the table already exists in the database and if its the same as not to populate it again and continue with the next table.
 
-#Check the file_path of the DW_csv_files folder in uploading python file.
+(done)#Change utils check_csv_files function to match only the files that we have in our schema.
 
-#Change utils check_csv_files function to match only the files that we have in our schema.
+(done)#I need to find a way to not  write K sql commands (one) for each row, this can be optimized to run 1k lines per sql query.
 
-#I need to find a way to not  write K sql commands (one) for each row, this can be optimized to run 1k lines per sql query.
-
-#Implement loop, remember where it starts and where it ends.
-
-#Check if I need to reset the cursor and the connection after each table or not.
+Create another py code to define the constraints on the tables (primary keys and foreign keys after tables already loaded)
 
 
 
