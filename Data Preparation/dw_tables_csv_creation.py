@@ -1,4 +1,3 @@
-import csv
 from utils.read_write import read_csv_v2
 from utils.utils import create_table_file
 
