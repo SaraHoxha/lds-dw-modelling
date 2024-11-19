@@ -71,6 +71,13 @@ def check_existing_table(cursor, table_name: str, new_data: dict) -> tuple[bool,
         raise
 
 def validate_schema(cursor, table_name, data_table):
+    # Check if table is empty by trying to fetch just one row
+    cursor.execute(f"SELECT TOP 1 * FROM {table_name}")
+    has_data = cursor.fetchone() is not None
+    
+    if not has_data:
+        print(f"Table {table_name} is empty. Skipping schema validation.")
+        return True
     # Get DB table schema
     cursor.execute(f"""
         SELECT COLUMN_NAME, DATA_TYPE 
