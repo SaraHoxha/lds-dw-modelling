@@ -25,26 +25,11 @@ PEOPLE_FILE_PATH = 'Data Preparation/dw_tables_csv/Person.csv'
 PEOPLE_INDEX_COL = 'Person_ID'
 ORIGINAL_DF_COLUMNS = ["PERSON_TYPE","SEX","AGE", "SAFETY_EQUIPMENT","AIRBAG_DEPLOYED", "DRIVER_ACTION", "PHYSICAL_CONDITION", "INJURY_CLASSIFICATION", "BAC_RESULT", "CITY","STATE"]
 NEW_DF_COLUMNS = ["Type", "Sex", "Age", "Safety_Equipment", "Airbag_Deployment_Status", "Driver_Action", "Physical_Condition", "Injury_Classification", "BAC_Result", "City", "State"]
+#CRASHES
+CRASHES_FILE_PATH = 'Data Preparation/dw_tables_csv/Crash.csv'
 
 # Read csvs
 CRASHES_DF = read_csv_v2('data/Crashes_Processed.csv')
-
-#CRASHES
-CRASHES_FILE_PATH = 'Data Preparation/dw_tables_csv/Crash.csv'
-crashes = createCrashTable(
-    CRASHES_FILE_PATH,
-    CRASHES_DF,
-    read_csv_v3(DATETIME_FILE_PATH, DATETIME_INDEX_COL),
-    read_csv_v3(CRASH_CONDITION_FILE_PATH, CRASH_CONDITION_INDEX_COL),
-    read_csv_v3(CRASH_INJURY_FILE_PATH, CRASH_INJURY_INDEX_COL),
-    read_csv_v3(CRASH_LOCATION_FILE_PATH, CRASH_LOCATION_INDEX_COL),
-    DATES_COLUMNS,
-    [col + "_POLICE_NOTIFIED" for col in DATES_COLUMNS],
-    CRASH_CONDITION_NEW_COLUMNS,
-    CRASH_INJURY_COLUMNS,
-    CRASH_LOCATION_NEW_COLUMNS,
-)
-
 VEHICLES_DF = read_csv_v2('data/Vehicles_Processed.csv')
 PEOPLE_DF = read_csv_v2('data/People_Processed.csv')
 
@@ -89,4 +74,18 @@ people_tab = create_table_no_fk(
     PEOPLE_INDEX_COL,
     NEW_DF_COLUMNS,
     ORIGINAL_DF_COLUMNS
+)
+
+crashes = createCrashTable(
+    CRASHES_FILE_PATH,
+    CRASHES_DF,
+    read_csv_v3(DATETIME_FILE_PATH, DATETIME_INDEX_COL),
+    read_csv_v3(CRASH_CONDITION_FILE_PATH, CRASH_CONDITION_INDEX_COL),
+    read_csv_v3(CRASH_INJURY_FILE_PATH, CRASH_INJURY_INDEX_COL),
+    read_csv_v3(CRASH_LOCATION_FILE_PATH, CRASH_LOCATION_INDEX_COL),
+    DATES_COLUMNS,
+    [col + "_POLICE_NOTIFIED" for col in DATES_COLUMNS],
+    CRASH_CONDITION_OG_COLUMNS,
+    CRASH_INJURY_COLUMNS,
+    CRASH_LOCATION_OG_COLUMNS,
 )

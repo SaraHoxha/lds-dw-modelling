@@ -1,6 +1,6 @@
 from utils.read_write import to_csv, to_csv_v2, to_csv_v3
 from utils.utils import concatenate_values
-from typing import List, Dict
+from typing import List, Dict, Any
 import csv
 
 def create_table_no_fk(
@@ -110,11 +110,11 @@ def create_date_time_table(
 
 def createCrashTable(
     path: str,
-    crashes_df: List[Dict[str, str]],
-    dateTimeTable: Dict[str, Dict[str, str]],
-    crashConditionTable: Dict[str, Dict[str, str]],
-    crashInjuriesTable: Dict[str, Dict[str, str]],
-    crashLocationTable: Dict[str, Dict[str, str]],
+    crashes_df: List[Dict[str, Any]],
+    dateTimeTable: Dict[str, Dict[str, Any]],
+    crashConditionTable: Dict[str, Dict[str, Any]],
+    crashInjuriesTable: Dict[str, Dict[str, Any]],
+    crashLocationTable: Dict[str, Dict[str, Any]],
     date_columns_mapping: List[str],
     police_notified_columns_mapping: List[str],
     crash_condition_columns_mapping: List[str],
@@ -141,7 +141,7 @@ def createCrashTable(
     Returns:
         Dict[str, Dict[str, str]]: A dictionary representing the crash table.
     """
-    def findIDFromTable(row: Dict[str, str], columns: List[str], table: Dict[str, Dict[str, str]], tablePrimaryKey: str) -> str:
+    def findIDFromTable(row: Dict[str, Any], columns: List[str], table: Dict[str, Dict[str, Any]], tablePrimaryKey: str) -> str:
         """
         Helper function to find the ID from a given table using a combination of column values.
 
@@ -159,26 +159,31 @@ def createCrashTable(
         row_data = table[key]
         return row_data[tablePrimaryKey]
     
-    result = ()
+    seen = set()
+    result = []
 
-    for index, row in enumerate(crashes_df):
-        newRow = {
-            "Crash_ID": index,
-            "Primary_Contributory_Cause": row["PRIM_CONTRIBUTORY_CAUSE"],
-            "Secondary_Contributory_Cause": row["SEC_CONTRIBUTORY_CAUSE"],
-            "Number_of_Units": row["NUM_UNITS"],
-            "Most_Severe_Injury": row["MOST_SEVERE_INJURY"],
-            "Difference_Between_Crash_Date_And_Police_Notified": row["DELTA_TIME_CRASH_DATE_POLICE_REPORT_DATE"],
-        }
-
+    index = 0
+    for row in crashes_df:
+        newRow = {}
+        
         newRow["Crash_Date_ID"] = findIDFromTable(row, date_columns_mapping, dateTimeTable, "DateTime_ID")
         newRow["Police_Notified_Date_ID"] = findIDFromTable(row, police_notified_columns_mapping, dateTimeTable, "DateTime_ID")
         newRow["Crash_Condition_ID"] = findIDFromTable(row, crash_condition_columns_mapping, crashConditionTable, "Crash_Condition_ID")
         newRow["Injury_ID"] = findIDFromTable(row, crash_injury_columns_mapping, crashInjuriesTable, "Injury_ID")
         newRow["Crash_Location_ID"] = findIDFromTable(row, crash_location_columns_mapping, crashLocationTable, "Crash_Location_ID")
+        
+        newRow["Primary_Contributory_Cause"] = row["PRIM_CONTRIBUTORY_CAUSE"]
+        newRow["Secondary_Contributory_Cause"] = row["SEC_CONTRIBUTORY_CAUSE"]
+        newRow["Number_of_Units"] = row["NUM_UNITS"]
+        newRow["Most_Severe_Injury"] = row["MOST_SEVERE_INJURY"]
+        newRow["Difference_Between_Crash_Date_And_Police_Notified"] = row["DELTA_TIME_CRASH_DATE_POLICE_REPORT_DATE"],
 
-        result.add(newRow)
+        row_tuple = newRow.values()
+        if tuple(row_tuple) not in seen:
+            seen.add(row_tuple)
+            result.append({"Crash_ID": index, **newRow})
+            index +=1
 
-    to_csv_v2(list(result), path)
+    to_csv_v2(result, path)
 
     return result
