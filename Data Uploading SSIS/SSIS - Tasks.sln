@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.34031.81
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Data Uploading", "Data Uploading SSIS\Data Uploading.dtproj", "{62F7152F-A0B4-4213-BD55-1307D6802F4C}"
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "SSIS - Tasks", "Data Uploading SSIS\SSIS - Tasks.dtproj", "{62F7152F-A0B4-4213-BD55-1307D6802F4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
