@@ -13,12 +13,19 @@ from utils.read_write import read_csv
 from utils.utils import check_csv_files, check_existing_table, validate_schema
 
 #Folder path
-folder_path = os.path.join(os.getcwd(),'data','dw_data')
+folder_path = os.path.join(os.getcwd(),'Data Preparation','dw_tables_csv')
 
 #CSV table names and primary keys, CHANGE WHEN NEEDED
 csv_tables_dict = [
     {'Name': 'CrashLocation.csv', 'Primary_Key': 'Crash_Location_ID'},
-    {'Name': 'CrashCondition.csv', 'Primary_Key': 'Crash_Condition_ID'}
+    {'Name': 'CrashCondition.csv', 'Primary_Key': 'Crash_Condition_ID'},
+    {'Name': 'Injury.csv', 'Primary_Key': 'Injury_ID'},
+    {'Name': 'dateTime.csv', 'Primary_Key': 'DateTime_ID'},
+    {'Name': 'Person.csv', 'Primary_Key': 'Person_ID'},
+    {'Name': 'Crash.csv', 'Primary_Key': 'Crash_ID'},
+    {'Name': 'Vehicle.csv', 'Primary_Key': 'Vehicle_ID'},
+    #damage_reimbursement
+    
 ]
 
 #Check if the csv files exist
@@ -66,9 +73,10 @@ try:
                         print(f"Table {table_name_db} already exists with identical data. Skipping...")
                         continue
                     elif table_exists:
-                        print(f"Table {table_name_db} exists but has different data. Proceeding with update...")
+                        print(f"Table {table_name_db} exists but has different data. Please take action manually and re-run{table_name_db}. Continuing...")
                         # Delete existing data
-                        cursor.execute(f"DELETE FROM {table_name_db}")
+                        #cursor.execute(f"DELETE FROM {table_name_db}")
+                        continue
                     
                     # Query to insert the data
                     columns = list(data_table['1'].keys())
