@@ -108,6 +108,24 @@ def create_date_time_table(
     
     return date_time_table
 
+def findIDFromTable(row: Dict[str, Any], columns: List[str], table: Dict[str, Dict[str, Any]], tablePrimaryKey: str) -> str:
+    """
+    Helper function to find the ID from a given table using a combination of column values.
+
+    Args:
+        row (Dict[str, str]): The current row from the crash data.
+        columns (List[str]): The list of columns to be used for creating a unique key.
+        table (Dict[str, Dict[str, str]]): The table to look for the ID in.
+        tablePrimaryKey (str): The primary key of the table.
+
+    Returns:
+        str: The found ID.
+    """
+    columns_values = [str(row.get(col, row.get(col.upper(), ""))) for col in columns]
+    key = " ".join(columns_values).strip()
+    row_data = table[key]
+    return row_data[tablePrimaryKey]
+
 def createCrashTable(
     path: str,
     crashes_df: List[Dict[str, Any]],
@@ -119,7 +137,8 @@ def createCrashTable(
     police_notified_columns_mapping: List[str],
     crash_condition_columns_mapping: List[str],
     crash_injury_columns_mapping: List[str],
-    crash_location_columns_mapping: List[str]
+    crash_location_columns_mapping: List[str],
+    idColumnName: str
 ) -> Dict[str, Dict[str, str]]:
     """
     Creates a crash table by linking crash data to corresponding entries in related tables
@@ -137,28 +156,11 @@ def createCrashTable(
         crash_condition_columns_mapping (List[str]): Mapping for crash condition columns.
         crash_injury_columns_mapping (List[str]): Mapping for crash injury columns.
         crash_location_columns_mapping (List[str]): Mapping for crash location columns.
+        idColumnName (str): The name of the ID column in the crash data.
 
     Returns:
         Dict[str, Dict[str, str]]: A dictionary representing the crash table.
     """
-    def findIDFromTable(row: Dict[str, Any], columns: List[str], table: Dict[str, Dict[str, Any]], tablePrimaryKey: str) -> str:
-        """
-        Helper function to find the ID from a given table using a combination of column values.
-
-        Args:
-            row (Dict[str, str]): The current row from the crash data.
-            columns (List[str]): The list of columns to be used for creating a unique key.
-            table (Dict[str, Dict[str, str]]): The table to look for the ID in.
-            tablePrimaryKey (str): The primary key of the table.
-
-        Returns:
-            str: The found ID.
-        """
-        columns_values = [str(row.get(col, row.get(col.upper(), ""))) for col in columns]
-        key = " ".join(columns_values).strip()
-        row_data = table[key]
-        return row_data[tablePrimaryKey]
-    
     seen = set()
     result = []
 
@@ -176,12 +178,55 @@ def createCrashTable(
         newRow["Secondary_Contributory_Cause"] = row["SEC_CONTRIBUTORY_CAUSE"]
         newRow["Number_of_Units"] = row["NUM_UNITS"]
         newRow["Most_Severe_Injury"] = row["MOST_SEVERE_INJURY"]
-        newRow["Difference_Between_Crash_Date_And_Police_Notified"] = row["DELTA_TIME_CRASH_DATE_POLICE_REPORT_DATE"],
+        newRow["Difference_Between_Crash_Date_And_Police_Notified"] = row["DELTA_TIME_CRASH_DATE_POLICE_REPORT_DATE"]
 
-        row_tuple = newRow.values()
+        row_tuple = tuple(newRow[key] for key in sorted(newRow.keys()))
         if tuple(row_tuple) not in seen:
             seen.add(row_tuple)
-            result.append({"Crash_ID": index, **newRow})
+            result.append({idColumnName: index, **newRow})
+            index +=1
+
+    to_csv_v2(result, path)
+
+    return result
+
+def createVehicleTable(
+    path:str,
+    vehicles_df: List[Dict[str, Any]],
+    dateTimeTable: Dict[str, Dict[str, Any]],
+    crashTable: Dict[str, Dict[str, Any]],
+    date_columns_mapping: List[str],
+    crash_columns_mapping: List[str],
+    idColumnName: str
+):
+    seen = set()
+    result = []
+
+    index = 0
+    for row in vehicles_df:
+        newRow = {}
+        
+        newRow["Date_ID"] = findIDFromTable(row, date_columns_mapping, dateTimeTable, "DateTime_ID")
+        # newRow["Crash_ID"] = findIDFromTable(row, crash_columns_mapping, crashTable, "Crash_ID")
+        
+        newRow["Unit_NO"] = row["UNIT_NO"]
+        newRow["Unit_Type"] = row["UNIT_TYPE"]
+        newRow["Make"] = row["MAKE"]
+        newRow["Model"] = row["MODEL"]
+        newRow["License_Plate_State"] = row["LIC_PLATE_STATE"]
+        newRow["Year"] = row["VEHICLE_YEAR"]
+        newRow["Defect"] = row["VEHICLE_DEFECT"]
+        newRow["Type"] = row["VEHICLE_TYPE"]
+        newRow["Use"] = row["VEHICLE_USE"]
+        newRow["Travel_Direction"] = row["TRAVEL_DIRECTION"]
+        newRow["Maneuver"] = row["MANEUVER"]
+        newRow["Occupant_Count"] = row["OCCUPANT_CNT"]
+        newRow["First_Contact_Point"] = row["FIRST_CONTACT_POINT"]
+
+        row_tuple = tuple(newRow[key] for key in sorted(newRow.keys()))
+        if tuple(row_tuple) not in seen:
+            seen.add(row_tuple)
+            result.append({idColumnName: index, **newRow})
             index +=1
 
     to_csv_v2(result, path)
