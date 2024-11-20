@@ -13,12 +13,19 @@ from utils.read_write import read_csv
 from utils.utils import check_csv_files, check_existing_table, validate_schema
 
 #Folder path
-folder_path = os.path.join(os.getcwd(),'data','dw_data')
+folder_path = os.path.join(os.getcwd(),'Data Preparation','dw_tables_csv')
 
 #CSV table names and primary keys, CHANGE WHEN NEEDED
 csv_tables_dict = [
     {'Name': 'CrashLocation.csv', 'Primary_Key': 'Crash_Location_ID'},
-    {'Name': 'CrashCondition.csv', 'Primary_Key': 'Crash_Condition_ID'}
+    {'Name': 'CrashCondition.csv', 'Primary_Key': 'Crash_Condition_ID'},
+    {'Name': 'Injury.csv', 'Primary_Key': 'Injury_ID'},
+    {'Name': 'dateTime.csv', 'Primary_Key': 'DateTime_ID'},
+    {'Name': 'Person.csv', 'Primary_Key': 'Person_ID'},
+    #crash
+    #vehicle
+    #damage_reimbursement
+    
 ]
 
 #Check if the csv files exist
