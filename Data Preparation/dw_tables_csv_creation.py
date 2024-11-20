@@ -3,8 +3,8 @@ from utils.utils import select_columns
 from utils.tables_creation import create_date_time_table, create_table_no_fk, createCrashTable
 
 # INJURIES
-CRASH_INJURY_FILE_PATH = 'Data Preparation/dw_tables_csv/CrashInjury.csv'
-CRASH_INJURY_INDEX_COL = 'Crash_Injury_ID'
+CRASH_INJURY_FILE_PATH = 'Data Preparation/dw_tables_csv/Injury.csv'
+CRASH_INJURY_INDEX_COL = 'Injury_ID'
 CRASH_INJURY_COLUMNS = ['Injuries_Total', 'Injuries_Fatal', 'Injuries_Incapacitating', 'Injuries_Non_Incapacitating', 'Injuries_No_Indication', 'Injuries_Reported_Not_Evident', 'Injuries_Unknown']
 # LOCATION
 CRASH_LOCATION_FILE_PATH = 'Data Preparation/dw_tables_csv/CrashLocation.csv'

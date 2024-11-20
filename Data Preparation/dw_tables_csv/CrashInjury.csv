@@ -1,4 +1,4 @@
-Crash_Injury_ID,Injuries_Total,Injuries_Fatal,Injuries_Incapacitating,Injuries_Non_Incapacitating,Injuries_No_Indication,Injuries_Reported_Not_Evident,Injuries_Unknown
+Injury_ID,Injuries_Total,Injuries_Fatal,Injuries_Incapacitating,Injuries_Non_Incapacitating,Injuries_No_Indication,Injuries_Reported_Not_Evident,Injuries_Unknown
 1,0,0,0,0,1,0,0
 2,0,0,0,0,2,0,0
 3,0,0,0,0,3,0,0

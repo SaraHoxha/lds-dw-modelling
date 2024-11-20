@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="ov005W1xM3WyUSUpcENa" name="Page-1">
-        <mxGraphModel dx="930" dy="415" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1116" dy="974" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -681,7 +681,7 @@
                         <mxRectangle width="30" height="30" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="858" value="Crash_Injury_ID" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=0;overflow=hidden;" parent="856" vertex="1">
+                <mxCell id="858" value="Injury_ID" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=0;overflow=hidden;" parent="856" vertex="1">
                     <mxGeometry x="30" width="305" height="30" as="geometry">
                         <mxRectangle width="305" height="30" as="alternateBounds"/>
                     </mxGeometry>
@@ -762,7 +762,7 @@
                         <mxRectangle width="38.43478260869567" height="30" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="901" value="Crash_Injury_ID" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;" parent="899" vertex="1">
+                <mxCell id="901" value="Injury_ID" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;" parent="899" vertex="1">
                     <mxGeometry x="38.43478260869567" width="224.56521739130432" height="30" as="geometry">
                         <mxRectangle width="224.56521739130432" height="30" as="alternateBounds"/>
                     </mxGeometry>
@@ -1106,6 +1106,14 @@
                         <Array as="points">
                             <mxPoint x="870" y="696"/>
                             <mxPoint x="870" y="931"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="1012" style="edgeStyle=none;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="810" target="129" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="780" y="1347"/>
+                            <mxPoint x="785" y="650"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>

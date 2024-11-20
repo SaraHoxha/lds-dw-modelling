@@ -174,7 +174,7 @@ def createCrashTable(
         newRow["Crash_Date_ID"] = findIDFromTable(row, date_columns_mapping, dateTimeTable, "DateTime_ID")
         newRow["Police_Notified_Date_ID"] = findIDFromTable(row, police_notified_columns_mapping, dateTimeTable, "DateTime_ID")
         newRow["Crash_Condition_ID"] = findIDFromTable(row, crash_condition_columns_mapping, crashConditionTable, "Crash_Condition_ID")
-        newRow["Crash_Injury_ID"] = findIDFromTable(row, crash_injury_columns_mapping, crashInjuriesTable, "Crash_Injury_ID")
+        newRow["Injury_ID"] = findIDFromTable(row, crash_injury_columns_mapping, crashInjuriesTable, "Injury_ID")
         newRow["Crash_Location_ID"] = findIDFromTable(row, crash_location_columns_mapping, crashLocationTable, "Crash_Location_ID")
 
         result.add(newRow)
