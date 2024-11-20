@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{EF30722A-0D01-46B8-AD36-14FE44AF3C6D}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{B55A0E12-F54E-4544-B833-6D83C4ABE939}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAEl0vAlEmrU6bQflrV1G4KwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADt5fi+bwPr8h60A+ar1MWgickn9MDlYCUDuBmHjyg/JgAAAAAOgAAAAAIAACAAAABbbr+grPfapuzACpTxhhjfrJQco+u5/ujFbhoXcvy/xCAAAACLthNc0PeG+PIhI4k85ulWVDlXxUPuwTBcgKfaEJ8QR0AAAACHkDcU3ygxU9/jZVM5cSwhnF3BQwWL3xoQf0291RDR/qbuKBPgBKMvUbUGA9Tmy9kRzqoghjLORMGGLFerhKof</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAEl0vAlEmrU6bQflrV1G4KwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADldopCpU4fpMz323jRTDaBVNMPPqOgSz03mn3jyd2mYAAAAAAOgAAAAAIAACAAAACwFWNZyTRTKwap/+tcO/EeMU0PqJ1legeJMMxngfhTaCAAAADx9iSM+R6q2uBYJec0SKbmXpvXQefCaIT7Ni/M8y/3+UAAAACO1cCdha5UDWvhdBRo7SSYbcYkkbV0w1Oxeur44MQl7eI9MAsRy0Ziloz9I/IY6TmH2mOMPz+RaggcY6HJeBmo</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -108,46 +108,46 @@
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Iterate over tables\Create Sample Table"
+          DTS:refId="Package\Iterate over tables\Create SSIS Table"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Create Sample Table"
+          DTS:Description="Create SSIS Table as replicates of the original tables"
           DTS:DTSID="{EDCAA5ED-09FC-4429-A81C-FB8E2799CFD3}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Create Sample Table"
+          DTS:ObjectName="Create SSIS Table"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
           DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:PropertyExpression
-            DTS:Name="SqlStatementSource">"SELECT TOP 0 * INTO [dbo].[" + @[User::CurrentTable] + "_Sample] " +
-"FROM [dbo].[" + @[User::CurrentTable] + "];"</DTS:PropertyExpression>
+            DTS:Name="SqlStatementSource">"SELECT TOP 0 * INTO [Group_ID_4][" + @[User::CurrentTable] + "_SSIS] " +
+"FROM [Group_ID_4].[" + @[User::CurrentTable] + "];"</DTS:PropertyExpression>
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{8DB1FBE0-9742-48DC-B390-B42E50E9CA8A}"
               SQLTask:SqlStmtSourceType="Variable"
-              SQLTask:SqlStatementSource="SELECT TOP 0 * INTO [dbo].[_Sample] FROM [dbo].[];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="SELECT TOP 0 * INTO [Group_ID_4][_SSIS] FROM [Group_ID_4].[];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Iterate over tables\Insert Sample Data"
+          DTS:refId="Package\Iterate over tables\Insert SSIS Data"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Insert Sample Data"
+          DTS:Description="Insert 10% of the data to the SSIS table"
           DTS:DTSID="{CD3C8C92-B5EE-4220-B051-CEBE79BFB64F}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Insert Sample Data"
+          DTS:ObjectName="Insert SSIS Data"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
           DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:PropertyExpression
-            DTS:Name="SqlStatementSource">"INSERT INTO [dbo].[" + @[User::CurrentTable] + "_Sample] " +
-"SELECT * FROM [dbo].[" + @[User::CurrentTable] + "] " +
+            DTS:Name="SqlStatementSource">"INSERT INTO [Group_ID_4].[" + @[User::CurrentTable] + "_SSIS] " +
+"SELECT * FROM [Group_ID_4].[" + @[User::CurrentTable] + "] " +
 "WHERE ABS(CAST(CHECKSUM(NEWID()) AS INT)) % 100 &lt; 10;"</DTS:PropertyExpression>
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{8DB1FBE0-9742-48DC-B390-B42E50E9CA8A}"
               SQLTask:SqlStmtSourceType="Variable"
-              SQLTask:SqlStatementSource="INSERT INTO [dbo].[_Sample] SELECT * FROM [dbo].[] WHERE ABS(CAST(CHECKSUM(NEWID()) AS INT)) % 100 &lt; 10;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="INSERT INTO [Group_ID_4].[_SSIS] SELECT * FROM [Group_ID_4].[] WHERE ABS(CAST(CHECKSUM(NEWID()) AS INT)) % 100 &lt; 10;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -156,10 +156,10 @@
           DTS:refId="Package\Iterate over tables.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
           DTS:DTSID="{36F4E516-3962-4518-B690-CF040F7AC10F}"
-          DTS:From="Package\Iterate over tables\Create Sample Table"
+          DTS:From="Package\Iterate over tables\Create SSIS Table"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
-          DTS:To="Package\Iterate over tables\Insert Sample Data" />
+          DTS:To="Package\Iterate over tables\Insert SSIS Data" />
       </DTS:PrecedenceConstraints>
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
@@ -199,11 +199,11 @@
           TopLeft="116,21" />
         <NodeLayout
           Size="177,42"
-          Id="Package\Iterate over tables\Create Sample Table"
+          Id="Package\Iterate over tables\Create SSIS Table"
           TopLeft="16,13.5" />
         <NodeLayout
           Size="163,42"
-          Id="Package\Iterate over tables\Insert Sample Data"
+          Id="Package\Iterate over tables\Insert SSIS Data"
           TopLeft="24,96.5" />
         <EdgeLayout
           Id="Package\Iterate over tables.PrecedenceConstraints[Constraint]"
@@ -233,21 +233,21 @@
           PanelSize="205,157"
           Size="205,200"
           Id="Package\Iterate over tables"
-          TopLeft="92.5,106.5" />
+          TopLeft="100.5,110.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="196.25,63">
+          TopLeft="200.25,63">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,43.5"
+              EndConnector="0,47.5"
               Start="0,0"
-              End="0,36">
+              End="0,40">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,36" />
+                    End="0,40" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
