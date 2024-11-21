@@ -39,8 +39,11 @@ def read_csv(
                 # Option 2: Use concatenated values from specified columns as keys
                 result = {}
                 for row in reader:
+
                     key = concatenate_values(row, idColumn)
                     if key in result:
+                        print('ROW')
+                        print(row)
                         raise ValueError(f"Duplicate key found: {key}")
                     result[key] = {k: convert_value(v) for k, v in row.items()}
             else:

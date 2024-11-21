@@ -32,9 +32,26 @@ CRASH_NEW_COLUMNS = ["Crash_Date_ID", "Police_Notified_Date_ID", "Crash_Conditio
 #VEHICLE
 VEHICLE_FILE_PATH = 'Data Preparation/dw_tables_csv/Vehicle.csv'
 VEHICLE_INDEX_COL = "Vehicle_ID"
+VEHICLE_OG_COLUMNS = ['CRASH_UNIT_ID',
+'RD_NO',
+ 'CRASH_DATE',
+ 'UNIT_NO',
+ 'UNIT_TYPE',
+ 'VEHICLE_ID',
+ 'MAKE',
+ 'MODEL',
+ 'LIC_PLATE_STATE',
+ 'VEHICLE_YEAR',
+ 'VEHICLE_DEFECT',
+ 'VEHICLE_TYPE',
+ 'VEHICLE_USE',
+ 'TRAVEL_DIRECTION',
+ 'MANEUVER',
+ 'OCCUPANT_CNT',
+ 'FIRST_CONTACT_POINT']
 #DAMAGE_REIMBURSEMENT
 DAMAGE_REIMBURSEMENT_FILE_PATH = 'Data Preparation/dw_tables_csv/DamageReimbursement.csv'
-DAMAGE_REIMBURSEMENT_COLUMNS = ['Person_ID','Vehicle_ID','Crash_ID', 'Cost', 'Cost Category' ]
+DAMAGE_REIMBURSEMENT_COLUMNS = ['Person_ID','Vehicle_ID','Crash_ID', 'Cost', 'Cost_Category' ]
 DAMAGE_REIMBURSEMENT_INDEX_COL = "Damage_Reimbursement_ID"
 
 # Read CSVs
@@ -44,7 +61,7 @@ PEOPLE_DF = read_csv('data/People_Processed.csv')
 
 
 # Create tables
-
+'''
 crash_injuries_tab = create_table_no_fk(
     CRASH_DF,
     CRASH_INJURY_FILE_PATH,
@@ -112,11 +129,19 @@ vehicle = createVehicleTable(
     DATES_COLUMNS,
     CRASH_NEW_COLUMNS,
     VEHICLE_INDEX_COL
-)
+)'''
 
 damageReimbursement = createDamageReimbursementTable(
     DAMAGE_REIMBURSEMENT_FILE_PATH,
     PEOPLE_DF,
+    VEHICLES_DF,
+    CRASH_DF,
+    read_csv(VEHICLE_FILE_PATH, idColumn=VEHICLE_INDEX_COL),
+    read_csv(CRASH_FILE_PATH, idColumn=CRASH_INDEX_COL),
+    read_csv(PERSON_FILE_PATH, idColumn=PERSON_INDEX_COL),
+    PERSON_OG_COLUMNS,
+    CRASH_NEW_COLUMNS,
+    VEHICLE_OG_COLUMNS,
     DAMAGE_REIMBURSEMENT_INDEX_COL
-    #TBD
+
 )

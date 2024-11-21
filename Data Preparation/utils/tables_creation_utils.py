@@ -235,10 +235,14 @@ def createVehicleTable(
 def createDamageReimbursementTable(
     path: str,
     people_df: List[Dict[str, Any]],
+    vehicle_df: List[Dict[str, Any]],
+    crash_df: List[Dict[str, Any]],
     vehicleTable: Dict[str, Dict[str, Any]],
     crashTable: Dict[str, Dict[str, Any]],
     personTable: Dict[str, Dict[str, Any]],
     person_columns_mapping: List[str],
+    crash_columns_mapping: List[str],
+    vehicle_columns_mapping: List[str],
     idColumnName: str
 ) -> Dict[str, Dict[str, str]]:
     
@@ -247,6 +251,31 @@ def createDamageReimbursementTable(
 
     index = 0
     for row in people_df:
+        print(f'ROW NE PEOPLE DF ESHTE: {row}')
         newRow = {}
-        #TBD
+        RD_NO = row["RD_NO"]
+        print(f'RD_NO: {row}')
+        newRow["Person_ID"] = findIDFromTable(row, person_columns_mapping, personTable, "Person_ID")
+        print(f'PERSON_ID: {newRow["Person_ID"]}')
+        crash_row = crash_df.get(RD_NO)
+        print(f'CRASH_ROW: {crash_row}')
+        newRow["Crash_ID"] = findIDFromTable(crash_row, crash_columns_mapping, crashTable, "Crash_ID")
+        print(f'Crash_ID: {newRow["Crash_ID"]}')
+        vehicle_row = vehicle_df.get(RD_NO)
+        print(f'CRASH_ROW: {vehicle_row}')
+        newRow["Vehicle_ID"] = findIDFromTable(vehicle_row, vehicle_columns_mapping, vehicleTable, "Vehicle_ID")
+        print(f'Vehicle_ID: {newRow["Vehicle_ID"]}')
+        
+        newRow["Cost"] = row["DAMAGE"]
+        newRow["Cost_Category"] = row["DAMAGE_CATEGORY"]
+        
+        
+        row_tuple = tuple(newRow[key] for key in sorted(newRow.keys()))
+        if tuple(row_tuple) not in seen:
+            seen.add(row_tuple)
+            result.append({idColumnName: index, **newRow})
+            index +=1
+
+    to_csv(result, path)
+    
     return result
