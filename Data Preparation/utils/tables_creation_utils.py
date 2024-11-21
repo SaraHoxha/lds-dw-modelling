@@ -1,7 +1,6 @@
-from utils.read_write import to_csv, to_csv_v2, to_csv_v3
+from utils.read_write import to_csv
 from utils.utils import concatenate_values
 from typing import List, Dict, Any
-import csv
 
 def create_table_no_fk(
     original_df: List[Dict[str, str]], 
@@ -48,7 +47,7 @@ def create_table_no_fk(
                 print(f"Error processing row {row}: {e}.")
                 break
         
-        to_csv_v3(table, new_csv)
+        to_csv(table, new_csv, True)
         
         return table
     
@@ -186,7 +185,7 @@ def createCrashTable(
             result.append({idColumnName: index, **newRow})
             index +=1
 
-    to_csv_v2(result, path)
+    to_csv(result, path)
 
     return result
 
@@ -229,6 +228,25 @@ def createVehicleTable(
             result.append({idColumnName: index, **newRow})
             index +=1
 
-    to_csv_v2(result, path)
+    to_csv(result, path)
 
+    return result
+
+def createDamageReimbursementTable(
+    path: str,
+    people_df: List[Dict[str, Any]],
+    vehicleTable: Dict[str, Dict[str, Any]],
+    crashTable: Dict[str, Dict[str, Any]],
+    personTable: Dict[str, Dict[str, Any]],
+    person_columns_mapping: List[str],
+    idColumnName: str
+) -> Dict[str, Dict[str, str]]:
+    
+    seen = set()
+    result = []
+
+    index = 0
+    for row in people_df:
+        newRow = {}
+        #TBD
     return result
