@@ -95,20 +95,6 @@ def split_date(dataset: Dict[str, Dict[str, Any]], date_column: str) -> Dict[str
             
     return dataset
 
-def select_columns(data: List[Dict[str, Any]], columns: List[str]) -> List[Dict[str, Any]]:
-    """
-    Filters the dataset to only include the specified columns.
-
-    :param data: A list of dictionaries representing the dataset.
-    :param columns: A list of column names to retain.
-    :return: A list of dictionaries containing only the specified columns.
-    """
-    print("Filtering the dataset by columns", columns)
-    return [
-        {key: row[key] for key in columns if key in row}
-        for row in data
-    ]
-
 def concatenate_values(input_dict: Dict[str, Any], idColumn: str) -> str:
     """
     Concatenates all values in a dictionary into a single string, excluding the value of the specified ID column.
