@@ -285,7 +285,6 @@ def createDamageReimbursementTable(
     index = 1
     
     for row in people_df:
-        print(f'hyra te loop INDEX {index}')
         newRow = {}
         RD_NO = row["RD_NO"]
         PERSON_ID = row['PERSON_ID']
