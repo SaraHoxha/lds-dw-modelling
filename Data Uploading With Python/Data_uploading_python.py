@@ -9,8 +9,16 @@
 import pyodbc
 import sys
 import os
-from utils.read_write import read_csv
-from utils.utils import check_csv_files, check_existing_table, validate_schema
+from utils.data_uploading_utils import check_csv_files, check_existing_table, validate_schema
+
+original_sys_path = sys.path.copy()
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(parent_dir)
+
+from general.read_write import read_csv
+
+sys.path = original_sys_path
+from general.read_write import read_csv
 
 #Folder path
 folder_path = os.path.join(os.getcwd(),'Data Preparation','dw_tables_csv')

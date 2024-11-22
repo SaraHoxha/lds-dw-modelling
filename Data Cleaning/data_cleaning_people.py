@@ -1,8 +1,17 @@
 # Imports
-from utils.read_write import read_csv, to_csv
-from utils.utils import fill_missing_values, split_date
 from utils.people_utils import set_age_to_none, set_city_to_unknown, set_state_to_unknown, default_sex_to_U, set_driver_cols_to_none_for_passengers, fill_state_based_on_city
 
+import sys
+import os
+
+original_sys_path = sys.path.copy()
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(parent_dir)
+
+from general.read_write import read_csv, to_csv
+from general.utils import split_date, fill_missing_values
+
+sys.path = original_sys_path
 
 # Read "People csv"
 people_df = read_csv ('data/People.csv', 'PERSON_ID')

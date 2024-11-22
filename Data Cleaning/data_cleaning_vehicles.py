@@ -1,23 +1,32 @@
-#Imports
-from utils.read_write import read_csv, to_csv
-from utils.utils import fill_missing_values, split_date
 from utils.vehicles_utils import license_xx_to_u, typos_fixing, set_vehicle_year
+
+import sys
+import os
+
+original_sys_path = sys.path.copy()
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
+sys.path.append(parent_dir)
+from general.read_write import read_csv, to_csv
+from general.utils import fill_missing_values, split_date
+sys.path = original_sys_path
+
 
 # Read "Vehicles csv"
 vehicles_df = read_csv ('data/Vehicles.csv', 'CRASH_UNIT_ID')
 
 # Fill missing values for columns that provide a default 'Unknown' value
 column2defaultUknown = {
-'UNIT_TYPE': 'UNKNOWN',
-'LIC_PLATE_STATE': 'UNKNOWN',
-'MAKE': 'UNKNOWN',
-'MODEL': 'UNKNOWN',
-'VEHICLE_DEFECT': 'UNKNOWN',
-'VEHICLE_TYPE': 'UNKNOWN/NA',
-'VEHICLE_USE': 'UNKNOWN/NA',
-'TRAVEL_DIRECTION': 'UNKNOWN', 
-'MANEUVER': 'UNKNOWN',
-'FIRST_CONTACT_POINT': 'UNKNOWN'
+    'UNIT_TYPE': 'UNKNOWN',
+    'LIC_PLATE_STATE': 'UNKNOWN',
+    'MAKE': 'UNKNOWN',
+    'MODEL': 'UNKNOWN',
+    'VEHICLE_DEFECT': 'UNKNOWN',
+    'VEHICLE_TYPE': 'UNKNOWN/NA',
+    'VEHICLE_USE': 'UNKNOWN/NA',
+    'TRAVEL_DIRECTION': 'UNKNOWN', 
+    'MANEUVER': 'UNKNOWN',
+    'FIRST_CONTACT_POINT': 'UNKNOWN'
 }
 
 vehicles_df_processed = fill_missing_values(vehicles_df, column2defaultUknown)

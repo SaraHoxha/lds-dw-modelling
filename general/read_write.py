@@ -1,7 +1,7 @@
 import csv
 from os.path import basename
 from typing import List, Dict, Any, Union
-from utils.utils import concatenate_values, convert_value
+from general.utils import concatenate_values, convert_value
 
 def read_csv(
     file_path: str, 

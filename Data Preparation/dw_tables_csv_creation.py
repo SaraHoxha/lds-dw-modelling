@@ -1,5 +1,14 @@
-from utils.read_write import read_csv
 from utils.tables_creation_utils import *
+
+import sys
+import os
+
+original_sys_path = sys.path.copy()
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
+sys.path.append(parent_dir)
+from general.read_write import read_csv
+sys.path = original_sys_path
 
 # INJURY
 INJURY_FILE_PATH = 'Data Preparation/dw_tables_csv/Injury.csv'

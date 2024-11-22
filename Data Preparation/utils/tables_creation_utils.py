@@ -1,5 +1,14 @@
-from utils.read_write import to_csv
 from typing import List, Dict, Any
+
+import sys
+import os
+
+original_sys_path = sys.path.copy()
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
+sys.path.append(parent_dir)
+from general.read_write import to_csv
+sys.path = original_sys_path
 
 def selectColumns(data: List[List[Dict[str, Any]]], columns: List[str]) -> List[Dict[str, Any]]:
     """

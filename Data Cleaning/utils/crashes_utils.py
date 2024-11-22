@@ -3,8 +3,15 @@ from datetime import datetime
 import json
 import time
 
-from utils.read_write import read_csv, to_csv
-from utils.utils import get_api_key, check_if_file_exists_and_create
+import sys
+import os
+
+original_sys_path = sys.path.copy()
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
+sys.path.append(parent_dir)
+from general.utils import get_api_key, check_if_file_exists_and_create
+sys.path = original_sys_path
 
 from opencage.geocoder import OpenCageGeocode
 

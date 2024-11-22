@@ -1,6 +1,17 @@
+import sys
+import os
+
+original_sys_path = sys.path.copy()
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
+sys.path.append(parent_dir)
+from general.read_write import read_csv, to_csv
+from general.utils import split_date
+sys.path = original_sys_path
+
+
 from utils.crashes_utils import create_file_with_missing_location_values, fill_missing_location_values, fill_missing_BEAT_OF_OCCURRENCE, fix_license_plates, convert_float_columns_to_int_columns, add_delta_car_crash_date_police_report_date
-from utils.read_write import read_csv, to_csv
-from utils.utils import split_date
+
 
 crashes_df = read_csv ('data/Crashes.csv', 'RD_NO')
 

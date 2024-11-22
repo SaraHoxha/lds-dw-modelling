@@ -1,7 +1,6 @@
-import os
-import csv
 from datetime import datetime
-from typing import List, Dict, Any, Union
+from typing import Dict, Any, Union
+import os
 
 DAY_COLUMN = 'DAY'
 MONTH_COLUMN = 'MONTH'
@@ -64,7 +63,7 @@ def fill_missing_values(dataset: Dict[str, Dict[str, Any]], column_defaults: Dic
             print(f"Error processing row: {row} | Error: {e}")
     return dataset
 
-def split_date(dataset: Dict[str, Dict[str, Any]], date_column: str) -> Dict[str, Dict[str, Any]]:
+def split_date(dataset: Dict[str, Dict[str, Any]], date_column: str, affix="") -> Dict[str, Dict[str, Any]]:
     """
     Splits a date string in the specified date column into separate 'DAY', 'MONTH', 'YEAR', and 'TIME' columns.
 
@@ -72,7 +71,7 @@ def split_date(dataset: Dict[str, Dict[str, Any]], date_column: str) -> Dict[str
     :param date_column: The name of the column containing date strings to split.
     :return: The dataset with the date column split into multiple components.
     """
-    print("Splitting date column", date_column, "into 'DAY', 'MONTH', 'YEAR', 'TIME'")
+    print ("Splitting date column", date_column, "into 'DAY" + affix + "', 'MONTH" + affix + "', 'YEAR" + affix + "', 'TIME" + affix + "'")
 
     for row in dataset.values():
         if row.get(date_column):
@@ -88,10 +87,10 @@ def split_date(dataset: Dict[str, Dict[str, Any]], date_column: str) -> Dict[str
                     print(f'Error: {e}')
 
             # Assign extracted date parts to respective columns
-            row[YEAR_COLUMN] = dt.year
-            row[MONTH_COLUMN] = dt.month
-            row[DAY_COLUMN] = dt.day
-            row[TIME_COLUMN] = dt.strftime("%I:%M:%S %p")
+            row[YEAR_COLUMN + affix] = dt.year
+            row[MONTH_COLUMN + affix] = dt.month
+            row[DAY_COLUMN + affix] = dt.day
+            row[TIME_COLUMN + affix] = dt.strftime("%I:%M:%S %p")
             
     return dataset
 
