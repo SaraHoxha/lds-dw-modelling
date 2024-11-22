@@ -1,5 +1,4 @@
 from utils.read_write import to_csv
-from utils.utils import concatenate_values
 from typing import List, Dict, Any
 
 def selectColumns(data: List[List[Dict[str, Any]]], columns: List[str]) -> List[Dict[str, Any]]:
@@ -292,19 +291,13 @@ def createDamageReimbursementTable(
         PERSON_ID = row['PERSON_ID']
         VEHICLE_ID = row['VEHICLE_ID']
         
-        print(f'PERSON_ID ne csv {PERSON_ID}')
         person_row = next((person for person in personTable.values() if person.get("PERSON_ID") == PERSON_ID), None)
-        print(f'PERSON_ID NE TABELE {person_row.get("Person_ID")}')
         newRow["Person_ID"] = person_row.get("Person_ID")
         
-        print(f'RD_NO {RD_NO}')
         crash_row = next((crash for crash in crashTable.values() if crash.get("RD_NO") == RD_NO), None)
-        print(f'CRASH_ID NE TABELE {crash_row.get("Crash_ID")}')
         newRow["Crash_ID"] = crash_row.get('Crash_ID')
         
-        print(f'VEHICLE_ID ne csv {VEHICLE_ID}')
         vehicle_row = next((vehicle for vehicle in vehicleTable.values() if vehicle.get("VEHICLE_ID") == VEHICLE_ID), None)
-        print(f'VEHICLE_ID NE TABELE {vehicle_row.get("Vehicle_ID")}')
         newRow["Vehicle_ID"] = vehicle_row.get("Vehicle_ID")
     
         

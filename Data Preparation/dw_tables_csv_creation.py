@@ -46,13 +46,13 @@ DAMAGE_REIMBURSEMENT_COLUMNS = ['Person_ID','Vehicle_ID','Crash_ID', 'Cost', 'Co
 DAMAGE_REIMBURSEMENT_INDEX_COL = "Damage_Reimbursement_ID"
 
 # READ DFs
-#VEHICLES_DF = read_csv('data/Vehicles_Processed.csv')
-#CRASH_DF = read_csv('data/Crashes_Processed.csv')
+VEHICLES_DF = read_csv('data/Vehicles_Processed.csv')
+CRASH_DF = read_csv('data/Crashes_Processed.csv')
 PEOPLE_DF = read_csv('data/People_Processed.csv')
 
 
 # CREATE TABLES
-'''
+
 crashInjuriesTable  = createTableWithNoFK(
     CRASH_DF,
     INJURY_FILE_PATH,
@@ -115,7 +115,7 @@ vehicle = createVehicleTable(
     VEHICLE_INDEX_COL
 )
 
-'''
+
 damageReimbursement = createDamageReimbursementTable(
     DAMAGE_REIMBURSEMENT_FILE_PATH,
     PEOPLE_DF,
