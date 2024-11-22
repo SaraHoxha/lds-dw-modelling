@@ -34,7 +34,7 @@ in the schema proposed.
  - **Purpose**: This folder containes the python script `Data_uploading_python.py` that populates the database Group_ID_4_DB according to the schema relations with all the csv files prepared in Data Preparation.
 
 ### 6. **SSIS-Tasks**
- - Assignment 6 - 9
+ - Assignment 6, 6a - 9a
  - **Purpose**: This folder containes the all the SSIS packages in one Visual Studio solution.
  -  `Data Uploading.dtsx`: SSIS package that duplicates each table without the records, renaming them as TABLENAME_SSIS and populates the new set of tables with 10% of the data in the original tables.
 
