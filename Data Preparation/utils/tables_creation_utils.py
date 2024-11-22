@@ -206,7 +206,7 @@ def createCrashTable(
     """
     result = []
     date_columns_mapping = [col.upper() for col in date_columns_mapping]
-    index = 0
+    index = 1
     for row in crashes_df:
         newRow = {}
         
@@ -240,7 +240,7 @@ def createVehicleTable(
     seen = set()
     result = []
 
-    index = 0
+    index = 1
     date_columns_mapping = [col.upper() for col in date_columns_mapping]
     for row in vehicles_df:
         newRow = {}
@@ -260,7 +260,7 @@ def createVehicleTable(
         newRow["Maneuver"] = row["MANEUVER"]
         newRow["Occupant_Count"] = row["OCCUPANT_CNT"]
         newRow["First_Contact_Point"] = row["FIRST_CONTACT_POINT"]
-        newRow["RD_NO"] = row["RD_NO"]
+        newRow["VEHICLE_ID"] = row["VEHICLE_ID"]
 
         row_tuple = tuple(newRow[key] for key in sorted(newRow.keys()))
         if tuple(row_tuple) not in seen:
@@ -283,23 +283,33 @@ def createDamageReimbursementTable(
     seen = set()
     result = []
 
-    index = 0
+    index = 1
+    
     for row in people_df:
+        print(f'hyra te loop INDEX {index}')
         newRow = {}
         RD_NO = row["RD_NO"]
+        PERSON_ID = row['PERSON_ID']
+        VEHICLE_ID = row['VEHICLE_ID']
         
-        person_row = next((person for person in personTable.values() if person.get("RD_NO") == RD_NO), None)
+        print(f'PERSON_ID ne csv {PERSON_ID}')
+        person_row = next((person for person in personTable.values() if person.get("PERSON_ID") == PERSON_ID), None)
+        print(f'PERSON_ID NE TABELE {person_row.get("Person_ID")}')
         newRow["Person_ID"] = person_row.get("Person_ID")
         
+        print(f'RD_NO {RD_NO}')
         crash_row = next((crash for crash in crashTable.values() if crash.get("RD_NO") == RD_NO), None)
+        print(f'CRASH_ID NE TABELE {crash_row.get("Crash_ID")}')
         newRow["Crash_ID"] = crash_row.get('Crash_ID')
         
-        vehicle_row = next((vehicle for vehicle in vehicleTable.values() if vehicle.get("RD_NO") == RD_NO), None)
+        print(f'VEHICLE_ID ne csv {VEHICLE_ID}')
+        vehicle_row = next((vehicle for vehicle in vehicleTable.values() if vehicle.get("VEHICLE_ID") == VEHICLE_ID), None)
+        print(f'VEHICLE_ID NE TABELE {vehicle_row.get("Vehicle_ID")}')
         newRow["Vehicle_ID"] = vehicle_row.get("Vehicle_ID")
+    
         
         newRow["Cost"] = row["DAMAGE"]
         newRow["Cost_Category"] = row["DAMAGE_CATEGORY"]
-        
         
         row_tuple = tuple(newRow[key] for key in sorted(newRow.keys()))
         if tuple(row_tuple) not in seen:
@@ -310,3 +320,29 @@ def createDamageReimbursementTable(
     to_csv(result, path)
     
     return result
+
+def removeColumns(
+    vehicleTable: Dict[str, Dict[str, Any]],
+    crashTable: Dict[str, Dict[str, Any]],
+    personTable: Dict[str, Dict[str, Any]],
+    columnsToRemove: List[str]
+    ):
+    try:
+        tables = [vehicleTable, crashTable, personTable]
+        for index, table in enumerate(tables):
+            if index < len(columnsToRemove):
+                field = columnsToRemove[index]
+            for record in table.values():
+                try:
+                    if field in record:
+                        del record[field]
+                except KeyError as ke:
+                        print(f"Key Error: {ke}")
+                        break
+                except Exception as e: 
+                        print(f"Error : {e}")
+                        break
+            index+=1
+    except Exception as e:
+        print(f"Error : {e}")
+    return 
