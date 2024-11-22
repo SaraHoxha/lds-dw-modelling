@@ -27,8 +27,8 @@ DATETIME_OG_COLUMNS = [col.upper() for col in DATETIME_NEW_COLUMNS] + DATETIME_P
 # PERSON
 PERSON_FILE_PATH = 'Data Preparation/dw_tables_csv/Person.csv'
 PERSON_INDEX_COL = 'Person_ID'
-PERSON_OG_COLUMNS = ["PERSON_TYPE", "SEX","AGE", "SAFETY_EQUIPMENT","AIRBAG_DEPLOYED", "DRIVER_ACTION", "PHYSICAL_CONDITION", "INJURY_CLASSIFICATION", "BAC_RESULT", "CITY","STATE", "PERSON_ID"]
-PERSON_NEW_COLUMNS = ["Type", "Sex", "Age", "Safety_Equipment", "Airbag_Deployment_Status", "Driver_Action", "Physical_Condition", "Injury_Classification", "BAC_Result", "City", "State", "PERSON_ID"]
+PERSON_OG_COLUMNS = ["PERSON_TYPE", "SEX","AGE", "SAFETY_EQUIPMENT","AIRBAG_DEPLOYED", "DRIVER_ACTION", "DRIVER_VISION","PHYSICAL_CONDITION", "INJURY_CLASSIFICATION", "BAC_RESULT", "CITY","STATE", "PERSON_ID"]
+PERSON_NEW_COLUMNS = ["Type", "Sex", "Age", "Safety_Equipment", "Airbag_Deployment_Status", "Driver_Action", "Driver_Vision", "Physical_Condition", "Injury_Classification", "BAC_Result", "City", "State", "PERSON_ID"]
 
 #CRASH
 CRASH_FILE_PATH = 'Data Preparation/dw_tables_csv/Crash.csv'
@@ -53,14 +53,18 @@ PEOPLE_DF = read_csv('data/People_Processed.csv')
 
 # CREATE TABLES
 
-crashInjuriesTable  = createTableWithNoFK(
+#Injury
+createTableWithNoFK(
     CRASH_DF,
     INJURY_FILE_PATH,
     INJURY_INDEX_COL,
     INJURY_COLUMNS
 )
 
-crashLocationTable = createTableWithNoFK(
+injuryTable = read_csv(INJURY_FILE_PATH, idColumn=INJURY_INDEX_COL)
+
+#CrashLocation
+createTableWithNoFK(
     CRASH_DF,
     CRASH_LOCATION_FILE_PATH,
     CRASH_LOCATION_INDEX_COL,
@@ -68,7 +72,10 @@ crashLocationTable = createTableWithNoFK(
     CRASH_LOCATION_OG_COLUMNS
 )
 
-crashConditionTable = createTableWithNoFK(
+crashLocationTable = read_csv(CRASH_LOCATION_FILE_PATH, idColumn=CRASH_LOCATION_INDEX_COL)
+
+#CrashCondition
+createTableWithNoFK(
     CRASH_DF,
     CRASH_CONDITION_FILE_PATH,
     CRASH_CONDITION_INDEX_COL,
@@ -76,7 +83,10 @@ crashConditionTable = createTableWithNoFK(
     CRASH_CONDITION_OG_COLUMNS
 )
 
-peopleTable = createTableWithNoFK(
+crashConditionTable = read_csv(CRASH_CONDITION_FILE_PATH, idColumn=CRASH_CONDITION_INDEX_COL)
+
+#Person
+createTableWithNoFK(
     PEOPLE_DF,
     PERSON_FILE_PATH,
     PERSON_INDEX_COL,
@@ -84,7 +94,11 @@ peopleTable = createTableWithNoFK(
     PERSON_OG_COLUMNS,
     no_duplicate_rows=False
 )
-dateTimeTable = createDateTimeTable(
+
+personTable = read_csv(PERSON_FILE_PATH, idColumn=PERSON_INDEX_COL, no_duplicates=False)
+
+#DateTime
+createDateTimeTable(
     [PEOPLE_DF, VEHICLES_DF, CRASH_DF],
     DATETIME_FILE_PATH,
     DATETIME_INDEX_COL,
@@ -93,13 +107,16 @@ dateTimeTable = createDateTimeTable(
     DATETIME_POLICE_COLUMNS
 )
 
-crash = createCrashTable(
+dateTimeTable = read_csv(DATETIME_FILE_PATH, idColumn=DATETIME_INDEX_COL)
+
+#Crash
+createCrashTable(
     CRASH_FILE_PATH,
     CRASH_DF,
-    read_csv(DATETIME_FILE_PATH, idColumn=DATETIME_INDEX_COL),
-    read_csv(CRASH_CONDITION_FILE_PATH,idColumn= CRASH_CONDITION_INDEX_COL),
-    read_csv(INJURY_FILE_PATH, idColumn=INJURY_INDEX_COL),
-    read_csv(CRASH_LOCATION_FILE_PATH, idColumn=CRASH_LOCATION_INDEX_COL),
+    dateTimeTable,
+    crashConditionTable,
+    injuryTable,
+    crashLocationTable,
     DATETIME_NEW_COLUMNS,
     DATETIME_POLICE_COLUMNS,
     CRASH_CONDITION_OG_COLUMNS,
@@ -107,26 +124,33 @@ crash = createCrashTable(
     CRASH_LOCATION_OG_COLUMNS,
     CRASH_INDEX_COL
 )
-vehicle = createVehicleTable(
+
+crashTable = read_csv(CRASH_FILE_PATH, idColumn=CRASH_INDEX_COL)
+
+#Vehicle
+createVehicleTable(
     VEHICLE_FILE_PATH,
     VEHICLES_DF,
-    read_csv(DATETIME_FILE_PATH, idColumn=DATETIME_INDEX_COL),
+    dateTimeTable,
     DATETIME_NEW_COLUMNS,
     VEHICLE_INDEX_COL
 )
 
+vehicleTable = read_csv(VEHICLE_FILE_PATH, idColumn=VEHICLE_INDEX_COL)
 
-damageReimbursement = createDamageReimbursementTable(
+#DamageReimbursement
+createDamageReimbursementTable(
     DAMAGE_REIMBURSEMENT_FILE_PATH,
     PEOPLE_DF,
-    read_csv(VEHICLE_FILE_PATH, idColumn=VEHICLE_INDEX_COL),
-    read_csv(CRASH_FILE_PATH, idColumn=CRASH_INDEX_COL, no_duplicates=False),
-    read_csv(PERSON_FILE_PATH, idColumn=PERSON_INDEX_COL, no_duplicates=False),
+    vehicleTable,
+    crashTable,
+    personTable,
     idColumnName=DAMAGE_REIMBURSEMENT_INDEX_COL
 
 )
 
-removeColumns(read_csv(VEHICLE_FILE_PATH, idColumn=VEHICLE_INDEX_COL),
-    read_csv(CRASH_FILE_PATH, idColumn=CRASH_INDEX_COL, no_duplicates=False),
-    read_csv(PERSON_FILE_PATH, idColumn=PERSON_INDEX_COL, no_duplicates=False),
-    ['VEHICLE_ID', 'RD_NO', 'PERSON_ID'])
+removeColumns(vehicleTable,
+    crashTable,
+    personTable,
+    ['VEHICLE_ID', 'RD_NO', 'PERSON_ID'],
+    [VEHICLE_FILE_PATH, CRASH_FILE_PATH, PERSON_FILE_PATH])

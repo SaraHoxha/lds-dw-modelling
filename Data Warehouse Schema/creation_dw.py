@@ -65,7 +65,7 @@ table2sql= {
                 Secondary_Contributory_Cause VARCHAR(100),
                 Number_of_Units INT,
                 Most_Severe_Injury VARCHAR(100),
-                Difference_Between_Crash_Date_And_Police_Notified INT,
+                Difference_Between_Crash_Date_And_Police_Notified VARCHAR(100),
                 FOREIGN KEY (Crash_Date_ID) REFERENCES DateTime(DateTime_ID),
                 FOREIGN KEY (Police_Notified_Date_ID) REFERENCES DateTime(DateTime_ID),
                 FOREIGN KEY (Crash_Location_ID) REFERENCES CrashLocation(Crash_Location_ID),
@@ -94,13 +94,12 @@ table2sql= {
             CREATE TABLE Vehicle (
                 Vehicle_ID INT PRIMARY KEY,
                 Date_ID INT,
-                Crash_ID INT,
                 Unit_NO INT,
                 Unit_Type VARCHAR(50),
                 Make VARCHAR(50),
                 Model VARCHAR(50),
                 License_Plate_State VARCHAR(2),
-                Year INT,
+                Year VARCHAR(4),
                 Defect VARCHAR(50),
                 Vehicle_Type VARCHAR(50),
                 Vehicle_Use VARCHAR(50),
@@ -108,8 +107,7 @@ table2sql= {
                 Maneuver VARCHAR(50),
                 Occupant_Count INT,
                 First_Contact_Point VARCHAR(50),
-                FOREIGN KEY (Date_ID) REFERENCES DateTime(DateTime_ID),
-                FOREIGN KEY (Crash_ID) REFERENCES Crash(Crash_ID)
+                FOREIGN KEY (Date_ID) REFERENCES DateTime(DateTime_ID)
             )
         """,
         "DamageReimbursement": """

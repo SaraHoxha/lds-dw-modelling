@@ -281,27 +281,24 @@ def createDamageReimbursementTable(
     
     seen = set()
     result = []
+    
+    person_lookup = {person["PERSON_ID"]: person["Person_ID"] for person in personTable.values()}
+    crash_lookup = {crash["RD_NO"]: crash["Crash_ID"] for crash in crashTable.values()}
+    vehicle_lookup = {vehicle["VEHICLE_ID"]: vehicle["Vehicle_ID"] for vehicle in vehicleTable.values()}
 
     index = 1
-    
     for row in people_df:
+        print(f"Index:{index}")
         newRow = {}
         RD_NO = row["RD_NO"]
         PERSON_ID = row['PERSON_ID']
         VEHICLE_ID = row['VEHICLE_ID']
         
-        person_row = next((person for person in personTable.values() if person.get("PERSON_ID") == PERSON_ID), None)
-        newRow["Person_ID"] = person_row.get("Person_ID")
-        
-        crash_row = next((crash for crash in crashTable.values() if crash.get("RD_NO") == RD_NO), None)
-        newRow["Crash_ID"] = crash_row.get('Crash_ID')
-        
-        vehicle_row = next((vehicle for vehicle in vehicleTable.values() if vehicle.get("VEHICLE_ID") == VEHICLE_ID), None)
-        newRow["Vehicle_ID"] = vehicle_row.get("Vehicle_ID")
-    
-        
+        newRow["Person_ID"] = person_lookup.get(PERSON_ID, None)
+        newRow["Crash_ID"] = crash_lookup.get(RD_NO, None)
+        newRow["Vehicle_ID"] = vehicle_lookup.get(VEHICLE_ID, None)
         newRow["Cost"] = row["DAMAGE"]
-        newRow["Cost_Category"] = row["DAMAGE_CATEGORY"]
+        newRow["Category"] = row["DAMAGE_CATEGORY"]
         
         row_tuple = tuple(newRow[key] for key in sorted(newRow.keys()))
         if tuple(row_tuple) not in seen:
@@ -317,13 +314,15 @@ def removeColumns(
     vehicleTable: Dict[str, Dict[str, Any]],
     crashTable: Dict[str, Dict[str, Any]],
     personTable: Dict[str, Dict[str, Any]],
-    columnsToRemove: List[str]
+    columnsToRemove: List[str],
+    paths: List[str],
     ):
     try:
         tables = [vehicleTable, crashTable, personTable]
         for index, table in enumerate(tables):
             if index < len(columnsToRemove):
                 field = columnsToRemove[index]
+                path = paths[index]
             for record in table.values():
                 try:
                     if field in record:
@@ -334,7 +333,10 @@ def removeColumns(
                 except Exception as e: 
                         print(f"Error : {e}")
                         break
+            to_csv(table, path)
             index+=1
     except Exception as e:
         print(f"Error : {e}")
+    
+    print(f'Columns {columnsToRemove} removed successfully!')
     return 
