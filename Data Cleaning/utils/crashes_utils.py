@@ -38,7 +38,7 @@ def query_api(queries, resultDict):
     # Return the updated result dictionary with geocoded data
     return resultDict
 
-def create_file_with_missing_location_values(crashes_df, results_file="data/missing lat lng python.json"):
+def create_file_with_missing_location_values(crashes_df, results_file="/Users/sara/Desktop/Master/UniPi/Second Year/DSS/lds-dw-modelling/data/missing lat lng python.json"):
     print(f"Starting the process to create file with missing location values from '{results_file}'...")
     # Ensure the results file exists or create it if it doesn't
     check_if_file_exists_and_create(results_file)
@@ -79,7 +79,7 @@ def create_file_with_missing_location_values(crashes_df, results_file="data/miss
         # Handle errors that may occur while writing to the file
         print(f"Error writing to file '{results_file}': {e}")
 
-def fill_missing_location_values(crashes_df, results_file="data/missing lat lng python.json"):
+def fill_missing_location_values(crashes_df, results_file="/Users/sara/Desktop/Master/UniPi/Second Year/DSS/lds-dw-modelling/data/missing lat lng python.json"):
     print(f"Filling missing location values using data from '{results_file}'...")
     with open (results_file) as f:
         resultDict = json.load(f)

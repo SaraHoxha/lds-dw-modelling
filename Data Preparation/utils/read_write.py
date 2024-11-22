@@ -6,7 +6,8 @@ from utils.utils import concatenate_values, convert_value
 def read_csv(
     file_path: str, 
     primary_key: str = None, 
-    idColumn: List[str] = None
+    idColumn: List[str] = None,
+    no_duplicates = True
 ) -> Union[Dict[str, Dict[str, Union[int, float, str]]], List[Dict[str, Union[int, float, str]]]]:
     """
     Reads a CSV file and returns data in various formats based on provided parameters.
@@ -41,7 +42,7 @@ def read_csv(
                 for row in reader:
 
                     key = concatenate_values(row, idColumn)
-                    if key in result:
+                    if no_duplicates and key in result:
                         print('ROW')
                         print(row)
                         raise ValueError(f"Duplicate key found: {key}")
