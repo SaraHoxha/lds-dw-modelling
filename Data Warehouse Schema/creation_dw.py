@@ -10,6 +10,7 @@ table2sql= {
         "CrashLocation": """
             CREATE TABLE CrashLocation (
                 Crash_Location_ID INT PRIMARY KEY,
+                Street VARCHAR(100),
                 Street_No INT,
                 Street_Direction VARCHAR(1),
                 Beat_Of_Occurrence INT,

@@ -32,8 +32,7 @@ csv_tables_dict = [
     {'Name': 'Person.csv', 'Primary_Key': 'Person_ID'},
     {'Name': 'Crash.csv', 'Primary_Key': 'Crash_ID'},
     {'Name': 'Vehicle.csv', 'Primary_Key': 'Vehicle_ID'},
-    #damage_reimbursement
-    
+    {'Name': 'DamageReimbursement.csv', 'Primary_Key': 'Damage_Reimbursement_ID'}    
 ]
 
 #Check if the csv files exist
@@ -72,19 +71,20 @@ try:
                     data_table = read_csv(csv_path, table['Primary_Key'])
                     
                     # Validate schema
-                    validate_schema(cursor, table_name_db, data_table)
+                    vali_schema = validate_schema(cursor, table_name_db, data_table)
                     
-                    # Check if table exists and has identical data
-                    table_exists, data_identical = check_existing_table(cursor, table_name_db, data_table)
-                    
-                    if table_exists and data_identical:
-                        print(f"Table {table_name_db} already exists with identical data. Skipping...")
-                        continue
-                    elif table_exists:
-                        print(f"Table {table_name_db} exists but has different data. Please take action manually and re-run{table_name_db}. Continuing...")
-                        # Delete existing data
-                        #cursor.execute(f"DELETE FROM {table_name_db}")
-                        continue
+                    if not vali_schema:
+                        # Check if table exists and has identical data
+                        table_exists, data_identical = check_existing_table(cursor, table_name_db, data_table)
+                        
+                        if table_exists and data_identical:
+                            print(f"Table {table_name_db} already exists with identical data. Skipping...")
+                            continue  
+                        elif table_exists:
+                            print(f"Table {table_name_db} exists but has different data. Please take action manually and re-run{table_name_db}. Continuing...")
+                            #Delete existing data
+                            #cursor.execute(f"DELETE FROM {table_name_db}")
+                            continue
                     
                     # Query to insert the data
                     columns = list(data_table['1'].keys())
