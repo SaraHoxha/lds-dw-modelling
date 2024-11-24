@@ -291,13 +291,14 @@ def createDamageReimbursementTable(
     seen = set()
     result = []
     
+    # Create lookup dictionaries
     person_lookup = {person["PERSON_ID"]: person["Person_ID"] for person in personTable.values()}
     crash_lookup = {crash["RD_NO"]: crash["Crash_ID"] for crash in crashTable.values()}
     vehicle_lookup = {vehicle["VEHICLE_ID"]: vehicle["Vehicle_ID"] for vehicle in vehicleTable.values()}
 
     index = 1
     for row in people_df:
-        print(f"Index:{index}")
+
         newRow = {}
         RD_NO = row["RD_NO"]
         PERSON_ID = row['PERSON_ID']
