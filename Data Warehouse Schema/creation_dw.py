@@ -97,9 +97,9 @@ table2sql= {
                 Date_ID INT,
                 Unit_NO INT,
                 Unit_Type VARCHAR(50),
-                Make VARCHAR(50),
-                Model VARCHAR(50),
-                License_Plate_State VARCHAR(2),
+                Make VARCHAR(100),
+                Model VARCHAR(100),
+                License_Plate_State VARCHAR(10),
                 Year VARCHAR(4),
                 Defect VARCHAR(50),
                 Vehicle_Type VARCHAR(50),
@@ -125,6 +125,7 @@ table2sql= {
             )
         """
     }
+
 def create_connection():
     return pyodbc.connect(
         f'DRIVER={DRIVER};'

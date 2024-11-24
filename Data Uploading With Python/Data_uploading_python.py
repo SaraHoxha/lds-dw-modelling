@@ -76,12 +76,12 @@ try:
                     if not vali_schema:
                         # Check if table exists and has identical data
                         table_exists, data_identical = check_existing_table(cursor, table_name_db, data_table)
-                        
+
                         if table_exists and data_identical:
                             print(f"Table {table_name_db} already exists with identical data. Skipping...")
                             continue  
                         elif table_exists:
-                            print(f"Table {table_name_db} exists but has different data. Please take action manually and re-run{table_name_db}. Continuing...")
+                            print(f"Table {table_name_db} exists but has different data. Please take action manually and re-run {table_name_db}. Continuing...")
                             #Delete existing data
                             #cursor.execute(f"DELETE FROM {table_name_db}")
                             continue

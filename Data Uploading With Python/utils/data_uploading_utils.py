@@ -1,5 +1,6 @@
 import os
 import pyodbc
+import datetime
 
 
 def check_csv_files(folder_path, csv_tables_dict):
@@ -94,8 +95,12 @@ def validate_schema(cursor, table_name, data_table):
         if col not in db_schema:
             raise ValueError(f"Column {col} not found in database table")
         
-        # Basic type checking
+        """ # Basic type checking
         if isinstance(value, str) and 'CHAR' not in db_schema[col].upper():
             raise ValueError(f"Column {col} type mismatch: expected {db_schema[col]}")
         elif isinstance(value, int) and 'INT' not in db_schema[col].upper():
             raise ValueError(f"Column {col} type mismatch: expected {db_schema[col]}")
+        elif isinstance(value, float) and 'FLOAT' not in db_schema[col].upper():
+            raise ValueError(f"Column {col} type mismatch: expected {db_schema[col]}")
+        elif isinstance(value, (float,datetime.time)) and 'TIME' not in db_schema[col].upper():
+            raise ValueError(f"Column {col} type mismatch: expected {db_schema[col]}") """
