@@ -1,5 +1,5 @@
 # Imports
-from utils.people_utils import set_age_to_none, set_city_to_unknown, set_state_to_unknown, default_sex_to_U, set_driver_cols_to_none_for_passengers, fill_state_based_on_city
+from utils.people_utils import *
 
 import sys
 import os
@@ -52,6 +52,12 @@ people_df_processed = fill_state_based_on_city(people_df_processed, us_cities_in
 
 # Make 'STATE' column have the value 'Unknown' when 'CITY' is 'UNKNOWN' or STATE == 'XX'.
 people_df_processed = set_state_to_unknown(people_df_processed)
+
+# Fill missing values for 'COST' and 'COST_CATEGORY' columns
+people_df_processed = fill_missing_damage_and_category_values(people_df_processed)
+
+# Set 'RD_NO' column to uppercase
+people_df_processed = set_rd_no_to_uppercase(people_df_processed)
 
 # Save the processed data into a new file
 to_csv(people_df_processed,'data/People_Processed.csv')

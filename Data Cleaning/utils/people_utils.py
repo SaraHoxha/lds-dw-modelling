@@ -5,9 +5,11 @@ SEX_COL = 'SEX'
 CITY_COL = 'CITY'
 STATE_COL = 'STATE'
 AGE_COL = 'AGE'
+RD_NO_COL = 'RD_NO'
+DAMAGE_COL = 'DAMAGE'
+DAMAGE_CATEGORY_COL = 'DAMAGE_CATEGORY'
 STATE_ID_COL = 'STATE_ID'
-PERSON_TYPE_VALUES = {'p':'PASSENGER', 
-                      'd': 'DRIVER'}
+PERSON_TYPE_VALUES = {'p':'PASSENGER', 'd': 'DRIVER'}
 SEX_COL_VALUES =['U']
 VALUE_UNKNOWN = 'UNKNOWN'
 STATE_PLACEHOLDER_VALUE = 'XX'
@@ -85,4 +87,25 @@ def fill_state_based_on_city(dataset, city2state_mapping):
                     row[STATE_COL] = city2state_mapping[row[CITY_COL]][STATE_ID_COL]
         except Exception as e:
             print(f"Error processing row: {row} | Error: {e}")
+    return dataset
+
+# SET 'DAMAGE' COLUMN TO 0  & DAMAGE_CATEGORY TO '$500 OR LESS' IF MISSING VALUES
+def fill_missing_damage_and_category_values(dataset):
+    print ("Setting damage and damage category to 0 and '$500 OR LESS' if missing")
+    for row in dataset.values():
+        try:
+            if DAMAGE_COL in row and row.get(DAMAGE_COL) == '':
+                row[DAMAGE_COL] = 0
+                row[DAMAGE_CATEGORY_COL] = '$500 OR LESS'
+        except Exception as e:
+            print(f"Error processing row: {row} | Error: {e}")
+    return dataset
+
+
+#SET RD_NO COLUMN TO UPPERCASE
+def set_rd_no_to_uppercase(dataset):
+    print ("Setting rd_no column to uppercase")
+    for row in dataset.values():
+        if RD_NO_COL in row:
+            row[RD_NO_COL] = row[RD_NO_COL].upper()
     return dataset
