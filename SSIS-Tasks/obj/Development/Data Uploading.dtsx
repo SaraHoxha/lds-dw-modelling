@@ -1,0 +1,258 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/20/2024 3:20:23 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="UTENTE-Q3NL7IKE"
+  DTS:CreatorName="UTENTE-Q3NL7IKE\LDS"
+  DTS:DTSID="{0777DF0F-66B0-44B5-BE07-2CE6BCED4B56}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{B55A0E12-F54E-4544-B833-6D83C4ABE939}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_4_DB.Group_ID_4]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8DB1FBE0-9742-48DC-B390-B42E50E9CA8A}"
+      DTS:ObjectName="lds.di.unipi.it.Group_ID_4_DB.Group_ID_4">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=lds.di.unipi.it;User ID=Group_ID_4;Initial Catalog=Group_ID_4_DB;Provider=SQLNCLI11.1;Persist Security Info=True;Application Name=SSIS-Package-{8DB1FBE0-9742-48DC-B390-B42E50E9CA8A}lds.di.unipi.it.Group_ID_4_DB.Group_ID_4;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3D7A19DA-D502-4204-B7BF-E6CE6365A08E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CurrentTable">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F70AAF6C-5081-47B1-810A-A6113485478C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="TableList">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Get Table Names"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Get Table Names from &quot;Group_ID_4_DB&quot;"
+      DTS:DTSID="{0B2D7A1F-6F30-436F-B8BB-952730C3416D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get Table Names"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8DB1FBE0-9742-48DC-B390-B42E50E9CA8A}"
+          SQLTask:SqlStatementSource="SELECT TABLE_NAME&#xA;FROM INFORMATION_SCHEMA.TABLES&#xA;WHERE TABLE_TYPE = 'BASE TABLE'"
+          SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::TableList" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Iterate over tables"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Iterates over the tables of &quot;Group_ID_4_DB&quot;"
+      DTS:DTSID="{C4788659-0364-480D-BCD0-D62D1AD9B9A7}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Iterate over tables">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachADOEnumerator"
+        DTS:DTSID="{AAFCF744-234C-435D-AACF-E7C3017E05AA}"
+        DTS:ObjectName="{AAFCF744-234C-435D-AACF-E7C3017E05AA}">
+        <DTS:ObjectData>
+          <FEEADO
+            EnumType="EnumerateRowsInFirstTable"
+            VarName="User::TableList" />
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Iterate over tables\Create SSIS Table"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Create SSIS Table as replicates of the original tables"
+          DTS:DTSID="{EDCAA5ED-09FC-4429-A81C-FB8E2799CFD3}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Create SSIS Table"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"SELECT TOP 0 * INTO [Group_ID_4][" + @[User::CurrentTable] + "_SSIS] " +
+"FROM [Group_ID_4].[" + @[User::CurrentTable] + "];"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{8DB1FBE0-9742-48DC-B390-B42E50E9CA8A}"
+              SQLTask:SqlStmtSourceType="Variable"
+              SQLTask:SqlStatementSource="SELECT TOP 0 * INTO [Group_ID_4][_SSIS] FROM [Group_ID_4].[];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Iterate over tables\Insert SSIS Data"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Insert 10% of the data to the SSIS table"
+          DTS:DTSID="{CD3C8C92-B5EE-4220-B051-CEBE79BFB64F}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Insert SSIS Data"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"INSERT INTO [Group_ID_4].[" + @[User::CurrentTable] + "_SSIS] " +
+"SELECT * FROM [Group_ID_4].[" + @[User::CurrentTable] + "] " +
+"WHERE ABS(CAST(CHECKSUM(NEWID()) AS INT)) % 100 &lt; 10;"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{8DB1FBE0-9742-48DC-B390-B42E50E9CA8A}"
+              SQLTask:SqlStmtSourceType="Variable"
+              SQLTask:SqlStatementSource="INSERT INTO [Group_ID_4].[_SSIS] SELECT * FROM [Group_ID_4].[] WHERE ABS(CAST(CHECKSUM(NEWID()) AS INT)) % 100 &lt; 10;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Iterate over tables.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{36F4E516-3962-4518-B690-CF040F7AC10F}"
+          DTS:From="Package\Iterate over tables\Create SSIS Table"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Iterate over tables\Insert SSIS Data" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{D8D0E2F2-EA98-4360-87AB-9030979C7AF6}"
+          DTS:ObjectName="{D8D0E2F2-EA98-4360-87AB-9030979C7AF6}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::CurrentTable" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{28638090-D46A-4E1E-B74E-0270B72CF58E}"
+      DTS:From="Package\Get Table Names"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Iterate over tables" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Get Table Names"
+          TopLeft="116,21" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Iterate over tables\Create SSIS Table"
+          TopLeft="16,13.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Iterate over tables\Insert SSIS Data"
+          TopLeft="24,96.5" />
+        <EdgeLayout
+          Id="Package\Iterate over tables.PrecedenceConstraints[Constraint]"
+          TopLeft="105,55.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="205,157"
+          Size="205,200"
+          Id="Package\Iterate over tables"
+          TopLeft="100.5,110.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="200.25,63">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.5"
+              Start="0,0"
+              End="0,40">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
