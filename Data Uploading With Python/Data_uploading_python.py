@@ -68,7 +68,7 @@ try:
                     csv_path = os.path.join(folder_path, table_name)
                     
                     # Reading the csv file
-                    data_table = read_csv(csv_path, table['Primary_Key'])
+                    data_table_og = read_csv(csv_path, table['Primary_Key'])
                     
                     # Validate schema
                     vali_schema = validate_schema(cursor, table_name_db, data_table)
@@ -85,9 +85,19 @@ try:
                             #Delete existing data
                             #cursor.execute(f"DELETE FROM {table_name_db}")
                             continue
-                    
+
+                    # Define your start and end row numbers
+                    #start_row = 501  # Change this to your desired start row
+                    #end_row = 200000    # Change this to a specific row number or keep it None for the end
+                    # Filter the rows based on the specified range
+                    #data_table = {
+                    #    key: value for key, value in data_table_og.items() 
+                    #    if int(key) >= start_row and (end_row is None or int(key) <= end_row)
+                    #}
+                    data_table = data_table_og
+
                     # Query to insert the data
-                    columns = list(data_table['1'].keys())
+                    columns = list(data_table_og['1'].keys())
                     placeholders = ','.join(['?' for _ in columns])
                     columns_str = ','.join(columns)
 
