@@ -1,0 +1,5 @@
+things for assignment 8 in ssis
+
+LOGIC:
+
+For each quarter (I have to agregate in quarters as ruggieri showed with views), for each weather condition (Already made in the table crash condition), 
