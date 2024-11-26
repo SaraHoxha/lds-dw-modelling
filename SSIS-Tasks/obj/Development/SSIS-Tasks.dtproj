@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">UTENTE-Q3NL7IKE</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAluyNMcYTQky910ZasVSBPAAAAAACAAAAAAAQZgAAAAEAACAAAACmzZrTxbI1oQDpY7zavl5le9BTn7h/35vPBqa5aXMMEgAAAAAOgAAAAAIAACAAAAByyUN6P9FnOsouCv43aOgSLpSt/QgZz/dmwYIn7ORMHJAAAADGzhj2rCHqjofpaKFV3oMKglDxr1FXIZgUFCTFVwcgegiylWC/A5zteppS6jgFzm9xGeKvYG5kx88x9kZpZmI2FCYhUgmRhj4rnJ2vHfamprTNGnJfY1iekg7jOfFUtvagf2CHdpoUaMmok8YVUEoY5/lV6Y/B4Ow0VuEuW7ObC2iyW0581uFlI2PeQwN70nVAAAAA9qnuNoRzVHn2xxVsk9kmUqlj76MH+n0Wx/VktJVQdkctEItPPCvAx3Czi0UqYMC2MNnnXGF6/J5ujMliBPiQWA==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAEl0vAlEmrU6bQflrV1G4KwAAAAACAAAAAAAQZgAAAAEAACAAAAAyhfyUPrtEsLLCsvs8kLMAAL5/Ct5VF5erTJU+vzM96wAAAAAOgAAAAAIAACAAAADyIobIa24xfagFgpiKE8NF/P6FQeQerLcQu5xLbPcaz5AAAAC4F1NQyfS7RGj0WDx0mxBH1+N7shcKIkXKy8Q4HqdkKbcvuhto+vKNOlA4Nl2YaMWr8FG4iOYi+eQUlLZwWaIFCa303nx1IWWq2ftjEx11VWBznqMK+MdE8IQDT8+A2W/wKBbf8Ch8RmRu2xzd56vfV9YeKyIL1lF1/vZjr2dXtyx5nNnIPgrWc63rtSqNnaBAAAAADsPdyG4C/nmAo6sfp+lTNNrxXj2PjaGSeYebAvhc+eaYcAqetyQOjhgANro7OYhi74fuTN9/4dhWhchK/XV5dA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -40,14 +40,14 @@
           <SSIS:PackageInfo>
             <SSIS:PackageMetaData SSIS:Name="Data Uploading.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{0777DF0F-66B0-44B5-BE07-2CE6BCED4B56}</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{E6AEA71A-5EB2-4D38-9DAE-004E7216388F}</SSIS:Property>
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">6</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">41</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{EF30722A-0D01-46B8-AD36-14FE44AF3C6D}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{D7AC860D-694F-4064-B004-ECBF49778695}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -80,7 +80,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=lds.di.unipi.it;User ID=Group_ID_4;Initial Catalog=Group_ID_4_DB;Provider=SQLNCLI11.1;Persist Security Info=True;Application Name=SSIS-Package-{8DB1FBE0-9742-48DC-B390-B42E50E9CA8A}lds.di.unipi.it.Group_ID_4_DB.Group_ID_4;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=lds.di.unipi.it;User ID=Group_ID_4;Initial Catalog=Group_ID_4_DB;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{7895F109-D1D3-4048-A67E-9936FDD62F72}lds.di.unipi.it.Group_ID_4_DB.Group_ID_4;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
