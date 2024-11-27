@@ -11,8 +11,8 @@
   DTS:LocaleID="1040"
   DTS:ObjectName="query 6"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{55FCF200-DD7B-4861-8CAF-C45D1F7892CC}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{9D85845B-0793-4E94-BA38-400D1C172503}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -117,7 +117,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAluyNMcYTQky910ZasVSBPAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADmyDW95UDAYmTEgVSPoKaERPhCoZ+FZ8fAiVvBEhYzJAAAAAAOgAAAAAIAACAAAABBcAE7B+IvtTzUVWQo6tjbBYj+Mifo8AVeGDDw0wUk2iAAAADpl0hCshlaMHeox9HSTojdJLZRW28xH0LTGhSuVYAJ+EAAAAARylrFQi5DZbIA0+97qWntpZBEwvICIT+RqrLa3Nz5uey8g+6JhbaN9FGKxFJQgTVIBBPbRFgTmT0D5bqGwabA</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAluyNMcYTQky910ZasVSBPAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADyKQO2ds6UutSXCDJPhXpw/8G1Ty4G7rbmWl0WB/0AngAAAAAOgAAAAAIAACAAAABVtFgDm74R51ebjv7IRcLhxvS4ys8vrRreNGZCMKcw0yAAAACkCIvXrxTLYIklJ2Bjss4b+7QhayUw89I62LzNdjD9n0AAAABSzqyhHNpPykCvnSiAG0O8aiGjjzCApKSrkQ0NrhxsQHjKakNVVHBU14AHXjNLmV96oRCGlOmAD1+I0mx+3Kfu</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -134,7 +134,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAluyNMcYTQky910ZasVSBPAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAzsje4yr9pI6zvCv9bjSMrhUbYUAZz+r0y5x+rcC32bgAAAAAOgAAAAAIAACAAAABqTRVCgJVhOfdTc79iDoaHFqCLwKnyLaX1SUoM1dvmLiAAAACmEJZxTb8gY0oJ4NJ6h7oLFNsJkMyj53EGr5nlsObrikAAAAAqydelPF8GgDPwuPyRB3knL4ybNocQfkBfTFXR+LlZ/SsJ7Ti6hcnTKCmcU78aUN7j2jZf83aOqDwbGbHOL9pC</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAluyNMcYTQky910ZasVSBPAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADivwzAo7Yto6z1zPvaM6keuT107hoU90LuN+0c4vKAGgAAAAAOgAAAAAIAACAAAABPlaRRvj14qS8e8U5213kvGmXe2eDVxRUFF6Bq3dji1CAAAABob87humUx3+wiQW59P5t+5K3gYjpVVuCDVKx6VJA9HUAAAABnYpDUPipE/5ber0dOilfoNkyHzFo3E1Ps6BU1azyf3T/Uh14F5VcAIOY2vEMlhry/SzWF87wIjfhA34DflobF</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -1881,7 +1881,7 @@ where [refTable].[DateTime_ID] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="43.5086085004608,22.6583330658989,96.3827734375,11.609375"
+              BoundingBox="43.508608500461,22.6583330658989,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1917,7 +1917,7 @@ where [refTable].[DateTime_ID] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="24.2794414638523,21.5749997400988,96.3827734375,11.609375"
+              BoundingBox="24.2794414638525,21.5749997400988,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2002,7 +2002,7 @@ where [refTable].[DateTime_ID] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2012,7 +2012,7 @@ where [refTable].[DateTime_ID] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2025,7 +2025,7 @@ where [refTable].[DateTime_ID] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2035,7 +2035,7 @@ where [refTable].[DateTime_ID] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2061,7 +2061,7 @@ where [refTable].[DateTime_ID] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2071,7 +2071,7 @@ where [refTable].[DateTime_ID] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

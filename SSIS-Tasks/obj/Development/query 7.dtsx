@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="11/27/2024 9:13:19 PM"
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAluyNMcYTQky910ZasVSBPAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABP8r0FStFehBN9BLXHqPpjMPXH0DZR0KXxndVEKKKLIgAAAAAOgAAAAAIAACAAAABSIsGzHjoAKRZGleceOM89srabLdkIiDrtyjUeJJ5gNiAAAABwXj90SCRzfvjqmjIhSKjOxdf4gywflBUdizlz/ZfkVkAAAACJ4Q3PaWzGg9dYBXDDCUQxA1et8mf4XeONIaYCwigd2VZqNGIFtLAFDNxnK1TweymGz2LjTw+xlvatfW/KrJPV</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAluyNMcYTQky910ZasVSBPAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB/nzAFeGpgFNgMQtu1gRs4Dg+OhYySAjfLdTrZZhieRAAAAAAOgAAAAAIAACAAAACV6n09BC4jF6XKCN5RQjKls/Xof7uM6Ulbk6yMokqcfCAAAAC7ROAPxh3gL8wUySetqYZ0BaSLQa/FJD62UPv0do3HEUAAAACfF7W4DtJHuw8qyOT5OvtxqGxqeZuay5wmLDdI9/1iXZ+1k1GoThSq94Dig/U4jhFN31mgWORqWUHxsLL4w1Ku</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,7 +46,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAluyNMcYTQky910ZasVSBPAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACdTdAmue1TvRfpSxJhR7AuNfaNtlWU717l2oVIIhl77wAAAAAOgAAAAAIAACAAAABbc46aNXP6z22OyioqC/odcA3ykdLVY7Sh03kSjJkkaSAAAAAbDKM7g5YQJQZfFclukysfrgop5AadXEjEsX/I1pmsC0AAAADJ7adgQ/MIVpWF/jzYNCjQyClh44sV+v3dG61KQI24k2m8Bx6eXfKLFqs9OIa0icDNjLepR3ywADerQ1/q9oNF</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAluyNMcYTQky910ZasVSBPAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABGVgE06AgvuMIpX2melrH0Q2xr2lq9RlpYrqloPW9YaQAAAAAOgAAAAAIAACAAAAA1A3ZKk5qKHM/+KP+dnF6q4d0/bxaeui+BTqq16rXY9CAAAAAcWQ8cUc/QEnw1/QP/Ssu8ZMyVDRD6hbxq3NcOPK9mnUAAAAB1mBH5NzbjlBbjdzSJ+XGCLpYMyHNrgSKb8zwuvQvQpuA1RQ5aSm4B31R6gmKfBA5R07w+Htp46cHUV0oN6g3T</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -2509,12 +2509,12 @@
           </components>
           <paths>
             <path
-              refId="Package\query 7.Paths[Aggregate Output 11]"
+              refId="Package\query 7.Paths[Aggregate Output 1]"
               endId="Package\query 7\Sort 5.Inputs[Sort Input]"
               name="Aggregate Output 1"
               startId="Package\query 7\Aggregate 1.Outputs[Aggregate Output 1]" />
             <path
-              refId="Package\query 7.Paths[Aggregate Output 1]"
+              refId="Package\query 7.Paths[Aggregate Output 11]"
               endId="Package\query 7\Sort 4.Inputs[Sort Input]"
               name="Aggregate Output 1"
               startId="Package\query 7\Aggregate.Outputs[Aggregate Output 1]" />
@@ -2534,17 +2534,17 @@
               name="Derived Column Output"
               startId="Package\query 7\Derived Column 1.Outputs[Derived Column Output]" />
             <path
-              refId="Package\query 7.Paths[Merge Join Output2]"
+              refId="Package\query 7.Paths[Merge Join Output]"
               endId="Package\query 7\Derived Column 1.Inputs[Derived Column Input]"
               name="Merge Join Output"
               startId="Package\query 7\Merge Join 2.Outputs[Merge Join Output]" />
             <path
-              refId="Package\query 7.Paths[Merge Join Output]"
+              refId="Package\query 7.Paths[Merge Join Output1]"
               endId="Package\query 7\Sort 3.Inputs[Sort Input]"
               name="Merge Join Output"
               startId="Package\query 7\Merge Join.Outputs[Merge Join Output]" />
             <path
-              refId="Package\query 7.Paths[Merge Join Output1]"
+              refId="Package\query 7.Paths[Merge Join Output2]"
               endId="Package\query 7\Derived Column.Inputs[Derived Column Input]"
               name="Merge Join Output"
               startId="Package\query 7\Merge Join 1.Outputs[Merge Join Output]" />
@@ -2554,22 +2554,27 @@
               name="Night"
               startId="Package\query 7\Conditional Split.Outputs[Night]" />
             <path
+              refId="Package\query 7.Paths[OLE DB Source Output2]"
+              endId="Package\query 7\Sort 1.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\query 7\Crash Location Source.Outputs[OLE DB Source Output]" />
+            <path
               refId="Package\query 7.Paths[OLE DB Source Output]"
               endId="Package\query 7\Sort.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\query 7\Crash Source.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\query 7.Paths[OLE DB Source Output2]"
+              refId="Package\query 7.Paths[OLE DB Source Output1]"
               endId="Package\query 7\Sort 2.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\query 7\Datetime Source.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\query 7.Paths[OLE DB Source Output1]"
-              endId="Package\query 7\Sort 1.Inputs[Sort Input]"
-              name="OLE DB Source Output"
-              startId="Package\query 7\Crash Location Source.Outputs[OLE DB Source Output]" />
+              refId="Package\query 7.Paths[Sort Output5]"
+              endId="Package\query 7\Merge Join 1.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\query 7\Sort 2.Outputs[Sort Output]" />
             <path
-              refId="Package\query 7.Paths[Sort Output2]"
+              refId="Package\query 7.Paths[Sort Output]"
               endId="Package\query 7\Merge Join 1.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\query 7\Sort 3.Outputs[Sort Output]" />
@@ -2579,25 +2584,20 @@
               name="Sort Output"
               startId="Package\query 7\Sort 1.Outputs[Sort Output]" />
             <path
-              refId="Package\query 7.Paths[Sort Output]"
+              refId="Package\query 7.Paths[Sort Output2]"
               endId="Package\query 7\Merge Join.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\query 7\Sort.Outputs[Sort Output]" />
             <path
-              refId="Package\query 7.Paths[Sort Output4]"
+              refId="Package\query 7.Paths[Sort Output3]"
               endId="Package\query 7\Merge Join 2.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\query 7\Sort 4.Outputs[Sort Output]" />
             <path
-              refId="Package\query 7.Paths[Sort Output5]"
+              refId="Package\query 7.Paths[Sort Output4]"
               endId="Package\query 7\Merge Join 2.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\query 7\Sort 5.Outputs[Sort Output]" />
-            <path
-              refId="Package\query 7.Paths[Sort Output3]"
-              endId="Package\query 7\Merge Join 1.Inputs[Merge Join Right Input]"
-              name="Sort Output"
-              startId="Package\query 7\Sort 2.Outputs[Sort Output]" />
             <path
               refId="Package\query 7.Paths[Sort Output6]"
               endId="Package\query 7\OLE DB Destination.Inputs[OLE DB Destination Input]"
@@ -2683,7 +2683,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\query 7.Paths[OLE DB Source Output1]"
+          Id="Package\query 7.Paths[OLE DB Source Output2]"
           TopLeft="543.618492783203,108.140740278025">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2705,7 +2705,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\query 7.Paths[OLE DB Source Output2]"
+          Id="Package\query 7.Paths[OLE DB Source Output1]"
           TopLeft="748.285147884913,109.007406938665">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2727,7 +2727,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\query 7.Paths[Sort Output]"
+          Id="Package\query 7.Paths[Sort Output2]"
           TopLeft="350.651835359395,174.007406486663">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2799,7 +2799,7 @@
           Id="Package\query 7\Sort 3"
           TopLeft="383.518497563991,309.207405257217" />
         <EdgeLayout
-          Id="Package\query 7.Paths[Merge Join Output]"
+          Id="Package\query 7.Paths[Merge Join Output1]"
           TopLeft="436.685164549377,265.007405853859">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2825,7 +2825,7 @@
           Id="Package\query 7\Merge Join 1"
           TopLeft="508.518490734293,386.807404823295" />
         <EdgeLayout
-          Id="Package\query 7.Paths[Sort Output2]"
+          Id="Package\query 7.Paths[Sort Output]"
           TopLeft="436.718497563991,350.807405257217">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2859,7 +2859,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\query 7.Paths[Sort Output3]"
+          Id="Package\query 7.Paths[Sort Output5]"
           TopLeft="747.551813914141,176.607406468583">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2897,7 +2897,7 @@
           Id="Package\query 7\Derived Column"
           TopLeft="834.259213677345,134.814813877329" />
         <EdgeLayout
-          Id="Package\query 7.Paths[Merge Join Output1]"
+          Id="Package\query 7.Paths[Merge Join Output2]"
           TopLeft="610.318490734293,386.807404823295">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3041,7 +3041,7 @@
           Id="Package\query 7\Sort 4"
           TopLeft="811.111066793956,406.370367544522" />
         <EdgeLayout
-          Id="Package\query 7.Paths[Aggregate Output 1]"
+          Id="Package\query 7.Paths[Aggregate Output 11]"
           TopLeft="863.292548604275,377.674071737057">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3067,7 +3067,7 @@
           Id="Package\query 7\Sort 5"
           TopLeft="962.036984473653,405.407404588255" />
         <EdgeLayout
-          Id="Package\query 7.Paths[Aggregate Output 11]"
+          Id="Package\query 7.Paths[Aggregate Output 1]"
           TopLeft="1011.32587396963,378.637034693324">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3093,7 +3093,7 @@
           Id="Package\query 7\Merge Join 2"
           TopLeft="869.444396940096,485.333329958386" />
         <EdgeLayout
-          Id="Package\query 7.Paths[Sort Output4]"
+          Id="Package\query 7.Paths[Sort Output3]"
           TopLeft="864.311066793956,447.970367544522">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3127,7 +3127,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\query 7.Paths[Sort Output5]"
+          Id="Package\query 7.Paths[Sort Output4]"
           TopLeft="1015.23698447365,447.007404588255">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3165,7 +3165,7 @@
           Id="Package\query 7\Derived Column 1"
           TopLeft="626.851817602178,489.629626428787" />
         <EdgeLayout
-          Id="Package\query 7.Paths[Merge Join Output2]"
+          Id="Package\query 7.Paths[Merge Join Output]"
           TopLeft="869.444396940096,508.281478193586">
           <EdgeLayout.Curve>
             <mssgle:Curve
