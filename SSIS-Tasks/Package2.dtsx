@@ -11,8 +11,8 @@
   DTS:LocaleID="1040"
   DTS:ObjectName="Package2"
   DTS:PackageType="5"
-  DTS:VersionBuild="72"
-  DTS:VersionGUID="{993E56BE-85BA-492A-9127-FC8018F131F4}">
+  DTS:VersionBuild="76"
+  DTS:VersionGUID="{152CF0A3-2F9C-46E9-BE10-40F8B39D69A3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAluyNMcYTQky910ZasVSBPAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABP/tNP0MwSnsmouRwzzgh0MA1ineREWhT0lYdUOF2fFAAAAAAOgAAAAAIAACAAAABCIFzz3etRKpZk8jmiCPsXXdPmxYqu7q4JoeH9MxuDDCAAAAALkf12BBx64MfGcRZ47saC3mU/dKzavKDeTVTsDC6obUAAAAB4/HkNDKiGNlAtdci0NB3ZkJwWsVC0o0yhYsPHXA8hDLC8mwp77If2u6IcyHHOHAtKpx3tqV6aCkETPHNOGFAC</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAluyNMcYTQky910ZasVSBPAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD31wN42iDBpJzuyySsHqDCPEiknLpTGTB9UUQAcuQ1GQAAAAAOgAAAAAIAACAAAADE3k5W8ml/C8LfPJ8Frweir/paeDgDeiU1ufK10I69tSAAAABPZ7Ns90/3/OxShWcF5cbwhrHE79rrZxjHW4vC/jXMSEAAAACqFe+egk+2JQkUGxnNNklrYGWZzm3U9QDLpxTtKGOp94GJQQiQFOaYsXKybEuWyEIU9+/ja1pwCsFalU2EeoDW</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,7 +46,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAluyNMcYTQky910ZasVSBPAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB5AuD34tFO3klU0NBNhDypFR0/Nslq95sUYnNfTgnAhQAAAAAOgAAAAAIAACAAAABLxOStWpYoJVkUW4KzpepSn2DCDU95jeGFa/YPNeKPtiAAAADNYRxpD5VzqH1sUbsAFdd2OqLbKwLgOuzG/EAhg4umnUAAAAAefpF7U0pcrOKmtPPHIc6LNy3aB0jt6h+cQSRFdC2hrh/tGVA/gcXATmIzWrH+esRc8Laq/v/tK7LVkJV5wI7j</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAluyNMcYTQky910ZasVSBPAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABhCCBLEB2wLSgiLtlOq0p8orELoBLlQlBux+69VxkflAAAAAAOgAAAAAIAACAAAAA4E6nrsQmsX9r+mpj9x4PW5TIZ5SZzEajlzO4pcWAWBiAAAAAdQdOrlvhVEr0FukrelXQtzAPasY3fFhjjnovwQ0ONnEAAAAAzpbE6ZlalUfBTpEHmqPTINjUaDLguP24w35MCaE2JdzamtGdfzg9K82FjGez7YZl+vgMTNi5mqeIbUwBhB5i+</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -63,7 +63,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAluyNMcYTQky910ZasVSBPAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABUVkDG5196U6tdcut3orgX2dm9DqoAhLGrDabva6GnZAAAAAAOgAAAAAIAACAAAAAHMWKh8ZNAb9UpCls6W3shzCxAxpMQ4fuwhbkUAwCq8SAAAADiryc0y/M4OlIbuxB9651fkIT39hnuzdMFoCvBLidsyUAAAADb4dYQaPERCdt7AVyFxUWZJ+dlXt3ZZzPx+w9pSAT5MzoJdQ5RV3PzrtxmUfGuBviNSLvbmCyc19xWrjJ72nRV</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAluyNMcYTQky910ZasVSBPAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACLEPo/LCqtqiYBI49EP1DVrImxh69YEO+qYLCpWeErrQAAAAAOgAAAAAIAACAAAAD6O8GnAYvXl8Afkd4u3pl0XUaDFp1BptnaXBp1Wp5lLiAAAACx4OV82CoHqGv4ytzi82BgKeGWxDvqnWXWqc6qI2286kAAAACtjyx3pyMgV1YhMbSDpWFyigut7DGDvxwfNxhrrItW31JssY3SOGPwiZNapZ0v9fcRwCAvcFlPkfcDC6Pm4Inw</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -80,7 +80,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAluyNMcYTQky910ZasVSBPAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD2d2CW/hiQT4f265EwpQ7+tJr4VHMqMAiyZ1hSOoaI8gAAAAAOgAAAAAIAACAAAACnk7WkImNxrdqN0pQLqAvtVfNgJ7lFuo4GmsSRgcSmNyAAAAAq+jf8OCoAdFmNGyf/sMCiAZsH796goBGgomaate8NXEAAAACRkjDBVrhOJgFsG0BCPTWZCuP4jVu6IBeT3cAH9o8iyQY3gyk6KYJXL8T/1Jae2q184MvtrtvLJ6Yg7hm4H3hJ</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAluyNMcYTQky910ZasVSBPAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABqLrVRDfCKmhZSiu//IiuUNrFHHoF9PNeAuS8FsZWuVgAAAAAOgAAAAAIAACAAAAAyp6F0ymGy2iy9calZeEhl8HN7oH5y2VDMvyyMRwb3VSAAAABFYgMzRdvR52AFT88b423CdxY32kxzF9kTRetHDpt/MUAAAABxPHudEDWFOKrAp7SY3h4KWeiXE0bEM5+okxqtBsIP96nDUzIoM8aI+X/WxJP85iDgmUq3b+dJeh7Mjv8KAmFV</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -6260,7 +6260,7 @@ where [refTable].[Vehicle_ID] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-87.53240234375,20.3851244257226,175.0648046875,11.6630859375"
+              BoundingBox="-57.94205078125,20.3851244257226,115.8841015625,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -6283,9 +6283,7 @@ where [refTable].[Vehicle_ID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-27.84953125,17.6487296650804,55.6990625,9.6025390625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
