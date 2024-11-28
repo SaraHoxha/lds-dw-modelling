@@ -12,11 +12,6 @@
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>Package1.dtsx</Name>
-      <LastWriteTime>2024-11-26T22:56:35.6163435Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
       <Name>Package2.dtsx</Name>
       <LastWriteTime>2024-11-27T18:00:14.8288701Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
@@ -28,12 +23,12 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>query 6.dtsx</Name>
-      <LastWriteTime>2024-11-27T20:13:31.2279064Z</LastWriteTime>
+      <LastWriteTime>2024-11-28T15:47:04.6675893Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>query 7.dtsx</Name>
-      <LastWriteTime>2024-11-27T21:03:14.6929749Z</LastWriteTime>
+      <LastWriteTime>2024-11-27T21:04:34.5014701Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
