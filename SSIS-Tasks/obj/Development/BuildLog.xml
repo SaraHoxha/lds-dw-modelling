@@ -2,33 +2,38 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>SSIS-Tasks</Name>
-    <LastWriteTime>2024-11-27T20:52:54.211699Z</LastWriteTime>
+    <LastWriteTime>2024-11-30T14:38:52.268244Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Data Uploading.dtsx</Name>
-      <LastWriteTime>2024-11-27T15:01:57.8654623Z</LastWriteTime>
+      <LastWriteTime>2024-11-27T23:54:09.6576781Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Package2.dtsx</Name>
-      <LastWriteTime>2024-11-27T18:00:14.8288701Z</LastWriteTime>
+      <LastWriteTime>2024-11-27T23:54:09.6664828Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Package2 test.dtsx</Name>
-      <LastWriteTime>2024-11-27T18:07:09.2879243Z</LastWriteTime>
+      <LastWriteTime>2024-11-27T23:54:09.665483Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>query 6.dtsx</Name>
-      <LastWriteTime>2024-11-28T15:47:04.6675893Z</LastWriteTime>
+      <LastWriteTime>2024-11-30T12:26:21.857376Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>query 7.dtsx</Name>
-      <LastWriteTime>2024-11-27T21:04:34.5014701Z</LastWriteTime>
+      <LastWriteTime>2024-11-27T23:54:09.69061Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>query 8.dtsx</Name>
+      <LastWriteTime>2024-11-30T14:38:52.2552368Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
