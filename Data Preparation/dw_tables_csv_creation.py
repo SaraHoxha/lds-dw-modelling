@@ -154,7 +154,7 @@ createDamageReimbursementTable(
     vehicleTable,
     crashTable,
     personTable,
-    idColumnName=DAMAGE_REIMBURSEMENT_INDEX_COL
+    indexingColumnName=DAMAGE_REIMBURSEMENT_INDEX_COL
 
 )
 
