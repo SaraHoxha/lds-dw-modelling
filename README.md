@@ -22,7 +22,7 @@ The project is organized into the following directories:
 
 ### 3. **Data Warehouse Schema**
  - Assignment 3
- - **Purpose**: This folder contains the Data Warehouse schema we have designed saved in both drawio and png format. It can be found [here](./Data%20Warehouse%20Schema/DW%20Schema.png). It also contains the python script `creation_dw.py` to create the tables based on this schema, as well as the `creation_dw_SSIS.py` to duplicate the tables without records.
+ - **Purpose**: This folder contains the Data Warehouse schema we have designed saved in both drawio and png format. It can be found [here](./Data%20Warehouse%20Schema/DW%20Schema.png). It also contains the python script `creation_dw.py` to create the tables based on this schema, as well as the `creation_dw_SSIS.py` script to duplicate these tables without records (required for Assigment 6).
 
 ### 4. **Data Preparation**
  - Assignment 4
