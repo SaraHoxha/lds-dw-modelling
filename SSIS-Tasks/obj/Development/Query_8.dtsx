@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="RAFASPC"
   DTS:CreatorName="RAFASPC\urbi1"
-  DTS:DTSID="{602654AD-36DF-4FD6-BCC7-983EA92F8CBF}"
+  DTS:DTSID="{FC2ED658-5FB6-432C-8800-A7745458981C}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5685.0"
   DTS:LocaleID="1033"
-  DTS:ObjectName="query 8"
+  DTS:ObjectName="Query_8"
   DTS:PackageType="5"
-  DTS:VersionBuild="31"
-  DTS:VersionGUID="{82C28374-6F28-427A-BC5C-E7A946F9EED5}">
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{49A9CA43-104F-4B48-BB2A-2FF35FCC50B5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -133,7 +133,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAluyNMcYTQky910ZasVSBPAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAApx/uBFKvRU448iUjBhqkgNLAK+BbdU83a+vgCZ3HkggAAAAAOgAAAAAIAACAAAABXHvuk82/ODAM+wj3Zd4khx0M1Jf0FKctdJLnT8F6clCAAAADAmBZsR+R0n8mDjX/4kQgnUYGZrxg+GsCgZOEqV08PFEAAAACsH10Q0vSD4QR3yNB8GynASFKtXUHA8dLfBqZpJaw9XjI+jDKr5vus30yTMR3NUuthB3h6HPC4D5LGrW9JFYtf</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAluyNMcYTQky910ZasVSBPAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADjYtlBUdJJsnKmwwwEhy5OSklMYDnD/6JyxEZLqThqlwAAAAAOgAAAAAIAACAAAABlJjrEpFcq/Lip0PHo+UiL0vzxiYC9P3hBpvAnvI7dDyAAAADNTmIUxRY+sfRHXHJi8qv9Oy/mxPYT4x1WcpxGKyi+5EAAAADz7tgqpkMadhe6TbE0NAFVq3WfTS6VZr4v7zOVfVtcZzPGCAxKye3fkzeA8CJ6/FNgIPhJc3aJVeTDR0I4TSin</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -141,13 +141,13 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Data Flow Task"
+      DTS:refId="Package\Query 8"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
       DTS:DTSID="{EE2E990A-5DF6-4789-B3B5-450280945090}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Data Flow Task"
+      DTS:ObjectName="Query 8"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -155,7 +155,7 @@
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task\Aggregate"
+              refId="Package\Query 8\Aggregate"
               componentClassID="Microsoft.Aggregate"
               contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
               description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
@@ -187,43 +187,43 @@
               </properties>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Aggregate.Inputs[Aggregate Input 1]"
+                  refId="Package\Query 8\Aggregate.Inputs[Aggregate Input 1]"
                   name="Aggregate Input 1">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Aggregate.Inputs[Aggregate Input 1].Columns[Pplunder21]"
+                      refId="Package\Query 8\Aggregate.Inputs[Aggregate Input 1].Columns[Pplunder21]"
                       cachedDataType="i4"
                       cachedName="Pplunder21"
-                      lineageId="Package\Data Flow Task\Ppl under 21.Outputs[Derived Column Output].Columns[Pplunder21]" />
+                      lineageId="Package\Query 8\Ppl under 21.Outputs[Derived Column Output].Columns[Pplunder21]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Aggregate.Inputs[Aggregate Input 1].Columns[Pplover21]"
+                      refId="Package\Query 8\Aggregate.Inputs[Aggregate Input 1].Columns[Pplover21]"
                       cachedDataType="i4"
                       cachedName="Pplover21"
-                      lineageId="Package\Data Flow Task\Ppl over 21.Outputs[Derived Column Output].Columns[Pplover21]" />
+                      lineageId="Package\Query 8\Ppl over 21.Outputs[Derived Column Output].Columns[Pplover21]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Aggregate.Inputs[Aggregate Input 1].Columns[Quarter]"
+                      refId="Package\Query 8\Aggregate.Inputs[Aggregate Input 1].Columns[Quarter]"
                       cachedDataType="i4"
                       cachedName="Quarter"
-                      lineageId="Package\Data Flow Task\Quarterly column.Outputs[Derived Column Output].Columns[Quarter]" />
+                      lineageId="Package\Query 8\Quarterly column.Outputs[Derived Column Output].Columns[Quarter]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Aggregate.Inputs[Aggregate Input 1].Columns[Weather_Condition]"
+                      refId="Package\Query 8\Aggregate.Inputs[Aggregate Input 1].Columns[Weather_Condition]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="Weather_Condition"
-                      lineageId="Package\Data Flow Task\Crash Condition.Outputs[Lookup Match Output].Columns[Weather_Condition]" />
+                      lineageId="Package\Query 8\Crash Condition.Outputs[Lookup Match Output].Columns[Weather_Condition]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Aggregate.Inputs[Aggregate Input 1].Columns[Beat_Of_Occurrence]"
+                      refId="Package\Query 8\Aggregate.Inputs[Aggregate Input 1].Columns[Beat_Of_Occurrence]"
                       cachedDataType="i4"
                       cachedName="Beat_Of_Occurrence"
-                      lineageId="Package\Data Flow Task\Crash Location.Outputs[Lookup Match Output].Columns[Beat_Of_Occurrence]" />
+                      lineageId="Package\Query 8\Crash Location.Outputs[Lookup Match Output].Columns[Beat_Of_Occurrence]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1]"
+                  refId="Package\Query 8\Aggregate.Outputs[Aggregate Output 1]"
                   name="Aggregate Output 1">
                   <properties>
                     <property
@@ -238,16 +238,16 @@
                   </properties>
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[CountUnder21]"
+                      refId="Package\Query 8\Aggregate.Outputs[Aggregate Output 1].Columns[CountUnder21]"
                       dataType="i8"
-                      lineageId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[CountUnder21]"
+                      lineageId="Package\Query 8\Aggregate.Outputs[Aggregate Output 1].Columns[CountUnder21]"
                       name="CountUnder21">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Data Flow Task\Ppl under 21.Outputs[Derived Column Output].Columns[Pplunder21]}</property>
+                          name="AggregationColumnId">#{Package\Query 8\Ppl under 21.Outputs[Derived Column Output].Columns[Pplunder21]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -264,16 +264,16 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[CountOver21]"
+                      refId="Package\Query 8\Aggregate.Outputs[Aggregate Output 1].Columns[CountOver21]"
                       dataType="i8"
-                      lineageId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[CountOver21]"
+                      lineageId="Package\Query 8\Aggregate.Outputs[Aggregate Output 1].Columns[CountOver21]"
                       name="CountOver21">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Data Flow Task\Ppl over 21.Outputs[Derived Column Output].Columns[Pplover21]}</property>
+                          name="AggregationColumnId">#{Package\Query 8\Ppl over 21.Outputs[Derived Column Output].Columns[Pplover21]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -290,16 +290,16 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[Quarter]"
+                      refId="Package\Query 8\Aggregate.Outputs[Aggregate Output 1].Columns[Quarter]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[Quarter]"
+                      lineageId="Package\Query 8\Aggregate.Outputs[Aggregate Output 1].Columns[Quarter]"
                       name="Quarter">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Data Flow Task\Quarterly column.Outputs[Derived Column Output].Columns[Quarter]}</property>
+                          name="AggregationColumnId">#{Package\Query 8\Quarterly column.Outputs[Derived Column Output].Columns[Quarter]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -316,18 +316,18 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[Weather_Condition]"
+                      refId="Package\Query 8\Aggregate.Outputs[Aggregate Output 1].Columns[Weather_Condition]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[Weather_Condition]"
+                      lineageId="Package\Query 8\Aggregate.Outputs[Aggregate Output 1].Columns[Weather_Condition]"
                       name="Weather_Condition">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Data Flow Task\Crash Condition.Outputs[Lookup Match Output].Columns[Weather_Condition]}</property>
+                          name="AggregationColumnId">#{Package\Query 8\Crash Condition.Outputs[Lookup Match Output].Columns[Weather_Condition]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -344,16 +344,16 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[Beat_Of_Occurrence]"
+                      refId="Package\Query 8\Aggregate.Outputs[Aggregate Output 1].Columns[Beat_Of_Occurrence]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[Beat_Of_Occurrence]"
+                      lineageId="Package\Query 8\Aggregate.Outputs[Aggregate Output 1].Columns[Beat_Of_Occurrence]"
                       name="Beat_Of_Occurrence">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Data Flow Task\Crash Location.Outputs[Lookup Match Output].Columns[Beat_Of_Occurrence]}</property>
+                          name="AggregationColumnId">#{Package\Query 8\Crash Location.Outputs[Lookup Match Output].Columns[Beat_Of_Occurrence]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -375,7 +375,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\avgratio"
+              refId="Package\Query 8\avgratio"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
@@ -383,38 +383,38 @@
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\avgratio.Inputs[Derived Column Input]"
+                  refId="Package\Query 8\avgratio.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\avgratio.Inputs[Derived Column Input].Columns[CountUnder21]"
+                      refId="Package\Query 8\avgratio.Inputs[Derived Column Input].Columns[CountUnder21]"
                       cachedDataType="i8"
                       cachedName="CountUnder21"
-                      lineageId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[CountUnder21]" />
+                      lineageId="Package\Query 8\Aggregate.Outputs[Aggregate Output 1].Columns[CountUnder21]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\avgratio.Inputs[Derived Column Input].Columns[CountOver21]"
+                      refId="Package\Query 8\avgratio.Inputs[Derived Column Input].Columns[CountOver21]"
                       cachedDataType="i8"
                       cachedName="CountOver21"
-                      lineageId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[CountOver21]" />
+                      lineageId="Package\Query 8\Aggregate.Outputs[Aggregate Output 1].Columns[CountOver21]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\avgratio.Outputs[Derived Column Output]"
+                  refId="Package\Query 8\avgratio.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\Data Flow Task\avgratio.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Query 8\avgratio.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\avgratio.Outputs[Derived Column Output].Columns[AvgRatio]"
+                      refId="Package\Query 8\avgratio.Outputs[Derived Column Output].Columns[AvgRatio]"
                       dataType="r8"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\avgratio.Outputs[Derived Column Output].Columns[AvgRatio]"
+                      lineageId="Package\Query 8\avgratio.Outputs[Derived Column Output].Columns[AvgRatio]"
                       name="AvgRatio"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -422,7 +422,7 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">#{Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[CountOver21]} == 0 ? 1 : (DT_R8)(#{Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[CountUnder21]}) / (DT_R8)(#{Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[CountOver21]})</property>
+                          name="Expression">#{Package\Query 8\Aggregate.Outputs[Aggregate Output 1].Columns[CountOver21]} == 0 ? 1 : (DT_R8)(#{Package\Query 8\Aggregate.Outputs[Aggregate Output 1].Columns[CountUnder21]}) / (DT_R8)(#{Package\Query 8\Aggregate.Outputs[Aggregate Output 1].Columns[CountOver21]})</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -435,23 +435,23 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\avgratio.Outputs[Derived Column Error Output]"
+                  refId="Package\Query 8\avgratio.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\Data Flow Task\avgratio.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Query 8\avgratio.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\avgratio.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\Query 8\avgratio.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\avgratio.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Query 8\avgratio.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\avgratio.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\Query 8\avgratio.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\avgratio.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Query 8\avgratio.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -460,7 +460,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Crash"
+              refId="Package\Query 8\Crash"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
@@ -516,7 +516,7 @@ where [refTable].[Crash_ID] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\DamageReimboursement.Outputs[OLE DB Source Output].Columns[Crash_ID]};</property>
+                  name="ParameterMap">#{Package\Query 8\DamageReimboursement.Outputs[OLE DB Source Output].Columns[Crash_ID]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -528,7 +528,7 @@ where [refTable].[Crash_ID] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Crash.Connections[OleDbConnection]"
+                  refId="Package\Query 8\Crash.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_4_DB.Group_ID_4 1]"
                   connectionManagerRefId="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_4_DB.Group_ID_4 1]"
                   description="Connection manager used to access lookup data."
@@ -536,14 +536,14 @@ where [refTable].[Crash_ID] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Crash.Inputs[Lookup Input]"
+                  refId="Package\Query 8\Crash.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Crash.Inputs[Lookup Input].Columns[Crash_ID]"
+                      refId="Package\Query 8\Crash.Inputs[Lookup Input].Columns[Crash_ID]"
                       cachedDataType="i4"
                       cachedName="Crash_ID"
-                      lineageId="Package\Data Flow Task\DamageReimboursement.Outputs[OLE DB Source Output].Columns[Crash_ID]">
+                      lineageId="Package\Query 8\DamageReimboursement.Outputs[OLE DB Source Output].Columns[Crash_ID]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -561,18 +561,18 @@ where [refTable].[Crash_ID] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Crash.Outputs[Lookup Match Output]"
+                  refId="Package\Query 8\Crash.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   errorRowDisposition="IgnoreFailure"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\Data Flow Task\Crash.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Query 8\Crash.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Crash.Outputs[Lookup Match Output].Columns[Crash_Date_ID]"
+                      refId="Package\Query 8\Crash.Outputs[Lookup Match Output].Columns[Crash_Date_ID]"
                       dataType="i4"
                       errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Data Flow Task\Crash.Outputs[Lookup Match Output].Columns[Crash_Date_ID]"
+                      lineageId="Package\Query 8\Crash.Outputs[Lookup Match Output].Columns[Crash_Date_ID]"
                       name="Crash_Date_ID"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -583,10 +583,10 @@ where [refTable].[Crash_ID] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Crash.Outputs[Lookup Match Output].Columns[Crash_Location_ID]"
+                      refId="Package\Query 8\Crash.Outputs[Lookup Match Output].Columns[Crash_Location_ID]"
                       dataType="i4"
                       errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Data Flow Task\Crash.Outputs[Lookup Match Output].Columns[Crash_Location_ID]"
+                      lineageId="Package\Query 8\Crash.Outputs[Lookup Match Output].Columns[Crash_Location_ID]"
                       name="Crash_Location_ID"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -597,10 +597,10 @@ where [refTable].[Crash_ID] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Crash.Outputs[Lookup Match Output].Columns[Crash_Condition_ID]"
+                      refId="Package\Query 8\Crash.Outputs[Lookup Match Output].Columns[Crash_Condition_ID]"
                       dataType="i4"
                       errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Data Flow Task\Crash.Outputs[Lookup Match Output].Columns[Crash_Condition_ID]"
+                      lineageId="Package\Query 8\Crash.Outputs[Lookup Match Output].Columns[Crash_Condition_ID]"
                       name="Crash_Condition_ID"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -614,30 +614,30 @@ where [refTable].[Crash_ID] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Crash.Outputs[Lookup No Match Output]"
+                  refId="Package\Query 8\Crash.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\Data Flow Task\Crash.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Query 8\Crash.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Crash.Outputs[Lookup Error Output]"
+                  refId="Package\Query 8\Crash.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\Data Flow Task\Crash.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Query 8\Crash.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Crash.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\Query 8\Crash.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Crash.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Query 8\Crash.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Crash.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\Query 8\Crash.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Crash.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Query 8\Crash.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -646,7 +646,7 @@ where [refTable].[Crash_ID] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Crash Condition"
+              refId="Package\Query 8\Crash Condition"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
@@ -702,7 +702,7 @@ where [refTable].[Crash_Condition_ID] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\Crash.Outputs[Lookup Match Output].Columns[Crash_Condition_ID]};</property>
+                  name="ParameterMap">#{Package\Query 8\Crash.Outputs[Lookup Match Output].Columns[Crash_Condition_ID]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -714,7 +714,7 @@ where [refTable].[Crash_Condition_ID] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Crash Condition.Connections[OleDbConnection]"
+                  refId="Package\Query 8\Crash Condition.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_4_DB.Group_ID_4 1]"
                   connectionManagerRefId="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_4_DB.Group_ID_4 1]"
                   description="Connection manager used to access lookup data."
@@ -722,14 +722,14 @@ where [refTable].[Crash_Condition_ID] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Crash Condition.Inputs[Lookup Input]"
+                  refId="Package\Query 8\Crash Condition.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Crash Condition.Inputs[Lookup Input].Columns[Crash_Condition_ID]"
+                      refId="Package\Query 8\Crash Condition.Inputs[Lookup Input].Columns[Crash_Condition_ID]"
                       cachedDataType="i4"
                       cachedName="Crash_Condition_ID"
-                      lineageId="Package\Data Flow Task\Crash.Outputs[Lookup Match Output].Columns[Crash_Condition_ID]">
+                      lineageId="Package\Query 8\Crash.Outputs[Lookup Match Output].Columns[Crash_Condition_ID]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -747,20 +747,20 @@ where [refTable].[Crash_Condition_ID] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Crash Condition.Outputs[Lookup Match Output]"
+                  refId="Package\Query 8\Crash Condition.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   errorRowDisposition="IgnoreFailure"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\Data Flow Task\Crash Condition.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Query 8\Crash Condition.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Crash Condition.Outputs[Lookup Match Output].Columns[Weather_Condition]"
+                      refId="Package\Query 8\Crash Condition.Outputs[Lookup Match Output].Columns[Weather_Condition]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Copy Column"
                       length="50"
-                      lineageId="Package\Data Flow Task\Crash Condition.Outputs[Lookup Match Output].Columns[Weather_Condition]"
+                      lineageId="Package\Query 8\Crash Condition.Outputs[Lookup Match Output].Columns[Weather_Condition]"
                       name="Weather_Condition"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -774,30 +774,30 @@ where [refTable].[Crash_Condition_ID] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Crash Condition.Outputs[Lookup No Match Output]"
+                  refId="Package\Query 8\Crash Condition.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\Data Flow Task\Crash Condition.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Query 8\Crash Condition.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Crash Condition.Outputs[Lookup Error Output]"
+                  refId="Package\Query 8\Crash Condition.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\Data Flow Task\Crash Condition.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Query 8\Crash Condition.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Crash Condition.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\Query 8\Crash Condition.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Crash Condition.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Query 8\Crash Condition.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Crash Condition.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\Query 8\Crash Condition.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Crash Condition.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Query 8\Crash Condition.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -806,7 +806,7 @@ where [refTable].[Crash_Condition_ID] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Crash Location"
+              refId="Package\Query 8\Crash Location"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
@@ -862,7 +862,7 @@ where [refTable].[Crash_Location_ID] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\Crash.Outputs[Lookup Match Output].Columns[Crash_Location_ID]};</property>
+                  name="ParameterMap">#{Package\Query 8\Crash.Outputs[Lookup Match Output].Columns[Crash_Location_ID]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -874,7 +874,7 @@ where [refTable].[Crash_Location_ID] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Crash Location.Connections[OleDbConnection]"
+                  refId="Package\Query 8\Crash Location.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_4_DB.Group_ID_4 1]"
                   connectionManagerRefId="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_4_DB.Group_ID_4 1]"
                   description="Connection manager used to access lookup data."
@@ -882,14 +882,14 @@ where [refTable].[Crash_Location_ID] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Crash Location.Inputs[Lookup Input]"
+                  refId="Package\Query 8\Crash Location.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Crash Location.Inputs[Lookup Input].Columns[Crash_Location_ID]"
+                      refId="Package\Query 8\Crash Location.Inputs[Lookup Input].Columns[Crash_Location_ID]"
                       cachedDataType="i4"
                       cachedName="Crash_Location_ID"
-                      lineageId="Package\Data Flow Task\Crash.Outputs[Lookup Match Output].Columns[Crash_Location_ID]">
+                      lineageId="Package\Query 8\Crash.Outputs[Lookup Match Output].Columns[Crash_Location_ID]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -907,18 +907,18 @@ where [refTable].[Crash_Location_ID] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Crash Location.Outputs[Lookup Match Output]"
+                  refId="Package\Query 8\Crash Location.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   errorRowDisposition="IgnoreFailure"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\Data Flow Task\Crash Location.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Query 8\Crash Location.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Crash Location.Outputs[Lookup Match Output].Columns[Beat_Of_Occurrence]"
+                      refId="Package\Query 8\Crash Location.Outputs[Lookup Match Output].Columns[Beat_Of_Occurrence]"
                       dataType="i4"
                       errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Data Flow Task\Crash Location.Outputs[Lookup Match Output].Columns[Beat_Of_Occurrence]"
+                      lineageId="Package\Query 8\Crash Location.Outputs[Lookup Match Output].Columns[Beat_Of_Occurrence]"
                       name="Beat_Of_Occurrence"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -932,30 +932,30 @@ where [refTable].[Crash_Location_ID] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Crash Location.Outputs[Lookup No Match Output]"
+                  refId="Package\Query 8\Crash Location.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\Data Flow Task\Crash Location.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Query 8\Crash Location.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Crash Location.Outputs[Lookup Error Output]"
+                  refId="Package\Query 8\Crash Location.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\Data Flow Task\Crash Location.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Query 8\Crash Location.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Crash Location.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\Query 8\Crash Location.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Crash Location.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Query 8\Crash Location.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Crash Location.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\Query 8\Crash Location.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Crash Location.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Query 8\Crash Location.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -964,7 +964,7 @@ where [refTable].[Crash_Location_ID] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\DamageReimboursement"
+              refId="Package\Query 8\DamageReimboursement"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
@@ -1013,7 +1013,7 @@ where [refTable].[Crash_Location_ID] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\DamageReimboursement.Connections[OleDbConnection]"
+                  refId="Package\Query 8\DamageReimboursement.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_4_DB.Group_ID_4 1]"
                   connectionManagerRefId="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_4_DB.Group_ID_4 1]"
                   description="The OLE DB runtime connection used to access the database."
@@ -1021,48 +1021,48 @@ where [refTable].[Crash_Location_ID] = ?</property>
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\DamageReimboursement.Outputs[OLE DB Source Output]"
+                  refId="Package\Query 8\DamageReimboursement.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\DamageReimboursement.Outputs[OLE DB Source Output].Columns[Crash_ID]"
+                      refId="Package\Query 8\DamageReimboursement.Outputs[OLE DB Source Output].Columns[Crash_ID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\DamageReimboursement.Outputs[OLE DB Source Output].ExternalColumns[Crash_ID]"
-                      lineageId="Package\Data Flow Task\DamageReimboursement.Outputs[OLE DB Source Output].Columns[Crash_ID]"
+                      externalMetadataColumnId="Package\Query 8\DamageReimboursement.Outputs[OLE DB Source Output].ExternalColumns[Crash_ID]"
+                      lineageId="Package\Query 8\DamageReimboursement.Outputs[OLE DB Source Output].Columns[Crash_ID]"
                       name="Crash_ID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\DamageReimboursement.Outputs[OLE DB Source Output].Columns[Person_ID]"
+                      refId="Package\Query 8\DamageReimboursement.Outputs[OLE DB Source Output].Columns[Person_ID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\DamageReimboursement.Outputs[OLE DB Source Output].ExternalColumns[Person_ID]"
-                      lineageId="Package\Data Flow Task\DamageReimboursement.Outputs[OLE DB Source Output].Columns[Person_ID]"
+                      externalMetadataColumnId="Package\Query 8\DamageReimboursement.Outputs[OLE DB Source Output].ExternalColumns[Person_ID]"
+                      lineageId="Package\Query 8\DamageReimboursement.Outputs[OLE DB Source Output].Columns[Person_ID]"
                       name="Person_ID"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DamageReimboursement.Outputs[OLE DB Source Output].ExternalColumns[Crash_ID]"
+                      refId="Package\Query 8\DamageReimboursement.Outputs[OLE DB Source Output].ExternalColumns[Crash_ID]"
                       dataType="i4"
                       name="Crash_ID" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DamageReimboursement.Outputs[OLE DB Source Output].ExternalColumns[Person_ID]"
+                      refId="Package\Query 8\DamageReimboursement.Outputs[OLE DB Source Output].ExternalColumns[Person_ID]"
                       dataType="i4"
                       name="Person_ID" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DamageReimboursement.Outputs[OLE DB Source Output].ExternalColumns[Vehicle_ID]"
+                      refId="Package\Query 8\DamageReimboursement.Outputs[OLE DB Source Output].ExternalColumns[Vehicle_ID]"
                       dataType="i4"
                       name="Vehicle_ID" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DamageReimboursement.Outputs[OLE DB Source Output].ExternalColumns[Cost]"
+                      refId="Package\Query 8\DamageReimboursement.Outputs[OLE DB Source Output].ExternalColumns[Cost]"
                       dataType="r8"
                       name="Cost" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DamageReimboursement.Outputs[OLE DB Source Output].ExternalColumns[Category]"
+                      refId="Package\Query 8\DamageReimboursement.Outputs[OLE DB Source Output].ExternalColumns[Category]"
                       codePage="1252"
                       dataType="str"
                       length="100"
@@ -1070,30 +1070,30 @@ where [refTable].[Crash_Location_ID] = ?</property>
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task\DamageReimboursement.Outputs[OLE DB Source Error Output]"
+                  refId="Package\Query 8\DamageReimboursement.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\DamageReimboursement.Outputs[OLE DB Source Error Output].Columns[Crash_ID]"
+                      refId="Package\Query 8\DamageReimboursement.Outputs[OLE DB Source Error Output].Columns[Crash_ID]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\DamageReimboursement.Outputs[OLE DB Source Error Output].Columns[Crash_ID]"
+                      lineageId="Package\Query 8\DamageReimboursement.Outputs[OLE DB Source Error Output].Columns[Crash_ID]"
                       name="Crash_ID" />
                     <outputColumn
-                      refId="Package\Data Flow Task\DamageReimboursement.Outputs[OLE DB Source Error Output].Columns[Person_ID]"
+                      refId="Package\Query 8\DamageReimboursement.Outputs[OLE DB Source Error Output].Columns[Person_ID]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\DamageReimboursement.Outputs[OLE DB Source Error Output].Columns[Person_ID]"
+                      lineageId="Package\Query 8\DamageReimboursement.Outputs[OLE DB Source Error Output].Columns[Person_ID]"
                       name="Person_ID" />
                     <outputColumn
-                      refId="Package\Data Flow Task\DamageReimboursement.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\Query 8\DamageReimboursement.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\DamageReimboursement.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Query 8\DamageReimboursement.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\DamageReimboursement.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\Query 8\DamageReimboursement.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\DamageReimboursement.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Query 8\DamageReimboursement.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1102,7 +1102,7 @@ where [refTable].[Crash_Location_ID] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Datetime"
+              refId="Package\Query 8\Datetime"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
@@ -1158,7 +1158,7 @@ where [refTable].[DateTime_ID] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\Crash.Outputs[Lookup Match Output].Columns[Crash_Date_ID]};</property>
+                  name="ParameterMap">#{Package\Query 8\Crash.Outputs[Lookup Match Output].Columns[Crash_Date_ID]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1170,7 +1170,7 @@ where [refTable].[DateTime_ID] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Datetime.Connections[OleDbConnection]"
+                  refId="Package\Query 8\Datetime.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_4_DB.Group_ID_4 1]"
                   connectionManagerRefId="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_4_DB.Group_ID_4 1]"
                   description="Connection manager used to access lookup data."
@@ -1178,14 +1178,14 @@ where [refTable].[DateTime_ID] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Datetime.Inputs[Lookup Input]"
+                  refId="Package\Query 8\Datetime.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Datetime.Inputs[Lookup Input].Columns[Crash_Date_ID]"
+                      refId="Package\Query 8\Datetime.Inputs[Lookup Input].Columns[Crash_Date_ID]"
                       cachedDataType="i4"
                       cachedName="Crash_Date_ID"
-                      lineageId="Package\Data Flow Task\Crash.Outputs[Lookup Match Output].Columns[Crash_Date_ID]">
+                      lineageId="Package\Query 8\Crash.Outputs[Lookup Match Output].Columns[Crash_Date_ID]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -1203,18 +1203,18 @@ where [refTable].[DateTime_ID] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Datetime.Outputs[Lookup Match Output]"
+                  refId="Package\Query 8\Datetime.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   errorRowDisposition="IgnoreFailure"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\Data Flow Task\Datetime.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Query 8\Datetime.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Datetime.Outputs[Lookup Match Output].Columns[Month]"
+                      refId="Package\Query 8\Datetime.Outputs[Lookup Match Output].Columns[Month]"
                       dataType="i4"
                       errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Data Flow Task\Datetime.Outputs[Lookup Match Output].Columns[Month]"
+                      lineageId="Package\Query 8\Datetime.Outputs[Lookup Match Output].Columns[Month]"
                       name="Month"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1228,30 +1228,30 @@ where [refTable].[DateTime_ID] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Datetime.Outputs[Lookup No Match Output]"
+                  refId="Package\Query 8\Datetime.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\Data Flow Task\Datetime.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Query 8\Datetime.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Datetime.Outputs[Lookup Error Output]"
+                  refId="Package\Query 8\Datetime.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\Data Flow Task\Datetime.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Query 8\Datetime.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Datetime.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\Query 8\Datetime.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Datetime.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Query 8\Datetime.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Datetime.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\Query 8\Datetime.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Datetime.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Query 8\Datetime.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1260,117 +1260,177 @@ where [refTable].[DateTime_ID] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Flat File Destination"
-              componentClassID="Microsoft.FlatFileDestination"
-              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Flat File Destination"
-              localeId="1033"
-              name="Flat File Destination"
-              version="1">
+              refId="Package\Query 8\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
               <properties>
                 <property
-                  dataType="System.Boolean"
-                  description="Specifies whether the data will overwrite or append to the destination file."
-                  name="Overwrite">true</property>
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
                 <property
                   dataType="System.String"
-                  description="Specifies the text to write to the destination file before any data is written."
-                  expressionType="Notify"
-                  name="Header">CountUnder21,CountOver21,Quarter,Weathercondition,Beat,Ratio</property>
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Query_8_result]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
                 <property
                   dataType="System.Boolean"
-                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
-                  name="EscapeQualifier">false</property>
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Flat File Destination.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
-                  name="FlatFileConnection" />
+                  refId="Package\Query 8\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_4_DB.Group_ID_4 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_4_DB.Group_ID_4 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input]"
+                  refId="Package\Query 8\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
                   hasSideEffects="true"
-                  name="Flat File Destination Input">
+                  name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[CountUnder21]"
+                      refId="Package\Query 8\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CountUnder21]"
                       cachedDataType="i8"
                       cachedName="CountUnder21"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CountUnder21]"
-                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CountUnder21]" />
+                      externalMetadataColumnId="Package\Query 8\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CountUnder21]"
+                      lineageId="Package\Query 8\Sort.Outputs[Sort Output].Columns[CountUnder21]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[CountOver21]"
+                      refId="Package\Query 8\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CountOver21]"
                       cachedDataType="i8"
                       cachedName="CountOver21"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CountOver21]"
-                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CountOver21]" />
+                      externalMetadataColumnId="Package\Query 8\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CountOver21]"
+                      lineageId="Package\Query 8\Sort.Outputs[Sort Output].Columns[CountOver21]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[Quarter]"
+                      refId="Package\Query 8\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Quarter]"
                       cachedDataType="i4"
                       cachedName="Quarter"
                       cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Quarter]"
-                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[Quarter]" />
+                      externalMetadataColumnId="Package\Query 8\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quarter]"
+                      lineageId="Package\Query 8\Sort.Outputs[Sort Output].Columns[Quarter]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[Weather_Condition]"
+                      refId="Package\Query 8\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Weather_Condition]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="Weather_Condition"
                       cachedSortKeyPosition="2"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Weather_Condition]"
-                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[Weather_Condition]" />
+                      externalMetadataColumnId="Package\Query 8\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Weather_Condition]"
+                      lineageId="Package\Query 8\Sort.Outputs[Sort Output].Columns[Weather_Condition]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[Beat_Of_Occurrence]"
+                      refId="Package\Query 8\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Beat_Of_Occurrence]"
                       cachedDataType="i4"
                       cachedName="Beat_Of_Occurrence"
                       cachedSortKeyPosition="3"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Beat_Of_Occurrence]"
-                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[Beat_Of_Occurrence]" />
+                      externalMetadataColumnId="Package\Query 8\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Beat_Of_Occurrence]"
+                      lineageId="Package\Query 8\Sort.Outputs[Sort Output].Columns[Beat_Of_Occurrence]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[AvgRatio]"
+                      refId="Package\Query 8\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AvgRatio]"
                       cachedDataType="r8"
                       cachedName="AvgRatio"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[AvgRatio]"
-                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[AvgRatio]" />
+                      externalMetadataColumnId="Package\Query 8\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AvgRatio]"
+                      lineageId="Package\Query 8\Sort.Outputs[Sort Output].Columns[AvgRatio]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CountUnder21]"
+                      refId="Package\Query 8\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CountUnder21]"
                       dataType="i8"
                       name="CountUnder21" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CountOver21]"
+                      refId="Package\Query 8\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CountOver21]"
                       dataType="i8"
                       name="CountOver21" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Quarter]"
+                      refId="Package\Query 8\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quarter]"
                       dataType="i4"
                       name="Quarter" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Weather_Condition]"
+                      refId="Package\Query 8\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Weather_Condition]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Weather_Condition" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Beat_Of_Occurrence]"
+                      refId="Package\Query 8\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Beat_Of_Occurrence]"
                       dataType="i4"
                       name="Beat_Of_Occurrence" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[AvgRatio]"
+                      refId="Package\Query 8\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AvgRatio]"
                       dataType="r8"
                       name="AvgRatio" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
+              <outputs>
+                <output
+                  refId="Package\Query 8\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Query 8\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Query 8\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Query 8\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Query 8\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Query 8\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Persons"
+              refId="Package\Query 8\Persons"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
@@ -1426,7 +1486,7 @@ where [refTable].[Person_ID] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\DamageReimboursement.Outputs[OLE DB Source Output].Columns[Person_ID]};</property>
+                  name="ParameterMap">#{Package\Query 8\DamageReimboursement.Outputs[OLE DB Source Output].Columns[Person_ID]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1438,7 +1498,7 @@ where [refTable].[Person_ID] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Persons.Connections[OleDbConnection]"
+                  refId="Package\Query 8\Persons.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_4_DB.Group_ID_4 1]"
                   connectionManagerRefId="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_4_DB.Group_ID_4 1]"
                   description="Connection manager used to access lookup data."
@@ -1446,14 +1506,14 @@ where [refTable].[Person_ID] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Persons.Inputs[Lookup Input]"
+                  refId="Package\Query 8\Persons.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Persons.Inputs[Lookup Input].Columns[Person_ID]"
+                      refId="Package\Query 8\Persons.Inputs[Lookup Input].Columns[Person_ID]"
                       cachedDataType="i4"
                       cachedName="Person_ID"
-                      lineageId="Package\Data Flow Task\DamageReimboursement.Outputs[OLE DB Source Output].Columns[Person_ID]">
+                      lineageId="Package\Query 8\DamageReimboursement.Outputs[OLE DB Source Output].Columns[Person_ID]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -1471,18 +1531,18 @@ where [refTable].[Person_ID] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Persons.Outputs[Lookup Match Output]"
+                  refId="Package\Query 8\Persons.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   errorRowDisposition="IgnoreFailure"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\Data Flow Task\Persons.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Query 8\Persons.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Persons.Outputs[Lookup Match Output].Columns[Age]"
+                      refId="Package\Query 8\Persons.Outputs[Lookup Match Output].Columns[Age]"
                       dataType="i4"
                       errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Data Flow Task\Persons.Outputs[Lookup Match Output].Columns[Age]"
+                      lineageId="Package\Query 8\Persons.Outputs[Lookup Match Output].Columns[Age]"
                       name="Age"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1496,30 +1556,30 @@ where [refTable].[Person_ID] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Persons.Outputs[Lookup No Match Output]"
+                  refId="Package\Query 8\Persons.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\Data Flow Task\Persons.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Query 8\Persons.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Persons.Outputs[Lookup Error Output]"
+                  refId="Package\Query 8\Persons.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\Data Flow Task\Persons.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Query 8\Persons.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Persons.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\Query 8\Persons.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Persons.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Query 8\Persons.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Persons.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\Query 8\Persons.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Persons.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Query 8\Persons.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1528,7 +1588,7 @@ where [refTable].[Person_ID] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Ppl over 21"
+              refId="Package\Query 8\Ppl over 21"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
@@ -1536,33 +1596,33 @@ where [refTable].[Person_ID] = ?</property>
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Ppl over 21.Inputs[Derived Column Input]"
+                  refId="Package\Query 8\Ppl over 21.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Ppl over 21.Inputs[Derived Column Input].Columns[Age]"
+                      refId="Package\Query 8\Ppl over 21.Inputs[Derived Column Input].Columns[Age]"
                       cachedDataType="i4"
                       cachedName="Age"
-                      lineageId="Package\Data Flow Task\Persons.Outputs[Lookup Match Output].Columns[Age]" />
+                      lineageId="Package\Query 8\Persons.Outputs[Lookup Match Output].Columns[Age]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Ppl over 21.Outputs[Derived Column Output]"
+                  refId="Package\Query 8\Ppl over 21.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\Data Flow Task\Ppl over 21.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Query 8\Ppl over 21.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Ppl over 21.Outputs[Derived Column Output].Columns[Pplover21]"
+                      refId="Package\Query 8\Ppl over 21.Outputs[Derived Column Output].Columns[Pplover21]"
                       dataType="i4"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Ppl over 21.Outputs[Derived Column Output].Columns[Pplover21]"
+                      lineageId="Package\Query 8\Ppl over 21.Outputs[Derived Column Output].Columns[Pplover21]"
                       name="Pplover21"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1570,7 +1630,7 @@ where [refTable].[Person_ID] = ?</property>
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">#{Package\Data Flow Task\Persons.Outputs[Lookup Match Output].Columns[Age]} &gt; 21 ? 1 : 0</property>
+                          name="Expression">#{Package\Query 8\Persons.Outputs[Lookup Match Output].Columns[Age]} &gt; 21 ? 1 : 0</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -1583,23 +1643,23 @@ where [refTable].[Person_ID] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Ppl over 21.Outputs[Derived Column Error Output]"
+                  refId="Package\Query 8\Ppl over 21.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\Data Flow Task\Ppl over 21.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Query 8\Ppl over 21.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Ppl over 21.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\Query 8\Ppl over 21.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Ppl over 21.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Query 8\Ppl over 21.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Ppl over 21.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\Query 8\Ppl over 21.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Ppl over 21.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Query 8\Ppl over 21.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1608,7 +1668,7 @@ where [refTable].[Person_ID] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Ppl under 21"
+              refId="Package\Query 8\Ppl under 21"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
@@ -1616,33 +1676,33 @@ where [refTable].[Person_ID] = ?</property>
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Ppl under 21.Inputs[Derived Column Input]"
+                  refId="Package\Query 8\Ppl under 21.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Ppl under 21.Inputs[Derived Column Input].Columns[Age]"
+                      refId="Package\Query 8\Ppl under 21.Inputs[Derived Column Input].Columns[Age]"
                       cachedDataType="i4"
                       cachedName="Age"
-                      lineageId="Package\Data Flow Task\Persons.Outputs[Lookup Match Output].Columns[Age]" />
+                      lineageId="Package\Query 8\Persons.Outputs[Lookup Match Output].Columns[Age]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Ppl under 21.Outputs[Derived Column Output]"
+                  refId="Package\Query 8\Ppl under 21.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\Data Flow Task\Ppl under 21.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Query 8\Ppl under 21.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Ppl under 21.Outputs[Derived Column Output].Columns[Pplunder21]"
+                      refId="Package\Query 8\Ppl under 21.Outputs[Derived Column Output].Columns[Pplunder21]"
                       dataType="i4"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Ppl under 21.Outputs[Derived Column Output].Columns[Pplunder21]"
+                      lineageId="Package\Query 8\Ppl under 21.Outputs[Derived Column Output].Columns[Pplunder21]"
                       name="Pplunder21"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1650,7 +1710,7 @@ where [refTable].[Person_ID] = ?</property>
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">#{Package\Data Flow Task\Persons.Outputs[Lookup Match Output].Columns[Age]} &lt;= 21 ? 1 : 0</property>
+                          name="Expression">#{Package\Query 8\Persons.Outputs[Lookup Match Output].Columns[Age]} &lt;= 21 ? 1 : 0</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -1663,23 +1723,23 @@ where [refTable].[Person_ID] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Ppl under 21.Outputs[Derived Column Error Output]"
+                  refId="Package\Query 8\Ppl under 21.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\Data Flow Task\Ppl under 21.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Query 8\Ppl under 21.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Ppl under 21.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\Query 8\Ppl under 21.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Ppl under 21.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Query 8\Ppl under 21.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Ppl under 21.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\Query 8\Ppl under 21.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Ppl under 21.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Query 8\Ppl under 21.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1688,7 +1748,7 @@ where [refTable].[Person_ID] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Quarterly column"
+              refId="Package\Query 8\Quarterly column"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
@@ -1696,33 +1756,33 @@ where [refTable].[Person_ID] = ?</property>
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Quarterly column.Inputs[Derived Column Input]"
+                  refId="Package\Query 8\Quarterly column.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Quarterly column.Inputs[Derived Column Input].Columns[Month]"
+                      refId="Package\Query 8\Quarterly column.Inputs[Derived Column Input].Columns[Month]"
                       cachedDataType="i4"
                       cachedName="Month"
-                      lineageId="Package\Data Flow Task\Datetime.Outputs[Lookup Match Output].Columns[Month]" />
+                      lineageId="Package\Query 8\Datetime.Outputs[Lookup Match Output].Columns[Month]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Quarterly column.Outputs[Derived Column Output]"
+                  refId="Package\Query 8\Quarterly column.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\Data Flow Task\Quarterly column.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Query 8\Quarterly column.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Quarterly column.Outputs[Derived Column Output].Columns[Quarter]"
+                      refId="Package\Query 8\Quarterly column.Outputs[Derived Column Output].Columns[Quarter]"
                       dataType="i4"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Quarterly column.Outputs[Derived Column Output].Columns[Quarter]"
+                      lineageId="Package\Query 8\Quarterly column.Outputs[Derived Column Output].Columns[Quarter]"
                       name="Quarter"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1730,7 +1790,7 @@ where [refTable].[Person_ID] = ?</property>
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">(DT_I4)(#{Package\Data Flow Task\Datetime.Outputs[Lookup Match Output].Columns[Month]} &lt;= 3 ? 1 : #{Package\Data Flow Task\Datetime.Outputs[Lookup Match Output].Columns[Month]} &lt;= 6 ? 2 : #{Package\Data Flow Task\Datetime.Outputs[Lookup Match Output].Columns[Month]} &lt;= 9 ? 3 : 4)</property>
+                          name="Expression">(DT_I4)(#{Package\Query 8\Datetime.Outputs[Lookup Match Output].Columns[Month]} &lt;= 3 ? 1 : #{Package\Query 8\Datetime.Outputs[Lookup Match Output].Columns[Month]} &lt;= 6 ? 2 : #{Package\Query 8\Datetime.Outputs[Lookup Match Output].Columns[Month]} &lt;= 9 ? 3 : 4)</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -1743,23 +1803,23 @@ where [refTable].[Person_ID] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Quarterly column.Outputs[Derived Column Error Output]"
+                  refId="Package\Query 8\Quarterly column.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\Data Flow Task\Quarterly column.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Query 8\Quarterly column.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Quarterly column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\Query 8\Quarterly column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Quarterly column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Query 8\Quarterly column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Quarterly column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\Query 8\Quarterly column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Quarterly column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Query 8\Quarterly column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1768,7 +1828,7 @@ where [refTable].[Person_ID] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Sort"
+              refId="Package\Query 8\Sort"
               componentClassID="Microsoft.Sort"
               contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
@@ -1787,14 +1847,14 @@ where [refTable].[Person_ID] = ?</property>
               </properties>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Sort.Inputs[Sort Input]"
+                  refId="Package\Query 8\Sort.Inputs[Sort Input]"
                   name="Sort Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[CountUnder21]"
+                      refId="Package\Query 8\Sort.Inputs[Sort Input].Columns[CountUnder21]"
                       cachedDataType="i8"
                       cachedName="CountUnder21"
-                      lineageId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[CountUnder21]">
+                      lineageId="Package\Query 8\Aggregate.Outputs[Aggregate Output 1].Columns[CountUnder21]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -1807,10 +1867,10 @@ where [refTable].[Person_ID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[CountOver21]"
+                      refId="Package\Query 8\Sort.Inputs[Sort Input].Columns[CountOver21]"
                       cachedDataType="i8"
                       cachedName="CountOver21"
-                      lineageId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[CountOver21]">
+                      lineageId="Package\Query 8\Aggregate.Outputs[Aggregate Output 1].Columns[CountOver21]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -1823,10 +1883,10 @@ where [refTable].[Person_ID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[Quarter]"
+                      refId="Package\Query 8\Sort.Inputs[Sort Input].Columns[Quarter]"
                       cachedDataType="i4"
                       cachedName="Quarter"
-                      lineageId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[Quarter]">
+                      lineageId="Package\Query 8\Aggregate.Outputs[Aggregate Output 1].Columns[Quarter]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -1839,12 +1899,12 @@ where [refTable].[Person_ID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[Weather_Condition]"
+                      refId="Package\Query 8\Sort.Inputs[Sort Input].Columns[Weather_Condition]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="Weather_Condition"
-                      lineageId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[Weather_Condition]">
+                      lineageId="Package\Query 8\Aggregate.Outputs[Aggregate Output 1].Columns[Weather_Condition]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -1857,10 +1917,10 @@ where [refTable].[Person_ID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[Beat_Of_Occurrence]"
+                      refId="Package\Query 8\Sort.Inputs[Sort Input].Columns[Beat_Of_Occurrence]"
                       cachedDataType="i4"
                       cachedName="Beat_Of_Occurrence"
-                      lineageId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[Beat_Of_Occurrence]">
+                      lineageId="Package\Query 8\Aggregate.Outputs[Aggregate Output 1].Columns[Beat_Of_Occurrence]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -1873,10 +1933,10 @@ where [refTable].[Person_ID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[AvgRatio]"
+                      refId="Package\Query 8\Sort.Inputs[Sort Input].Columns[AvgRatio]"
                       cachedDataType="r8"
                       cachedName="AvgRatio"
-                      lineageId="Package\Data Flow Task\avgratio.Outputs[Derived Column Output].Columns[AvgRatio]">
+                      lineageId="Package\Query 8\avgratio.Outputs[Derived Column Output].Columns[AvgRatio]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -1894,40 +1954,40 @@ where [refTable].[Person_ID] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Sort.Outputs[Sort Output]"
+                  refId="Package\Query 8\Sort.Outputs[Sort Output]"
                   isSorted="true"
                   name="Sort Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CountUnder21]"
+                      refId="Package\Query 8\Sort.Outputs[Sort Output].Columns[CountUnder21]"
                       dataType="i8"
-                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CountUnder21]"
+                      lineageId="Package\Query 8\Sort.Outputs[Sort Output].Columns[CountUnder21]"
                       name="CountUnder21">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[CountUnder21]}</property>
+                          name="SortColumnId">#{Package\Query 8\Aggregate.Outputs[Aggregate Output 1].Columns[CountUnder21]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CountOver21]"
+                      refId="Package\Query 8\Sort.Outputs[Sort Output].Columns[CountOver21]"
                       dataType="i8"
-                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CountOver21]"
+                      lineageId="Package\Query 8\Sort.Outputs[Sort Output].Columns[CountOver21]"
                       name="CountOver21">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[CountOver21]}</property>
+                          name="SortColumnId">#{Package\Query 8\Aggregate.Outputs[Aggregate Output 1].Columns[CountOver21]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[Quarter]"
+                      refId="Package\Query 8\Sort.Outputs[Sort Output].Columns[Quarter]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[Quarter]"
+                      lineageId="Package\Query 8\Sort.Outputs[Sort Output].Columns[Quarter]"
                       name="Quarter"
                       sortKeyPosition="1">
                       <properties>
@@ -1935,15 +1995,15 @@ where [refTable].[Person_ID] = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[Quarter]}</property>
+                          name="SortColumnId">#{Package\Query 8\Aggregate.Outputs[Aggregate Output 1].Columns[Quarter]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[Weather_Condition]"
+                      refId="Package\Query 8\Sort.Outputs[Sort Output].Columns[Weather_Condition]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[Weather_Condition]"
+                      lineageId="Package\Query 8\Sort.Outputs[Sort Output].Columns[Weather_Condition]"
                       name="Weather_Condition"
                       sortKeyPosition="2">
                       <properties>
@@ -1951,13 +2011,13 @@ where [refTable].[Person_ID] = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[Weather_Condition]}</property>
+                          name="SortColumnId">#{Package\Query 8\Aggregate.Outputs[Aggregate Output 1].Columns[Weather_Condition]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[Beat_Of_Occurrence]"
+                      refId="Package\Query 8\Sort.Outputs[Sort Output].Columns[Beat_Of_Occurrence]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[Beat_Of_Occurrence]"
+                      lineageId="Package\Query 8\Sort.Outputs[Sort Output].Columns[Beat_Of_Occurrence]"
                       name="Beat_Of_Occurrence"
                       sortKeyPosition="3">
                       <properties>
@@ -1965,20 +2025,20 @@ where [refTable].[Person_ID] = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[Beat_Of_Occurrence]}</property>
+                          name="SortColumnId">#{Package\Query 8\Aggregate.Outputs[Aggregate Output 1].Columns[Beat_Of_Occurrence]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[AvgRatio]"
+                      refId="Package\Query 8\Sort.Outputs[Sort Output].Columns[AvgRatio]"
                       dataType="r8"
-                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[AvgRatio]"
+                      lineageId="Package\Query 8\Sort.Outputs[Sort Output].Columns[AvgRatio]"
                       name="AvgRatio">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Data Flow Task\avgratio.Outputs[Derived Column Output].Columns[AvgRatio]}</property>
+                          name="SortColumnId">#{Package\Query 8\avgratio.Outputs[Derived Column Output].Columns[AvgRatio]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1989,65 +2049,65 @@ where [refTable].[Person_ID] = ?</property>
           </components>
           <paths>
             <path
-              refId="Package\Data Flow Task.Paths[Aggregate Output 1]"
-              endId="Package\Data Flow Task\avgratio.Inputs[Derived Column Input]"
+              refId="Package\Query 8.Paths[Aggregate Output 1]"
+              endId="Package\Query 8\avgratio.Inputs[Derived Column Input]"
               name="Aggregate Output 1"
-              startId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1]" />
+              startId="Package\Query 8\Aggregate.Outputs[Aggregate Output 1]" />
             <path
-              refId="Package\Data Flow Task.Paths[Derived Column Output]"
-              endId="Package\Data Flow Task\Ppl under 21.Inputs[Derived Column Input]"
+              refId="Package\Query 8.Paths[Derived Column Output]"
+              endId="Package\Query 8\Ppl under 21.Inputs[Derived Column Input]"
               name="Derived Column Output"
-              startId="Package\Data Flow Task\Quarterly column.Outputs[Derived Column Output]" />
+              startId="Package\Query 8\Quarterly column.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Derived Column Output1]"
-              endId="Package\Data Flow Task\Ppl over 21.Inputs[Derived Column Input]"
+              refId="Package\Query 8.Paths[Derived Column Output1]"
+              endId="Package\Query 8\Ppl over 21.Inputs[Derived Column Input]"
               name="Derived Column Output"
-              startId="Package\Data Flow Task\Ppl under 21.Outputs[Derived Column Output]" />
+              startId="Package\Query 8\Ppl under 21.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Derived Column Output2]"
-              endId="Package\Data Flow Task\Aggregate.Inputs[Aggregate Input 1]"
+              refId="Package\Query 8.Paths[Derived Column Output2]"
+              endId="Package\Query 8\Aggregate.Inputs[Aggregate Input 1]"
               name="Derived Column Output"
-              startId="Package\Data Flow Task\Ppl over 21.Outputs[Derived Column Output]" />
+              startId="Package\Query 8\Ppl over 21.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Derived Column Output3]"
-              endId="Package\Data Flow Task\Sort.Inputs[Sort Input]"
+              refId="Package\Query 8.Paths[Derived Column Output3]"
+              endId="Package\Query 8\Sort.Inputs[Sort Input]"
               name="Derived Column Output"
-              startId="Package\Data Flow Task\avgratio.Outputs[Derived Column Output]" />
+              startId="Package\Query 8\avgratio.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Lookup Match Output]"
-              endId="Package\Data Flow Task\Crash Location.Inputs[Lookup Input]"
+              refId="Package\Query 8.Paths[Lookup Match Output]"
+              endId="Package\Query 8\Crash Location.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Data Flow Task\Crash Condition.Outputs[Lookup Match Output]" />
+              startId="Package\Query 8\Crash Condition.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Lookup Match Output1]"
-              endId="Package\Data Flow Task\Datetime.Inputs[Lookup Input]"
+              refId="Package\Query 8.Paths[Lookup Match Output1]"
+              endId="Package\Query 8\Datetime.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Data Flow Task\Crash Location.Outputs[Lookup Match Output]" />
+              startId="Package\Query 8\Crash Location.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Lookup Match Output2]"
-              endId="Package\Data Flow Task\Crash Condition.Inputs[Lookup Input]"
+              refId="Package\Query 8.Paths[Lookup Match Output2]"
+              endId="Package\Query 8\Crash Condition.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Data Flow Task\Crash.Outputs[Lookup Match Output]" />
+              startId="Package\Query 8\Crash.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Lookup Match Output3]"
-              endId="Package\Data Flow Task\Persons.Inputs[Lookup Input]"
+              refId="Package\Query 8.Paths[Lookup Match Output3]"
+              endId="Package\Query 8\Persons.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Data Flow Task\Datetime.Outputs[Lookup Match Output]" />
+              startId="Package\Query 8\Datetime.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Lookup Match Output4]"
-              endId="Package\Data Flow Task\Quarterly column.Inputs[Derived Column Input]"
+              refId="Package\Query 8.Paths[Lookup Match Output4]"
+              endId="Package\Query 8\Quarterly column.Inputs[Derived Column Input]"
               name="Lookup Match Output"
-              startId="Package\Data Flow Task\Persons.Outputs[Lookup Match Output]" />
+              startId="Package\Query 8\Persons.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
-              endId="Package\Data Flow Task\Crash.Inputs[Lookup Input]"
+              refId="Package\Query 8.Paths[OLE DB Source Output]"
+              endId="Package\Query 8\Crash.Inputs[Lookup Input]"
               name="OLE DB Source Output"
-              startId="Package\Data Flow Task\DamageReimboursement.Outputs[OLE DB Source Output]" />
+              startId="Package\Query 8\DamageReimboursement.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Sort Output]"
-              endId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input]"
+              refId="Package\Query 8.Paths[Sort Output]"
+              endId="Package\Query 8\OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Sort Output"
-              startId="Package\Data Flow Task\Sort.Outputs[Sort Output]" />
+              startId="Package\Query 8\Sort.Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -2066,71 +2126,103 @@ where [refTable].[Person_ID] = ?</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="150.4,41.6"
-          Id="Package\Data Flow Task"
+          Size="115.2,41.6"
+          Id="Package\Query 8"
           TopLeft="293.571429196365,122.352941069223" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Data Flow Task">
+    design-time-name="Package\Query 8">
     <LayoutInfo>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Data Flow Task\Flat File Destination"
-          TopLeft="690.999989703297,530.999992087483" />
-        <NodeLayout
           Size="148,41.6"
-          Id="Package\Data Flow Task\Crash Location"
+          Id="Package\Query 8\Crash Location"
           TopLeft="826.999987676739,117.799998316169" />
         <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\Query 8\Sort"
+          TopLeft="593.99999114871,475.599993115664" />
+        <NodeLayout
           Size="159.2,41.6"
-          Id="Package\Data Flow Task\Quarterly column"
+          Id="Package\Query 8\Quarterly column"
           TopLeft="651.999990284443,283.99999576807" />
         <NodeLayout
           Size="196.8,41.6"
-          Id="Package\Data Flow Task\DamageReimboursement"
+          Id="Package\Query 8\DamageReimboursement"
           TopLeft="803.999988913536,43.5000070920763" />
         <NodeLayout
+          Size="131.2,41.6"
+          Id="Package\Query 8\Ppl over 21"
+          TopLeft="727.999989151955,363.999994575977" />
+        <NodeLayout
           Size="104.8,41.6"
-          Id="Package\Data Flow Task\Crash"
+          Id="Package\Query 8\Crash"
           TopLeft="596.999991104007,37.1999996125698" />
         <NodeLayout
           Size="115.2,41.6"
-          Id="Package\Data Flow Task\Persons"
+          Id="Package\Query 8\Persons"
           TopLeft="786.999988272786,207.199997079372" />
         <NodeLayout
           Size="138.4,41.6"
-          Id="Package\Data Flow Task\Ppl under 21"
+          Id="Package\Query 8\Ppl under 21"
           TopLeft="554.999991729856,343.999994874001" />
         <NodeLayout
-          Size="97.6,41.6"
-          Id="Package\Data Flow Task\Sort"
-          TopLeft="593.99999114871,475.599993115664" />
-        <NodeLayout
-          Size="120.8,41.6"
-          Id="Package\Data Flow Task\Datetime"
-          TopLeft="588.999991223216,205.799997004867" />
-        <NodeLayout
           Size="152.8,41.6"
-          Id="Package\Data Flow Task\Crash Condition"
+          Id="Package\Query 8\Crash Condition"
           TopLeft="587.999991238117,125.599998986721" />
         <NodeLayout
+          Size="120.8,41.6"
+          Id="Package\Query 8\Datetime"
+          TopLeft="588.999991223216,205.799997004867" />
+        <NodeLayout
           Size="116.8,41.6"
-          Id="Package\Data Flow Task\avgratio"
+          Id="Package\Query 8\avgratio"
           TopLeft="738.999988988042,438.99999345839" />
         <NodeLayout
-          Size="131.2,41.6"
-          Id="Package\Data Flow Task\Ppl over 21"
-          TopLeft="727.999989151955,363.999994575977" />
-        <NodeLayout
           Size="126.4,41.6"
-          Id="Package\Data Flow Task\Aggregate"
+          Id="Package\Query 8\Aggregate"
           TopLeft="555.999991714954,408.999993905425" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output]"
+          Id="Package\Query 8.Paths[Lookup Match Output1]"
+          TopLeft="900.999987676739,159.399998316169">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-251.599996453524,46.3999986886978"
+              Start="0,0"
+              End="-251.599996453524,38.8999986886978">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.1999993443489" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.1999993443489"
+                    Point2="0,23.1999993443489"
+                    Point3="-4,23.1999993443489" />
+                  <mssgle:LineSegment
+                    End="-247.599996453524,23.1999993443489" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-247.599996453524,23.1999993443489"
+                    Point2="-251.599996453524,23.1999993443489"
+                    Point3="-251.599996453524,27.1999993443489" />
+                  <mssgle:LineSegment
+                    End="-251.599996453524,38.8999986886978" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-173.991384945512,28.1999993443489,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Query 8.Paths[Lookup Match Output]"
           TopLeft="740.799991238116,142.499998651445">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2154,7 +2246,7 @@ where [refTable].[Person_ID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Derived Column Output3]"
+          Id="Package\Query 8.Paths[Derived Column Output3]"
           TopLeft="738.999988988042,465.39999345839">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2188,7 +2280,7 @@ where [refTable].[Person_ID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Derived Column Output2]"
+          Id="Package\Query 8.Paths[Derived Column Output2]"
           TopLeft="727.999989151955,390.399994575977">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2222,7 +2314,7 @@ where [refTable].[Person_ID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Derived Column Output1]"
+          Id="Package\Query 8.Paths[Derived Column Output1]"
           TopLeft="693.399991729856,364.799994874001">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2256,7 +2348,7 @@ where [refTable].[Person_ID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          Id="Package\Query 8.Paths[Derived Column Output]"
           TopLeft="651.999990284443,304.79999576807">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2284,7 +2376,7 @@ where [refTable].[Person_ID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Aggregate Output 1]"
+          Id="Package\Query 8.Paths[Aggregate Output 1]"
           TopLeft="682.399991714954,435.399993905425">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2318,35 +2410,7 @@ where [refTable].[Person_ID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Sort Output]"
-          TopLeft="691.59999114871,501.999993115664">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="84.9999985545874,28.9999989718199"
-              Start="0,0"
-              End="84.9999985545874,21.4999989718199">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="80.9999985545874,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="80.9999985545874,0"
-                    Point2="84.9999985545874,0"
-                    Point3="84.9999985545874,4" />
-                  <mssgle:LineSegment
-                    End="84.9999985545874,21.4999989718199" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          Id="Package\Query 8.Paths[OLE DB Source Output]"
           TopLeft="803.999988913536,61.1500033523231">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2368,7 +2432,7 @@ where [refTable].[Person_ID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output4]"
+          Id="Package\Query 8.Paths[Lookup Match Output4]"
           TopLeft="844.599988272786,248.799997079372">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2404,7 +2468,7 @@ where [refTable].[Person_ID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output3]"
+          Id="Package\Query 8.Paths[Lookup Match Output3]"
           TopLeft="709.799991223216,227.299997042119">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2428,7 +2492,7 @@ where [refTable].[Person_ID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output2]"
+          Id="Package\Query 8.Paths[Lookup Match Output2]"
           TopLeft="649.399991104007,78.7999996125698">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2463,52 +2527,54 @@ where [refTable].[Person_ID] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Query 8\OLE DB Destination"
+          TopLeft="714.166627646322,550.133330030706" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output1]"
-          TopLeft="900.999987676739,159.399998316169">
+          Id="Package\Query 8.Paths[Sort Output]"
+          TopLeft="642.79999114871,517.199993115664">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-251.599996453524,46.3999986886978"
+              EndConnector="156.966636497612,32.9333369150424"
               Start="0,0"
-              End="-251.599996453524,38.8999986886978">
+              End="156.966636497612,25.4333369150424">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.1999993443489" />
+                    End="0,12.4666684575212" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.1999993443489"
-                    Point2="0,23.1999993443489"
-                    Point3="-4,23.1999993443489" />
+                    Point1="0,12.4666684575212"
+                    Point2="0,16.4666684575212"
+                    Point3="4,16.4666684575212" />
                   <mssgle:LineSegment
-                    End="-247.599996453524,23.1999993443489" />
+                    End="152.966636497612,16.4666684575212" />
                   <mssgle:CubicBezierSegment
-                    Point1="-247.599996453524,23.1999993443489"
-                    Point2="-251.599996453524,23.1999993443489"
-                    Point3="-251.599996453524,27.1999993443489" />
+                    Point1="152.966636497612,16.4666684575212"
+                    Point2="156.966636497612,16.4666684575212"
+                    Point3="156.966636497612,20.4666684575212" />
                   <mssgle:LineSegment
-                    End="-251.599996453524,38.8999986886978" />
+                    End="156.966636497612,25.4333369150424" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-173.991384945512,28.1999993443489,96.3827734375,11.609375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Crash Location">
+    design-time-name="Package\Query 8\Crash Location">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2518,7 +2584,7 @@ where [refTable].[Person_ID] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2526,7 +2592,7 @@ where [refTable].[Person_ID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\DamageReimboursement">
+    design-time-name="Package\Query 8\DamageReimboursement">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2539,12 +2605,12 @@ where [refTable].[Person_ID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Crash">
+    design-time-name="Package\Query 8\Crash">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2554,7 +2620,7 @@ where [refTable].[Person_ID] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2562,12 +2628,12 @@ where [refTable].[Person_ID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Persons">
+    design-time-name="Package\Query 8\Persons">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2577,7 +2643,7 @@ where [refTable].[Person_ID] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2585,35 +2651,12 @@ where [refTable].[Person_ID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Datetime">
+    design-time-name="Package\Query 8\Crash Condition">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[Group_ID_4].[DateTime]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Crash Condition">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2623,10 +2666,46 @@ where [refTable].[Person_ID] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Query 8\Datetime">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[Group_ID_4].[DateTime]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Query 8\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

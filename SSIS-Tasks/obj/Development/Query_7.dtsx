@@ -1,0 +1,3297 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/27/2024 9:13:19 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ALESSANDROPC"
+  DTS:CreatorName="ALESSANDROPC\alex1"
+  DTS:DTSID="{02189494-0283-4E64-816A-7A86DBC30E72}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1040"
+  DTS:ObjectName="Query_7"
+  DTS:PackageType="5"
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{64AEA77C-BADE-4455-A141-694E5995011E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_4_DB.Group_ID_4]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{619E9AC1-F20D-4C79-8CE9-63F1509F0203}"
+      DTS:ObjectName="lds.di.unipi.it.Group_ID_4_DB.Group_ID_4">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=lds.di.unipi.it;User ID=Group_ID_4;Initial Catalog=Group_ID_4_DB;Provider=SQLOLEDB.1;Persist Security Info=True;Application Name=SSIS-query 7-{619E9AC1-F20D-4C79-8CE9-63F1509F0203}lds.di.unipi.it.Group_ID_4_DB.Group_ID_4;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAluyNMcYTQky910ZasVSBPAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACHWiAi41xKnh1wN6Jm9nb/DdWgEwNFiT3tpCZ8CZn+KwAAAAAOgAAAAAIAACAAAAD61vaP9G92IHdQCTL17DSaG9zjjHZTCWtFfJjbrOQ3OyAAAABTm6AMUwOmRHTkxY9VISJMzngmcSq8bW2nKNKjURqZTkAAAAB9GPsNtO9RG/ZWuDXBIiIYBFq3RhgDDHisD56/rotJ3wVJ5uuUwamFlPdgenP0xJUT0EWStleerwYR4Nb8KODI</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_4_DB.Group_ID_4 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{38A16D35-05A1-433D-B89E-1893416B03EB}"
+      DTS:ObjectName="lds.di.unipi.it.Group_ID_4_DB.Group_ID_4 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=lds.di.unipi.it;User ID=Group_ID_4;Initial Catalog=Group_ID_4_DB;Provider=SQLOLEDB.1;Persist Security Info=True;Application Name=SSIS-query 6-{38A16D35-05A1-433D-B89E-1893416B03EB}lds.di.unipi.it.Group_ID_4_DB.Group_ID_4;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAluyNMcYTQky910ZasVSBPAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACcdaWkLGbAZ7K96upw4r2/Vo+VtL81fwa0hQMGqGIX3gAAAAAOgAAAAAIAACAAAABs9SA3PvLj4TLObR+DegWowBlc5ScX6AHchkTbL9IR6CAAAAARHWPLUBlPNDIs7qknqB/4wxb58YZPRHZCwq1vnWF3tUAAAADI7QbOwnGsWEUik9gMc9YBMhnl2TxVhZH3axz5+Eh378NpwjpAMiNmobZRZtWfin9jLbr1fhW0USZfz+TFNOd7</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Query 7"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{0540C476-306E-4628-8F23-6DDBB4541D18}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Query 7"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Query 7\Aggregate"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="Aggregate"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Query 7\Aggregate.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Query 7\Aggregate.Inputs[Aggregate Input 1].Columns[Beat_Of_Occurrence]"
+                      cachedDataType="i4"
+                      cachedName="Beat_Of_Occurrence"
+                      lineageId="Package\Query 7\Merge Join 1.Outputs[Merge Join Output].Columns[Beat_Of_Occurrence]" />
+                    <inputColumn
+                      refId="Package\Query 7\Aggregate.Inputs[Aggregate Input 1].Columns[Number_of_Units]"
+                      cachedDataType="i4"
+                      cachedName="Number_of_Units"
+                      lineageId="Package\Query 7\Merge Join 1.Outputs[Merge Join Output].Columns[Number_of_Units]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Query 7\Aggregate.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Query 7\Aggregate.Outputs[Aggregate Output 1].Columns[Beat_Of_Occurrence]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Aggregate.Outputs[Aggregate Output 1].Columns[Beat_Of_Occurrence]"
+                      name="Beat_Of_Occurrence">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Query 7\Merge Join 1.Outputs[Merge Join Output].Columns[Beat_Of_Occurrence]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Query 7\Aggregate.Outputs[Aggregate Output 1].Columns[Number_of_Units]"
+                      dataType="ui8"
+                      lineageId="Package\Query 7\Aggregate.Outputs[Aggregate Output 1].Columns[Number_of_Units]"
+                      name="Number_of_Units">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Query 7\Merge Join 1.Outputs[Merge Join Output].Columns[Number_of_Units]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Query 7\Aggregate 1"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="Aggregate 1"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Query 7\Aggregate 1.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Query 7\Aggregate 1.Inputs[Aggregate Input 1].Columns[Beat_Of_Occurrence]"
+                      cachedDataType="i4"
+                      cachedName="Beat_Of_Occurrence"
+                      lineageId="Package\Query 7\Merge Join 1.Outputs[Merge Join Output].Columns[Beat_Of_Occurrence]" />
+                    <inputColumn
+                      refId="Package\Query 7\Aggregate 1.Inputs[Aggregate Input 1].Columns[Number_of_Units]"
+                      cachedDataType="i4"
+                      cachedName="Number_of_Units"
+                      lineageId="Package\Query 7\Merge Join 1.Outputs[Merge Join Output].Columns[Number_of_Units]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Query 7\Aggregate 1.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Query 7\Aggregate 1.Outputs[Aggregate Output 1].Columns[Beat_Of_Occurrence]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Aggregate 1.Outputs[Aggregate Output 1].Columns[Beat_Of_Occurrence]"
+                      name="Beat_Of_Occurrence">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Query 7\Merge Join 1.Outputs[Merge Join Output].Columns[Beat_Of_Occurrence]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Query 7\Aggregate 1.Outputs[Aggregate Output 1].Columns[Number_of_Units]"
+                      dataType="i8"
+                      lineageId="Package\Query 7\Aggregate 1.Outputs[Aggregate Output 1].Columns[Number_of_Units]"
+                      name="Number_of_Units">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Query 7\Merge Join 1.Outputs[Merge Join Output].Columns[Number_of_Units]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Query 7\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Query 7\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Query 7\Conditional Split.Inputs[Conditional Split Input].Columns[Time_Category]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Time_Category"
+                      lineageId="Package\Query 7\Derived Column.Outputs[Derived Column Output].Columns[Time_Category]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Query 7\Conditional Split.Outputs[Night]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Night"
+                  synchronousInputId="Package\Query 7\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Query 7\Derived Column.Outputs[Derived Column Output].Columns[Time_Category]} == "Night"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">Time_Category == "Night"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Query 7\Conditional Split.Outputs[Day]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Day"
+                  synchronousInputId="Package\Query 7\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Query 7\Derived Column.Outputs[Derived Column Output].Columns[Time_Category]} == "Day"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">Time_Category == "Day"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Query 7\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Query 7\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Query 7\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Query 7\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Query 7\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Query 7\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Query 7\Crash Location Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Crash Location Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Group_ID_4].[CrashLocation]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Query 7\Crash Location Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_4_DB.Group_ID_4]"
+                  connectionManagerRefId="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_4_DB.Group_ID_4]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Output].Columns[Crash_Location_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Output].ExternalColumns[Crash_Location_ID]"
+                      lineageId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Output].Columns[Crash_Location_ID]"
+                      name="Crash_Location_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Output].Columns[Beat_Of_Occurrence]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Output].ExternalColumns[Beat_Of_Occurrence]"
+                      lineageId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Output].Columns[Beat_Of_Occurrence]"
+                      name="Beat_Of_Occurrence"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Output].ExternalColumns[Crash_Location_ID]"
+                      dataType="i4"
+                      name="Crash_Location_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Output].ExternalColumns[Street]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Street" />
+                    <externalMetadataColumn
+                      refId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Output].ExternalColumns[Street_No]"
+                      dataType="i4"
+                      name="Street_No" />
+                    <externalMetadataColumn
+                      refId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Output].ExternalColumns[Street_Direction]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Street_Direction" />
+                    <externalMetadataColumn
+                      refId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Output].ExternalColumns[Beat_Of_Occurrence]"
+                      dataType="i4"
+                      name="Beat_Of_Occurrence" />
+                    <externalMetadataColumn
+                      refId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Output].ExternalColumns[Latitude]"
+                      dataType="r8"
+                      name="Latitude" />
+                    <externalMetadataColumn
+                      refId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Output].ExternalColumns[Longitude]"
+                      dataType="r8"
+                      name="Longitude" />
+                    <externalMetadataColumn
+                      refId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Output].ExternalColumns[Location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Location" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Error Output].Columns[Crash_Location_ID]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Error Output].Columns[Crash_Location_ID]"
+                      name="Crash_Location_ID" />
+                    <outputColumn
+                      refId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Error Output].Columns[Beat_Of_Occurrence]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Error Output].Columns[Beat_Of_Occurrence]"
+                      name="Beat_Of_Occurrence" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Query 7\Crash Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Crash Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Group_ID_4].[Crash]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Query 7\Crash Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_4_DB.Group_ID_4]"
+                  connectionManagerRefId="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_4_DB.Group_ID_4]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].Columns[Crash_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].ExternalColumns[Crash_ID]"
+                      lineageId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].Columns[Crash_ID]"
+                      name="Crash_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].Columns[Crash_Location_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].ExternalColumns[Crash_Location_ID]"
+                      lineageId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].Columns[Crash_Location_ID]"
+                      name="Crash_Location_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].Columns[Crash_Date_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].ExternalColumns[Crash_Date_ID]"
+                      lineageId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].Columns[Crash_Date_ID]"
+                      name="Crash_Date_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].Columns[Number_of_Units]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].ExternalColumns[Number_of_Units]"
+                      lineageId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].Columns[Number_of_Units]"
+                      name="Number_of_Units"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].ExternalColumns[Crash_ID]"
+                      dataType="i4"
+                      name="Crash_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].ExternalColumns[Crash_Date_ID]"
+                      dataType="i4"
+                      name="Crash_Date_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].ExternalColumns[Police_Notified_Date_ID]"
+                      dataType="i4"
+                      name="Police_Notified_Date_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].ExternalColumns[Crash_Location_ID]"
+                      dataType="i4"
+                      name="Crash_Location_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].ExternalColumns[Crash_Condition_ID]"
+                      dataType="i4"
+                      name="Crash_Condition_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].ExternalColumns[Injury_ID]"
+                      dataType="i4"
+                      name="Injury_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].ExternalColumns[Primary_Contributory_Cause]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Primary_Contributory_Cause" />
+                    <externalMetadataColumn
+                      refId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].ExternalColumns[Secondary_Contributory_Cause]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Secondary_Contributory_Cause" />
+                    <externalMetadataColumn
+                      refId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].ExternalColumns[Number_of_Units]"
+                      dataType="i4"
+                      name="Number_of_Units" />
+                    <externalMetadataColumn
+                      refId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].ExternalColumns[Most_Severe_Injury]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Most_Severe_Injury" />
+                    <externalMetadataColumn
+                      refId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].ExternalColumns[Difference_Between_Crash_Date_And_Police_Notified]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Difference_Between_Crash_Date_And_Police_Notified" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Query 7\Crash Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Query 7\Crash Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Crash Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Query 7\Crash Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Crash Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Query 7\Crash Source.Outputs[OLE DB Source Error Output].Columns[Crash_ID]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Crash Source.Outputs[OLE DB Source Error Output].Columns[Crash_ID]"
+                      name="Crash_ID" />
+                    <outputColumn
+                      refId="Package\Query 7\Crash Source.Outputs[OLE DB Source Error Output].Columns[Crash_Location_ID]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Crash Source.Outputs[OLE DB Source Error Output].Columns[Crash_Location_ID]"
+                      name="Crash_Location_ID" />
+                    <outputColumn
+                      refId="Package\Query 7\Crash Source.Outputs[OLE DB Source Error Output].Columns[Crash_Date_ID]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Crash Source.Outputs[OLE DB Source Error Output].Columns[Crash_Date_ID]"
+                      name="Crash_Date_ID" />
+                    <outputColumn
+                      refId="Package\Query 7\Crash Source.Outputs[OLE DB Source Error Output].Columns[Number_of_Units]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Crash Source.Outputs[OLE DB Source Error Output].Columns[Number_of_Units]"
+                      name="Number_of_Units" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Query 7\Datetime Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Datetime Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Group_ID_4].[DateTime]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Query 7\Datetime Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_4_DB.Group_ID_4]"
+                  connectionManagerRefId="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_4_DB.Group_ID_4]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Query 7\Datetime Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Query 7\Datetime Source.Outputs[OLE DB Source Output].Columns[DateTime_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Query 7\Datetime Source.Outputs[OLE DB Source Output].ExternalColumns[DateTime_ID]"
+                      lineageId="Package\Query 7\Datetime Source.Outputs[OLE DB Source Output].Columns[DateTime_ID]"
+                      name="DateTime_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Query 7\Datetime Source.Outputs[OLE DB Source Output].Columns[Time]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Query 7\Datetime Source.Outputs[OLE DB Source Output].ExternalColumns[Time]"
+                      length="16"
+                      lineageId="Package\Query 7\Datetime Source.Outputs[OLE DB Source Output].Columns[Time]"
+                      name="Time"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Query 7\Datetime Source.Outputs[OLE DB Source Output].ExternalColumns[DateTime_ID]"
+                      dataType="i4"
+                      name="DateTime_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Query 7\Datetime Source.Outputs[OLE DB Source Output].ExternalColumns[Day]"
+                      dataType="i4"
+                      name="Day" />
+                    <externalMetadataColumn
+                      refId="Package\Query 7\Datetime Source.Outputs[OLE DB Source Output].ExternalColumns[Month]"
+                      dataType="i4"
+                      name="Month" />
+                    <externalMetadataColumn
+                      refId="Package\Query 7\Datetime Source.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                      dataType="i4"
+                      name="Year" />
+                    <externalMetadataColumn
+                      refId="Package\Query 7\Datetime Source.Outputs[OLE DB Source Output].ExternalColumns[Time]"
+                      dataType="wstr"
+                      length="16"
+                      name="Time" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Query 7\Datetime Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Query 7\Datetime Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Datetime Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Query 7\Datetime Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Datetime Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Query 7\Datetime Source.Outputs[OLE DB Source Error Output].Columns[DateTime_ID]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Datetime Source.Outputs[OLE DB Source Error Output].Columns[DateTime_ID]"
+                      name="DateTime_ID" />
+                    <outputColumn
+                      refId="Package\Query 7\Datetime Source.Outputs[OLE DB Source Error Output].Columns[Time]"
+                      dataType="wstr"
+                      length="16"
+                      lineageId="Package\Query 7\Datetime Source.Outputs[OLE DB Source Error Output].Columns[Time]"
+                      name="Time" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Query 7\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Query 7\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Query 7\Derived Column.Inputs[Derived Column Input].Columns[Time]"
+                      cachedDataType="wstr"
+                      cachedLength="16"
+                      cachedName="Time"
+                      lineageId="Package\Query 7\Merge Join 1.Outputs[Merge Join Output].Columns[Time]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Query 7\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Query 7\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Query 7\Derived Column.Outputs[Derived Column Output].Columns[Time_Category]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Query 7\Derived Column.Outputs[Derived Column Output].Columns[Time_Category]"
+                      name="Time_Category"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,10,1252)(#{Package\Query 7\Merge Join 1.Outputs[Merge Join Output].Columns[Time]} &gt;= "21:00" || #{Package\Query 7\Merge Join 1.Outputs[Merge Join Output].Columns[Time]} &lt; "08:00" ? "Night" : "Day")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,10,1252)(Time &gt;= "21:00" || Time &lt; "08:00" ? "Night" : "Day")</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Query 7\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Query 7\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Query 7\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Query 7\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Query 7\Derived Column 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Query 7\Derived Column 1.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Query 7\Derived Column 1.Inputs[Derived Column Input].Columns[Number_of_Units_Day]"
+                      cachedDataType="ui8"
+                      cachedName="Number_of_Units_Day"
+                      lineageId="Package\Query 7\Merge Join 2.Outputs[Merge Join Output].Columns[Number_of_Units_Day]" />
+                    <inputColumn
+                      refId="Package\Query 7\Derived Column 1.Inputs[Derived Column Input].Columns[Number_of_Units_Night]"
+                      cachedDataType="i8"
+                      cachedName="Number_of_Units_Night"
+                      lineageId="Package\Query 7\Merge Join 2.Outputs[Merge Join Output].Columns[Number_of_Units_Night]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Query 7\Derived Column 1.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Query 7\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Query 7\Derived Column 1.Outputs[Derived Column Output].Columns[day-night crash index]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Query 7\Derived Column 1.Outputs[Derived Column Output].Columns[day-night crash index]"
+                      name="day-night crash index"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_R8)#{Package\Query 7\Merge Join 2.Outputs[Merge Join Output].Columns[Number_of_Units_Day]} == 0 ? 0 : (DT_R8)#{Package\Query 7\Merge Join 2.Outputs[Merge Join Output].Columns[Number_of_Units_Night]} / (DT_R8)#{Package\Query 7\Merge Join 2.Outputs[Merge Join Output].Columns[Number_of_Units_Day]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_R8)Number_of_Units_Day == 0 ? 0 : (DT_R8)Number_of_Units_Night / (DT_R8)Number_of_Units_Day</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Query 7\Derived Column 1.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Query 7\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Query 7\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Query 7\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Query 7\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Query 7\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Query 7\Merge Join.Inputs[Merge Join Left Input].Columns[Crash_Location_ID]"
+                      cachedDataType="i4"
+                      cachedName="Crash_Location_ID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Query 7\Sort.Outputs[Sort Output].Columns[Crash_Location_ID]" />
+                    <inputColumn
+                      refId="Package\Query 7\Merge Join.Inputs[Merge Join Left Input].Columns[Crash_ID]"
+                      cachedDataType="i4"
+                      cachedName="Crash_ID"
+                      lineageId="Package\Query 7\Sort.Outputs[Sort Output].Columns[Crash_ID]" />
+                    <inputColumn
+                      refId="Package\Query 7\Merge Join.Inputs[Merge Join Left Input].Columns[Crash_Date_ID]"
+                      cachedDataType="i4"
+                      cachedName="Crash_Date_ID"
+                      lineageId="Package\Query 7\Sort.Outputs[Sort Output].Columns[Crash_Date_ID]" />
+                    <inputColumn
+                      refId="Package\Query 7\Merge Join.Inputs[Merge Join Left Input].Columns[Number_of_Units]"
+                      cachedDataType="i4"
+                      cachedName="Number_of_Units"
+                      lineageId="Package\Query 7\Sort.Outputs[Sort Output].Columns[Number_of_Units]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Query 7\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Query 7\Merge Join.Inputs[Merge Join Right Input].Columns[Crash_Location_ID]"
+                      cachedDataType="i4"
+                      cachedName="Crash_Location_ID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Query 7\Sort 1.Outputs[Sort Output].Columns[Crash_Location_ID]" />
+                    <inputColumn
+                      refId="Package\Query 7\Merge Join.Inputs[Merge Join Right Input].Columns[Beat_Of_Occurrence]"
+                      cachedDataType="i4"
+                      cachedName="Beat_Of_Occurrence"
+                      lineageId="Package\Query 7\Sort 1.Outputs[Sort Output].Columns[Beat_Of_Occurrence]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Query 7\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Query 7\Merge Join.Outputs[Merge Join Output].Columns[Crash_ID]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Merge Join.Outputs[Merge Join Output].Columns[Crash_ID]"
+                      name="Crash_ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Query 7\Merge Join.Inputs[Merge Join Left Input].Columns[Crash_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Query 7\Merge Join.Outputs[Merge Join Output].Columns[Crash_Location_ID]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Merge Join.Outputs[Merge Join Output].Columns[Crash_Location_ID]"
+                      name="Crash_Location_ID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Query 7\Merge Join.Inputs[Merge Join Left Input].Columns[Crash_Location_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Query 7\Merge Join.Outputs[Merge Join Output].Columns[Crash_Date_ID]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Merge Join.Outputs[Merge Join Output].Columns[Crash_Date_ID]"
+                      name="Crash_Date_ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Query 7\Merge Join.Inputs[Merge Join Left Input].Columns[Crash_Date_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Query 7\Merge Join.Outputs[Merge Join Output].Columns[Number_of_Units]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Merge Join.Outputs[Merge Join Output].Columns[Number_of_Units]"
+                      name="Number_of_Units">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Query 7\Merge Join.Inputs[Merge Join Left Input].Columns[Number_of_Units]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Query 7\Merge Join.Outputs[Merge Join Output].Columns[Beat_Of_Occurrence]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Merge Join.Outputs[Merge Join Output].Columns[Beat_Of_Occurrence]"
+                      name="Beat_Of_Occurrence">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Query 7\Merge Join.Inputs[Merge Join Right Input].Columns[Beat_Of_Occurrence]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Query 7\Merge Join 1"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Query 7\Merge Join 1.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Query 7\Merge Join 1.Inputs[Merge Join Left Input].Columns[Crash_Date_ID]"
+                      cachedDataType="i4"
+                      cachedName="Crash_Date_ID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Query 7\Sort 3.Outputs[Sort Output].Columns[Crash_Date_ID]" />
+                    <inputColumn
+                      refId="Package\Query 7\Merge Join 1.Inputs[Merge Join Left Input].Columns[Number_of_Units]"
+                      cachedDataType="i4"
+                      cachedName="Number_of_Units"
+                      lineageId="Package\Query 7\Sort 3.Outputs[Sort Output].Columns[Number_of_Units]" />
+                    <inputColumn
+                      refId="Package\Query 7\Merge Join 1.Inputs[Merge Join Left Input].Columns[Beat_Of_Occurrence]"
+                      cachedDataType="i4"
+                      cachedName="Beat_Of_Occurrence"
+                      lineageId="Package\Query 7\Sort 3.Outputs[Sort Output].Columns[Beat_Of_Occurrence]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Query 7\Merge Join 1.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Query 7\Merge Join 1.Inputs[Merge Join Right Input].Columns[DateTime_ID]"
+                      cachedDataType="i4"
+                      cachedName="DateTime_ID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Query 7\Sort 2.Outputs[Sort Output].Columns[DateTime_ID]" />
+                    <inputColumn
+                      refId="Package\Query 7\Merge Join 1.Inputs[Merge Join Right Input].Columns[Time]"
+                      cachedDataType="wstr"
+                      cachedLength="16"
+                      cachedName="Time"
+                      lineageId="Package\Query 7\Sort 2.Outputs[Sort Output].Columns[Time]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Query 7\Merge Join 1.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Query 7\Merge Join 1.Outputs[Merge Join Output].Columns[Number_of_Units]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Merge Join 1.Outputs[Merge Join Output].Columns[Number_of_Units]"
+                      name="Number_of_Units">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Query 7\Merge Join 1.Inputs[Merge Join Left Input].Columns[Number_of_Units]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Query 7\Merge Join 1.Outputs[Merge Join Output].Columns[Beat_Of_Occurrence]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Merge Join 1.Outputs[Merge Join Output].Columns[Beat_Of_Occurrence]"
+                      name="Beat_Of_Occurrence">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Query 7\Merge Join 1.Inputs[Merge Join Left Input].Columns[Beat_Of_Occurrence]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Query 7\Merge Join 1.Outputs[Merge Join Output].Columns[Time]"
+                      dataType="wstr"
+                      length="16"
+                      lineageId="Package\Query 7\Merge Join 1.Outputs[Merge Join Output].Columns[Time]"
+                      name="Time">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Query 7\Merge Join 1.Inputs[Merge Join Right Input].Columns[Time]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Query 7\Merge Join 1.Outputs[Merge Join Output].Columns[Crash_Date_ID]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Merge Join 1.Outputs[Merge Join Output].Columns[Crash_Date_ID]"
+                      name="Crash_Date_ID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Query 7\Merge Join 1.Inputs[Merge Join Left Input].Columns[Crash_Date_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Query 7\Merge Join 2"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join 2"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Query 7\Merge Join 2.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Query 7\Merge Join 2.Inputs[Merge Join Left Input].Columns[Beat_Of_Occurrence]"
+                      cachedDataType="i4"
+                      cachedName="Beat_Of_Occurrence"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Query 7\Sort 4.Outputs[Sort Output].Columns[Beat_Of_Occurrence]" />
+                    <inputColumn
+                      refId="Package\Query 7\Merge Join 2.Inputs[Merge Join Left Input].Columns[Number_of_Units]"
+                      cachedDataType="ui8"
+                      cachedName="Number_of_Units"
+                      lineageId="Package\Query 7\Sort 4.Outputs[Sort Output].Columns[Number_of_Units]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Query 7\Merge Join 2.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Query 7\Merge Join 2.Inputs[Merge Join Right Input].Columns[Beat_Of_Occurrence]"
+                      cachedDataType="i4"
+                      cachedName="Beat_Of_Occurrence"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Query 7\Sort 5.Outputs[Sort Output].Columns[Beat_Of_Occurrence]" />
+                    <inputColumn
+                      refId="Package\Query 7\Merge Join 2.Inputs[Merge Join Right Input].Columns[Number_of_Units]"
+                      cachedDataType="i8"
+                      cachedName="Number_of_Units"
+                      lineageId="Package\Query 7\Sort 5.Outputs[Sort Output].Columns[Number_of_Units]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Query 7\Merge Join 2.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Query 7\Merge Join 2.Outputs[Merge Join Output].Columns[Number_of_Units_Day]"
+                      dataType="ui8"
+                      lineageId="Package\Query 7\Merge Join 2.Outputs[Merge Join Output].Columns[Number_of_Units_Day]"
+                      name="Number_of_Units_Day">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Query 7\Merge Join 2.Inputs[Merge Join Left Input].Columns[Number_of_Units]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Query 7\Merge Join 2.Outputs[Merge Join Output].Columns[Number_of_Units_Night]"
+                      dataType="i8"
+                      lineageId="Package\Query 7\Merge Join 2.Outputs[Merge Join Output].Columns[Number_of_Units_Night]"
+                      name="Number_of_Units_Night">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Query 7\Merge Join 2.Inputs[Merge Join Right Input].Columns[Number_of_Units]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Query 7\Merge Join 2.Outputs[Merge Join Output].Columns[Beat_Of_Occurrence]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Merge Join 2.Outputs[Merge Join Output].Columns[Beat_Of_Occurrence]"
+                      name="Beat_Of_Occurrence"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Query 7\Merge Join 2.Inputs[Merge Join Left Input].Columns[Beat_Of_Occurrence]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Query 7\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Query_7_result]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Query 7\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_4_DB.Group_ID_4]"
+                  connectionManagerRefId="Package.ConnectionManagers[lds.di.unipi.it.Group_ID_4_DB.Group_ID_4]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Query 7\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Query 7\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Beat_Of_Occurrence]"
+                      cachedDataType="i4"
+                      cachedName="Beat_Of_Occurrence"
+                      externalMetadataColumnId="Package\Query 7\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Beat_Of_Occurrence]"
+                      lineageId="Package\Query 7\Sort 6.Outputs[Sort Output].Columns[Beat_Of_Occurrence]" />
+                    <inputColumn
+                      refId="Package\Query 7\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[day-night crash index]"
+                      cachedDataType="r8"
+                      cachedName="day-night crash index"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Query 7\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[day-night crash index]"
+                      lineageId="Package\Query 7\Sort 6.Outputs[Sort Output].Columns[day-night crash index]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Query 7\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Beat_Of_Occurrence]"
+                      dataType="i4"
+                      name="Beat_Of_Occurrence" />
+                    <externalMetadataColumn
+                      refId="Package\Query 7\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[day-night crash index]"
+                      dataType="r8"
+                      name="day-night crash index" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Query 7\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Query 7\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Query 7\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Query 7\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Query 7\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Query 7\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Query 7\Sort.Inputs[Sort Input].Columns[Crash_ID]"
+                      cachedDataType="i4"
+                      cachedName="Crash_ID"
+                      lineageId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].Columns[Crash_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Query 7\Sort.Inputs[Sort Input].Columns[Crash_Location_ID]"
+                      cachedDataType="i4"
+                      cachedName="Crash_Location_ID"
+                      lineageId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].Columns[Crash_Location_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Query 7\Sort.Inputs[Sort Input].Columns[Crash_Date_ID]"
+                      cachedDataType="i4"
+                      cachedName="Crash_Date_ID"
+                      lineageId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].Columns[Crash_Date_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Query 7\Sort.Inputs[Sort Input].Columns[Number_of_Units]"
+                      cachedDataType="i4"
+                      cachedName="Number_of_Units"
+                      lineageId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output].Columns[Number_of_Units]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Query 7\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Query 7\Sort.Outputs[Sort Output].Columns[Crash_ID]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Sort.Outputs[Sort Output].Columns[Crash_ID]"
+                      name="Crash_ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Query 7\Crash Source.Outputs[OLE DB Source Output].Columns[Crash_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Query 7\Sort.Outputs[Sort Output].Columns[Crash_Location_ID]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Sort.Outputs[Sort Output].Columns[Crash_Location_ID]"
+                      name="Crash_Location_ID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Query 7\Crash Source.Outputs[OLE DB Source Output].Columns[Crash_Location_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Query 7\Sort.Outputs[Sort Output].Columns[Crash_Date_ID]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Sort.Outputs[Sort Output].Columns[Crash_Date_ID]"
+                      name="Crash_Date_ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Query 7\Crash Source.Outputs[OLE DB Source Output].Columns[Crash_Date_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Query 7\Sort.Outputs[Sort Output].Columns[Number_of_Units]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Sort.Outputs[Sort Output].Columns[Number_of_Units]"
+                      name="Number_of_Units">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Query 7\Crash Source.Outputs[OLE DB Source Output].Columns[Number_of_Units]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Query 7\Sort 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Query 7\Sort 1.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Query 7\Sort 1.Inputs[Sort Input].Columns[Crash_Location_ID]"
+                      cachedDataType="i4"
+                      cachedName="Crash_Location_ID"
+                      lineageId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Output].Columns[Crash_Location_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Query 7\Sort 1.Inputs[Sort Input].Columns[Beat_Of_Occurrence]"
+                      cachedDataType="i4"
+                      cachedName="Beat_Of_Occurrence"
+                      lineageId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Output].Columns[Beat_Of_Occurrence]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Query 7\Sort 1.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Query 7\Sort 1.Outputs[Sort Output].Columns[Crash_Location_ID]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Sort 1.Outputs[Sort Output].Columns[Crash_Location_ID]"
+                      name="Crash_Location_ID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Query 7\Crash Location Source.Outputs[OLE DB Source Output].Columns[Crash_Location_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Query 7\Sort 1.Outputs[Sort Output].Columns[Beat_Of_Occurrence]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Sort 1.Outputs[Sort Output].Columns[Beat_Of_Occurrence]"
+                      name="Beat_Of_Occurrence">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Query 7\Crash Location Source.Outputs[OLE DB Source Output].Columns[Beat_Of_Occurrence]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Query 7\Sort 2"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 2"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Query 7\Sort 2.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Query 7\Sort 2.Inputs[Sort Input].Columns[DateTime_ID]"
+                      cachedDataType="i4"
+                      cachedName="DateTime_ID"
+                      lineageId="Package\Query 7\Datetime Source.Outputs[OLE DB Source Output].Columns[DateTime_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Query 7\Sort 2.Inputs[Sort Input].Columns[Time]"
+                      cachedDataType="wstr"
+                      cachedLength="16"
+                      cachedName="Time"
+                      lineageId="Package\Query 7\Datetime Source.Outputs[OLE DB Source Output].Columns[Time]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Query 7\Sort 2.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Query 7\Sort 2.Outputs[Sort Output].Columns[DateTime_ID]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Sort 2.Outputs[Sort Output].Columns[DateTime_ID]"
+                      name="DateTime_ID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Query 7\Datetime Source.Outputs[OLE DB Source Output].Columns[DateTime_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Query 7\Sort 2.Outputs[Sort Output].Columns[Time]"
+                      dataType="wstr"
+                      length="16"
+                      lineageId="Package\Query 7\Sort 2.Outputs[Sort Output].Columns[Time]"
+                      name="Time">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Query 7\Datetime Source.Outputs[OLE DB Source Output].Columns[Time]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Query 7\Sort 3"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 3"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Query 7\Sort 3.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Query 7\Sort 3.Inputs[Sort Input].Columns[Crash_ID]"
+                      cachedDataType="i4"
+                      cachedName="Crash_ID"
+                      lineageId="Package\Query 7\Merge Join.Outputs[Merge Join Output].Columns[Crash_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Query 7\Sort 3.Inputs[Sort Input].Columns[Crash_Location_ID]"
+                      cachedDataType="i4"
+                      cachedName="Crash_Location_ID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Query 7\Merge Join.Outputs[Merge Join Output].Columns[Crash_Location_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Query 7\Sort 3.Inputs[Sort Input].Columns[Crash_Date_ID]"
+                      cachedDataType="i4"
+                      cachedName="Crash_Date_ID"
+                      lineageId="Package\Query 7\Merge Join.Outputs[Merge Join Output].Columns[Crash_Date_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Query 7\Sort 3.Inputs[Sort Input].Columns[Number_of_Units]"
+                      cachedDataType="i4"
+                      cachedName="Number_of_Units"
+                      lineageId="Package\Query 7\Merge Join.Outputs[Merge Join Output].Columns[Number_of_Units]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Query 7\Sort 3.Inputs[Sort Input].Columns[Beat_Of_Occurrence]"
+                      cachedDataType="i4"
+                      cachedName="Beat_Of_Occurrence"
+                      lineageId="Package\Query 7\Merge Join.Outputs[Merge Join Output].Columns[Beat_Of_Occurrence]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Query 7\Sort 3.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Query 7\Sort 3.Outputs[Sort Output].Columns[Crash_ID]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Sort 3.Outputs[Sort Output].Columns[Crash_ID]"
+                      name="Crash_ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Query 7\Merge Join.Outputs[Merge Join Output].Columns[Crash_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Query 7\Sort 3.Outputs[Sort Output].Columns[Crash_Location_ID]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Sort 3.Outputs[Sort Output].Columns[Crash_Location_ID]"
+                      name="Crash_Location_ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Query 7\Merge Join.Outputs[Merge Join Output].Columns[Crash_Location_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Query 7\Sort 3.Outputs[Sort Output].Columns[Crash_Date_ID]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Sort 3.Outputs[Sort Output].Columns[Crash_Date_ID]"
+                      name="Crash_Date_ID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Query 7\Merge Join.Outputs[Merge Join Output].Columns[Crash_Date_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Query 7\Sort 3.Outputs[Sort Output].Columns[Number_of_Units]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Sort 3.Outputs[Sort Output].Columns[Number_of_Units]"
+                      name="Number_of_Units">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Query 7\Merge Join.Outputs[Merge Join Output].Columns[Number_of_Units]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Query 7\Sort 3.Outputs[Sort Output].Columns[Beat_Of_Occurrence]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Sort 3.Outputs[Sort Output].Columns[Beat_Of_Occurrence]"
+                      name="Beat_Of_Occurrence">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Query 7\Merge Join.Outputs[Merge Join Output].Columns[Beat_Of_Occurrence]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Query 7\Sort 4"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 4"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Query 7\Sort 4.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Query 7\Sort 4.Inputs[Sort Input].Columns[Beat_Of_Occurrence]"
+                      cachedDataType="i4"
+                      cachedName="Beat_Of_Occurrence"
+                      lineageId="Package\Query 7\Aggregate.Outputs[Aggregate Output 1].Columns[Beat_Of_Occurrence]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Query 7\Sort 4.Inputs[Sort Input].Columns[Number_of_Units]"
+                      cachedDataType="ui8"
+                      cachedName="Number_of_Units"
+                      lineageId="Package\Query 7\Aggregate.Outputs[Aggregate Output 1].Columns[Number_of_Units]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Query 7\Sort 4.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Query 7\Sort 4.Outputs[Sort Output].Columns[Beat_Of_Occurrence]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Sort 4.Outputs[Sort Output].Columns[Beat_Of_Occurrence]"
+                      name="Beat_Of_Occurrence"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Query 7\Aggregate.Outputs[Aggregate Output 1].Columns[Beat_Of_Occurrence]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Query 7\Sort 4.Outputs[Sort Output].Columns[Number_of_Units]"
+                      dataType="ui8"
+                      lineageId="Package\Query 7\Sort 4.Outputs[Sort Output].Columns[Number_of_Units]"
+                      name="Number_of_Units">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Query 7\Aggregate.Outputs[Aggregate Output 1].Columns[Number_of_Units]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Query 7\Sort 5"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 5"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Query 7\Sort 5.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Query 7\Sort 5.Inputs[Sort Input].Columns[Beat_Of_Occurrence]"
+                      cachedDataType="i4"
+                      cachedName="Beat_Of_Occurrence"
+                      lineageId="Package\Query 7\Aggregate 1.Outputs[Aggregate Output 1].Columns[Beat_Of_Occurrence]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Query 7\Sort 5.Inputs[Sort Input].Columns[Number_of_Units]"
+                      cachedDataType="i8"
+                      cachedName="Number_of_Units"
+                      lineageId="Package\Query 7\Aggregate 1.Outputs[Aggregate Output 1].Columns[Number_of_Units]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Query 7\Sort 5.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Query 7\Sort 5.Outputs[Sort Output].Columns[Beat_Of_Occurrence]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Sort 5.Outputs[Sort Output].Columns[Beat_Of_Occurrence]"
+                      name="Beat_Of_Occurrence"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Query 7\Aggregate 1.Outputs[Aggregate Output 1].Columns[Beat_Of_Occurrence]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Query 7\Sort 5.Outputs[Sort Output].Columns[Number_of_Units]"
+                      dataType="i8"
+                      lineageId="Package\Query 7\Sort 5.Outputs[Sort Output].Columns[Number_of_Units]"
+                      name="Number_of_Units">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Query 7\Aggregate 1.Outputs[Aggregate Output 1].Columns[Number_of_Units]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Query 7\Sort 6"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 6"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Query 7\Sort 6.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Query 7\Sort 6.Inputs[Sort Input].Columns[Number_of_Units_Day]"
+                      cachedDataType="ui8"
+                      cachedName="Number_of_Units_Day"
+                      lineageId="Package\Query 7\Merge Join 2.Outputs[Merge Join Output].Columns[Number_of_Units_Day]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Query 7\Sort 6.Inputs[Sort Input].Columns[Number_of_Units_Night]"
+                      cachedDataType="i8"
+                      cachedName="Number_of_Units_Night"
+                      lineageId="Package\Query 7\Merge Join 2.Outputs[Merge Join Output].Columns[Number_of_Units_Night]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Query 7\Sort 6.Inputs[Sort Input].Columns[Beat_Of_Occurrence]"
+                      cachedDataType="i4"
+                      cachedName="Beat_Of_Occurrence"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Query 7\Merge Join 2.Outputs[Merge Join Output].Columns[Beat_Of_Occurrence]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Query 7\Sort 6.Inputs[Sort Input].Columns[day-night crash index]"
+                      cachedDataType="r8"
+                      cachedName="day-night crash index"
+                      lineageId="Package\Query 7\Derived Column 1.Outputs[Derived Column Output].Columns[day-night crash index]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Query 7\Sort 6.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Query 7\Sort 6.Outputs[Sort Output].Columns[Number_of_Units_Day]"
+                      dataType="ui8"
+                      lineageId="Package\Query 7\Sort 6.Outputs[Sort Output].Columns[Number_of_Units_Day]"
+                      name="Number_of_Units_Day">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Query 7\Merge Join 2.Outputs[Merge Join Output].Columns[Number_of_Units_Day]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Query 7\Sort 6.Outputs[Sort Output].Columns[Number_of_Units_Night]"
+                      dataType="i8"
+                      lineageId="Package\Query 7\Sort 6.Outputs[Sort Output].Columns[Number_of_Units_Night]"
+                      name="Number_of_Units_Night">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Query 7\Merge Join 2.Outputs[Merge Join Output].Columns[Number_of_Units_Night]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Query 7\Sort 6.Outputs[Sort Output].Columns[Beat_Of_Occurrence]"
+                      dataType="i4"
+                      lineageId="Package\Query 7\Sort 6.Outputs[Sort Output].Columns[Beat_Of_Occurrence]"
+                      name="Beat_Of_Occurrence">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Query 7\Merge Join 2.Outputs[Merge Join Output].Columns[Beat_Of_Occurrence]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Query 7\Sort 6.Outputs[Sort Output].Columns[day-night crash index]"
+                      dataType="r8"
+                      lineageId="Package\Query 7\Sort 6.Outputs[Sort Output].Columns[day-night crash index]"
+                      name="day-night crash index"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Query 7\Derived Column 1.Outputs[Derived Column Output].Columns[day-night crash index]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Query 7.Paths[Aggregate Output 1]"
+              endId="Package\Query 7\Sort 5.Inputs[Sort Input]"
+              name="Aggregate Output 1"
+              startId="Package\Query 7\Aggregate 1.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\Query 7.Paths[Aggregate Output 11]"
+              endId="Package\Query 7\Sort 4.Inputs[Sort Input]"
+              name="Aggregate Output 1"
+              startId="Package\Query 7\Aggregate.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\Query 7.Paths[Day]"
+              endId="Package\Query 7\Aggregate.Inputs[Aggregate Input 1]"
+              name="Day"
+              startId="Package\Query 7\Conditional Split.Outputs[Day]" />
+            <path
+              refId="Package\Query 7.Paths[Derived Column Output]"
+              endId="Package\Query 7\Conditional Split.Inputs[Conditional Split Input]"
+              name="Derived Column Output"
+              startId="Package\Query 7\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Query 7.Paths[Derived Column Output1]"
+              endId="Package\Query 7\Sort 6.Inputs[Sort Input]"
+              name="Derived Column Output"
+              startId="Package\Query 7\Derived Column 1.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Query 7.Paths[Merge Join Output]"
+              endId="Package\Query 7\Derived Column 1.Inputs[Derived Column Input]"
+              name="Merge Join Output"
+              startId="Package\Query 7\Merge Join 2.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Query 7.Paths[Merge Join Output1]"
+              endId="Package\Query 7\Sort 3.Inputs[Sort Input]"
+              name="Merge Join Output"
+              startId="Package\Query 7\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Query 7.Paths[Merge Join Output2]"
+              endId="Package\Query 7\Derived Column.Inputs[Derived Column Input]"
+              name="Merge Join Output"
+              startId="Package\Query 7\Merge Join 1.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Query 7.Paths[Night]"
+              endId="Package\Query 7\Aggregate 1.Inputs[Aggregate Input 1]"
+              name="Night"
+              startId="Package\Query 7\Conditional Split.Outputs[Night]" />
+            <path
+              refId="Package\Query 7.Paths[OLE DB Source Output2]"
+              endId="Package\Query 7\Sort.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Query 7\Crash Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Query 7.Paths[OLE DB Source Output]"
+              endId="Package\Query 7\Sort 2.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Query 7\Datetime Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Query 7.Paths[OLE DB Source Output1]"
+              endId="Package\Query 7\Sort 1.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Query 7\Crash Location Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Query 7.Paths[Sort Output5]"
+              endId="Package\Query 7\Merge Join 2.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Query 7\Sort 4.Outputs[Sort Output]" />
+            <path
+              refId="Package\Query 7.Paths[Sort Output]"
+              endId="Package\Query 7\Merge Join 2.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Query 7\Sort 5.Outputs[Sort Output]" />
+            <path
+              refId="Package\Query 7.Paths[Sort Output1]"
+              endId="Package\Query 7\Merge Join 1.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Query 7\Sort 2.Outputs[Sort Output]" />
+            <path
+              refId="Package\Query 7.Paths[Sort Output2]"
+              endId="Package\Query 7\Merge Join 1.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Query 7\Sort 3.Outputs[Sort Output]" />
+            <path
+              refId="Package\Query 7.Paths[Sort Output3]"
+              endId="Package\Query 7\Merge Join.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Query 7\Sort 1.Outputs[Sort Output]" />
+            <path
+              refId="Package\Query 7.Paths[Sort Output4]"
+              endId="Package\Query 7\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Query 7\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\Query 7.Paths[Sort Output6]"
+              endId="Package\Query 7\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Sort Output"
+              startId="Package\Query 7\Sort 6.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="115.2,41.6"
+          Id="Package\Query 7"
+          TopLeft="295.833317169713,158.599998897115" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Query 7">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="141.6,41.6"
+          Id="Package\Query 7\Crash Source"
+          TopLeft="276.851836725334,65.6740736173847" />
+        <NodeLayout
+          Size="184,41.6"
+          Id="Package\Query 7\Crash Location Source"
+          TopLeft="452.685160451558,66.5407402780246" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Query 7\Datetime Source"
+          TopLeft="671.018481855685,67.4074069386647" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Query 7\Merge Join"
+          TopLeft="371.851831534763,223.40740585386" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\Query 7\Sort"
+          TopLeft="301.851835359395,132.407406486663" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Query 7\Sort 1"
+          TopLeft="489.351825114847,133.274073147303" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Query 7\Sort 2"
+          TopLeft="694.351813914141,135.007406468583" />
+        <EdgeLayout
+          Id="Package\Query 7.Paths[OLE DB Source Output2]"
+          TopLeft="349.151836042364,107.274073617385">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25.1333328692781"
+              Start="0,0"
+              End="0,17.6333328692781">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.6333328692781" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Query 7.Paths[OLE DB Source Output1]"
+          TopLeft="543.618492783203,108.140740278025">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25.1333328692782"
+              Start="0,0"
+              End="0,17.6333328692782">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.6333328692782" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Query 7.Paths[OLE DB Source Output]"
+          TopLeft="748.285147884913,109.007406938665">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25.999999529918"
+              Start="0,0"
+              End="0,18.499999529918">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.499999529918" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Query 7.Paths[Sort Output4]"
+          TopLeft="350.651835359395,174.007406486663">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="85.9999961753688,49.3999993671971"
+              Start="0,0"
+              End="85.9999961753688,41.8999993671971">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.6999996835985" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.6999996835985"
+                    Point2="0,24.6999996835985"
+                    Point3="4,24.6999996835985" />
+                  <mssgle:LineSegment
+                    End="81.9999961753688,24.6999996835985" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81.9999961753688,24.6999996835985"
+                    Point2="85.9999961753688,24.6999996835985"
+                    Point3="85.9999961753688,28.6999996835985" />
+                  <mssgle:LineSegment
+                    End="85.9999961753688,41.8999993671971" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Query 7.Paths[Sort Output3]"
+          TopLeft="542.551825114847,174.874073147303">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-85.6333269134167,48.5333327065571"
+              Start="0,0"
+              End="-85.6333269134167,41.0333327065571">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.7648776773009" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.7648776773009"
+                    Point2="0,28.7648776773009"
+                    Point3="-4,28.7648776773009" />
+                  <mssgle:LineSegment
+                    End="-81.6333269134167,28.7648776773009" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-81.6333269134167,28.7648776773009"
+                    Point2="-85.6333269134167,28.7648776773009"
+                    Point3="-85.6333269134167,32.7648776773009" />
+                  <mssgle:LineSegment
+                    End="-85.6333269134167,41.0333327065571" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Query 7\Sort 3"
+          TopLeft="383.518497563991,309.207405257217" />
+        <EdgeLayout
+          Id="Package\Query 7.Paths[Merge Join Output1]"
+          TopLeft="436.685164549377,265.007405853859">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.1999994033577"
+              Start="0,0"
+              End="0,36.6999994033577">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.6999994033577" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="138.4,41.6"
+          Id="Package\Query 7\Merge Join 1"
+          TopLeft="508.518490734293,386.807404823295" />
+        <EdgeLayout
+          Id="Package\Query 7.Paths[Sort Output2]"
+          TopLeft="436.718497563991,350.807405257217">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="140.999993170301,35.9999995660783"
+              Start="0,0"
+              End="140.999993170301,28.4999995660783">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.9999997830391" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.9999997830391"
+                    Point2="0,17.9999997830391"
+                    Point3="4,17.9999997830391" />
+                  <mssgle:LineSegment
+                    End="136.999993170301,17.9999997830391" />
+                  <mssgle:CubicBezierSegment
+                    Point1="136.999993170301,17.9999997830391"
+                    Point2="140.999993170301,17.9999997830391"
+                    Point3="140.999993170301,21.9999997830391" />
+                  <mssgle:LineSegment
+                    End="140.999993170301,28.4999995660783" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Query 7.Paths[Sort Output1]"
+          TopLeft="747.551813914141,176.607406468583">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-148.099989846515,210.199998354713"
+              Start="0,0"
+              End="-148.099989846515,202.699998354713">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,94.6786277763393" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,94.6786277763393"
+                    Point2="0,98.6786277763393"
+                    Point3="-4,98.6786277763393" />
+                  <mssgle:LineSegment
+                    End="-144.099989846515,98.6786277763393" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-144.099989846515,98.6786277763393"
+                    Point2="-148.099989846515,98.6786277763393"
+                    Point3="-148.099989846515,102.678627776339" />
+                  <mssgle:LineSegment
+                    End="-148.099989846515,202.699998354713" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Query 7\Derived Column"
+          TopLeft="834.259213677345,134.814813877329" />
+        <EdgeLayout
+          Id="Package\Query 7.Paths[Merge Join Output2]"
+          TopLeft="610.318490734293,386.807404823295">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="229.044430542214,-210.392590945966"
+              Start="0,0"
+              End="229.044430542214,-202.892590945966">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-68.7823140701547" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-68.7823140701547"
+                    Point2="0,-72.7823140701547"
+                    Point3="4,-72.7823140701547" />
+                  <mssgle:LineSegment
+                    End="225.044430542214,-72.7823140701547" />
+                  <mssgle:CubicBezierSegment
+                    Point1="225.044430542214,-72.7823140701547"
+                    Point2="229.044430542214,-72.7823140701547"
+                    Point3="229.044430542214,-76.7823140701547" />
+                  <mssgle:LineSegment
+                    End="229.044430542214,-202.892590945966" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\Query 7\Conditional Split"
+          TopLeft="854.629582934727,227.259257678927" />
+        <EdgeLayout
+          Id="Package\Query 7.Paths[Derived Column Output]"
+          TopLeft="933.111064972702,176.414813877329">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.8444438015976"
+              Start="0,0"
+              End="0,43.3444438015976">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.3444438015976" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="126.4,41.6"
+          Id="Package\Query 7\Aggregate"
+          TopLeft="799.074030414593,336.074071737057" />
+        <EdgeLayout
+          Id="Package\Query 7.Paths[Day]"
+          TopLeft="907.16291626806,268.859257678927">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-44.8888858534666,67.2148140581301"
+              Start="0,0"
+              End="-44.8888858534666,59.7148140581301">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.3016873596941" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.3016873596941"
+                    Point2="0,27.3016873596941"
+                    Point3="-4,27.3016873596941" />
+                  <mssgle:LineSegment
+                    End="-40.8888858534666,27.3016873596941" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-40.8888858534666,27.3016873596941"
+                    Point2="-44.8888858534666,27.3016873596941"
+                    Point3="-44.8888858534666,31.3016873596941" />
+                  <mssgle:LineSegment
+                    End="-44.8888858534666,59.7148140581301" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-31.5663765204833,32.3016873596941,18.2438671875,11.2822265625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="135.2,41.6"
+          Id="Package\Query 7\Aggregate 1"
+          TopLeft="939.8147634656,337.037034693324" />
+        <EdgeLayout
+          Id="Package\Query 7.Paths[Night]"
+          TopLeft="955.696249601393,268.859257678927">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="51.7185138642061,68.1777770143969"
+              Start="0,0"
+              End="51.7185138642061,60.6777770143969">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.6928290140952" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.6928290140952"
+                    Point2="0,27.6928290140952"
+                    Point3="4,27.6928290140952" />
+                  <mssgle:LineSegment
+                    End="47.7185138642061,27.6928290140952" />
+                  <mssgle:CubicBezierSegment
+                    Point1="47.7185138642061,27.6928290140952"
+                    Point2="51.7185138642061,27.6928290140952"
+                    Point3="51.7185138642061,31.6928290140952" />
+                  <mssgle:LineSegment
+                    End="51.7185138642061,60.6777770143969" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="13.5278702133531,32.6928290140952,24.6627734375,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Query 7\Sort 4"
+          TopLeft="811.111066793956,406.370367544522" />
+        <EdgeLayout
+          Id="Package\Query 7.Paths[Aggregate Output 11]"
+          TopLeft="863.292548604275,377.674071737057">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.6962958074647"
+              Start="0,0"
+              End="0,21.1962958074647">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.1962958074647" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Query 7\Sort 5"
+          TopLeft="962.036984473653,405.407404588255" />
+        <EdgeLayout
+          Id="Package\Query 7.Paths[Aggregate Output 1]"
+          TopLeft="1011.32587396963,378.637034693324">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.7703698949313"
+              Start="0,0"
+              End="0,19.2703698949313">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.2703698949313" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="138.4,41.6"
+          Id="Package\Query 7\Merge Join 2"
+          TopLeft="869.444396940096,485.333329958386" />
+        <EdgeLayout
+          Id="Package\Query 7.Paths[Sort Output5]"
+          TopLeft="864.311066793956,447.970367544522">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="52.5999968128073,37.3629624138645"
+              Start="0,0"
+              End="52.5999968128073,29.8629624138645">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.1615742774808" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.1615742774808"
+                    Point2="0,22.1615742774808"
+                    Point3="4,22.1615742774808" />
+                  <mssgle:LineSegment
+                    End="48.5999968128073,22.1615742774808" />
+                  <mssgle:CubicBezierSegment
+                    Point1="48.5999968128073,22.1615742774808"
+                    Point2="52.5999968128073,22.1615742774808"
+                    Point3="52.5999968128073,26.1615742774808" />
+                  <mssgle:LineSegment
+                    End="52.5999968128073,29.8629624138645" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Query 7.Paths[Sort Output]"
+          TopLeft="1015.23698447365,447.007404588255">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-54.8592542002233,38.3259253701311"
+              Start="0,0"
+              End="-54.8592542002233,30.8259253701311">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.7327488766835" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.7327488766835"
+                    Point2="0,22.7327488766835"
+                    Point3="-4,22.7327488766835" />
+                  <mssgle:LineSegment
+                    End="-50.8592542002233,22.7327488766835" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-50.8592542002233,22.7327488766835"
+                    Point2="-54.8592542002233,22.7327488766835"
+                    Point3="-54.8592542002233,26.7327488766835" />
+                  <mssgle:LineSegment
+                    End="-54.8592542002233,30.8259253701311" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\Query 7\Derived Column 1"
+          TopLeft="626.851817602178,489.629626428787" />
+        <EdgeLayout
+          Id="Package\Query 7.Paths[Merge Join Output]"
+          TopLeft="869.444396940096,508.281478193586">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-80.9925793379178,0"
+              Start="0,0"
+              End="-73.4925793379178,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-73.4925793379178,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Query 7\OLE DB Destination"
+          TopLeft="259.259245093958,491.185182004431" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Query 7\Sort 6"
+          TopLeft="480.555529299159,492.074070652252" />
+        <EdgeLayout
+          Id="Package\Query 7.Paths[Derived Column Output1]"
+          TopLeft="626.851817602178,511.651848540519">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-39.8962883030197,0"
+              Start="0,0"
+              End="-32.3962883030197,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-32.3962883030197,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Query 7.Paths[Sort Output6]"
+          TopLeft="480.555529299159,512.429626328342">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-50.0962842052004,0"
+              Start="0,0"
+              End="-42.5962842052004,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-42.5962842052004,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Query 7\Crash Location Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Query 7\Crash Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Query 7\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Query 7\Datetime Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
