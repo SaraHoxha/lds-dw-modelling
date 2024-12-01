@@ -1,9 +1,19 @@
 import pyodbc 
+import os
+import sys
+
+original_sys_path = sys.path.copy()
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(parent_dir)
+
+from general.utils import getDBPassword
+
+sys.path = original_sys_path
 
 SERVER = 'tcp:lds.di.unipi.it' 
 DATABASE = 'Group_ID_4_DB' 
 USERNAME = 'Group_ID_4' 
-PASSWORD = 'LN50IBLZ' 
+PASSWORD = getDBPassword() 
 DRIVER = '{ODBC Driver 17 for SQL Server}'
 
 table2sql= {

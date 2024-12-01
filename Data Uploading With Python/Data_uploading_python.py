@@ -1,10 +1,3 @@
-#For now im creating the skeleton of the code
-#Creating it with dummy data
-
-#ID: Group_ID_4
-#PW: LN50IBLZ
-#DB: Group_ID_4_DB
-
 #Importing the libraries
 import pyodbc
 import sys
@@ -16,9 +9,9 @@ parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(parent_dir)
 
 from general.read_write import read_csv
+from general.utils import getDBPassword
 
 sys.path = original_sys_path
-from general.read_write import read_csv
 
 #Folder path
 folder_path = os.path.join(os.getcwd(),'Data Preparation','dw_tables_csv')
@@ -48,7 +41,7 @@ except (FileNotFoundError, OSError) as e:
 server = 'tcp:lds.di.unipi.it' 
 database = 'Group_ID_4_DB' 
 username = 'Group_ID_4' 
-password = 'LN50IBLZ' 
+password = getDBPassword()
 connectionString = 'DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+password
 
 try:

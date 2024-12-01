@@ -112,3 +112,7 @@ def concatenate_values(input_dict: Dict[str, Any], idColumn: str) -> str:
             concatenated_string += " " + str(input_dict[key])
 
     return concatenated_string.strip()
+
+def getDBPassword():
+    with open ("dbPassword") as f:
+        return f.readline().strip()
