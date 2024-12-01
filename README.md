@@ -20,13 +20,13 @@ The project is organized into the following directories:
    - Assignment 2
    - **Purpose**: This folder contains all the python files that perform data cleaning, including filling missing values, removing duplicates, and fixing any errors/misspellings. The three processed files are saved as: `People_Processed.csv`, `Vehicles_Processed.csv`, `Crashes_Processed.csv`.
 
-### 3. **Data Warehouse Cleaning**
+### 3. **Data Warehouse Schema**
  - Assignment 3
- - **Purpose**: This folder contains the Data Warehouse schema we have designed saved in both drawio and png format. It can be found [here](./Data%20Warehouse%20Schema/DW%20Schema.png). It also contains the python script `creation_dw.py` to create the tables based on this schema.
+ - **Purpose**: This folder contains the Data Warehouse schema we have designed saved in both drawio and png format. It can be found [here](./Data%20Warehouse%20Schema/DW%20Schema.png). It also contains the python script `creation_dw.py` to create the tables based on this schema, as well as the `creation_dw_SSIS.py` to duplicate the tables without records.
 
 ### 4. **Data Preparation**
  - Assignment 4
- - **Purpose**: This folder containes the python script `dw_tables_csv_creation.py` that splits the three intiail csv files into different files, one for each table
+ - **Purpose**: This folder contains the python script `dw_tables_csv_creation.py` that splits the three intiail csv files into different files, one for each table
 in the schema proposed.
 
 ### 5. **Data Uploading with Python**
@@ -37,4 +37,8 @@ in the schema proposed.
  - Assignment 6, 6a - 9a
  - **Purpose**: This folder containes the all the SSIS packages in one Visual Studio solution.
  -  `Data Uploading.dtsx`: SSIS package that duplicates each table without the records, renaming them as TABLENAME_SSIS and populates the new set of tables with 10% of the data in the original tables.
+ -  `Query_6.dtsx`: SSIS package that implements query 6a.
+ -  `Query_7.dtsx`: SSIS package that implements query 7a.
+ -  `Query_8.dtsx`: SSIS package that implements query 8a.
+ -  `Query_9.dtsx`: SSIS package that implements query 9a.
 
