@@ -285,8 +285,7 @@ def createDamageReimbursementTable(
     people_df: List[Dict[str, Any]],
     vehicleTable: Dict[str, Dict[str, Any]],
     crashTable: Dict[str, Dict[str, Any]],
-    personTable: Dict[str, Dict[str, Any]],
-    indexingColumnName: str) -> Dict[str, Dict[str, str]]:
+    personTable: Dict[str, Dict[str, Any]]):
     
     seen = set()
     result = []
@@ -313,7 +312,7 @@ def createDamageReimbursementTable(
         row_tuple = tuple(newRow[key] for key in sorted(newRow.keys()))
         if tuple(row_tuple) not in seen:
             seen.add(row_tuple)
-            result.append({indexingColumnName: index, **newRow})
+            result.append({'DamageReimbursement_Index': index, **newRow})
             index +=1
 
     to_csv(result, path)

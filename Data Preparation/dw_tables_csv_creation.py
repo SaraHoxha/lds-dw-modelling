@@ -52,7 +52,6 @@ VEHICLE_OG_COLUMNS = ['CRASH_UNIT_ID', 'CRASH_DATE','UNIT_NO','UNIT_TYPE','VEHIC
 #DAMAGE_REIMBURSEMENT
 DAMAGE_REIMBURSEMENT_FILE_PATH = 'Data Preparation/dw_tables_csv/DamageReimbursement.csv'
 DAMAGE_REIMBURSEMENT_COLUMNS = ['Person_ID','Vehicle_ID','Crash_ID', 'Cost', 'Cost_Category' ]
-DAMAGE_REIMBURSEMENT_INDEX_COL = "Damage_Reimbursement_ID"
 
 # READ DFs
 VEHICLES_DF = read_csv('data/Vehicles_Processed.csv')
@@ -153,9 +152,7 @@ createDamageReimbursementTable(
     PEOPLE_DF,
     vehicleTable,
     crashTable,
-    personTable,
-    indexingColumnName=DAMAGE_REIMBURSEMENT_INDEX_COL
-
+    personTable
 )
 
 removeColumns(vehicleTable,
