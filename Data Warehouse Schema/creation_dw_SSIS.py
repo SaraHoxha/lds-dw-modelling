@@ -113,12 +113,12 @@ table2sql= {
         """,
         "DamageReimbursement": """
             CREATE TABLE DamageReimbursement_SSIS (
-                Damage_Reimbursement_ID INT PRIMARY KEY,
-                Crash_ID INT,
-                Person_ID INT,
-                Vehicle_ID INT,
+                Crash_ID INT NOT NULL,
+                Person_ID INT NOT NULL,
+                Vehicle_ID INT NOT NULL,
                 Cost FLOAT,
                 Category VARCHAR(100),
+                PRIMARY KEY (Crash_ID, Person_ID, Vehicle_ID),
                 FOREIGN KEY (Crash_ID) REFERENCES Crash_SSIS(Crash_ID),
                 FOREIGN KEY (Person_ID) REFERENCES Person_SSIS(Person_ID),
                 FOREIGN KEY (Vehicle_ID) REFERENCES Vehicle_SSIS(Vehicle_ID)

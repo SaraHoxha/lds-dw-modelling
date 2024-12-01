@@ -100,17 +100,14 @@ schemas = {
     },
     "DamageReimbursement": {
         "schema": {
-            "Damage_Reimbursement_ID": int,
             "Crash_ID": int,
             "Person_ID": int,
             "Vehicle_ID": int,
             "Cost": float,
             "Category": str,
         },
-        "primary_key": "Damage_Reimbursement_ID",
-        "non_nullable": [
-            "Damage_Reimbursement_ID"
-        ],
+        "primary_key": ["Crash_ID", "Person_ID", "Vehicle_ID"],  # Changed to list for composite key
+        "non_nullable": ["Crash_ID", "Person_ID", "Vehicle_ID"],  # Updated non-nullable fields
     },
     "Person": {
         "schema": {
@@ -161,8 +158,20 @@ def validate_non_nullable(rows, non_nullable):
     return None
 
 def validate_primary_key(rows, primary_key):
-    primary_key_values = [row[primary_key] for row in rows]
-    duplicates = len(primary_key_values) - len(set(primary_key_values))
+    # Modified to handle composite primary keys
+    if isinstance(primary_key, list):
+        # Create tuple of primary key values for each row
+        primary_key_values = [
+            tuple(row[key] for key in primary_key)
+            for row in rows
+        ]
+    else:
+        # Handle single column primary keys for backward compatibility
+        primary_key_values = [row[primary_key] for row in rows]
+    
+    unique_keys = set(primary_key_values)
+    duplicates = len(primary_key_values) - len(unique_keys)
+    
     if duplicates > 0:
         return f"Duplicate primary keys: {duplicates} duplicates found"
     return None
