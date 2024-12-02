@@ -6,6 +6,36 @@
     <Name>Group_ID_4_InsuranceCube.database</Name>
     <FullPath>Group_ID_4_InsuranceCube.database</FullPath>
   </Database>
+  <Cubes>
+    <ProjectItem>
+      <Name>InsuranceCube.cube</Name>
+      <FullPath>InsuranceCube.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>InsuranceCube.partitions</Name>
+          <FullPath>InsuranceCube.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+  </Cubes>
+  <Dimensions>
+    <ProjectItem>
+      <Name>Vehicle.dim</Name>
+      <FullPath>Vehicle.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Crash.dim</Name>
+      <FullPath>Crash.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Person.dim</Name>
+      <FullPath>Person.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Date Time.dim</Name>
+      <FullPath>Date Time.dim</FullPath>
+    </ProjectItem>
+  </Dimensions>
   <DataSources>
     <ProjectItem>
       <Name>Group ID 4 DB.ds</Name>
@@ -14,8 +44,8 @@
   </DataSources>
   <DataSourceViews>
     <ProjectItem>
-      <Name>Group ID 4 DB.dsv</Name>
-      <FullPath>Group ID 4 DB.dsv</FullPath>
+      <Name>Group ID 4 DB Data Source View.dsv</Name>
+      <FullPath>Group ID 4 DB Data Source View.dsv</FullPath>
     </ProjectItem>
   </DataSourceViews>
   <Configurations>

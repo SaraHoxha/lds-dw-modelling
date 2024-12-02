@@ -1,0 +1,182 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="148dec7f-62d0-41f5-873d-aeaeb6e99190" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Crash</ID>
+  <Name>Crash</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="afb79aeb-d21d-4bc8-869e-05238d649d33">
+    <DataSourceViewID>Group ID 4 DB Data Source View</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="196fe6d4-d536-4419-8006-e97477f5d7ee">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="781d2855-ea57-452d-b307-3b8a8515a317">
+      <ID>Crash ID</ID>
+      <Name>Crash ID</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="054d21d0-1bca-4d11-bc1d-90b30e0a632b">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="285e1737-d944-4fa3-bd94-f6fe629290d5">
+            <TableID>Group_ID_4_Crash</TableID>
+            <ColumnID>Crash_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="5f3a098e-3c61-4d56-98a9-56284f9689ae">
+          <AttributeID>Police Notified Date ID</AttributeID>
+          <Name>Police Notified Date ID</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="26aef867-6882-4397-a97b-ad99a1803860">
+          <AttributeID>Crash Date ID</AttributeID>
+          <Name>Crash Date ID</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="2d5b0722-0805-4ef8-876c-1d0a15724b67">
+          <AttributeID>Injury ID</AttributeID>
+          <Name>Injury ID</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="109d5ea8-f374-4ff7-b2f0-80621e547712">
+          <AttributeID>Crash Condition ID</AttributeID>
+          <Name>Crash Condition ID</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="512da536-61de-4c17-a44d-df7f9806a537">
+          <AttributeID>Crash Location ID</AttributeID>
+          <Name>Crash Location ID</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d29421db-1753-4f89-896f-ae911195927e">
+      <ID>Police Notified Date ID</ID>
+      <Name>Police Notified Date ID</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d194eb79-1a5a-43ec-b20c-c4e5813614ba">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="45dc33ed-b5a4-4616-ab0f-74be71c18a8a">
+            <TableID>Group_ID_4_Crash</TableID>
+            <ColumnID>Police_Notified_Date_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ba1e601f-015c-40be-9fd9-1c90df9e2af9">
+      <ID>Crash Date ID</ID>
+      <Name>Crash Date ID</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="59bf25bc-7499-45be-98c1-3bb19b5f02b1">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="50d5a785-c0e7-4cd4-818c-fecee0332ada">
+            <TableID>Group_ID_4_Crash</TableID>
+            <ColumnID>Crash_Date_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="27c58c9e-6d46-4d53-8047-408bf717f907">
+      <ID>Injury ID</ID>
+      <Name>Injury ID</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b98b584f-4ae9-4666-94d1-f82e40cff22c">
+          <DataType>Integer</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="83697f58-6421-48cb-8432-3835c4e80f57">
+            <TableID>Group_ID_4_Injury</TableID>
+            <ColumnID>Injury_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="c98ac6ce-2c55-4bc5-9f20-af29ab9baeca">
+      <ID>Crash Condition ID</ID>
+      <Name>Crash Condition ID</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="324b6d8f-fbfa-4fe8-a5a6-336008e2c1a0">
+          <DataType>Integer</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="aab7899e-79d4-4036-8363-5cc085748098">
+            <TableID>Group_ID_4_CrashCondition</TableID>
+            <ColumnID>Crash_Condition_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="756bc17b-c078-4331-b4d7-16a60b839144">
+      <ID>Crash Location ID</ID>
+      <Name>Crash Location ID</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="0bb36b99-467a-47e5-8b26-484c04bc74f1">
+          <DataType>Integer</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e6ac6c1a-34cf-4217-895f-e2b38cc93fc1">
+            <TableID>Group_ID_4_CrashLocation</TableID>
+            <ColumnID>Crash_Location_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

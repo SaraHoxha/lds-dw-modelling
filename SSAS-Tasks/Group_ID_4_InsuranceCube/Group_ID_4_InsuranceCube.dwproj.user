@@ -7,17 +7,17 @@
           <ConfigurationSetting>
             <Id>Group ID 4 DB</Id>
             <Name>Group ID 4 DB</Name>
-            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAEl0vAlEmrU6bQflrV1G4KwAAAAAcAAAARwByAG8AdQBwACAASQBEACAANAAgAEQAQgAAABBmAAAAAQAAIAAAADEhv0MUdx5QY7WeG7Xq+YTicg0O7euZx+gryZIZGK4+AAAAAA6AAAAAAgAAIAAAACiEKntA2CWbAGYlOETG7gBnEHBZh72k6mSHXAlh9ezCIAAAADxz9MsZj7tA3+HLgTBEB1aeCkd3f7N+j3VDYminkHwlQAAAADN7kjlyEc33OpyAbOLV4faQvru+sIp8jRGUPSDvHHXoixtxeLbeGYXePpCSZ8kysntvVmySEQmMChvQ1uIQ/hs=</Value>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAEl0vAlEmrU6bQflrV1G4KwAAAAAcAAAARwByAG8AdQBwACAASQBEACAANAAgAEQAQgAAABBmAAAAAQAAIAAAAIorqNOhMZVhjLdehgcYZliTic4R11b8RrKFeNlpbPMOAAAAAA6AAAAAAgAAIAAAAAcp3WJXwDMrfLBsVtos3cJzLIYQP/Vi8n9b1ovCJRspIAAAAG7lrT+lZNBc+eCvRKj2aagXgOVbzgTxqGU1W5LqKskGQAAAABww91opBib+tsqIGhoSrG26j1hgFEtb9mUDVY4dC7xPeFtyQXWJrUy9nv2hHbEvef1CGEYhuo7uL2y+g07477o=</Value>
           </ConfigurationSetting>
         </UserIDs>
         <UserPasswords>
           <ConfigurationSetting>
             <Id>Group ID 4 DB</Id>
             <Name>Group ID 4 DB</Name>
-            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAEl0vAlEmrU6bQflrV1G4KwAAAAAcAAAARwByAG8AdQBwACAASQBEACAANAAgAEQAQgAAABBmAAAAAQAAIAAAAFKvtKXdO+OB4SFy90OfAVT8LdjkDpa8nO25hsqdQ8ZVAAAAAA6AAAAAAgAAIAAAAKG3iWWS1w6SVTZF58HM5ZQE4voYtFoksD4GL10hz5TtIAAAAJWbx/Jw5gCTeovM/FS1kVCgsEWbFGqIez7CFgqWwDFiQAAAAEET0TEIVmwRjMPk0FDVncGmmE1BLt1U4T/waEYOoPqa6c2acLiusDPYusGB1p+yirV3/n2fMWVuXygaDv/XEiQ=</Value>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAEl0vAlEmrU6bQflrV1G4KwAAAAAcAAAARwByAG8AdQBwACAASQBEACAANAAgAEQAQgAAABBmAAAAAQAAIAAAAAoOY6bxHeZ/uBpOGU1e3ExNQkTpMUtVClI3tfygXo/iAAAAAA6AAAAAAgAAIAAAANJvuE31QeKiSbVuth6QSzEoOfRo0Cx53J73/+WMKV47IAAAAEh+yQw8dI+UeF1eALkLrpLSiGjZiCJwgLXbkanOlM9oQAAAAJLLECe/vrAjbVua3o5ay05mFJ8ZuTMWarE9nwTb5h+L+VnIqkuLK4QnXNlM7i6Aux3BBgyPST1GZDPHVfkqcEg=</Value>
           </ConfigurationSetting>
         </UserPasswords>
-        <TargetServer>localhost</TargetServer>
+        <TargetServer>http://lds.di.unipi.it/olap/msmdpump.dll</TargetServer>
         <TargetDatabase>Group_ID_4_InsuranceCube</TargetDatabase>
         <StartObject>
           <ObjectId></ObjectId>
