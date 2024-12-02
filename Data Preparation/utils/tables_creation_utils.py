@@ -312,7 +312,7 @@ def createDamageReimbursementTable(
         row_tuple = tuple(newRow[key] for key in sorted(newRow.keys()))
         if tuple(row_tuple) not in seen:
             seen.add(row_tuple)
-            result.append({'DamageReimbursement_Index': index, **newRow})
+            result.append(newRow)
             index +=1
 
     to_csv(result, path)
