@@ -1,10 +1,11 @@
+# Imports
 import re
 from datetime import datetime
 import json
 import time
-
 import sys
 import os
+from opencage.geocoder import OpenCageGeocode
 
 original_sys_path = sys.path.copy()
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -13,10 +14,21 @@ sys.path.append(parent_dir)
 from general.utils import get_api_key, check_if_file_exists_and_create
 sys.path = original_sys_path
 
-from opencage.geocoder import OpenCageGeocode
-
 # adding geospatial missing data
 def query_api(queries, resultDict):
+    """
+    Query the OpenCage Geocoding API to get latitude and longitude for given addresses.
+    
+    Args:
+        queries (set): Set of address strings to geocode
+        resultDict (dict): Existing dictionary of cached geocoding results
+        
+    Returns:
+        dict: Updated dictionary containing geocoding results with query strings as keys and lat/lng coordinates as values
+    
+    Raises:
+        Exception: If geocoding fails for any query
+    """
     # Initialize the geocoder with the API key
     geocoder = OpenCageGeocode(get_api_key())
 
@@ -46,6 +58,14 @@ def query_api(queries, resultDict):
     return resultDict
 
 def create_file_with_missing_location_values(crashes_df, results_file="data/missing lat lng python.json"):
+    """
+    Create or update a JSON file containing geocoded location data for crashes with missing coordinates.
+    
+    Args:
+        crashes_df (dict): Dictionary containing crash data
+        results_file (str): Path to JSON file for storing geocoding results
+        
+    """
     print(f"Starting the process to create file with missing location values from '{results_file}'...")
     # Ensure the results file exists or create it if it doesn't
     check_if_file_exists_and_create(results_file)
@@ -87,6 +107,16 @@ def create_file_with_missing_location_values(crashes_df, results_file="data/miss
         print(f"Error writing to file '{results_file}': {e}")
 
 def fill_missing_location_values(crashes_df, results_file="data/missing lat lng python.json"):
+    """
+    Fill missing latitude, longitude, and location values in crashes dataset using cached geocoding results.
+    
+    Args:
+        crashes_df (dict): Dictionary containing crash data
+        results_file (str): Path to JSON file containing geocoding results
+        
+    Returns:
+        dict: Updated crashes dictionary with filled location values
+    """
     print(f"Filling missing location values using data from '{results_file}'...")
     with open (results_file) as f:
         resultDict = json.load(f)
@@ -102,7 +132,20 @@ def fill_missing_location_values(crashes_df, results_file="data/missing lat lng 
     
     return crashes_df
 
-def fill_missing_BEAT_OF_OCCURRENCE (dict_df):
+def fill_missing_BEAT_OF_OCCURRENCE(dict_df):
+    """
+    Fill missing beat of occurrence values based on location matches in the dataset.
+    
+    Args:
+        dict_df (dict): Dictionary containing crash data
+        
+    Returns:
+        dict: Updated dictionary with filled beat of occurrence values
+        
+    Raises:
+        ValueError: If row data is missing required fields
+        KeyError: If required keys are missing from row data
+    """
     print(f"Filling missing beat of occurrence values...")
     
     # Initialize sets and dictionaries to track missing beats and location-to-beat mappings.
@@ -143,7 +186,19 @@ def fill_missing_BEAT_OF_OCCURRENCE (dict_df):
     return dict_df
 
 # adding delta between car crash and police report
-def add_delta_car_crash_date_police_report_date (crashes_df):
+def add_delta_car_crash_date_police_report_date(crashes_df):
+    """
+    Calculate and add time difference between crash date and police report date.
+    
+    Args:
+        crashes_df (dict): Dictionary containing crash data
+        
+    Returns:
+        dict: Updated dictionary with new 'DELTA_TIME_CRASH_DATE_POLICE_REPORT_DATE' field
+        
+    Note:
+        Time delta is formatted as "X days, Y hours, Z minutes, W seconds"
+    """
     print("Calculating the time delta between crash dates and police report dates...")
     # Define the date format for parsing
     date_format = "%m/%d/%Y %I:%M:%S %p"
@@ -176,6 +231,18 @@ def add_delta_car_crash_date_police_report_date (crashes_df):
 
 # fixing wrong licens plates
 def fix_license_plates(dict_df):
+    """
+    Standardize license plate formats and fix inconsistencies.
+    
+    Args:
+        dict_df (dict): Dictionary containing crash data
+        
+    Returns:
+        dict: New dictionary with standardized license plate keys
+        
+    Note:
+        Valid license plate format is two uppercase letters followed by six digits
+    """
     print("Checking and fixing license plates...")
     # Define a regex pattern for valid license plates
     license_plates_pattern = r'^[A-Z]{2}\d{6}$'
@@ -216,6 +283,19 @@ def convert_float_columns_to_int_columns(dict_df, columns_to_convert = [
     'INJURIES_NO_INDICATION',
     'INJURIES_UNKNOWN'
 ]):
+    """
+    Convert specified float columns to integer type where appropriate.
+    
+    Args:
+        dict_df (dict): Dictionary containing crash data
+        columns_to_convert (list): List of column names to convert from float to int
+        
+    Returns:
+        dict: Updated dictionary with converted numeric types
+        
+    Note:
+        Handles conversion of both float and string values to integers
+    """
     print("Converting float columns to integer columns where applicable...")
     # Iterate over each key-value pair in the input dictionary
     for indexKey, row in dict_df.items():
@@ -247,8 +327,18 @@ def convert_float_columns_to_int_columns(dict_df, columns_to_convert = [
 
 def fill_missing_values_with_placeholder_string(data_dict, placeholder_string = 'unknown', columns = [
     'STREET_DIRECTION', 'STREET_NAME', 'BEAT_OF_OCCURRENCE',
-    'LATITUDE', 'LONGITUDE', 'LOCATION'
-]):
+    'LATITUDE', 'LONGITUDE', 'LOCATION']):
+    """
+    Fill empty string values with a placeholder string for specified columns.
+    
+    Args:
+        data_dict (dict): Dictionary containing crash data
+        placeholder_string (str): String to use for filling missing values
+        columns (list): List of column names to check for missing values
+        
+    Returns:
+        dict: Updated dictionary with filled missing values
+    """
     try:
         # Iterate over each row's data in the dictionary
         for row_id, row_data in data_dict.items():
