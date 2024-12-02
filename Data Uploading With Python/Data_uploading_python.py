@@ -25,7 +25,7 @@ csv_tables_dict = [
     {'Name': 'Person.csv', 'Primary_Key': 'Person_ID'},
     {'Name': 'Crash.csv', 'Primary_Key': 'Crash_ID'},
     {'Name': 'Vehicle.csv', 'Primary_Key': 'Vehicle_ID'},
-    {'Name': 'DamageReimbursement.csv', 'Primary_Key': 'Damage_Reimbursement_ID'}    
+    {'Name': 'DamageReimbursement.csv', 'Primary_Key': 'Person_ID,Crash_ID,Vehicle_ID'}    
 ]
 
 #Check if the csv files exist
@@ -61,7 +61,7 @@ try:
                     csv_path = os.path.join(folder_path, table_name)
                     
                     # Reading the csv file
-                    data_table_og = read_csv(csv_path, table['Primary_Key'])
+                    data_table_og = read_csv(csv_path, primary_key = table['Primary_Key'],idColumn = table['Primary_Key'])
                     
                     # Validate schema
                     vali_schema = validate_schema(cursor, table_name_db, data_table)
@@ -112,7 +112,6 @@ try:
                     
                     if rows_to_insert:  # Insert remaining rows
                         cursor.executemany(sql, rows_to_insert)
-                    
             except pyodbc.Error as e:
                 raise Exception(f"Error processing table {table_name}: {str(e)}")
                 
