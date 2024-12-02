@@ -34,6 +34,7 @@ crashes_df = add_delta_car_crash_date_police_report_date(crashes_df)
 #Split date columns
 crashes_df = split_date (crashes_df, "CRASH_DATE")
 crashes_df = split_date (crashes_df, "DATE_POLICE_NOTIFIED", "_POLICE_NOTIFIED")
+
 #crashes_df = fill_missing_values_with_placeholder_string(crashes_df, "AMENDED", ['REPORT_TYPE'])
 #crashes_df = fill_missing_values_with_placeholder_string(crashes_df, 'NO INDICATION OF INJURY', ["MOST_SEVERE_INJURY"])
 #crashes_df = fill_missing_values_with_placeholder_string(crashes_df)
