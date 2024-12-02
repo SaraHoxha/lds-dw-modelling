@@ -14,9 +14,17 @@ SEX_COL_VALUES =['U']
 VALUE_UNKNOWN = 'UNKNOWN'
 STATE_PLACEHOLDER_VALUE = 'XX'
 
-# Make following mapping for 'SEX' values: U & NaN values -> "U"(unknown)
 def default_sex_to_U(dataset):
-    print ("Mapping sex values to U & NaN values")
+    """
+    Maps 'SEX' column values to 'U' for unknown and NaN values.
+
+    Args:
+        dataset (dict): The dataset containing rows of data.
+
+    Returns:
+        dict: The updated dataset with 'SEX' values mapped to 'U'.
+    """
+    print ("Mapping SEX values to U & NaN values.")
     for row in dataset.values():
         try:
             if SEX_COL in row and row[SEX_COL] == '':
@@ -25,9 +33,17 @@ def default_sex_to_U(dataset):
             print(f"Error processing row: {row} | Error: {e}")
     return dataset
 
-# Add new value 'N/A' ('NON APPLICABLE') for observations that the person_type is passenger and we have missing values on columns that regard the driver ('DRIVER_VISION' & 'DRIVER_ACTION')
 def set_driver_cols_to_none_for_passengers(dataset):
-    print ("Setting driver column to none for passengers")
+    """
+    Sets 'DRIVER_VISION' and 'DRIVER_ACTION' columns to 'N/A' for passengers.
+
+    Args:
+        dataset (dict): The dataset containing rows of data.
+
+    Returns:
+        dict: The updated dataset with driver columns set to 'N/A' for passengers.
+    """
+    print ("Setting driver columns to none for passengers.")
     driver_cols = [DRIVER_ACTION_COL, DRIVER_VISION_COL]
     na_value = 'N/A'
     
@@ -41,9 +57,17 @@ def set_driver_cols_to_none_for_passengers(dataset):
             print(f"Error processing row: {row} | Error: {e}")
     return dataset
 
-# Set a  None ('') value for 'AGE' for observations when "AGE" < 10  and "PERSON_TYPE" is "DRIVER" (Anomalies)
 def set_age_to_none(dataset):
-    print ("Setting age column to none when age is less then 10 and person type is driver")
+    """
+    Sets 'AGE' column to None ('') for drivers with age less than 10.
+
+    Args:
+        dataset (dict): The dataset containing rows of data.
+
+    Returns:
+        dict: The updated dataset with 'AGE' set to None for anomalies.
+    """
+    print ("Setting AGE column to none when age is less then 10 and person type is driver.")
     for row in dataset.values():
         try:
             if row.get(PERSON_TYPE_COL) == PERSON_TYPE_VALUES.get('d'):
@@ -54,9 +78,17 @@ def set_age_to_none(dataset):
             print(f"Error processing row: {row} | Error: {e}")
     return dataset
    
-# Set 'STATE' column have the value 'Unknown' when 'CITY' is 'UNKNOWN' or STATE == 'XX'. 
 def set_state_to_unknown(dataset):
-    print ("Setting state to Unknown when the city value is missing or not valid")
+    """
+    Sets 'STATE' column to 'UNKNOWN' when 'CITY' is 'UNKNOWN' or 'STATE' is 'XX' (placeholder value).
+
+    Args:
+        dataset (dict): The dataset containing rows of data.
+
+    Returns:
+        dict: The updated dataset with 'STATE' set to 'UNKNOWN' for invalid entries.
+    """
+    print ("Setting STATE to UNKNOWN when the CITY value is missing or not valid.")
     for row in dataset.values():
         try:
             if row.get(CITY_COL) == VALUE_UNKNOWN or row.get(STATE_COL) == STATE_PLACEHOLDER_VALUE:
@@ -65,9 +97,17 @@ def set_state_to_unknown(dataset):
             print(f"Error processing row: {row} | Error: {e}")
     return dataset
     
-# Set 'CITY' column have the value 'Unknown' when 'city' has numeric value, length < 2 or starts with UNK
 def set_city_to_unknown(dataset):
-    print ("Setting city to Unknown when the city value is missing or not valid")
+    """
+    Sets 'CITY' column to 'UNKNOWN' for invalid city values such as numeric values, length less than 2 or starts with UNK.
+
+    Args:
+        dataset (dict): The dataset containing rows of data.
+
+    Returns:
+        dict: The updated dataset with 'CITY' set to 'UNKNOWN' for invalid entries.
+    """
+    print ("Setting CITY to UNKNOWN  when the city value is missing or not valid.")
     for row in dataset.values():
         try:
             if row.get(CITY_COL):
@@ -77,9 +117,18 @@ def set_city_to_unknown(dataset):
             print(f"Error processing row: {row} | Error: {e}")
     return dataset
 
-# Use "CITY" column to determine "STATE" column when the latter is empty. 
 def fill_state_based_on_city(dataset, city2state_mapping):
-    print ("Finding state using city")
+    """
+    Fills 'STATE' column based on 'CITY' column when 'STATE' is empty.
+
+    Args:
+        dataset (dict): The dataset containing rows of data.
+        city2state_mapping (dict): A mapping from city names to state IDs.
+
+    Returns:
+        dict: The updated dataset with 'STATE' filled based on 'CITY'.
+    """
+    print ("Finding STATE using CITY.")
     for row in dataset.values():
         try:
             if row.get(STATE_COL) != VALUE_UNKNOWN:
@@ -89,9 +138,17 @@ def fill_state_based_on_city(dataset, city2state_mapping):
             print(f"Error processing row: {row} | Error: {e}")
     return dataset
 
-# SET 'DAMAGE' COLUMN TO 0  & DAMAGE_CATEGORY TO '$500 OR LESS' IF MISSING VALUES
 def fill_missing_damage_and_category_values(dataset):
-    print ("Setting damage and damage category to 0 and '$500 OR LESS' if missing")
+    """
+    Sets 'DAMAGE' to 0 and 'DAMAGE_CATEGORY' to '$500 OR LESS' if missing.
+
+    Args:
+        dataset (dict): The dataset containing rows of data.
+
+    Returns:
+        dict: The updated dataset with missing damage values filled.
+    """
+    print ("Setting DAMAGE and DAMAGE_CATEGORY to 0 and '$500 OR LESS' if missing.")
     for row in dataset.values():
         try:
             if DAMAGE_COL in row and row.get(DAMAGE_COL) == '':
@@ -102,9 +159,17 @@ def fill_missing_damage_and_category_values(dataset):
     return dataset
 
 
-#SET RD_NO COLUMN TO UPPERCASE
 def set_rd_no_to_uppercase(dataset):
-    print ("Setting rd_no column to uppercase")
+    """
+    Sets 'RD_NO' column to uppercase.
+
+    Args:
+        dataset (dict): The dataset containing rows of data.
+
+    Returns:
+        dict: The updated dataset with 'RD_NO' set to uppercase.
+    """
+    print ("Setting RD_NO column to uppercase.")
     for row in dataset.values():
         if RD_NO_COL in row:
             row[RD_NO_COL] = row[RD_NO_COL].upper()

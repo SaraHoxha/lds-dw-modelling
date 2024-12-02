@@ -69,6 +69,7 @@ createTableWithNoFK(
     INJURY_COLUMNS
 )
 
+#Read Injury Table
 injuryTable = read_csv(INJURY_FILE_PATH, idColumn=INJURY_INDEX_COL)
 
 #CrashLocation
@@ -80,6 +81,7 @@ createTableWithNoFK(
     CRASH_LOCATION_OG_COLUMNS
 )
 
+#Read CrashLocation Table
 crashLocationTable = read_csv(CRASH_LOCATION_FILE_PATH, idColumn=CRASH_LOCATION_INDEX_COL)
 
 #CrashCondition
@@ -91,6 +93,7 @@ createTableWithNoFK(
     CRASH_CONDITION_OG_COLUMNS
 )
 
+#Read CrashCondition Table
 crashConditionTable = read_csv(CRASH_CONDITION_FILE_PATH, idColumn=CRASH_CONDITION_INDEX_COL)
 
 #Person
@@ -115,6 +118,7 @@ createDateTimeTable(
     DATETIME_POLICE_COLUMNS
 )
 
+#Read DateTime Table
 dateTimeTable = read_csv(DATETIME_FILE_PATH, idColumn=DATETIME_INDEX_COL)
 
 #Crash
@@ -133,6 +137,7 @@ createCrashTable(
     CRASH_INDEX_COL
 )
 
+#Read Crash Table
 crashTable = read_csv(CRASH_FILE_PATH, idColumn=CRASH_INDEX_COL)
 
 #Vehicle
@@ -144,6 +149,7 @@ createVehicleTable(
     VEHICLE_INDEX_COL
 )
 
+#Read Vehicle Table
 vehicleTable = read_csv(VEHICLE_FILE_PATH, idColumn=VEHICLE_INDEX_COL)
 
 #DamageReimbursement
@@ -155,6 +161,7 @@ createDamageReimbursementTable(
     personTable
 )
 
+#Remove helpercolumns from tables
 removeColumns(vehicleTable,
     crashTable,
     personTable,

@@ -28,7 +28,6 @@ column2defaultUknown = {
     'MANEUVER': 'UNKNOWN',
     'FIRST_CONTACT_POINT': 'UNKNOWN'
 }
-
 vehicles_df_processed = fill_missing_values(vehicles_df, column2defaultUknown)
 
 #Changing XX state to unknown
@@ -38,16 +37,13 @@ vehicles_df_processed = license_xx_to_u(vehicles_df_processed)
 typos_make = {'NEW HOLLAND, DIV. OF SPERRY NEW HOLLAND': 'NEW HOLLAND, (DIV. OF SPERRY NEW HOLLAND)',
     'AMC (LAWN & GARDEN TRACTORS BY AMERICAN MOTORS)': 'AMC (LAWN & GARDEN TRACTORS BY AMMERICAN MOTORS)',
     'ROLLS ROYCE': 'ROLLS-ROYCE'}
-
 vehicles_df_processed = typos_fixing(vehicles_df_processed, typos_make,"MAKE")
 
 #Typos for model and fixing them
 typos_model = {'UNKNOWN':'UNKOWN'}
-
 vehicles_df_processed = typos_fixing(vehicles_df_processed,typos_model,"MODEL")
 
 #Fixing years of vehicles
-
 vehicles_df_processed = set_vehicle_year(vehicles_df_processed)
 
 #Splitting time into 
