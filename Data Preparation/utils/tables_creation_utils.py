@@ -14,20 +14,20 @@ def selectColumns(data: List[List[Dict[str, Any]]], columns: List[str]) -> List[
     """
     Filters the dataset to only include the specified columns.
 
-    :param data: A list of lists of dictionaries representing the dataset.
-    :param columns: A list of column names to retain.
-    :return: A flattened list of dictionaries containing only the specified columns.
+    Args:
+        data (List[List[Dict[str, Any]]]): A list of lists of dictionaries representing the dataset.
+        columns (List[str]): A list of column names to retain.
+
+    Returns:
+        List[Dict[str, Any]]: A flattened list of dictionaries containing only the specified columns.
     """
     print("Filtering the dataset by columns", columns)
-    # Initialize the result as a list of lists of dictionaries
     result = []
     
     for dataset in data:
-        # Iterate through the list of dictionaries within each dataset
         for record in dataset:
-            # Filter keys present in the columns
             filtered_record = {key: value for key, value in record.items() if key in columns}
-            if filtered_record:  # Add if not empty
+            if filtered_record:
                 result.append(filtered_record)
 
     return result
@@ -53,10 +53,11 @@ def createTableWithNoFK(
     Returns:
         List[Dict[str, str]]: List of dictionaries representing the table rows.
     """
+    
     print("Creating table with index column:", index_column)
     try:
         result = []
-        seen_rows = set()  # To store unique rows
+        seen_rows = set()
         index_id = 1
         
         if original_column_names is None:
@@ -64,7 +65,6 @@ def createTableWithNoFK(
         
         for row in original_df:
             try:
-                # Collect data for the current row
                 row_data = tuple(row.get(col, row.get(col.upper())) for col in original_column_names)
                 if no_duplicate_rows:
                     if row_data not in seen_rows:
@@ -74,20 +74,17 @@ def createTableWithNoFK(
                         })
                         seen_rows.add(row_data)
                         index_id += 1
-                        
                 else:
                     result.append({
                         index_column: index_id,
                         **dict(zip(new_column_names, row_data))
                     })
                     index_id += 1
-                    
             except Exception as e:
                 print(f"Error processing row {row}: {e}.")
                 break
         
         to_csv(result, new_csv)
-        
         return result
     
     except FileNotFoundError:
@@ -109,15 +106,15 @@ def createDateTimeTable(
         path (str): The file path where the dateTime CSV will be saved.
         indexCol (str): The name of the new index column for the dateTime table.
         DATETIME_COLUMNS (List[str]): List of datetime column names to process.
+        DATETIME_OG_COLUMNS (List[str]): List of original datetime column names.
+        POLICE_NOTIFIED_COLUMNS (List[str]): List of columns related to police notification.
 
     Returns:
         List[Dict[str, str]]: A list of dictionaries representing the dateTime table.
     """
     print("Creating dateTime table...")
     try:
-        # Get all dates and transform them into the required format
-        allDates = selectColumns(all_dfs, DATETIME_OG_COLUMNS) #list of dictionaries
-        # Create an empty list to hold transformed date entries
+        allDates = selectColumns(all_dfs, DATETIME_OG_COLUMNS)
         transformed_entries = []
         
         for date in allDates:
@@ -138,8 +135,7 @@ def createDateTimeTable(
                     "Year": date.get("YEAR_POLICE_NOTIFIED"),
                     "Time": date.get("TIME_POLICE_NOTIFIED")
                 }
- 
-  
+
             if police_notified and crash_date != police_notified_date:
                 transformed_entries.append(police_notified_date)
                 
@@ -245,6 +241,20 @@ def createVehicleTable(
     dateTimeTable: Dict[str, Dict[str, Any]],
     date_columns_mapping: List[str],
     idColumnName: str):
+    """
+    Creates a vehicle table by linking vehicle data to corresponding entries in the date-time table.
+
+    Args:
+        path (str): The file path where the generated CSV will be saved.
+        vehicles_df (List[Dict[str, Any]]): The vehicle data in a list of dictionaries format.
+        dateTimeTable (Dict[str, Dict[str, str]]): The date-time table, with DateTime_ID as keys.
+        date_columns_mapping (List[str]): Mapping for date columns in the vehicle data.
+        idColumnName (str): The name of the ID column in the vehicle data.
+
+    Returns:
+        List[Dict[str, str]]: A list of dictionaries representing the vehicle table.
+    """
+    
     seen = set()
     result = []
 
@@ -286,11 +296,23 @@ def createDamageReimbursementTable(
     vehicleTable: Dict[str, Dict[str, Any]],
     crashTable: Dict[str, Dict[str, Any]],
     personTable: Dict[str, Dict[str, Any]]):
+    """
+    Creates a damage reimbursement table by linking people data to corresponding entries in vehicle, crash, and person tables.
+
+    Args:
+        path (str): The file path where the generated CSV will be saved.
+        people_df (List[Dict[str, Any]]): The people data in a list of dictionaries format.
+        vehicleTable (Dict[str, Dict[str, str]]): The vehicle table.
+        crashTable (Dict[str, Dict[str, str]]): The crash table.
+        personTable (Dict[str, Dict[str, str]]): The person table.
+
+    Returns:
+        List[Dict[str, str]]: A list of dictionaries representing the damage reimbursement table.
+    """
     
     seen = set()
     result = []
     
-    # Create lookup dictionaries
     person_lookup = {person["PERSON_ID"]: person["Person_ID"] for person in personTable.values()}
     crash_lookup = {crash["RD_NO"]: crash["Crash_ID"] for crash in crashTable.values()}
     vehicle_lookup = {vehicle["VEHICLE_ID"]: vehicle["Vehicle_ID"] for vehicle in vehicleTable.values()}
@@ -326,6 +348,19 @@ def removeColumns(
     columnsToRemove: List[str],
     paths: List[str],
     ):
+    """
+    Removes the specified helper columns from the given tables and saves the updated tables to CSV files.
+
+    Args:
+        vehicleTable (Dict[str, Dict[str, Any]]): The vehicle table.
+        crashTable (Dict[str, Dict[str, Any]]): The crash table.
+        personTable (Dict[str, Dict[str, Any]]): The person table.
+        columnsToRemove (List[str]): List of column names to remove.
+        paths (List[str]): List of file paths where the updated tables will be saved.
+
+    Returns:
+        None
+    """
     try:
         tables = [vehicleTable, crashTable, personTable]
         for index, table in enumerate(tables):
