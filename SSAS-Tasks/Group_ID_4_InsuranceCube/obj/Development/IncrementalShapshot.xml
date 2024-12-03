@@ -61,7 +61,7 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>ekcsGjncvy9TKC128h8Y1yOJ//w=12/2/2024 11:47:58 PM12/2/2024 1:39:33 PM4k1H5vkyDLI6Uc5adrPbj7TiXUA=12/2/2024 1:39:34 PM12/2/2024 1:39:33 PM</TimeStamp>
+        <TimeStamp>MxgoIdSNODJzPASSXxXZ0g9nsR0=12/3/2024 2:03:36 AM12/2/2024 1:39:33 PM8oCPa2HSXo2G7xQuPVDzyi6Ma+Q=12/3/2024 2:03:35 AM12/2/2024 1:39:33 PM</TimeStamp>
         <ID>
           <String>InsuranceCube</String>
         </ID>
@@ -78,5 +78,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2024-12-02T22:48:13.42Z</LastDeployed>
+  <LastDeployed>2024-12-03T10:41:55.656667Z</LastDeployed>
 </DeploymentSnapshot>
