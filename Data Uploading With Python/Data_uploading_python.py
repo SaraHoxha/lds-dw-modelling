@@ -25,7 +25,7 @@ csv_tables_dict = [
     {'Name': 'Person.csv', 'Primary_Key': 'Person_ID'},
     {'Name': 'Crash.csv', 'Primary_Key': 'Crash_ID'},
     {'Name': 'Vehicle.csv', 'Primary_Key': 'Vehicle_ID'},
-    {'Name': 'DamageReimbursement.csv', 'Primary_Key': None , 'idColumns':'Person_ID,Crash_ID,Vehicle_ID'}    
+    {'Name': 'DamageReimbursement.csv', 'Primary_Key': None, 'idColumns': ['Person_ID','Crash_ID','Vehicle_ID']}    
 ]
 
 #Check if the csv files exist
@@ -41,7 +41,7 @@ except (FileNotFoundError, OSError) as e:
 server = 'tcp:lds.di.unipi.it' 
 database = 'Group_ID_4_DB' 
 username = 'Group_ID_4' 
-password = getDBPassword()
+password = 'LN50IBLZ'
 connectionString = 'DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+password
 
 try:
@@ -61,8 +61,12 @@ try:
                     csv_path = os.path.join(folder_path, table_name)
                     
                     # Reading the csv file
-                    data_table_og = read_csv(csv_path, primary_key = table['Primary_Key'], idColumn = table['idColumns'])
-                    
+                    if table['Primary_Key']:
+                        data_table_og = read_csv(csv_path, primary_key = table['Primary_Key'])
+                        data_table = data_table_og
+                    elif table['idColumns']:
+                        data_table_og = read_csv(csv_path, idColumn = table['idColumns'])
+                        data_table = data_table_og
                     # Validate schema
                     vali_schema = validate_schema(cursor, table_name_db, data_table)
                     
