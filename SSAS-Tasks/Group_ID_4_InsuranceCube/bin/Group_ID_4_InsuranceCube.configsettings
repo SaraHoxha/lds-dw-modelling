@@ -12,16 +12,16 @@
     </DataSources>
     <Dimensions>
       <Dimension>
-        <ID>Vehicle</ID>
+        <ID>Person</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Date Time</ID>
       </Dimension>
       <Dimension>
         <ID>Crash</ID>
       </Dimension>
       <Dimension>
-        <ID>Person</ID>
-      </Dimension>
-      <Dimension>
-        <ID>Date Time</ID>
+        <ID>Vehicle</ID>
       </Dimension>
     </Dimensions>
     <Cubes>
