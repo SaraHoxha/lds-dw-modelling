@@ -19,49 +19,49 @@
     <ObjectSnapshots>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
-        <TimeStamp>a7dg0tgh8EioMyViAhUBN7O7U/U=12/2/2024 2:02:42 PM12/2/2024 1:38:09 PM</TimeStamp>
+        <TimeStamp>a7dg0tgh8EioMyViAhUBN7O7U/U=12/4/2024 9:48:06 PM12/4/2024 9:48:06 PM</TimeStamp>
         <ID>
           <String>Group ID 4 DB</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.DataSourceView</Type>
-        <TimeStamp>s/KJpv1Z3Dx+L1ZeFqYMU7+e0Vg=12/4/2024 8:13:33 AM12/2/2024 1:38:49 PM</TimeStamp>
+        <TimeStamp>yHQz1ztJCrpEKhWTaZ4KkQYbR2I=12/4/2024 10:11:16 PM12/4/2024 9:48:06 PM</TimeStamp>
         <ID>
           <String>Group ID 4 DB Data Source View</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>1vz/AVYzr/sQvqzMVzNQAr2laTY=12/4/2024 8:14:06 AM12/4/2024 1:33:30 AM</TimeStamp>
+        <TimeStamp>gyFoDQ+sr+zrZY2WORrWPwOZTz8=12/4/2024 10:20:21 PM12/4/2024 9:48:06 PM</TimeStamp>
         <ID>
           <String>Person</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>lldqNzZLa4sFcPD7l4EJYJ+mj2o=12/4/2024 8:13:33 AM12/4/2024 1:33:30 AM</TimeStamp>
+        <TimeStamp>lldqNzZLa4sFcPD7l4EJYJ+mj2o=12/4/2024 9:48:06 PM12/4/2024 9:48:06 PM</TimeStamp>
         <ID>
           <String>Crash</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>8zaCGgbTutIfQZ9yVMNXfbJZGvQ=12/4/2024 8:16:22 AM12/4/2024 1:33:30 AM</TimeStamp>
+        <TimeStamp>8zaCGgbTutIfQZ9yVMNXfbJZGvQ=12/4/2024 9:48:06 PM12/4/2024 9:48:06 PM</TimeStamp>
         <ID>
           <String>Vehicle</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>ggX54RZW2WGxxh0vVKlxG8vPu0M=12/4/2024 6:07:44 PM12/4/2024 5:08:09 AM</TimeStamp>
+        <TimeStamp>ggX54RZW2WGxxh0vVKlxG8vPu0M=12/4/2024 9:48:06 PM12/4/2024 9:48:06 PM</TimeStamp>
         <ID>
           <String>DateTime</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>Zd9Vnu2DJBkFF40KRovORyzE9eY=12/4/2024 8:16:22 AM12/4/2024 1:33:29 AMTP+cobkVzRuCeoyr5WNwRlEgJ8s=12/4/2024 1:33:30 AM12/4/2024 1:33:30 AM</TimeStamp>
+        <TimeStamp>oUyJhBTpXVspWfPoFlSGz1b8bLw=12/4/2024 10:20:21 PM12/4/2024 9:48:06 PMatkbHtP+Epnh2qRkcsRT23kndOM=12/4/2024 10:18:00 PM12/4/2024 9:48:06 PM</TimeStamp>
         <ID>
           <String>Group_ID_4_InsuranceCube</String>
         </ID>
@@ -69,7 +69,7 @@
     </ObjectSnapshots>
     <DatabaseSnapshot>
       <Type>Microsoft.AnalysisServices.Database</Type>
-      <TimeStamp>xJvIdDN/i8d8YC1ZFe23thk6nGY=12/2/2024 12:43:21 AM12/2/2024 12:43:21 AM</TimeStamp>
+      <TimeStamp>xJvIdDN/i8d8YC1ZFe23thk6nGY=12/4/2024 9:48:06 PM12/4/2024 9:48:06 PM</TimeStamp>
       <ID>
         <String>Group_ID_4_InsuranceCube</String>
       </ID>
@@ -78,5 +78,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2024-12-04T17:19:41.076667Z</LastDeployed>
+  <LastDeployed>2024-12-04T21:21:59.323333Z</LastDeployed>
 </DeploymentSnapshot>

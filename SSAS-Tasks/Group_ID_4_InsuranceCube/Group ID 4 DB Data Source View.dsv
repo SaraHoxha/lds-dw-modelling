@@ -1,4 +1,4 @@
-﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="62431808-b3b2-4ace-99c8-5e7dc95f9487" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="dd376085-b570-4232-80b0-ddc30e631746" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Group ID 4 DB Data Source View</ID>
   <Name>Group ID 4 DB Data Source View</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -27,7 +27,7 @@
             <Name>_ALL_TABLES_</Name>
             <DiagramLayout>
               <dds>
-                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="36" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-5000" scrolltop="1132" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="23416" y="11906" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="36" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-5000" scrolltop="1132" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="23416" y="15240" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
                   <font>
                     <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
                   </font>
@@ -356,7 +356,7 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Id_Attributes" msdata:ReadOnly="true" msprop:Description="" msprop:ComputedColumnExpression="'Crash '+ CAST([Crash_ID] AS VARCHAR) +'-' + [Primary_Contributory_Cause]" msprop:IsLogical="True" msprop:design-time-name="b76a582a-6608-474e-94bc-d2586579dced" msprop:DbColumnName="Id_Attributes" minOccurs="0">
+                  <xs:element name="Id_Attributes" msdata:ReadOnly="true" msprop:design-time-name="b76a582a-6608-474e-94bc-d2586579dced" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="Id_Attributes" msprop:ComputedColumnExpression="'Crash '+ CAST([Crash_ID] AS VARCHAR) +'-' + [Primary_Contributory_Cause]" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="137" />
@@ -628,6 +628,13 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
+                  <xs:element name="AgeGroup" msdata:ReadOnly="true" msprop:Description="" msprop:ComputedColumnExpression="CASE &#xA;    &#xD;&#xA;WHEN Age &lt;= 18 THEN 'Under 18'&#xA;   &#xD;&#xA; WHEN Age BETWEEN 19 AND 35 THEN '18-35'&#xA;    &#xD;&#xA;WHEN Age BETWEEN 36 AND 50 THEN '36-50'&#xA;    &#xD;&#xA;WHEN Age BETWEEN 51 AND 65 THEN '51-65'&#xA;    &#xD;&#xA;WHEN Age &gt; 65 THEN 'Over 65'&#xA;    &#xD;&#xA;ELSE 'Unknown'&#xA;&#xD;&#xA;END" msprop:IsLogical="True" msprop:design-time-name="c6ba1d8c-db88-4cd0-9a26-0b999cd0768f" msprop:DbColumnName="AgeGroup">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="8" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -765,37 +772,37 @@
           <xs:selector xpath=".//Group_ID_4_Vehicle" />
           <xs:field xpath="Date_ID" />
         </xs:keyref>
-        <xs:keyref name="FK__DamageRei__Vehic__114A936A" refer="Group_ID_4_Vehicle_Constraint1">
+        <xs:keyref name="FK__DamageRei__Perso__10566F31" refer="Group_ID_4_Person_Constraint1">
           <xs:selector xpath=".//Group_ID_4_DamageReimbursement" />
-          <xs:field xpath="Vehicle_ID" />
+          <xs:field xpath="Person_ID" />
         </xs:keyref>
         <xs:keyref name="FK__DamageRei__Crash__0F624AF8" refer="Constraint1">
           <xs:selector xpath=".//Group_ID_4_DamageReimbursement" />
           <xs:field xpath="Crash_ID" />
         </xs:keyref>
-        <xs:keyref name="FK__DamageRei__Perso__10566F31" refer="Group_ID_4_Person_Constraint1">
+        <xs:keyref name="FK__DamageRei__Vehic__114A936A" refer="Group_ID_4_Vehicle_Constraint1">
           <xs:selector xpath=".//Group_ID_4_DamageReimbursement" />
-          <xs:field xpath="Person_ID" />
+          <xs:field xpath="Vehicle_ID" />
         </xs:keyref>
-        <xs:keyref name="FK__Crash__Police_No__04E4BC85" refer="Group_ID_4_DateTime_Constraint1">
+        <xs:keyref name="FK__Crash__Crash_Dat__03F0984C" refer="Group_ID_4_DateTime_Constraint1">
           <xs:selector xpath=".//Group_ID_4_Crash" />
-          <xs:field xpath="Police_Notified_Date_ID" />
-        </xs:keyref>
-        <xs:keyref name="FK__Crash__Injury_ID__07C12930" refer="Group_ID_4_Injury_Constraint1">
-          <xs:selector xpath=".//Group_ID_4_Crash" />
-          <xs:field xpath="Injury_ID" />
-        </xs:keyref>
-        <xs:keyref name="FK__Crash__Crash_Con__06CD04F7" refer="Group_ID_4_CrashCondition_Constraint1">
-          <xs:selector xpath=".//Group_ID_4_Crash" />
-          <xs:field xpath="Crash_Condition_ID" />
+          <xs:field xpath="Crash_Date_ID" />
         </xs:keyref>
         <xs:keyref name="FK__Crash__Crash_Loc__05D8E0BE" refer="Group_ID_4_CrashLocation_Constraint1">
           <xs:selector xpath=".//Group_ID_4_Crash" />
           <xs:field xpath="Crash_Location_ID" />
         </xs:keyref>
-        <xs:keyref name="FK__Crash__Crash_Dat__03F0984C" refer="Group_ID_4_DateTime_Constraint1">
+        <xs:keyref name="FK__Crash__Crash_Con__06CD04F7" refer="Group_ID_4_CrashCondition_Constraint1">
           <xs:selector xpath=".//Group_ID_4_Crash" />
-          <xs:field xpath="Crash_Date_ID" />
+          <xs:field xpath="Crash_Condition_ID" />
+        </xs:keyref>
+        <xs:keyref name="FK__Crash__Injury_ID__07C12930" refer="Group_ID_4_Injury_Constraint1">
+          <xs:selector xpath=".//Group_ID_4_Crash" />
+          <xs:field xpath="Injury_ID" />
+        </xs:keyref>
+        <xs:keyref name="FK__Crash__Police_No__04E4BC85" refer="Group_ID_4_DateTime_Constraint1">
+          <xs:selector xpath=".//Group_ID_4_Crash" />
+          <xs:field xpath="Police_Notified_Date_ID" />
         </xs:keyref>
       </xs:element>
     </xs:schema>
