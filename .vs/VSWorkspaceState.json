@@ -1,8 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\SSIS-Tasks"
+    ""
   ],
-  "SelectedNode": "\\SSIS-Tasks\\Data Uploading.dtsx",
+  "SelectedNode": "\\SSIS-Tasks.sln",
   "PreviewInSolutionExplorer": false
 }

@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.34031.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "SSIS-Tasks", "SSIS-Tasks.dtproj", "{96703A3E-DBDF-48CD-8081-F88E467BD5D8}"
 EndProject
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "Group_ID_4_InsuranceCube", "..\SSAS-Tasks\Group_ID_4_InsuranceCube\Group_ID_4_InsuranceCube.dwproj", "{23316AC7-F09C-441E-A394-E2590FE3DFAD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Development|Default = Development|Default
@@ -12,6 +14,9 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{96703A3E-DBDF-48CD-8081-F88E467BD5D8}.Development|Default.ActiveCfg = Development
 		{96703A3E-DBDF-48CD-8081-F88E467BD5D8}.Development|Default.Build.0 = Development
+		{23316AC7-F09C-441E-A394-E2590FE3DFAD}.Development|Default.ActiveCfg = Development
+		{23316AC7-F09C-441E-A394-E2590FE3DFAD}.Development|Default.Build.0 = Development
+		{23316AC7-F09C-441E-A394-E2590FE3DFAD}.Development|Default.Deploy.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
