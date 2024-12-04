@@ -15,18 +15,18 @@
         <ID>Person</ID>
       </Dimension>
       <Dimension>
-        <ID>Date Time</ID>
-      </Dimension>
-      <Dimension>
         <ID>Crash</ID>
       </Dimension>
       <Dimension>
         <ID>Vehicle</ID>
       </Dimension>
+      <Dimension>
+        <ID>DateTime</ID>
+      </Dimension>
     </Dimensions>
     <Cubes>
       <Cube>
-        <ID>InsuranceCube</ID>
+        <ID>Group_ID_4_InsuranceCube</ID>
         <MeasureGroups>
           <MeasureGroup>
             <ID>Damage Reimbursement</ID>
