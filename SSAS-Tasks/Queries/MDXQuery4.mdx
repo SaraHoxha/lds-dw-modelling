@@ -6,14 +6,13 @@ MEMBER [Measures].[Damage Cost Change Percentage] AS
     IIF(
         [Measures].[Previous Year Damage Cost] = 0,
         NULL,
-        ([Measures].[Cost] - [Measures].[Previous Year Damage Cost]) / [Measures].[Previous Year Damage Cost] * 100
+        (([Measures].[Cost] - [Measures].[Previous Year Damage Cost]) / [Measures].[Previous Year Damage Cost]) * 100
     )
 
 SELECT 
     {[Measures].[Cost], [Measures].[Damage Cost Change Percentage]} ON COLUMNS,
     NONEMPTY(
-        [Crash].[Crash Location].[Crash Location].Members,
-        [Measures].[Damage Cost Change Percentage]
+        [Crash].[Crash Location].[Crash Location].Members
     ) ON ROWS
 FROM 
     [Group_ID_4_InsuranceCube]
