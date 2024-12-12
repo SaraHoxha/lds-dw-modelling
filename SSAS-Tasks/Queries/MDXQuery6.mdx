@@ -1,0 +1,20 @@
+WITH 
+SET [YearVehicleCombinations] AS 
+    GENERATE(
+        [Crash Date].[Date Hierarchy].[Year].MEMBERS,
+        [Vehicle].[Vehicle Type].[Vehicle Type].MEMBERS
+    )
+
+MEMBER [Measures].[MaxDamage] AS 
+    MAX(
+        [Person].[Person].MEMBERS, 
+        [Measures].[Cost]
+    )
+
+SELECT 
+    NON EMPTY 
+    [YearVehicleCombinations] ON COLUMNS,
+    NON EMPTY 
+    [Measures].[MaxDamage] ON ROWS
+FROM 
+    [Group_ID_4_InsuranceCube]
