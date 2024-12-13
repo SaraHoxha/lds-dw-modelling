@@ -1,52 +1,87 @@
 WITH 
--- First convert string duration to total minutes for comparison
-MEMBER [Measures].[MinutesDelay] AS
+-- Calculate the total delay in seconds
+MEMBER [Measures].[TotalDelaySeconds] AS
     IIF(
         [Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value <> "",
         (
-            -- Extract days and convert to minutes
+            -- Extract days and convert to seconds
             CINT(LEFT(
                 [Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value,
                 INSTR([Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value, " days") - 1
-            )) * 24 * 60 +
-            -- Extract hours and convert to minutes
+            )) * 24 * 60 * 60 +
+            -- Extract hours and convert to seconds
             CINT(MID(
                 [Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value,
                 INSTR([Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value, ", ") + 2,
                 INSTR([Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value, " hours") - 
                 INSTR([Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value, ", ") - 2
-            )) * 60 +
-            -- Extract minutes directly
+            )) * 60 * 60 +
+            -- Extract minutes and convert to seconds
             CINT(MID(
                 [Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value,
                 INSTR([Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value, "hours, ") + 7,
-                INSTR([Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value, " minutes") -
+                INSTR([Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value, " minutes") - 
                 INSTR([Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value, "hours, ") - 7
+            )) * 60 +
+            -- Extract seconds directly
+            CINT(MID(
+                [Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value,
+                INSTR([Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value, "minutes, ") + 9,
+                INSTR([Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value, " seconds") - 
+                INSTR([Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value, "minutes, ") - 9
             ))
         ),
         NULL
     )
--- Calculate median time difference for each beat
-MEMBER [Measures].[MedianTimeDelay] AS
+
+-- Calculate median and maximum delay in seconds
+MEMBER [Measures].[MedianSeconds] AS
     MEDIAN(
         [Crash].[Difference Between Crash Date And Police Notified].[Difference Between Crash Date And Police Notified].MEMBERS,
-        [Measures].[MinutesDelay]
+        [Measures].[TotalDelaySeconds]
     )
--- Add minimum time delay
-MEMBER [Measures].[MinTimeDelay] AS
-    MIN(
-        [Crash].[Difference Between Crash Date And Police Notified].[Difference Between Crash Date And Police Notified].MEMBERS,
-        [Measures].[MinutesDelay]
-    )
--- Add maximum time delay
-MEMBER [Measures].[MaxTimeDelay] AS
+
+MEMBER [Measures].[MaxSeconds] AS
     MAX(
         [Crash].[Difference Between Crash Date And Police Notified].[Difference Between Crash Date And Police Notified].MEMBERS,
-        [Measures].[MinutesDelay]
+        [Measures].[TotalDelaySeconds]
     )
--- Main query
+
+-- Format time delays into readable strings
+MEMBER [Measures].[MedianTimeDelay] AS
+    CASE
+        WHEN [Measures].[MedianSeconds] IS NULL THEN NULL
+        ELSE
+            -- Days
+            STR(INT([Measures].[MedianSeconds] / (24 * 3600))) + ' days, ' +
+            -- Hours
+            STR(INT(INT([Measures].[MedianSeconds] - (INT([Measures].[MedianSeconds] / (24 * 3600)) * (24 * 3600))) / 3600)) + ' hours, ' +
+            -- Minutes
+            STR(INT(INT([Measures].[MedianSeconds] - (INT([Measures].[MedianSeconds] / 3600) * 3600)) / 60)) + ' minutes, ' +
+            -- Seconds
+            STR(INT([Measures].[MedianSeconds] - (INT([Measures].[MedianSeconds] / 60) * 60))) + ' seconds'
+    END
+
+MEMBER [Measures].[MaxTimeDelay] AS
+    CASE
+        WHEN [Measures].[MaxSeconds] IS NULL THEN NULL
+        ELSE
+            -- Days
+            STR(INT([Measures].[MaxSeconds] / (24 * 3600))) + ' days, ' +
+            -- Hours
+            STR(INT(INT([Measures].[MaxSeconds] - (INT([Measures].[MaxSeconds] / (24 * 3600)) * (24 * 3600))) / 3600)) + ' hours, ' +
+            -- Minutes
+            STR(INT(INT([Measures].[MaxSeconds] - (INT([Measures].[MaxSeconds] / 3600) * 3600)) / 60)) + ' minutes, ' +
+            -- Seconds
+            STR(INT([Measures].[MaxSeconds] - (INT([Measures].[MaxSeconds] / 60) * 60))) + ' seconds'
+    END
+
+-- Query
 SELECT 
-    {[Measures].[MedianTimeDelay], [Measures].[MinTimeDelay], [Measures].[MaxTimeDelay]} ON COLUMNS,
-    NON EMPTY 
-    [Crash].[Beat Of Occurrence].[Beat Of Occurrence].MEMBERS ON ROWS
+    {[Measures].[MedianTimeDelay], [Measures].[MaxTimeDelay]} ON COLUMNS,
+    ORDER(
+        NONEMPTY([Crash].[Beat Of Occurrence].[Beat Of Occurrence].MEMBERS),
+        [Measures].[MedianSeconds],
+        BDESC
+    ) ON ROWS
 FROM [Group_ID_4_InsuranceCube]
