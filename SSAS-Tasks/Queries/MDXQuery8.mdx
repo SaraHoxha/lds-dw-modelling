@@ -1,0 +1,39 @@
+WITH 
+MEMBER [Measures].[Weighted Crash Frequency] AS
+    ([Measures].[Person Count] * 2 * 
+     (EXISTING [Crash].[Primary Contributory Cause].CURRENTMEMBER)) 
+    +
+    ([Measures].[Person Count] * 
+     (EXISTING [Crash].[Secondary Contributory Cause].CURRENTMEMBER))
+
+MEMBER [Measures].[Crash Cause Rank] AS
+    RANK([Crash].[Primary Contributory Cause].CURRENTMEMBER, 
+         ORDER(
+             [Crash].[Primary Contributory Cause].MEMBERS,
+             [Measures].[Weighted Crash Frequency],
+             DESC)
+    )
+
+MEMBER [Measures].[Most Frequent Crash Cause] AS
+    TOPCOUNT(
+        [Crash].[Primary Contributory Cause].MEMBERS, 1,
+        [Measures].[Weighted Crash Frequency]
+    ).ITEM(0).NAME
+
+MEMBER [Measures].[Total Damage Costs for Most Frequent Cause] AS
+    SUM(
+        FILTER(
+            [Crash].[Primary Contributory Cause].MEMBERS,
+            [Measures].[Crash Cause Rank] = 1
+        ),
+        [Measures].[Cost]
+    )
+
+SELECT
+{
+    [Measures].[Most Frequent Crash Cause],
+    [Measures].[Total Damage Costs for Most Frequent Cause]
+} ON COLUMNS,
+[DateTime].[Year].MEMBERS ON ROWS
+FROM [YourCubeName]
+WHERE ([Crash].[Primary Contributory Cause])
