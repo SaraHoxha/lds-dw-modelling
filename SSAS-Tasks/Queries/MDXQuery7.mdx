@@ -1,27 +1,52 @@
 WITH 
-    MEMBER [Measures].[MedianDifference] AS
-        MEDIAN(
-            EXISTING [Crash].[Beat Of Occurrence].[Beat Of Occurrence].MEMBERS,
-            [Crash].[Difference Between Crash Date And Police Notified].MEMBER_VALUE
-        )
-
-    MEMBER [Measures].[MinDifference] AS
-        MIN(
-            EXISTING [Crash].[Beat Of Occurrence].[Beat Of Occurrence].MEMBERS,
-            [Crash].[Difference WBetween Crash Date And Police Notified].MEMBER_VALUE
-        )
-
-    MEMBER [Measures].[MaxDifference] AS
-        MAX(
-            EXISTING [Crash].[Beat Of Occurrence].[Beat Of Occurrence].MEMBERS,
-            [Crash].[Difference Between Crash Date And Police Notified].MEMBER_VALUE
-        )
-
+-- First convert string duration to total minutes for comparison
+MEMBER [Measures].[MinutesDelay] AS
+    IIF(
+        [Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value <> "",
+        (
+            -- Extract days and convert to minutes
+            CINT(LEFT(
+                [Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value,
+                INSTR([Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value, " days") - 1
+            )) * 24 * 60 +
+            -- Extract hours and convert to minutes
+            CINT(MID(
+                [Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value,
+                INSTR([Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value, ", ") + 2,
+                INSTR([Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value, " hours") - 
+                INSTR([Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value, ", ") - 2
+            )) * 60 +
+            -- Extract minutes directly
+            CINT(MID(
+                [Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value,
+                INSTR([Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value, "hours, ") + 7,
+                INSTR([Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value, " minutes") -
+                INSTR([Crash].[Difference Between Crash Date And Police Notified].CurrentMember.Member_Value, "hours, ") - 7
+            ))
+        ),
+        NULL
+    )
+-- Calculate median time difference for each beat
+MEMBER [Measures].[MedianTimeDelay] AS
+    MEDIAN(
+        [Crash].[Difference Between Crash Date And Police Notified].[Difference Between Crash Date And Police Notified].MEMBERS,
+        [Measures].[MinutesDelay]
+    )
+-- Add minimum time delay
+MEMBER [Measures].[MinTimeDelay] AS
+    MIN(
+        [Crash].[Difference Between Crash Date And Police Notified].[Difference Between Crash Date And Police Notified].MEMBERS,
+        [Measures].[MinutesDelay]
+    )
+-- Add maximum time delay
+MEMBER [Measures].[MaxTimeDelay] AS
+    MAX(
+        [Crash].[Difference Between Crash Date And Police Notified].[Difference Between Crash Date And Police Notified].MEMBERS,
+        [Measures].[MinutesDelay]
+    )
+-- Main query
 SELECT 
-    {
-        [Measures].[MedianDifference],
-        [Measures].[MinDifference],
-        [Measures].[MaxDifference]
-    } ON COLUMNS,
+    {[Measures].[MedianTimeDelay], [Measures].[MinTimeDelay], [Measures].[MaxTimeDelay]} ON COLUMNS,
+    NON EMPTY 
     [Crash].[Beat Of Occurrence].[Beat Of Occurrence].MEMBERS ON ROWS
-FROM [YourCubeName]
+FROM [Group_ID_4_InsuranceCube]
