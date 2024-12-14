@@ -40,7 +40,7 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>/suquN5KQSV5NyjUCVJPIICNQxM=12/11/2024 1:07:48 PM12/4/2024 9:48:06 PM</TimeStamp>
+        <TimeStamp>gf/WFznvH/oYT8gcqRnqHU+xzWg=12/13/2024 11:26:42 PM12/4/2024 9:48:06 PM</TimeStamp>
         <ID>
           <String>Crash</String>
         </ID>
@@ -61,7 +61,7 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>LG6QhTEeMMpwUCLXhNiBS61v8OU=12/11/2024 1:07:48 PM12/4/2024 9:48:06 PM46EMbSpF+HznwfuGVZrqe/t1oRc=12/5/2024 12:57:45 PM12/4/2024 9:48:06 PM</TimeStamp>
+        <TimeStamp>DG2LePP5qC9PnZfW/wFvdMxaq3U=12/13/2024 11:26:41 PM12/4/2024 9:48:06 PM46EMbSpF+HznwfuGVZrqe/t1oRc=12/5/2024 12:57:45 PM12/4/2024 9:48:06 PM</TimeStamp>
         <ID>
           <String>Group_ID_4_InsuranceCube</String>
         </ID>
@@ -78,5 +78,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2024-12-11T12:08:18.006667Z</LastDeployed>
+  <LastDeployed>2024-12-13T22:27:03.396667Z</LastDeployed>
 </DeploymentSnapshot>

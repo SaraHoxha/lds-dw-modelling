@@ -1,4 +1,4 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="565537ac-23ea-49e5-9962-479528e5e91b" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="f03605d1-321a-41cf-ab6b-fa7616c6d975" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Crash</ID>
   <Name>Crash</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -155,104 +155,112 @@
   </Annotations>
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="532882ce-a123-4c54-a895-bb8096ad0b65">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="0aae1e3a-8ec3-4f0d-8b2b-89e2fc2916d0">
     <DataSourceViewID>Group ID 4 DB Data Source View</DataSourceViewID>
   </Source>
   <UnknownMember>Visible</UnknownMember>
-  <ErrorConfiguration dwd:design-time-name="ac275286-85b2-4e0a-acdf-88c42f0975b5">
+  <ErrorConfiguration dwd:design-time-name="d2d75d24-5208-4def-bf8d-171c9010cd2f">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
-    <Attribute dwd:design-time-name="e934c584-ac61-4cb8-a7de-3f004a970654">
+    <Attribute dwd:design-time-name="e5a8d598-6aae-4bb6-a675-35e308596bcb">
       <ID>Crash ID</ID>
       <Name>Crash</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="56861e85-2d9b-4d9e-91a8-6ad2d7b60198">
+        <KeyColumn dwd:design-time-name="2de80606-334c-4213-8320-658544790a93">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="5bd4375e-c72e-46e5-b2c3-4fe67e726198">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9ab7b563-fb62-430d-a031-690ce1176282">
             <TableID>Group_ID_4_Crash</TableID>
             <ColumnID>Crash_ID</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="6a6493ea-d618-4428-b4a5-a8ca319b2c1c">
+      <NameColumn dwd:design-time-name="ba103826-1ae3-4486-ac42-e48d811780ef">
         <DataType>WChar</DataType>
         <DataSize>137</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="3261bfd1-fa72-49d8-bb84-dee799222b64">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="7a38d985-5328-4a5d-8c60-c6832aadf5eb">
           <TableID>Group_ID_4_Crash</TableID>
           <ColumnID>Id_Attributes</ColumnID>
         </Source>
       </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="90743814-01df-4c55-94b8-09b3cc823ba5">
+        <AttributeRelationship dwd:design-time-name="1b7a78d5-e4c0-4c95-a94c-ced34f4d2b6b">
           <AttributeID>Crash Date ID</AttributeID>
           <Name>Crash Date</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="fbd6bff2-1dc3-4da3-bd98-5c9402273873">
+        <AttributeRelationship dwd:design-time-name="6c659c05-1292-4b23-9368-e16055644da1">
           <AttributeID>Police Notified Date ID</AttributeID>
           <Name>Police Notified Date</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="4de61206-916b-4331-83a5-d083aad71518">
+        <AttributeRelationship dwd:design-time-name="59837d9f-4d52-4759-af8c-bebf43d47dd1">
           <AttributeID>Crash Location ID</AttributeID>
           <Name>Crash Location</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="0abf6168-a991-4781-a67f-4aa954affcff">
+        <AttributeRelationship dwd:design-time-name="a15d5a02-e8dd-476e-859f-87e1da160a30">
           <AttributeID>Crash Condition ID</AttributeID>
           <Name>Crash Condition ID</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="9cf5c98f-9fb0-4c1e-b634-125553bf6525">
+        <AttributeRelationship dwd:design-time-name="7393e3e8-6117-4e94-ba48-62a7d5cdcc8b">
           <AttributeID>Injury ID</AttributeID>
           <Name>Total Injuries</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="d793f6dc-4fa0-4749-9d5e-c770715eb5c3">
+        <AttributeRelationship dwd:design-time-name="d24a4108-d3d3-4b5f-a9db-0ad48c32e104">
           <AttributeID>Primary Contributory Cause</AttributeID>
           <Name>Primary Contributory Cause</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="34c2c366-185b-443f-852d-d2cb99741f7e">
+        <AttributeRelationship dwd:design-time-name="148fabe5-e9f8-4c1d-a582-6f47a7026cd5">
           <AttributeID>Secondary Contributory Cause</AttributeID>
           <Name>Secondary Contributory Cause</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="c4efa128-a311-47a1-81d8-1001f5510107">
+        <AttributeRelationship dwd:design-time-name="66d746a6-08b1-4853-90fa-550d9767fb03">
           <AttributeID>Difference Between Crash Date And Police Notified</AttributeID>
           <Name>Difference Between Crash Date And Police Notified</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="0aab9123-2a66-4f31-a2bd-2e1881526b6e">
+        <AttributeRelationship dwd:design-time-name="ce5a10b5-64e6-4e1f-898d-b9c2133f8b9c">
           <AttributeID>Beat Of Occurrence</AttributeID>
           <Name>Beat Of Occurrence</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="e4948df0-4de5-413e-860e-8b34a2654d8d">
+        <AttributeRelationship dwd:design-time-name="d057336b-afe6-47fb-8f4c-d20d2ab60c63">
           <AttributeID>Street</AttributeID>
           <Name>Street</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="e18ae96f-dc40-48e9-b3be-91220f580177">
+        <AttributeRelationship dwd:design-time-name="1393e7bd-dd4d-48fc-b60e-2a436bab25f7">
           <AttributeID>Street No</AttributeID>
           <Name>Street No</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="de7b56f1-d4de-428b-a9e9-ef1c24db1fc0">
+          <AttributeID>Longitude</AttributeID>
+          <Name>Longitude</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c7c663ab-f24e-4a55-8f18-fdbaffedf6d4">
+          <AttributeID>Latitude</AttributeID>
+          <Name>Latitude</Name>
         </AttributeRelationship>
       </AttributeRelationships>
       <OrderBy>Key</OrderBy>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="d17312fe-83f4-43da-b4f3-9b2eff991025">
+    <Attribute dwd:design-time-name="b8492297-d054-46f8-8c2e-2e1b1940b079">
       <ID>Crash Date ID</ID>
       <Name>Crash Date</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="46b7f6f6-05d7-413b-9c12-6b04dc38f67f">
+        <KeyColumn dwd:design-time-name="d23bae47-c482-4b3f-b312-a2723fc97604">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="9ce4fc68-781e-4900-89a6-a055c0e915b4">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="08a8f13f-bf50-4d36-933c-0bff77b452af">
             <TableID>Group_ID_4_DateTime</TableID>
             <ColumnID>DateTime_ID</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="a9d6d271-5b04-4c1b-bf18-ea5e421afd0b">
+      <NameColumn dwd:design-time-name="d62663a7-3d32-48ae-8f83-b1e1d54227ca">
         <DataType>WChar</DataType>
         <DataSize>36</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="8dd9ee1f-e37d-499e-bab9-ccbd1e37c51c">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="c5273225-ff38-4fef-9fa6-7635064f1b57">
           <TableID>Group_ID_4_DateTime</TableID>
           <ColumnID>Full_x0020_Date</ColumnID>
         </Source>
@@ -262,22 +270,22 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="f008ac64-7cb9-4c9d-9eef-89bd2d3352ce">
+    <Attribute dwd:design-time-name="ff2f30f0-dce1-4fb2-8249-4d34079f5805">
       <ID>Police Notified Date ID</ID>
       <Name>Police Notified Date</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="59dca1e0-0d66-41ca-a11b-ca9021dfde36">
+        <KeyColumn dwd:design-time-name="83beacca-6fc7-401f-99d5-b42ccf0a7450">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="0f5120a9-c5cf-438e-8f8a-d39724d28311">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="261843a2-350d-4698-b285-8c352ef8101f">
             <TableID>Group_ID_4_DateTime</TableID>
             <ColumnID>DateTime_ID</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="05148402-76ad-4d2b-aaef-a855a2225e0d">
+      <NameColumn dwd:design-time-name="1c337e3a-13a8-4d70-95e5-88fb1d543192">
         <DataType>WChar</DataType>
         <DataSize>36</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="e6bc3b6f-1bb9-4ff5-86b0-a90a0eb882a1">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="1e119ebc-8f35-4a3b-8c54-2a1107fe5783">
           <TableID>Group_ID_4_DateTime</TableID>
           <ColumnID>Full_x0020_Date</ColumnID>
         </Source>
@@ -287,23 +295,23 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="37ab3fda-8fd0-4259-a74f-4767ca1b2296">
+    <Attribute dwd:design-time-name="b3f7b3b7-34c0-46e1-a593-ae9af57e710e">
       <ID>Crash Location ID</ID>
       <Name>Crash Location</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="fa15b294-644a-4697-be48-d7e759320a05">
+        <KeyColumn dwd:design-time-name="eff1854b-94cd-4696-81ea-99c59b0edd5a">
           <DataType>Integer</DataType>
           <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="d8041e0f-d8ec-4431-a752-934452db7f9e">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="bef017f3-4529-4c1f-8e05-3cb9f3413743">
             <TableID>Group_ID_4_CrashLocation</TableID>
             <ColumnID>Crash_Location_ID</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="13b6c76c-cf2a-4de7-9ae7-4b0d38c46651">
+      <NameColumn dwd:design-time-name="6e3eb873-fa5c-4052-95d2-969397c08378">
         <DataType>WChar</DataType>
         <DataSize>162</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="91390e1b-c580-41d1-9a8b-f9086adeff61">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="22fc0af6-3ddf-42e5-8a35-b2a71799daf6">
           <TableID>Group_ID_4_CrashLocation</TableID>
           <ColumnID>Id_Attributes</ColumnID>
         </Source>
@@ -312,23 +320,23 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="133b560a-abf8-486a-aebf-1d1550b0dbfe">
+    <Attribute dwd:design-time-name="67113b42-51fb-45e3-aa84-c6326c2658b2">
       <ID>Crash Condition ID</ID>
       <Name>Crash Condition</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="b1b90913-2666-4456-8b07-38c5c76ae0fd">
+        <KeyColumn dwd:design-time-name="b192d4fb-863c-451c-a3a3-5f37d5f6d9d3">
           <DataType>Integer</DataType>
           <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="c64e680f-4939-4bb8-a102-9e55a883464d">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6f4031ba-4ccb-48d6-8ce5-8b3afdaac3cb">
             <TableID>Group_ID_4_CrashCondition</TableID>
             <ColumnID>Crash_Condition_ID</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="1bb445cd-e4eb-4950-bb0d-6a999165b69f">
+      <NameColumn dwd:design-time-name="1c298617-eeef-488f-bea6-374a80d3b3d3">
         <DataType>WChar</DataType>
         <DataSize>148</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="7eae38b0-4e44-4e07-9463-63b7af5fa39e">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="de7807d8-465a-4b16-b183-38ce24a5be04">
           <TableID>Group_ID_4_CrashCondition</TableID>
           <ColumnID>Id_Attributes</ColumnID>
         </Source>
@@ -337,22 +345,22 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="e6198acb-cd18-4baf-8b8a-108f490a2aff">
+    <Attribute dwd:design-time-name="0ac20e47-a0c4-4d1d-8c1b-bed954bcec80">
       <ID>Injury ID</ID>
       <Name>Total Injuries</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="c0800164-f5b4-47b9-9086-1510ef8105bb">
+        <KeyColumn dwd:design-time-name="bac226b6-de80-4459-9c56-ab6f7d6bd2d4">
           <DataType>Integer</DataType>
           <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="4ddb7247-6898-4953-bcf7-e5ee3176a765">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6b55e716-d75f-4c56-9123-1722fd6dd78b">
             <TableID>Group_ID_4_Injury</TableID>
             <ColumnID>Injury_ID</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="2e142ed2-26ea-4d4e-beda-7fe6c4120d29">
+      <NameColumn dwd:design-time-name="42052dae-a274-4ac7-8feb-4513cefb72b4">
         <DataType>WChar</DataType>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="6bdbae7d-9756-459f-855e-82044ab533d7">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="19830d4f-92ab-44c3-a9ae-9f83e2bc3248">
           <TableID>Group_ID_4_Injury</TableID>
           <ColumnID>Injuries_Total</ColumnID>
         </Source>
@@ -361,14 +369,14 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="a2c50a08-2c94-46b9-82d6-679779e42f7b">
+    <Attribute dwd:design-time-name="46af0237-5bc6-4ffb-a4ea-2bd5c5a6944f">
       <ID>Primary Contributory Cause</ID>
       <Name>Primary Contributory Cause</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="d84476e6-a3b8-429b-8046-f6aa89ab3cdb">
+        <KeyColumn dwd:design-time-name="f3a7445f-2d27-4101-9c4f-6755274b3678">
           <DataType>WChar</DataType>
           <DataSize>100</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="5a403838-8eb3-4b02-8dfb-b57d4a3aa75b">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8db0642b-4c3d-42d0-8668-24e4440d933f">
             <TableID>Group_ID_4_Crash</TableID>
             <ColumnID>Primary_Contributory_Cause</ColumnID>
           </Source>
@@ -377,14 +385,14 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="7a70676b-f1aa-48ba-aee8-c6ce5f30ee01">
+    <Attribute dwd:design-time-name="a6add78e-5f31-4f3b-a377-0c40f38290fa">
       <ID>Secondary Contributory Cause</ID>
       <Name>Secondary Contributory Cause</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="b9fa5792-4aa1-4b5a-ae80-62405f247605">
+        <KeyColumn dwd:design-time-name="4d5110e0-3cd0-43a3-8e70-6b9477cb5453">
           <DataType>WChar</DataType>
           <DataSize>100</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="2142570b-7f26-4f03-8efe-b335c2f06bc6">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9e2948f5-5c88-4ca6-8930-6c434c4e54c0">
             <TableID>Group_ID_4_Crash</TableID>
             <ColumnID>Secondary_Contributory_Cause</ColumnID>
           </Source>
@@ -393,14 +401,14 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="7bce0526-94f8-4620-934b-4437365e4628">
+    <Attribute dwd:design-time-name="e75d1a0d-06da-447c-b8e1-9fe9cd1b6200">
       <ID>Difference Between Crash Date And Police Notified</ID>
       <Name>Difference Between Crash Date And Police Notified</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="cbc7fa25-24ce-4fb6-abdd-83d204c257ce">
+        <KeyColumn dwd:design-time-name="16a4cba6-a79f-4b46-9a2a-691cccff225b">
           <DataType>WChar</DataType>
           <DataSize>100</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="06f7e00d-1966-4e97-9e57-8fb8cecedb8a">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="75b08c6e-5ca1-4705-b37f-c36518183ca4">
             <TableID>Group_ID_4_Crash</TableID>
             <ColumnID>Difference_Between_Crash_Date_And_Police_Notified</ColumnID>
           </Source>
@@ -409,13 +417,13 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="35d10bb6-b834-4de5-9b23-1081c51a9a3a">
+    <Attribute dwd:design-time-name="997e8076-d69d-41c8-8c61-23baa05af735">
       <ID>Beat Of Occurrence</ID>
       <Name>Beat Of Occurrence</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="39104712-9c69-4d2f-bb6d-929d8b40e59d">
+        <KeyColumn dwd:design-time-name="38a610ed-9288-46c0-be0e-af1e8574563a">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="b038fea7-7d9c-4288-94ac-0f7a5ef5d981">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c308ba64-16db-47ac-8cc4-2f4cd0fc6685">
             <TableID>Group_ID_4_CrashLocation</TableID>
             <ColumnID>Beat_Of_Occurrence</ColumnID>
           </Source>
@@ -424,14 +432,14 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="ab44f332-be7f-4de1-b97e-e4dbccaddc8b">
+    <Attribute dwd:design-time-name="df8d976f-ff00-4a8a-b229-c98f64fcd998">
       <ID>Street</ID>
       <Name>Street</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="a54fed01-4910-443b-a90a-8a7321627230">
+        <KeyColumn dwd:design-time-name="6bbafb3f-9dc9-4be6-b04b-a4826c4837ec">
           <DataType>WChar</DataType>
           <DataSize>100</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="74bf4e41-ddfe-4711-bde7-67a43e1611bb">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="405ae9ee-4a81-4a5d-9db4-3d959d77deee">
             <TableID>Group_ID_4_CrashLocation</TableID>
             <ColumnID>Street</ColumnID>
           </Source>
@@ -440,15 +448,45 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="ba1b1555-86d6-4741-b37f-6453b21efcab">
+    <Attribute dwd:design-time-name="a5949595-ed63-41ce-ac3b-1587b1ffaecc">
       <ID>Street No</ID>
       <Name>Street No</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="3c992eab-9e57-4652-9c7e-275805cc2e97">
+        <KeyColumn dwd:design-time-name="91f1710f-f451-4114-a0d5-f28c99f33e79">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="ebe9c8a3-2e73-4007-805d-967b56d3cafe">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c76093c6-ffda-4c5a-9719-6dab4b584394">
             <TableID>Group_ID_4_CrashLocation</TableID>
             <ColumnID>Street_No</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="e0478707-48f0-4316-861f-0f9f20290dbc">
+      <ID>Longitude</ID>
+      <Name>Longitude</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="cc435253-b144-4176-95c9-5002a4408805">
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c6d7a49b-bb00-4da5-8f80-8644ed183404">
+            <TableID>Group_ID_4_CrashLocation</TableID>
+            <ColumnID>Longitude</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a35bb5bc-4edf-47ed-86ae-1bf7cc0a09e8">
+      <ID>Latitude</ID>
+      <Name>Latitude</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="cd4a46ab-06cf-4685-bd8f-26778b58eebb">
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6b2b386f-55eb-4300-87d5-8a8e9d7f3e30">
+            <TableID>Group_ID_4_CrashLocation</TableID>
+            <ColumnID>Latitude</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
