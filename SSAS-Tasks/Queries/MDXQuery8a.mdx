@@ -1,0 +1,53 @@
+WITH 
+-- Calculate weighted frequency of accident causes per year
+MEMBER [Measures].[WeightedCauseCount] AS
+    (
+        ([Measures].[Person Count], [Crash].[Primary Contributory Cause].CurrentMember) * 2 +
+        ([Measures].[Person Count], [Crash].[Secondary Contributory Cause].CurrentMember)
+    )
+
+-- Find the most frequent accident cause for each year
+-- Uses weighted count (primary + secondary causes) for ranking
+SET [TopCauseByYear] AS
+    GENERATE(
+        [Crash Date].[Year].[Year],
+        TOPCOUNT(
+            [Crash].[Primary Contributory Cause].[Primary Contributory Cause],
+            1,
+            ([Measures].[Person Count], 
+             [Crash].[Primary Contributory Cause].CurrentMember,
+             [Crash Date].[Year].CurrentMember) * 2 +
+            ([Measures].[Person Count],
+             [Crash].[Secondary Contributory Cause].CurrentMember,
+             [Crash Date].[Year].CurrentMember)
+        )
+    )
+
+-- Get the description of the most frequent cause across all years
+MEMBER [Measures].[MostFrequentCauseOverall] AS
+    (TOPCOUNT(
+        [Crash].[Primary Contributory Cause].[Primary Contributory Cause],
+        1,
+        [Measures].[WeightedCauseCount]
+    )).ITEM(0).MEMBER_CAPTION
+
+SELECT 
+{
+    [Measures].[Cost],
+    [Measures].[MostFrequentCauseOverall]
+} ON COLUMNS,
+
+-- Generate rows showing the top cause for each year
+NON EMPTY
+FILTER(
+    [Crash Date].[Year].[Year].MEMBERS *
+    [Crash].[Primary Contributory Cause].[Primary Contributory Cause].MEMBERS,
+    EXISTS(
+        [TopCauseByYear],
+        [Crash Date].[Year].CurrentMember,
+        [Crash].[Primary Contributory Cause].CurrentMember
+    )
+)
+DIMENSION PROPERTIES MEMBER_CAPTION ON ROWS
+
+FROM [Group_ID_4_InsuranceCube]
