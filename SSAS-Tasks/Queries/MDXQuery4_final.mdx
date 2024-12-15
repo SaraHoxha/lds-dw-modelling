@@ -5,7 +5,7 @@ MEMBER [Measures].[Previous Year Damage Cost] AS
 MEMBER [Measures].[Damage Cost Change Percentage] AS
     IIF(
         [Measures].[Previous Year Damage Cost] = 0,
-        NULL,
+        0,
         (([Measures].[Cost] - [Measures].[Previous Year Damage Cost]) / [Measures].[Previous Year Damage Cost]) * 100
     )
 ,format_string = 'Percent'
