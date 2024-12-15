@@ -8,7 +8,7 @@ MEMBER [Measures].[Damage Cost Change Percentage] AS
         NULL,
         (([Measures].[Cost] - [Measures].[Previous Year Damage Cost]) / [Measures].[Previous Year Damage Cost]) * 100
     )
-
+,format_string = 'Percent'
 SELECT 
     {[Measures].[Cost], [Measures].[Damage Cost Change Percentage]} ON COLUMNS,
     NONEMPTY(

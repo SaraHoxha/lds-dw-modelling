@@ -1,0 +1,12 @@
+SELECT [Measures].[Cost] on columns,
+NONEMPTY(
+GENERATE (
+([Crash Date].[Date Hierarchy].[Year],[Vehicle].[Vehicle Type].[Vehicle Type]),
+TOPCOUNT(
+([Crash Date].[Date Hierarchy].CURRENTMEMBER,
+[Vehicle].[Vehicle Type].CURRENTMEMBER,
+[Person].[Person].[Person]),
+1,[Measures].[Cost]) //Change this with cost
+)
+)on rows
+FROM [Group_ID_4_InsuranceCube]
