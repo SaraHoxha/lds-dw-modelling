@@ -1,0 +1,6 @@
+SELECT 
+    NON EMPTY Hierarchize({DrilldownLevel({[Crash Date].[Month].[All]})}) ON COLUMNS, 
+    NON EMPTY Hierarchize({DrilldownLevel({[Crash].[Crash Location].[All]})}) ON ROWS  
+FROM [Group_ID_4_InsuranceCube] 
+WHERE ([Measures].[Cost])
+
