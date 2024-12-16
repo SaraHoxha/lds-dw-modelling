@@ -1,4 +1,11 @@
-SELECT [Measures].[Cost] on columns,
+WITH 
+MEMBER [Measures].[TotalCost] AS 
+    SUM(
+        [Person].[Person].CURRENTMEMBER,
+        [Measures].[Cost]
+    )
+
+SELECT [Measures].[TotalCost] on columns,
 NONEMPTY(
 GENERATE (
 ([Crash Date].[Date Hierarchy].[Year],[Vehicle].[Vehicle Type].[Vehicle Type]),
