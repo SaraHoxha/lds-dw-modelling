@@ -60,6 +60,6 @@ in the schema proposed.
  - Assignment 9,10,11
  - **Purpose**: This folder contains all the dashboards created using Power BI.
  -  `Geo_Dashboard_Assignement9.pbix`: Dashboard regarding geographical information as per assignment 9.
- -  ``: Dashboard regarding street information as per assignment 10.
+ -  `Street_Dashboard_Assignment10.pbix`: Dashboard regarding street information as per assignment 10.
  -  `People_Dashboard_Assignment11.pbix`: Dashboard regarding People information as per assignment 11.
 
