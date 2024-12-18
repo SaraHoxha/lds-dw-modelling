@@ -1,6 +1,11 @@
+WITH MEMBER [Crash Date].[Month].[Grand Total] AS
+			Aggregate([Crash Date].[Month].[All]) -- Grand Total for Months
+	 MEMBER [Crash].[Crash Location].[Grand Total] AS
+			Aggregate([Crash].[Crash Location].[All]) -- Grand Total for Locations
 SELECT 
-    NON EMPTY Hierarchize({DrilldownLevel({[Crash Date].[Month].[All]})}) ON COLUMNS, 
-    NON EMPTY Hierarchize({DrilldownLevel({[Crash].[Crash Location].[All]})}) ON ROWS  
+    NON EMPTY Hierarchize( {[Crash Date].[Month].Children,[Crash Date].[Month].[Grand Total] }) ON COLUMNS, 
+    NON EMPTY {Filter([Crash].[Crash Location].Members, [Crash].[Crash Location].CurrentMember.Name <> "All") + 
+					[Crash].[Crash Location].[Grand Total]
+					} ON ROWS  
 FROM [Group_ID_4_InsuranceCube] 
 WHERE ([Measures].[Cost])
-
