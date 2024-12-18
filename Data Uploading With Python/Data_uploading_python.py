@@ -16,7 +16,7 @@ sys.path = original_sys_path
 #Folder path
 folder_path = os.path.join(os.getcwd(),'Data Preparation','dw_tables_csv')
 
-#CSV table names and primary keys, CHANGE WHEN NEEDED
+#CSV table names and primary keys
 csv_tables_dict = [
     {'Name': 'CrashLocation.csv', 'Primary_Key': 'Crash_Location_ID'},
     {'Name': 'CrashCondition.csv', 'Primary_Key': 'Crash_Condition_ID'},
@@ -41,7 +41,7 @@ except (FileNotFoundError, OSError) as e:
 server = 'tcp:lds.di.unipi.it' 
 database = 'Group_ID_4_DB' 
 username = 'Group_ID_4' 
-password = 'LN50IBLZ'
+password = getDBPassword()
 connectionString = 'DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+password
 
 try:
